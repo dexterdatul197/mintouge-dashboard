@@ -86,7 +86,7 @@ const Dashboard = props => {
   }, [dispatch]);
 
   //meta title
-  document.title="Dashboard | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Dashboard | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

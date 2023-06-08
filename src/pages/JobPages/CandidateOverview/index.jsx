@@ -7,7 +7,7 @@ import AboutUs from './AboutUs';
 import Sidebar from './Sidebar';
 
 const CandidateOverview = () => {
-    document.title = "Candidate Overview | Mintouge - Vite React Admin & Dashboard Template";
+    document.title = "Candidate Overview | Mintouge - Brands Dashboard";
     return (
         <React.Fragment>
             <div className="page-content">

@@ -8,7 +8,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 const IconBoxicons = () => {
  
   //meta title
-  document.title = "Boxicons | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Boxicons | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

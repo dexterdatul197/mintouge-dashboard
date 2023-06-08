@@ -16,7 +16,7 @@ import lightlogo from "../../assets/images/slogo-light.svg";
 const Register = () => {
 
   //meta title
-  document.title="Register | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Register | Mintouge - Brands Dashboard";
 
   //form validation
   const validation = useFormik({

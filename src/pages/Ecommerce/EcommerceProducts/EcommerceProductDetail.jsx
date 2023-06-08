@@ -44,7 +44,7 @@ import { useSelector, useDispatch } from "react-redux"
 const EcommerceProductDetail = props => {
   
   //meta title
-  document.title="Product Details | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Product Details | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch()
 

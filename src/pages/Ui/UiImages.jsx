@@ -23,7 +23,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const UiImages = () => {
 
   //meta title
-  document.title = "Images | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Images | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

@@ -26,7 +26,7 @@ import Breadcrumbs from "/src/components/Common/Breadcrumb"
 const TasksCreate = () => {
 
   //meta title
-  document.title = "Create Task | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Create Task | Mintouge - Brands Dashboard";
 
   const inpRow = [{ name: "", file: "" }]
   const [startDate, setstartDate] = useState(new Date())

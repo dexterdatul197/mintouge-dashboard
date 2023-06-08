@@ -36,7 +36,7 @@ const PagesComingsoon = () => {
   }
 
     //meta title
-    document.title = "Coming Soon | Mintouge - Vite React Admin & Dashboard Template";
+    document.title = "Coming Soon | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

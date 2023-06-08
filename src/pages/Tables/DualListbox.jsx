@@ -93,7 +93,7 @@ class DualListbox extends Component {
     render() {
 
         //meta title
-        document.title = "Transfer List | Mintouge - Vite React Admin & Dashboard Template";
+        document.title = "Transfer List | Mintouge - Brands Dashboard";
 
         const { selected, selectedOptGroup, selectedFilter, selectedFilterAlign, selectedPreserve, selectedDuplicate, selectedRestrict } = this.state;
         const available = ['io', 'europa', 'ganymede', 'callisto'];

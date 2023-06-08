@@ -8,7 +8,7 @@ import { Col, Container, Row } from "reactstrap"
 
 const EmailVerification2 = () => {
     //meta title
-    document.title="Email Verification 2 | Mintouge - Vite React Admin & Dashboard Template";
+    document.title="Email Verification 2 | Mintouge - Brands Dashboard";
   return (
     <React.Fragment>
       <div>

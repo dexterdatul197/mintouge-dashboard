@@ -7,7 +7,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 const PagesStarter = () => {
 
     //meta title
-    document.title="Stater Page | Mintouge - Vite React Admin & Dashboard Template";
+    document.title="Stater Page | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

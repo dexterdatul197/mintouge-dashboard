@@ -35,7 +35,7 @@ import { getUserProfile } from "/src/store/actions";
 
 const ContactsProfile = (props) => {
   //meta title
-  document.title = "Profile | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Profile | Mintouge - Brands Dashboard";
 
   const { userProfile, onGetUserProfile } = props;
   // eslint-disable-next-line no-unused-vars

@@ -21,7 +21,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const PagesFaqs = () => {
 
   //meta title
-  document.title = "FAQs | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "FAQs | Mintouge - Brands Dashboard";
   
   const [activeTab, setactiveTab] = useState("1");
 

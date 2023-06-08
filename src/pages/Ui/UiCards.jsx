@@ -34,7 +34,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const UiCards = () => {
 
   //meta title
-  document.title = "Cards | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Cards | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

@@ -15,7 +15,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 function UiBreadcrumb(props) {
     //meta title
-  document.title = "Breadcrumb | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Breadcrumb | Mintouge - Brands Dashboard";
     return (
         <React.Fragment>
             <div className="page-content">

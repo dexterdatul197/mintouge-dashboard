@@ -24,7 +24,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const UiCarousel = () => {
 
   //meta title
-  document.title = "Carousel | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Carousel | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

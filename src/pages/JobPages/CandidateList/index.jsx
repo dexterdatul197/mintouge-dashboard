@@ -10,7 +10,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const CandidateList = () => {
-    document.title = "Candidate List | Mintouge - Vite React Admin & Dashboard Template";
+    document.title = "Candidate List | Mintouge - Brands Dashboard";
 
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);

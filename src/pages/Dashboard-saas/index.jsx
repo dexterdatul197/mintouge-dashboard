@@ -44,7 +44,7 @@ const DashboardSaas = (props) => {
 
   //meta title
   document.title =
-    "Saas Dashboard | Mintouge - Vite React Admin & Dashboard Template";
+    "Saas Dashboard | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

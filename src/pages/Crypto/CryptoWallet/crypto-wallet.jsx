@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const CryptoWallet = () => {
   //meta title
-  document.title = "Wallet | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Wallet | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

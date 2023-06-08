@@ -44,7 +44,7 @@ const UiLightbox = (props) => {
   const selectedPlace = {};
 
   //meta title
-  document.title = "Lightbox | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Lightbox | Mintouge - Brands Dashboard";
 
   const [photoIndex, setphotoIndex] = useState(0);
   const [isFits, setisFits] = useState(false);

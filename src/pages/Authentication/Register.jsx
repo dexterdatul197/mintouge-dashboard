@@ -18,7 +18,7 @@ import profileImg from "../../assets/images/profile-img.png";
 import logoImg from "../../assets/images/slogo-dark.svg";
 
 const Register = props => {
-  document.title = "Register | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Register | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

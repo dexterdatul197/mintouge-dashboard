@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 const ConfirmMail2 = () => {
 
   //meta title
-  document.title="Confirm Mail 2 | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Confirm Mail 2 | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

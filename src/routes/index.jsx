@@ -29,6 +29,8 @@ import Dashboard from "../pages/Dashboard/index";
 
 // //Settings
 import ApiSetting from "../pages/Forms/ApiSetting";
+import Wallet from "../pages/Crypto/CryptoWallet/crypto-wallet";
+
 
 // //Contacts
 import ContactsGrid from "../pages/Contacts/contacts-grid";
@@ -52,6 +54,7 @@ const authProtectedRoutes = [
 
   //   //Settings
   { path: "/setting-api", component: <ApiSetting /> },
+  { path: "/wallet", component: <Wallet /> },
 
   //   //Notifications
   { path: "/email-inbox", component: <EmailInbox /> },

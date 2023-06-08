@@ -25,7 +25,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 const UiDropdown = () => {
 
   //meta title
-  document.title = "Dropdowns | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Dropdowns | Mintouge - Brands Dashboard";
 
   const [singlebtn, setSinglebtn] = useState(false)
   const [singlebtn1, setSinglebtn1] = useState(false)

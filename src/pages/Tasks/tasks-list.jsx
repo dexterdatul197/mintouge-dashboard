@@ -25,7 +25,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const TasksList = () => {
   //meta title
-  document.title = "Task List | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Task List | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

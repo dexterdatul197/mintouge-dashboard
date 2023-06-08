@@ -26,7 +26,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const UiGeneral = () => {
 
   //meta title
-  document.title = "General | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "General | Mintouge - Brands Dashboard";
 
   const [popovertop, setpopovertop] = useState(false);
   const [popoverleft, setpopoverleft] = useState(false);

@@ -17,7 +17,7 @@ import { getUsers as onGetUsers } from "/src/store/contacts/actions";
 
 const ContactsGrid = () => {
   //meta title
-  document.title = "User Grid | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "User Grid | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

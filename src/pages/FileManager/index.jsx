@@ -13,7 +13,7 @@ import Storage from "./Storage";
 const Index = () => {
   //meta title
   document.title =
-    "File Manager | Mintouge - Vite React Admin & Dashboard Template";
+    "File Manager | Mintouge - Brands Dashboard";
   return (
     <React.Fragment>
       <div className="page-content">

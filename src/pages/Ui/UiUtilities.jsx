@@ -16,7 +16,7 @@ import avtar5 from "../../assets/images/users/avatar-5.jpg";
 import img3 from "../../assets/images/small/img-3.jpg";
 
 const UiUtilites = () => {
-  document.title = "Utilities | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Utilities | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

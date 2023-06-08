@@ -34,7 +34,7 @@ import avatar from "../../assets/images/users/avatar-1.jpg"
 const CryptoExchange = props => {
 
   //meta title
-  document.title="Exchange | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Exchange | Mintouge - Brands Dashboard";
 
   const series = [
     {

@@ -14,7 +14,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const UiTypography = () => {
 
   //meta title
-  document.title = "Typography | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Typography | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

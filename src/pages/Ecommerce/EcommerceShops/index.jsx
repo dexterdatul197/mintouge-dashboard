@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from "react-redux";
 const EcommerceShops = () => {
 
   //meta title
-  document.title="Shops | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Shops | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch()
 

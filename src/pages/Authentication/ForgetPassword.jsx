@@ -32,7 +32,7 @@ import logo from "../../assets/images/slogo-dark.svg";
 const ForgetPasswordPage = (props) => {
   //meta title
   document.title =
-    "Forget Password | Mintouge - Vite React Admin & Dashboard Template";
+    "Forget Password | Mintouge - Brands Dashboard";
   const dispatch = useDispatch();
 
   const validation = useFormik({

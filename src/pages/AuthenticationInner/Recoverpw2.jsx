@@ -12,7 +12,7 @@ import CarouselPage from "./CarouselPage";
 const Recoverpw2 = () => {
 
   //meta title
-  document.title="Recover Password 2 | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Recover Password 2 | Mintouge - Brands Dashboard";
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed

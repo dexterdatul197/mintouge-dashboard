@@ -22,7 +22,7 @@ import logo from "../../assets/images/slogo-dark.svg";
 const UiToast = () => {
 
     //meta title
-    document.title = "Toast | Mintouge - Vite React Admin & Dashboard Template";
+    document.title = "Toast | Mintouge - Brands Dashboard";
 
     const [toast, setToast] = useState(false);
     const [toast2, setToast2] = useState(true);

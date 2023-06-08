@@ -11,7 +11,7 @@ import CardPricing from "./card-pricing"
 const PagesPricing = () => {
 
   //meta title
-  document.title = "Pricing | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Pricing | Mintouge - Brands Dashboard";
 
   const pricings = [
     {

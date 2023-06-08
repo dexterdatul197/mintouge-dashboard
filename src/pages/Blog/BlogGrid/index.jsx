@@ -9,7 +9,7 @@ import RightBar from "../BlogList/RightBar"
 
 const Index = props => {
     //meta title
-    document.title="Blog Grid | Mintouge - Vite React Admin & Dashboard Template";
+    document.title="Blog Grid | Mintouge - Brands Dashboard";
   return (
     <React.Fragment>
       <div className="page-content">

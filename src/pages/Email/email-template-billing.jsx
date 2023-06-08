@@ -6,7 +6,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const EmailTemplateBilling = props => {
    //meta title
-   document.title="Billing Email | Mintouge - Vite React Admin & Dashboard Template";
+   document.title="Billing Email | Mintouge - Brands Dashboard";
   return (
     <React.Fragment>
       <div className="page-content">

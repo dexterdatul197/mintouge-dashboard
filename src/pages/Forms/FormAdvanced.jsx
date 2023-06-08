@@ -129,7 +129,7 @@ const optionGroup2 = [
 const FormAdvanced = () => {
   //meta title
   document.title =
-    "Form Advanced | Mintouge - Vite React Admin & Dashboard Template";
+    "Form Advanced | Mintouge - Brands Dashboard";
 
   const [sq1, setsq1] = useState(true);
   const [sq2, setsq2] = useState(true);

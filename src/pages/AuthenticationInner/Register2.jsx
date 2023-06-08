@@ -14,7 +14,7 @@ import CarouselPage from "./CarouselPage";
 const Register2 = () => {
 
   //meta title
-  document.title="Register 2 | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Register 2 | Mintouge - Brands Dashboard";
 
   //form validation
   const validation = useFormik({

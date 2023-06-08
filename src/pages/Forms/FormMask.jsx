@@ -19,7 +19,7 @@ import InputMask from "react-input-mask"
 
 const FormMask = () => {
   //meta title
-  document.title = "Form Mask | Mintouge - Vite React Admin & Dashboard Template"
+  document.title = "Form Mask | Mintouge - Brands Dashboard"
 
   const Repeat = props => (
     <InputMask

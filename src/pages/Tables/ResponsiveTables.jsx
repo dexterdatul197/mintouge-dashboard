@@ -9,7 +9,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const ResponsiveTables = () => {
   //meta title
-  document.title = "Responsive Table | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Responsive Table | Mintouge - Brands Dashboard";
   return (
     <React.Fragment>
       <div className="page-content">

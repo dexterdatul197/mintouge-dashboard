@@ -25,7 +25,7 @@ import classnames from "classnames";
 function UiTabsAccordions(props) {
   //meta title
   document.title =
-    "Tabs & Accordions | Mintouge - Vite React Admin & Dashboard Template";
+    "Tabs & Accordions | Mintouge - Brands Dashboard";
 
   const [activeTab, setactiveTab] = useState("1");
   const [activeTab1, setactiveTab1] = useState("5");

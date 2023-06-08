@@ -23469,7 +23469,7 @@ const IconMaterialdesign = () => {
   })
 
    //meta title
-   document.title = "Material Design | Mintouge - Vite React Admin & Dashboard Template";
+   document.title = "Material Design | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

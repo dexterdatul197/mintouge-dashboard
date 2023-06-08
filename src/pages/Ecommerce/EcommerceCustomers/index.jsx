@@ -47,7 +47,7 @@ import {
 
 const EcommerceCustomers = (props) => {
   //meta title
-  document.title = "Customers | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Customers | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

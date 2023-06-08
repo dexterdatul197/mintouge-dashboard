@@ -33,7 +33,7 @@ import verificationImg from "../../assets/images/verification-img.png";
 const CryptoKYCApplication = props => {
 
   //meta title
-  document.title="KYC Application | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="KYC Application | Mintouge - Brands Dashboard";
 
   const [modal, setModal] = useState(false);
   const [activeTab, setActiveTab] = useState(1);

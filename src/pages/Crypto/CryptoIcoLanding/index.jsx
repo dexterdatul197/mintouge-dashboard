@@ -15,7 +15,7 @@ import Footer from "./Footer/footer"
 const CryptoIcoLanding = () => {
   
   //meta title
-  document.title="ICO Landing | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="ICO Landing | Mintouge - Brands Dashboard";
 
   const [imglight, setimglight] = useState(true);
   const [navClass, setnavClass] = useState("");

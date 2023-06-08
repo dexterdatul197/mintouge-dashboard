@@ -257,7 +257,7 @@ function DatatableTables() {
     ];
 
     //meta title
-    document.title = "Data Tables | Mintouge - Vite React Admin & Dashboard Template";
+    document.title = "Data Tables | Mintouge - Brands Dashboard";
 
     return (
         <div className="page-content">

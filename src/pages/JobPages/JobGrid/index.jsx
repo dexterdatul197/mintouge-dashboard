@@ -7,7 +7,7 @@ import JobFilter from './JobFilter';
 import JobData from './JobData';
 
 const JobGrid = () => {
-    document.title="Jobs Grid | Mintouge - Vite React Admin & Dashboard Template";
+    document.title="Jobs Grid | Mintouge - Brands Dashboard";
 
     return (
         <React.Fragment>

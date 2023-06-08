@@ -67,7 +67,7 @@ class UiSessionTimeout extends Component {
   }
   render() {
     //meta title
-    document.title = "Session Timeout | Mintouge - Vite React Admin & Dashboard Template";
+    document.title = "Session Timeout | Mintouge - Brands Dashboard";
 
     return (
       <React.Fragment>

@@ -11,7 +11,7 @@ import RatingTooltip from "react-rating-tooltip";
 const UiRating = () => {
 
   //meta title
-  document.title = "Rating | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Rating | Mintouge - Brands Dashboard";
 
   const [def, setdef] = useState("");
   const [rate, setRate] = useState("");

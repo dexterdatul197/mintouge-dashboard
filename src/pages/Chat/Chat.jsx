@@ -48,7 +48,7 @@ import { useSelector, useDispatch } from "react-redux";
 const Chat = props => {
 
   //meta title
-  document.title = "Chat | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Chat | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

@@ -39,7 +39,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const ContactsList = (props) => {
   //meta title
-  document.title = "User List | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "User List | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
   const [contact, setContact] = useState();

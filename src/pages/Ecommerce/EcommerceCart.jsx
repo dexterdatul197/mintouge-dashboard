@@ -83,7 +83,7 @@ const productListvar = [
 const EcommerceCart = () => {
 
   //meta title
-  document.title="Cart | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Cart | Mintouge - Brands Dashboard";
 
   const [productList, setproductList] = useState(productListvar);
 

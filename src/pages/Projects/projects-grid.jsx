@@ -23,7 +23,7 @@ import { useSelector, useDispatch } from "react-redux";
 const ProjectsGrid = (props) => {
   //meta title
   document.title =
-    "Projects Grid | Mintouge - Vite React Admin & Dashboard Template";
+    "Projects Grid | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

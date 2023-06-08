@@ -54,7 +54,7 @@ import {
 
 function JobList() {
   //meta title
-  document.title = "Jobs List | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Jobs List | Mintouge - Brands Dashboard";
 
   const [modal, setModal] = useState(false);
   const [isEdit, setIsEdit] = useState(false);

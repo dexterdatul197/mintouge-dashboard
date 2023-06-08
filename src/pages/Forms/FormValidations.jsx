@@ -25,7 +25,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const FormValidations = () => {
   //meta title
   document.title =
-    "Form Validation | Mintouge - Vite React Admin & Dashboard Template";
+    "Form Validation | Mintouge - Brands Dashboard";
 
   // Form validation
   const validation = useFormik({

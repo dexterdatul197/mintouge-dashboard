@@ -23,7 +23,7 @@ import lightlogo from "../../assets/images/slogo-light.svg";
 const Recoverpw = () => {
 
   //meta title
-  document.title="Recover Password | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Recover Password | Mintouge - Brands Dashboard";
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed

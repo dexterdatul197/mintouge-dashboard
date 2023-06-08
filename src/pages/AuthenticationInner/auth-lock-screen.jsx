@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 const LockScreen = () => {
 
   //meta title
-  document.title="Lock Screen 2 | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Lock Screen 2 | Mintouge - Brands Dashboard";
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed

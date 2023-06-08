@@ -51,7 +51,7 @@ import BootstrapTheme from "@fullcalendar/bootstrap";
 const Calender = (props) => {
   //meta title
   document.title =
-    "Full Calendar | Mintouge - Vite React Admin & Dashboard Template";
+    "Full Calendar | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

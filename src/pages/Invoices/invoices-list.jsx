@@ -18,7 +18,7 @@ import { getInvoices as onGetInvoices } from "/src/store/actions";
 const InvoicesList = (props) => {
   //meta title
   document.title =
-    "Invoice List | Mintouge - Vite React Admin & Dashboard Template";
+    "Invoice List | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

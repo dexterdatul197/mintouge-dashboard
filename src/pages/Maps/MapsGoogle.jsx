@@ -12,7 +12,7 @@ const LoadingContainer = () => <div>Loading...</div>
 const MapsGoogle = props => {
 
   //meta title
-  document.title = "Google Maps | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Google Maps | Mintouge - Brands Dashboard";
 
   const selectedPlace = {}
 

@@ -6,7 +6,7 @@ import Breadcrumbs from "../../../components/Common/Breadcrumb";
 import { Link } from 'react-router-dom';
 
 const JobCategories = () => {
-    document.title = "Job Categories | Mintouge - Vite React Admin & Dashboard Template";
+    document.title = "Job Categories | Mintouge - Brands Dashboard";
 
     const jobCategories1 = [
         { id : 1, name : "Accounting & Finance" , category : 52},

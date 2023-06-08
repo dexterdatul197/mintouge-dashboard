@@ -13,7 +13,7 @@ import logolight from "../../assets/images/logo-light.svg";
 const PagesMaintenance = () => {
 
     //meta title
-    document.title = "Maintenance | Mintouge - Vite React Admin & Dashboard Template";
+    document.title = "Maintenance | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

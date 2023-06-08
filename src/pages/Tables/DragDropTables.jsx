@@ -76,7 +76,7 @@ const DragDropTables = () => {
     };
 
     //meta title
-    document.title = "Drag & Drop Tables | Mintouge - Vite React Admin & Dashboard Template";
+    document.title = "Drag & Drop Tables | Mintouge - Brands Dashboard";
 
     return (
         <React.Fragment>

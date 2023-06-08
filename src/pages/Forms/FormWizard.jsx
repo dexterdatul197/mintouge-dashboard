@@ -25,7 +25,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 const FormWizard = () => {
 
   //meta title
-  document.title="Form Wizard | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Form Wizard | Mintouge - Brands Dashboard";
 
   const [activeTab, setactiveTab] = useState(1)
   const [activeTabVartical, setoggleTabVertical] = useState(1)

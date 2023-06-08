@@ -197,7 +197,7 @@ const SidebarContent = (props) => {
                   <Link to="/ecommerce-checkout">{props.t("Payments")}</Link>
                 </li>
                 <li>
-                  <Link to="/#">{props.t("Branding")}</Link>
+                  <Link to="/wallet">{props.t("Wallet")}</Link>
                 </li>
               </ul>
             </li>

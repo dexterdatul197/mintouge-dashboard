@@ -16,7 +16,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const UiAlert = () => {
   //meta title
-  document.title = "Alert | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Alert | Mintouge - Brands Dashboard";
 
   const [show, setShow] = useState(false);
 

@@ -51,7 +51,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const EmailInbox = (props) => {
   //meta title
-  document.title = "Inbox | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Inbox | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

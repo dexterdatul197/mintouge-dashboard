@@ -15,22 +15,23 @@ import {
 const fireBaseBackend = getFirebaseBackend();
 
 function* loginUser({ payload: { user, history } }) {
+  const authMethod = import.meta.env.VITE_APP_DEFAULTAUTH || "fake";
   try {
-    if (import.meta.env.VITE_APP_DEFAULTAUTH === "firebase") {
+    if (authMethod === "firebase") {
       const response = yield call(
         fireBaseBackend.loginUser,
         user.email,
         user.password
       );
       yield put(loginSuccess(response));
-    } else if (import.meta.env.VITE_APP_DEFAULTAUTH === "jwt") {
+    } else if (authMethod === "jwt") {
       const response = yield call(postJwtLogin, {
         email: user.email,
         password: user.password,
       });
       localStorage.setItem("authUser", JSON.stringify(response));
       yield put(loginSuccess(response));
-    } else if (import.meta.env.VITE_APP_DEFAULTAUTH === "fake") {
+    } else if (authMethod === "fake") {
       const response = yield call(postFakeLogin, {
         email: user.email,
         password: user.password,
@@ -48,7 +49,7 @@ function* logoutUser({ payload: { history } }) {
   try {
     localStorage.removeItem("authUser");
 
-    if (import.meta.env.VITE_APP_DEFAULTAUTH === "firebase") {
+    if (authMethod === "firebase") {
       const response = yield call(fireBaseBackend.logout);
       yield put(logoutUserSuccess(response));
     }
@@ -60,7 +61,7 @@ function* logoutUser({ payload: { history } }) {
 
 function* socialLogin({ payload: { data, history, type } }) {
   try {
-    if (import.meta.env.VITE_APP_DEFAULTAUTH === "firebase") {
+    if (authMethod === "firebase") {
       const fireBaseBackend = getFirebaseBackend();
       const response = yield call(
         fireBaseBackend.socialLoginUser,

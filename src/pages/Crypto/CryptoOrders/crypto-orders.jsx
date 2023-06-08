@@ -35,7 +35,7 @@ import { getCryptoOrders } from "/src/store/crypto/actions";
 
 const CryptoOrders = (props) => {
   //meta title
-  document.title = "Orders | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Orders | Mintouge - Brands Dashboard";
 
   const { orders, onGetOrders } = props;
   const [activeTab, setActiveTab] = useState("1");

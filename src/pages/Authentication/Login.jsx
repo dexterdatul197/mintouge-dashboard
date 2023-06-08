@@ -32,7 +32,7 @@ import logo from "../../assets/images/slogo-dark.svg";
 
 const Login = (props) => {
   //meta title
-  document.title = "Login | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Login | Mintouge - Brands Dashboard";
   const dispatch = useDispatch();
 
   const validation = useFormik({
@@ -48,6 +48,7 @@ const Login = (props) => {
       password: Yup.string().required("Please Enter Your Password"),
     }),
     onSubmit: (values) => {
+      console.log("----", values);
       dispatch(loginUser(values, props.router.navigate));
     },
   });
@@ -170,6 +171,7 @@ const Login = (props) => {
 
                       <div className="mt-3 d-grid">
                         <button
+                          id="login-button"
                           className="btn btn-primary btn-block"
                           type="submit"
                         >

@@ -19,7 +19,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const CryptoLending = props => {
 
   //meta title
-  document.title="Lending | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Lending | Mintouge - Brands Dashboard";
 
   const [assets] = useState([
     {

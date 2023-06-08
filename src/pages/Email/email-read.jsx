@@ -16,7 +16,7 @@ import EmailSideBar from "./email-sidebar";
 const EmailRead = () => {
 
    //meta title
-  document.title="Read Email | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Read Email | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

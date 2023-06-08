@@ -28,7 +28,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const CryptoBuySell = props => {
 
   //meta title
-  document.title="Buy/Sell | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Buy/Sell | Mintouge - Brands Dashboard";
 
   const [activeTab, setActiveTab] = useState("1");
   const [isMenu, setIsMenu] = useState(false);

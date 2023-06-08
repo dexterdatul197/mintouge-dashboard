@@ -15,7 +15,7 @@ const Login2 = () => {
   const [passwordShow, setPasswordShow] = useState(false);
 
   //meta title
-  document.title = "Login 2 | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Login 2 | Mintouge - Brands Dashboard";
 
   // Form validation 
   const validation = useFormik({

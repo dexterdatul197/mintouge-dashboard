@@ -23,7 +23,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const FormEditors = () => {
 
    //meta title
-   document.title = "Form Editors | Mintouge - Vite React Admin & Dashboard Template"
+   document.title = "Form Editors | Mintouge - Brands Dashboard"
 
   return (
     <React.Fragment>

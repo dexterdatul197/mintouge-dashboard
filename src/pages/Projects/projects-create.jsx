@@ -13,7 +13,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const ProjectsCreate = () => {
 
   //meta title
-  document.title="Create New Project | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Create New Project | Mintouge - Brands Dashboard";
 
   const [startDate, setstartDate] = useState(new Date());
   const [endDate, setendDate] = useState(new Date());

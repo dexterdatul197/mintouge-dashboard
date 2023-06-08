@@ -41,7 +41,7 @@ const PagesTimeline = () => {
   ];
 
   //meta title
-  document.title = "Timeline | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Timeline | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

@@ -7,7 +7,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 const EmailAlertTemplte = props => {
    //meta title
-   document.title="Alert Email | Mintouge - Vite React Admin & Dashboard Template";
+   document.title="Alert Email | Mintouge - Brands Dashboard";
   return (
     <React.Fragment>
       <div className="page-content">

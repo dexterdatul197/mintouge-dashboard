@@ -9,7 +9,7 @@ import "react-rangeslider/lib/index.css"
 const UiRangeSlider = () => {
 
    //meta title
-   document.title = "Range Slider | Mintouge - Vite React Admin & Dashboard Template";
+   document.title = "Range Slider | Mintouge - Brands Dashboard";
 
   const formatkg = value => "$ " + value
   const formatdollar = value => value + " kg"

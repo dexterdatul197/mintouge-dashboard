@@ -19,7 +19,7 @@ import logolight from "../../assets/images/logo-light.png"
 const TwostepVerification = () => {
 
   //meta title
-  document.title = "Two Step Verification | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Two Step Verification | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

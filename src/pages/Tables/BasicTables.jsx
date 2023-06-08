@@ -16,7 +16,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 const BasicTable = () => {
 
   //meta title
-  document.title = "Basic Tables | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Basic Tables | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

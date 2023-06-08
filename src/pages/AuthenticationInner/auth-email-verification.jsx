@@ -9,7 +9,7 @@ import logolight from "../../assets/images/logo-light.png"
 const EmailVerification = () => {
 
   //meta title
-  document.title="Email Verification | Mintouge - Vite React Admin & Dashboard Template";
+  document.title="Email Verification | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>

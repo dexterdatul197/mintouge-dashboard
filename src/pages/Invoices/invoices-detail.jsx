@@ -18,7 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 const InvoiceDetail = (props) => {
   //meta title
   document.title =
-    "Invoice Detail | Mintouge - Vite React Admin & Dashboard Template";
+    "Invoice Detail | Mintouge - Brands Dashboard";
 
   const dispatch = useDispatch();
 

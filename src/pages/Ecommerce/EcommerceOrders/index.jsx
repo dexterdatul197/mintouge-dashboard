@@ -52,7 +52,7 @@ import {
 
 function EcommerceOrder() {
   //meta title
-  document.title = "Orders | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Orders | Mintouge - Brands Dashboard";
 
   const [modal, setModal] = useState(false);
   const [modal1, setModal1] = useState(false);

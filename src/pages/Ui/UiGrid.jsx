@@ -16,7 +16,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 const UiGrid = () => {
 
   //meta title
-  document.title = "Grid | Mintouge - Vite React Admin & Dashboard Template";
+  document.title = "Grid | Mintouge - Brands Dashboard";
 
   return (
     <React.Fragment>
