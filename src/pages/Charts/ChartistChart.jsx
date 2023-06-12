@@ -14,7 +14,7 @@ import LineAreaChart from '../AllCharts/chartist/lineareachart';
 //Import Breadcrumb
 import Breadcrumbs from '../../components/Common/Breadcrumb';
 
-import '../../../node_modules/chartist/dist/chartist.css"
+import '../../../node_modules/chartist/dist/chartist.css';
 import '../../assets/scss/chartist.scss';
 const ChartistChart = () => {
   //meta title

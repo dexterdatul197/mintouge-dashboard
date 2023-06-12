@@ -3,9 +3,19 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  esbuild: {
-    jsxFactory: 'h',
-    jsxFragment: 'Fragment'
-  }
+    plugins: [react()],
+    esbuild: {
+        jsxFactory: 'h',
+        jsxFragment: 'Fragment'
+    },
+    resolve: {
+        alias: {
+            "@": "/src/",
+            "@assets": "/src/assets",
+            "@components": "/src/components",
+            "@hooks": "/src/hooks",
+            "@pages": "/src/pages",
+            "@styles": "/src/styles",
+        }
+    }
 })

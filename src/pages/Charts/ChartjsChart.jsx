@@ -2,19 +2,19 @@ import React from 'react';
 
 import { Row, Col, Card, CardBody, CardTitle, Container } from 'reactstrap';
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 // import chartJs
-import LineChart from '../AllCharts/chartjs/linechart"
-import DountChart from '../AllCharts/chartjs/dountchart"
-import PieChart from '../AllCharts/chartjs/piechart"
-import BarChart from '../AllCharts/chartjs/barchart"
-import RadarChart from '../AllCharts/chartjs/radarchart"
-import PolarChart from '../AllCharts/chartjs/polarchart"
+import LineChart from '../AllCharts/chartjs/linechart';
+import DountChart from '../AllCharts/chartjs/dountchart';
+import PieChart from '../AllCharts/chartjs/piechart';
+import BarChart from '../AllCharts/chartjs/barchart';
+import RadarChart from '../AllCharts/chartjs/radarchart';
+import PolarChart from '../AllCharts/chartjs/polarchart';
 
 const ChartjsChart = () => {
   //meta title
-  document.title = "Chartjs Charts | Mintouge - React Admin & Dashboard Template"
+  document.title = "Chartjs Charts | Mintouge - React Admin & Dashboard Template";
 
   return (
     <React.Fragment>

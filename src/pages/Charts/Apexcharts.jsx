@@ -1,21 +1,21 @@
 import React from 'react';
 
 // import apexChart
-import LineApexChart from '../AllCharts/apex/chartapex"
-import DashedLine from '../AllCharts/apex/dashedLine"
-import SplineArea from '../AllCharts/apex/SplineArea"
-import Apaexlinecolumn from '../AllCharts/apex/apaexlinecolumn"
-import ColumnWithDataLabels from '../AllCharts/apex/ColumnWithDataLabels"
-import BarChart from '../AllCharts/apex/barchart"
-import LineColumnArea from '../AllCharts/apex/LineColumnArea"
-import RadialChart from '../AllCharts/apex/RadialChart"
-import PieChart from '../AllCharts/apex/PieChart"
-import DonutChart from '../AllCharts/apex/dountchart"
+import LineApexChart from '../AllCharts/apex/chartapex';
+import DashedLine from '../AllCharts/apex/dashedLine';
+import SplineArea from '../AllCharts/apex/SplineArea';
+import Apaexlinecolumn from '../AllCharts/apex/apaexlinecolumn';
+import ColumnWithDataLabels from '../AllCharts/apex/ColumnWithDataLabels';
+import BarChart from '../AllCharts/apex/barchart';
+import LineColumnArea from '../AllCharts/apex/LineColumnArea';
+import RadialChart from '../AllCharts/apex/RadialChart';
+import PieChart from '../AllCharts/apex/PieChart';
+import DonutChart from '../AllCharts/apex/dountchart';
 
 import { Row, Col, Card, CardBody, CardTitle } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const Apexchart = () => {
 
