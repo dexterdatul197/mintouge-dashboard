@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import withRouter from "../../components/Common/withRouter";
-import { isEmpty, map } from "lodash";
-import * as moment from "moment";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import withRouter from '../../components/Common/withRouter';
+import { isEmpty, map } from 'lodash';
+import * as moment from 'moment';
 import {
   Badge,
   Col,
@@ -21,27 +21,27 @@ import {
   Input,
   FormFeedback,
   Label,
-} from "reactstrap";
-import * as Yup from "yup";
-import { useFormik } from "formik";
+} from 'reactstrap';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 //Import Component
-import Breadcrumbs from "../../components/Common/Breadcrumb";
-import DeleteModal from "../../components/Common/DeleteModal";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
+import DeleteModal from '../../components/Common/DeleteModal';
 
 //Import Image
-import images from "../../assets/images";
-import companies from "../../assets/images/companies";
+import images from '../../assets/images';
+import companies from '../../assets/images/companies';
 
 import {
   getProjects as onGetProjects,
   addNewProject as onAddNewProject,
   updateProject as onUpdateProject,
   deleteProject as onDeleteProject,
-} from "../../store/actions";
+} from '../../store/actions';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const ProjectStatus = ({ status }) => {
   switch (status) {
@@ -61,7 +61,7 @@ const ProjectStatus = ({ status }) => {
 
 const ProjectsList = () => {
   //meta title
-  document.title = "Project List | Mintouge - React Admin & Dashboard Template";
+  document.title = "Project List | Mintouge - React Admin & Dashboard Template';
 
   const dispatch = useDispatch();
   const [project, setProject] = useState();

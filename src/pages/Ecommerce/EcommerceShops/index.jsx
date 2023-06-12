@@ -1,18 +1,18 @@
-import React, { useEffect } from "react"
-import PropTypes from "prop-types"
-import { Link } from "react-router-dom"
-import { Col, Container, Row } from "reactstrap"
-import { map } from "lodash"
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { Col, Container, Row } from 'reactstrap';
+import { map } from 'lodash';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb"
+import Breadcrumbs from '/src/components/Common/Breadcrumb"
 
 //Import Card
-import CardShop from "./CardShop"
-import { getShops as onGetShops } from "/src/store/e-commerce/actions"
+import CardShop from './CardShop"
+import { getShops as onGetShops } from '/src/store/e-commerce/actions"
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const EcommerceShops = () => {
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Card,
   Row,
@@ -6,14 +6,14 @@ import {
   CardBody,
   CardTitle,
   Container
-} from "reactstrap";
+} from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
-import avtar2 from "../../assets/images/users/avatar-2.jpg";
-import avtar5 from "../../assets/images/users/avatar-5.jpg";
-import img3 from "../../assets/images/small/img-3.jpg";
+import avtar2 from '../../assets/images/users/avatar-2.jpg';
+import avtar5 from '../../assets/images/users/avatar-5.jpg';
+import img3 from '../../assets/images/small/img-3.jpg';
 
 const UiUtilites = () => {
   document.title = "Utilities | Mintouge - Brands Dashboard";

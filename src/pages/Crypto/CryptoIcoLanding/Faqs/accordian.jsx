@@ -1,8 +1,8 @@
-import PropTypes from "prop-types"
-import React, { useState } from "react"
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
-import { CardBody, Collapse } from "reactstrap"
-import { Link } from "react-router-dom"
+import { CardBody, Collapse } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Accordian = props => {
   const [col1, setcol1] = useState(true)

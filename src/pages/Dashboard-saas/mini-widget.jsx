@@ -1,6 +1,6 @@
-import PropTypes from "prop-types"
-import React from "react"
-import { Col, Card, CardBody } from "reactstrap"
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Col, Card, CardBody } from 'reactstrap';
 
 const MiniWidget = ({ reports }) => {
   return (

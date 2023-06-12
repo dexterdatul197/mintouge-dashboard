@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -8,9 +8,9 @@ import {
   DropdownMenu,
   DropdownToggle,
   Row,
-} from "reactstrap"
+} from 'reactstrap';
 
-import avatar from "../../assets/images/users/avatar-1.jpg"
+import avatar from '../../assets/images/users/avatar-1.jpg';
 
 const Settings = props => {
   return (

@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { Col, Container, Row } from "reactstrap";
-import { Link } from "react-router-dom";
-import withRouter from "../../components/Common/withRouter";
-import { map } from "lodash";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Col, Container, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import withRouter from '../../components/Common/withRouter';
+import { map } from 'lodash';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
 
 //Import Card invoice
-import CardInvoice from "./card-invoice";
-import { getInvoices as onGetInvoices } from "/src/store/actions";
+import CardInvoice from './card-invoice';
+import { getInvoices as onGetInvoices } from '/src/store/actions';
 
 const InvoicesList = (props) => {
   //meta title

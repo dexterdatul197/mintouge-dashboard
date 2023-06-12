@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import {
   useTable,
   useGlobalFilter,
@@ -8,9 +8,9 @@ import {
   useFilters,
   useExpanded,
   usePagination,
-} from "react-table";
-import { Table, Row, Col, Button, Input } from "reactstrap";
-import { Filter, DefaultColumnFilter } from "./filters";
+} from 'react-table';
+import { Table, Row, Col, Button, Input } from 'reactstrap';
+import { Filter, DefaultColumnFilter } from './filters';
 
 // Define a default UI for filtering
 function GlobalFilter({

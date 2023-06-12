@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { isEmpty, map } from "lodash";
-import moment from "moment";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { isEmpty, map } from 'lodash';
+import moment from 'moment';
 import {
   Button,
   Card,
@@ -24,26 +24,26 @@ import {
   TabPane,
   UncontrolledDropdown,
   UncontrolledTooltip,
-} from "reactstrap";
-import classnames from "classnames";
+} from 'reactstrap';
+import classnames from 'classnames';
 
 //Import Scrollbar
-import PerfectScrollbar from "react-perfect-scrollbar";
-import "react-perfect-scrollbar/dist/css/styles.css";
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
-import images from "/src/assets/images";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import images from '/src/assets/images';
 import {
   addMessage as onAddMessage,
   getChats as onGetChats,
   getContacts as onGetContacts,
   getGroups as onGetGroups,
   getMessages as onGetMessages,
-} from "/src/store/actions";
+} from '/src/store/actions';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const Chat = props => {
 

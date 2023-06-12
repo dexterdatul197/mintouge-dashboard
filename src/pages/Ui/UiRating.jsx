@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
-import { Row, Col, Card, CardBody, Container, Badge } from "reactstrap";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
+import { Row, Col, Card, CardBody, Container, Badge } from 'reactstrap';
 
 // Rating Plugin
-import Rating from "react-rating";
-import RatingTooltip from "react-rating-tooltip";
+import Rating from 'react-rating';
+import RatingTooltip from 'react-rating-tooltip';
 
 const UiRating = () => {
 

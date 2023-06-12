@@ -1,21 +1,21 @@
-import React from "react";
-import { Row, Col, Card, CardBody, CardTitle, Container } from "reactstrap";
+import React from 'react';
+import { Row, Col, Card, CardBody, CardTitle, Container } from 'reactstrap';
 
 // import charts
-import BarChart from "../AllCharts/chartist/barchart";
-import Bar from "../AllCharts/chartist/stackedbarchart";
-import DountChart from "../AllCharts/chartist/dountchart";
-import PieChart from "../AllCharts/chartist/piechart";
-import SmilAnimationsChart from "../AllCharts/chartist/smilanimations";
-import LineChart from "../AllCharts/chartist/linechart";
-import ChartBar from "../AllCharts/chartist/chartbar";
-import LineAreaChart from "../AllCharts/chartist/lineareachart";
+import BarChart from '../AllCharts/chartist/barchart';
+import Bar from '../AllCharts/chartist/stackedbarchart';
+import DountChart from '../AllCharts/chartist/dountchart';
+import PieChart from '../AllCharts/chartist/piechart';
+import SmilAnimationsChart from '../AllCharts/chartist/smilanimations';
+import LineChart from '../AllCharts/chartist/linechart';
+import ChartBar from '../AllCharts/chartist/chartbar';
+import LineAreaChart from '../AllCharts/chartist/lineareachart';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
-import "../../../node_modules/chartist/dist/chartist.css"
-import "../../assets/scss/chartist.scss";
+import '../../../node_modules/chartist/dist/chartist.css"
+import '../../assets/scss/chartist.scss';
 const ChartistChart = () => {
   //meta title
   document.title = "Chartist Charts | Mintouge - React Admin & Dashboard Template";

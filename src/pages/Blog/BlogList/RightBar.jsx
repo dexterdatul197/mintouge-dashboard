@@ -1,11 +1,11 @@
-import React from "react";
-import { Card, CardBody, Col } from "reactstrap";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Card, CardBody, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 // import images
-import img1 from "../../../assets/images/small/img-7.jpg";
-import img2 from "../../../assets/images/small/img-4.jpg";
-import img3 from "../../../assets/images/small/img-6.jpg";
+import img1 from '../../../assets/images/small/img-7.jpg';
+import img2 from '../../../assets/images/small/img-4.jpg';
+import img3 from '../../../assets/images/small/img-6.jpg';
 
 const RightBar = () => {
   return (

@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -6,7 +6,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from "reactstrap"
+} from 'reactstrap';
 
 const Reciver = ({ message }) => {
   return (

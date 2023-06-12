@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -7,12 +7,12 @@ import {
   UncontrolledDropdown,
   DropdownMenu,
   DropdownToggle,
-} from "reactstrap"
+} from 'reactstrap';
 
 //SimpleBar
-import SimpleBar from "simplebar-react"
+import SimpleBar from 'simplebar-react"
 // import images
-import user1 from "../../assets/images/users/avatar-2.jpg"
+import user1 from '../../assets/images/users/avatar-2.jpg';
 
 const Comments = props => {
   return (

@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Row,
   Col,
@@ -10,12 +10,12 @@ import {
   CardTitle,
   Container,
   Input
-} from "reactstrap"
+} from 'reactstrap';
 
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
 // Form Mask
-import InputMask from "react-input-mask"
+import InputMask from 'react-input-mask"
 
 const FormMask = () => {
   //meta title

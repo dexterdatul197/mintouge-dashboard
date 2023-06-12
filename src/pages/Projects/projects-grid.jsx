@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   Col,
   Container,
   PaginationItem,
   PaginationLink,
   Row,
-} from "reactstrap";
-import withRouter from "../../components/Common/withRouter";
-import { map } from "lodash";
+} from 'reactstrap';
+import withRouter from '../../components/Common/withRouter';
+import { map } from 'lodash';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
 
 //Import Cards
-import CardProject from "./card-project";
+import CardProject from './card-project';
 
-import { getProjects as onGetProjects } from "/src/store/actions";
+import { getProjects as onGetProjects } from '/src/store/actions';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const ProjectsGrid = (props) => {
   //meta title

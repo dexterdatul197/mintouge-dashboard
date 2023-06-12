@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
-import React from "react"
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react"
-import { connect } from "react-redux"
-import LightData from "./LightData"
-import { Row, Col, Card, CardBody, CardTitle, CardSubtitle } from "reactstrap"
+import React from 'react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react"
+import { connect } from 'react-redux';
+import LightData from './LightData"
+import { Row, Col, Card, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
 const LoadingContainer = () => <div>Loading...</div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import {
   Row,
   Col,
@@ -10,8 +10,8 @@ import {
   DropdownMenu,
   DropdownItem,
   UncontrolledTooltip,
-} from "reactstrap"
-import { Link } from "react-router-dom"
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const CardUser = () => {
   const [menu, setMenu] = useState(false)

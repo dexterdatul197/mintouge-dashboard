@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import withRouter from "../../components/Common/withRouter";
-import { map } from "lodash";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import withRouter from '../../components/Common/withRouter';
+import { map } from 'lodash';
 import {
   Input,
   Label,
@@ -11,12 +11,12 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from "reactstrap";
+} from 'reactstrap';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
-import { getMails as onGetMails } from "store/actions";
+import { getMails as onGetMails } from 'store/actions';
 
 const MailsList = () => {
   const dispatch = useDispatch();

@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { Row, Col, Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
-import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
-import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
+import { Row, Col, Card, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const ResponsiveTables = () => {
   //meta title

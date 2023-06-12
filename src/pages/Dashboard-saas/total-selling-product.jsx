@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Col, Card, CardBody, Table } from "reactstrap";
-import ReactApexChart from "react-apexcharts";
+import React, { useEffect, useState } from 'react';
+import { Col, Card, CardBody, Table } from 'reactstrap';
+import ReactApexChart from 'react-apexcharts';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { getTopSellingProduct } from "../../store/actions";
+import { getTopSellingProduct } from '../../store/actions';
 
 const getChartOptions = index => {
   var options = {

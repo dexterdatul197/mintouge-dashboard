@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Row,
   Col,
@@ -8,13 +8,13 @@ import {
   CardTitle,
   CardSubtitle,
   Container,
-} from "reactstrap"
-import Dropzone from "react-dropzone"
+} from 'reactstrap';
+import Dropzone from 'react-dropzone"
 
 // Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
 const FormUpload = () => {
 

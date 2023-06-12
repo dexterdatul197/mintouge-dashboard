@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { Link, useNavigate } from "react-router-dom";
-import withRouter from "../../../components/Common/withRouter";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link, useNavigate } from 'react-router-dom';
+import withRouter from '../../../components/Common/withRouter';
 import {
   Card,
   CardBody,
@@ -18,31 +18,31 @@ import {
   PaginationItem,
   PaginationLink,
   Row,
-} from "reactstrap";
-import classnames from "classnames";
-import { isEmpty, map } from "lodash";
+} from 'reactstrap';
+import classnames from 'classnames';
+import { isEmpty, map } from 'lodash';
 
 //Import Star Ratings
-import StarRatings from "react-star-ratings";
+import StarRatings from 'react-star-ratings';
 
 // RangeSlider
-import Nouislider from "nouislider-react";
-import "nouislider/distribute/nouislider.css";
+import Nouislider from 'nouislider-react';
+import 'nouislider/distribute/nouislider.css';
 
 //Import Product Images
-import { productImages } from "/src/assets/images/product";
+import { productImages } from '/src/assets/images/product';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
 
 //Import data
-import { discountData, productsData } from "/src/common/data";
+import { discountData, productsData } from '/src/common/data';
 
 //Import actions
-import { getProducts as onGetProducts } from "/src/store/e-commerce/actions";
+import { getProducts as onGetProducts } from '/src/store/e-commerce/actions';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const EcommerceProducts = (props) => {
   //meta title

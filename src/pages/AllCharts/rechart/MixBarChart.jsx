@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     BarChart,
     Bar,
@@ -8,7 +8,7 @@ import {
     Tooltip,
     Legend,
     ResponsiveContainer
-} from "recharts";
+} from 'recharts';
 
 const data = [
     {

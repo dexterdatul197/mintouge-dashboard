@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import {
   Container,
   Row,
@@ -9,11 +9,11 @@ import {
   NavLink,
   TabContent,
   TabPane,
-} from "reactstrap"
-import classnames from "classnames"
+} from 'reactstrap';
+import classnames from 'classnames"
 
 //Import Components
-import Accordian from "./accordian"
+import Accordian from './accordian"
 
 const FAQs = () => {
   const [activeTab, setactiveTab] = useState("1")

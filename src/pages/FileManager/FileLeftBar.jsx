@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -9,7 +9,7 @@ import {
   DropdownToggle,
   UncontrolledAlert,
   UncontrolledDropdown,
-} from "reactstrap"
+} from 'reactstrap';
 
 const FileRightBar = () => {
   const [isOpen, setIsOpen] = useState(true)

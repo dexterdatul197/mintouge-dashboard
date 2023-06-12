@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef, useMemo } from "react";
-import { Link } from "react-router-dom";
-import withRouter from "../../../components/Common/withRouter";
-import TableContainer from "../../../components/Common/TableContainer";
+import React, { useEffect, useState, useRef, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import withRouter from '../../../components/Common/withRouter';
+import TableContainer from '../../../components/Common/TableContainer';
 import {
   Card,
   CardBody,
@@ -16,26 +16,26 @@ import {
   UncontrolledTooltip,
   Input,
   Form,
-} from "reactstrap";
-import * as Yup from "yup";
-import { useFormik } from "formik";
+} from 'reactstrap';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
-import { Name, Email, Tags, Projects, Img } from "./contactlistCol";
+import { Name, Email, Tags, Projects, Img } from './contactlistCol';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
-import DeleteModal from "/src/components/Common/DeleteModal";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import DeleteModal from '/src/components/Common/DeleteModal';
 
 import {
   getUsers as onGetUsers,
   addNewUser as onAddNewUser,
   updateUser as onUpdateUser,
   deleteUser as onDeleteUser,
-} from "/src/store/contacts/actions";
-import { isEmpty } from "lodash";
+} from '/src/store/contacts/actions';
+import { isEmpty } from 'lodash';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const ContactsList = (props) => {
   //meta title

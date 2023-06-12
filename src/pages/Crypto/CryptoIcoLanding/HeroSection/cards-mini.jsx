@@ -1,8 +1,8 @@
-import React from "react"
-import { Container, Row } from "reactstrap"
+import React from 'react';
+import { Container, Row } from 'reactstrap';
 
 //Import Components
-import CardBox from "./card-box"
+import CardBox from './card-box"
 
 const CardsMini = () => {
   const coins = [

@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 // Formik Validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 import {
   Card,
   CardBody,
@@ -13,12 +13,12 @@ import {
   Input,
   Label,
   Row,
-} from "reactstrap";
+} from 'reactstrap';
 
 // import images
-import profile from "../../assets/images/profile-img.png";
-import logoImg from "../../assets/images/slogo-dark.svg";
-import lightlogo from "../../assets/images/slogo-light.svg";
+import profile from '../../assets/images/profile-img.png';
+import logoImg from '../../assets/images/slogo-dark.svg';
+import lightlogo from '../../assets/images/slogo-light.svg';
 
 const Recoverpw = () => {
 

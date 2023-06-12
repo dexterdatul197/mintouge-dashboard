@@ -1,5 +1,5 @@
-import React,{useState } from "react"
-import { Link } from "react-router-dom"
+import React,{useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -12,14 +12,14 @@ import {
   DropdownMenu,
   DropdownToggle,
   UncontrolledDropdown,
-} from "reactstrap"
-import classnames from "classnames"
-import img1 from "../../assets/images/small/img-6.jpg"
-import img2 from "../../assets/images/small/img-2.jpg"
-import img3 from "../../assets/images/small/img-1.jpg"
+} from 'reactstrap';
+import classnames from 'classnames"
+import img1 from '../../assets/images/small/img-6.jpg';
+import img2 from '../../assets/images/small/img-2.jpg';
+import img3 from '../../assets/images/small/img-1.jpg';
 
 //SimpleBar
-import SimpleBar from "simplebar-react"
+import SimpleBar from 'simplebar-react"
 
 const Posts = props => {
   const [activeTab, setActiveTab] = useState("1")

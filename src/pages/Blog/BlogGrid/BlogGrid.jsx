@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import {
   Card,
   Col,
@@ -7,13 +7,13 @@ import {
   Row,
   TabContent,
   TabPane,
-} from "reactstrap"
+} from 'reactstrap';
 
-import classnames from "classnames"
-import img1 from "../../../assets/images/small/img-2.jpg"
-import img2 from "../../../assets/images/small/img-6.jpg"
-import img3 from "../../../assets/images/small/img-1.jpg"
-import { Link } from "react-router-dom"
+import classnames from 'classnames"
+import img1 from '../../../assets/images/small/img-2.jpg';
+import img2 from '../../../assets/images/small/img-6.jpg';
+import img3 from '../../../assets/images/small/img-1.jpg';
+import { Link } from 'react-router-dom';
 
 const BlogGrid = () => {
   const [activeTab, toggleTab] = useState("1")

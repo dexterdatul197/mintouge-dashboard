@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import React from "react";
-import { Card, CardBody, Col } from "reactstrap";
+import React from 'react';
+import { Card, CardBody, Col } from 'reactstrap';
 
 const CardBox = props => {
   return (

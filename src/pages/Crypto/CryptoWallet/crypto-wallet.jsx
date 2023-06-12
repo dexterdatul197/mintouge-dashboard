@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { isEmpty } from "lodash";
-import { Card, CardBody, Col, Container, Row } from "reactstrap";
-import withRouter from "../../../components/Common/withRouter";
-import "/src/assets/scss/datatables.scss";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { isEmpty } from 'lodash';
+import { Card, CardBody, Col, Container, Row } from 'reactstrap';
+import withRouter from '../../../components/Common/withRouter';
+import '/src/assets/scss/datatables.scss';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
-import { getWallet as onGetWallet } from "/src/store/actions";
-import WalletActivities from "./walletActivities";
-import WalletStats from "./walletStats";
-import WalletOverView from "./walletOverView";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import { getWallet as onGetWallet } from '/src/store/actions';
+import WalletActivities from './walletActivities';
+import WalletStats from './walletStats';
+import WalletOverView from './walletOverView';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const CryptoWallet = () => {
   //meta title

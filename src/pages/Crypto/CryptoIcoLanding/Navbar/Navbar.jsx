@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Nav,
   NavbarToggler,
@@ -7,13 +7,13 @@ import {
   NavLink,
   Container,
   Collapse,
-} from "reactstrap";
-import { Link } from "react-router-dom";
-import ScrollspyNav from "./scrollSpy";
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
+import ScrollspyNav from './scrollSpy';
 
 //Import Images
-import logodark from "../../../../assets/images/logo-dark.png";
-import logolight from "../../../../assets/images/logo-light.png";
+import logodark from '../../../../assets/images/logo-dark.png';
+import logolight from '../../../../assets/images/logo-light.png';
 
 const navItems = [
   { id: 1, idnm: "home", navheading: "Home" },

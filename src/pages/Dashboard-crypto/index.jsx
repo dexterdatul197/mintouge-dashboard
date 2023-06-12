@@ -1,18 +1,18 @@
-import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 //Import Components
-import CardUser from "./card-user";
-import CardWelcome from "./card-welcome";
-import MiniWidget from "./mini-widget";
-import WalletBalance from "./wallet-balance";
-import OverView from "./overview";
-import Transactions from "./transactions";
-import Notifications from "./notifications";
-import BuySell from "./buy-sell";
+import CardUser from './card-user';
+import CardWelcome from './card-welcome';
+import MiniWidget from './mini-widget';
+import WalletBalance from './wallet-balance';
+import OverView from './overview';
+import Transactions from './transactions';
+import Notifications from './notifications';
+import BuySell from './buy-sell';
 
 //Bitcoin Chart
 const series1 = [

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Col,
@@ -14,22 +14,22 @@ import {
   CardFooter,
   CardDeck,
   Container,
-} from "reactstrap";
+} from 'reactstrap';
 
 // import images
-import img1 from "../../assets/images/small/img-1.jpg";
-import img2 from "../../assets/images/small/img-2.jpg";
-import img3 from "../../assets/images/small/img-3.jpg";
-import img4 from "../../assets/images/small/img-4.jpg";
-import img5 from "../../assets/images/small/img-5.jpg";
-import img6 from "../../assets/images/small/img-6.jpg";
-import img7 from "../../assets/images/small/img-7.jpg";
-import { Link } from "react-router-dom";
+import img1 from '../../assets/images/small/img-1.jpg';
+import img2 from '../../assets/images/small/img-2.jpg';
+import img3 from '../../assets/images/small/img-3.jpg';
+import img4 from '../../assets/images/small/img-4.jpg';
+import img5 from '../../assets/images/small/img-5.jpg';
+import img6 from '../../assets/images/small/img-6.jpg';
+import img7 from '../../assets/images/small/img-7.jpg';
+import { Link } from 'react-router-dom';
 
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const UiCards = () => {
 

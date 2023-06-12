@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import {
   Container,
   Row,
@@ -18,18 +18,18 @@ import {
   DropdownItem,
   Input,
   InputGroup,
-} from "reactstrap"
-import classnames from "classnames"
-import ReactApexChart from "react-apexcharts"
+} from 'reactstrap';
+import classnames from 'classnames"
+import ReactApexChart from 'react-apexcharts';
 
 //Simple bar
-import SimpleBar from "simplebar-react"
+import SimpleBar from 'simplebar-react"
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
 //Import Images
-import avatar from "../../assets/images/users/avatar-1.jpg"
+import avatar from '../../assets/images/users/avatar-1.jpg';
 
 const CryptoExchange = props => {
 

@@ -1,10 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Card, CardBody, Col, Row } from "reactstrap"
-import { Link } from "react-router-dom"
-import StarRatings from "react-star-ratings"
-import { map } from "lodash"
-import images from "/src/assets/images";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Card, CardBody, Col, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import StarRatings from 'react-star-ratings';
+import { map } from 'lodash';
+import images from '/src/assets/images';
 
 const RecentProducts = ({ recentProducts }) => {
   return (

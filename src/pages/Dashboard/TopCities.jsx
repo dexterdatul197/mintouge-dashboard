@@ -1,5 +1,5 @@
-import React from "react"
-import { Card, CardBody, CardTitle, Progress } from "reactstrap"
+import React from 'react';
+import { Card, CardBody, CardTitle, Progress } from 'reactstrap';
 
 const TopCities = () => {
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Row,
   Col,
@@ -7,19 +7,19 @@ import {
   CardTitle,
   CardSubtitle,
   Container,
-} from "reactstrap";
+} from 'reactstrap';
 
 // Carousel
-import Slide from "./CarouselTypes/slide";
-import Slidewithcontrol from "./CarouselTypes/slidewithcontrol";
-import Slidewithindicator from "./CarouselTypes/slidewithindicator";
-import Slidewithcaption from "./CarouselTypes/slidewithcaption";
-import Slidewithfade from "./CarouselTypes/slidewithfade";
-import IndividualInterval from "./CarouselTypes/individualInterval";
-import SlideDark from "./CarouselTypes/slideDark";
+import Slide from './CarouselTypes/slide';
+import Slidewithcontrol from './CarouselTypes/slidewithcontrol';
+import Slidewithindicator from './CarouselTypes/slidewithindicator';
+import Slidewithcaption from './CarouselTypes/slidewithcaption';
+import Slidewithfade from './CarouselTypes/slidewithfade';
+import IndividualInterval from './CarouselTypes/individualInterval';
+import SlideDark from './CarouselTypes/slideDark';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const UiCarousel = () => {
 

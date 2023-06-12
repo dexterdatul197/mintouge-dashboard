@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Button,
   Popover,
@@ -18,10 +18,10 @@ import {
   Pagination,
   PaginationItem,
   PaginationLink,
-} from "reactstrap";
+} from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const UiGeneral = () => {
 

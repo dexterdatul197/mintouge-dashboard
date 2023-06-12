@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Modal,
@@ -7,9 +7,9 @@ import {
   ModalFooter,
   ModalHeader,
   Table,
-} from "reactstrap"
-import img7 from "../../../assets/images/product/img-7.png"
-import img4 from "../../../assets/images/product/img-4.png"
+} from 'reactstrap';
+import img7 from '../../../assets/images/product/img-7.png';
+import img4 from '../../../assets/images/product/img-4.png';
 
 const EcommerceOrdersModal = props => {
   const { isOpen, toggle } = props

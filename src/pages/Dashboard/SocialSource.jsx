@@ -1,6 +1,6 @@
-import React from "react"
-import { Row, Col, Card, CardBody, CardTitle } from "reactstrap"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Row, Col, Card, CardBody, CardTitle } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const SocialSource = () => {
   const socials = [

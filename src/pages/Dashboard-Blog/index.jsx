@@ -1,17 +1,17 @@
-import React from "react";
-import { Container, Row } from "reactstrap";
+import React from 'react';
+import { Container, Row } from 'reactstrap';
 
 //import component
-import CardUser from "./CardUser";
-import Settings from "./Settings";
-import Posts from "./Posts";
-import Comments from "./Comments";
-import TapVisitors from "./TapVisitors";
-import Activity from "./Activity";
-import PopularPost from "./PopularPost";
+import CardUser from './CardUser';
+import Settings from './Settings';
+import Posts from './Posts';
+import Comments from './Comments';
+import TapVisitors from './TapVisitors';
+import Activity from './Activity';
+import PopularPost from './PopularPost';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const index = () => {
   //meta title

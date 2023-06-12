@@ -1,27 +1,27 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import withRouter from "../../components/Common/withRouter";
-import { Card, CardBody, CardTitle, Col, Container, Row } from "reactstrap";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import withRouter from '../../components/Common/withRouter';
+import { Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
-import ReactApexChart from "react-apexcharts";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import ReactApexChart from 'react-apexcharts';
 
 //Import Images
 //Import Images
-import avatar4 from "../../assets/images/users/avatar-4.jpg";
-import avatar5 from "../../assets/images/users/avatar-5.jpg";
-import avatar1 from "../../assets/images/users/avatar-1.jpg";
-import avatar2 from "../../assets/images/users/avatar-2.jpg";
-import avatar6 from "../../assets/images/users/avatar-6.jpg";
-import avatar3 from "../../assets/images/users/avatar-3.jpg";
-import avatar8 from "../../assets/images/users/avatar-8.jpg";
-import avatar7 from "../../assets/images/users/avatar-7.jpg";
+import avatar4 from '../../assets/images/users/avatar-4.jpg';
+import avatar5 from '../../assets/images/users/avatar-5.jpg';
+import avatar1 from '../../assets/images/users/avatar-1.jpg';
+import avatar2 from '../../assets/images/users/avatar-2.jpg';
+import avatar6 from '../../assets/images/users/avatar-6.jpg';
+import avatar3 from '../../assets/images/users/avatar-3.jpg';
+import avatar8 from '../../assets/images/users/avatar-8.jpg';
+import avatar7 from '../../assets/images/users/avatar-7.jpg';
 
-import { getTasks as onGetTasks } from "/src/store/tasks/actions";
-import { options, series } from "/src/common/data/tasks";
+import { getTasks as onGetTasks } from '/src/store/tasks/actions';
+import { options, series } from '/src/common/data/tasks';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const TasksList = () => {
   //meta title

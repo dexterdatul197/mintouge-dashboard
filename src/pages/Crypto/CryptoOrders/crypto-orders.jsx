@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useMemo } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Card,
@@ -14,24 +14,24 @@ import {
   Row,
   TabContent,
   TabPane,
-} from "reactstrap";
-import classnames from "classnames";
-import { connect } from "react-redux";
-import withRouter from "../../../components/Common/withRouter";
+} from 'reactstrap';
+import classnames from 'classnames';
+import { connect } from 'react-redux';
+import withRouter from '../../../components/Common/withRouter';
 
-import { Pdate, Type, Value, ValueinUSD, Status, Coin } from "./CryptoCol";
+import { Pdate, Type, Value, ValueinUSD, Status, Coin } from './CryptoCol';
 
-import TableContainer from "../../../components/Common/TableContainer";
+import TableContainer from '../../../components/Common/TableContainer';
 
 //Date Picker
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-import "/src/assets/scss/datatables.scss";
+import '/src/assets/scss/datatables.scss';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
-import { getCryptoOrders } from "/src/store/crypto/actions";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import { getCryptoOrders } from '/src/store/crypto/actions';
 
 const CryptoOrders = (props) => {
   //meta title

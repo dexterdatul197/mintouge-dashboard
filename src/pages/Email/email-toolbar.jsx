@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   Dropdown,
@@ -7,16 +7,16 @@ import {
   DropdownItem,
   Row,
   Col,
-} from "reactstrap";
+} from 'reactstrap';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   setFolderOnSelectedMails as onFolderOnSelectedMails,
   selectFolders as onSelectFolders,
   getSelectedMails as onGetSelectedMails,
-} from "/src/store/mails/actions";
+} from '/src/store/mails/actions';
 
 const EmailToolbar = (props) => {
   const dispatch = useDispatch();

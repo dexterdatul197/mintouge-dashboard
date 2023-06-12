@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Col, Row } from 'reactstrap';
 
 //import images
-import avatar from "../../assets/images/users/avatar-1.jpg";
+import avatar from '../../assets/images/users/avatar-1.jpg';
 
 const Section = () => {
     return (

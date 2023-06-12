@@ -1,6 +1,6 @@
-import React from "react";
-import ChartistGraph from "react-chartist";
-import getChartColorsArray from "../../../components/Common/ChartsDynamicColor";
+import React from 'react';
+import ChartistGraph from 'react-chartist';
+import getChartColorsArray from '../../../components/Common/ChartsDynamicColor';
 
 const lineareachart = ({ dataColors }) => {
   var lineareaChartColors = getChartColorsArray(dataColors);

@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Card, CardBody, Col, Container, Row, Collapse, Label, Input } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../../components/Common/Breadcrumb';
 import List from './List';
 
 //Date Picker
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const CandidateList = () => {
     document.title = "Candidate List | Mintouge - Brands Dashboard";

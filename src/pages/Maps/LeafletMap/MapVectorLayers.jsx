@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import Leaflet from "leaflet"
+import React, { Component } from 'react';
+import Leaflet from 'leaflet"
 import {
   Map,
   TileLayer,
@@ -9,8 +9,8 @@ import {
   Polygon,
   Polyline,
   Rectangle,
-} from "react-leaflet"
-import "leaflet/dist/leaflet.css"
+} from 'react-leaflet"
+import 'leaflet/dist/leaflet.css"
 
 Leaflet.Icon.Default.imagePath = "../node_modules/leaflet"
 
@@ -82,7 +82,7 @@ export default class MapVectorLayers extends Component {
       >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
         />
         <Circle center={position} fillColor="blue" radius={200} />
         <CircleMarker center={[51.51, -0.12]} color="red" radius={20}>

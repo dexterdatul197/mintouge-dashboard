@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import Leaflet from "leaflet"
-import { Map, TileLayer, Marker } from "react-leaflet"
-import "leaflet/dist/leaflet.css"
+import React, { Component } from 'react';
+import Leaflet from 'leaflet"
+import { Map, TileLayer, Marker } from 'react-leaflet"
+import 'leaflet/dist/leaflet.css"
 
 Leaflet.Icon.Default.imagePath = "../node_modules/leaflet"
 
@@ -29,7 +29,7 @@ export default class SimpleMap extends Component {
       >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
         />
         <Marker position={position}></Marker>
       </Map>

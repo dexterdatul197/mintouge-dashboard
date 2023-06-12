@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import withRouter from "../../components/Common/withRouter";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import withRouter from '../../components/Common/withRouter';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 // Formik validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 import {
   Row,
@@ -21,14 +21,14 @@ import {
   Input,
   FormFeedback,
   Label,
-} from "reactstrap";
+} from 'reactstrap';
 
 // actions
-import { loginUser } from "../../store/actions";
+import { loginUser } from '../../store/actions';
 
 // import images
-import profile from "../../assets/images/profile-img.png";
-import logo from "../../assets/images/slogo-dark.svg";
+import profile from '../../assets/images/profile-img.png';
+import logo from '../../assets/images/slogo-dark.svg';
 
 const Login = (props) => {
   //meta title

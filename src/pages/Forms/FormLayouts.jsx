@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Card,
@@ -12,10 +12,10 @@ import {
   Form,
   Input,
   InputGroup,
-} from "reactstrap";
+} from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const FormLayouts = props => {
 

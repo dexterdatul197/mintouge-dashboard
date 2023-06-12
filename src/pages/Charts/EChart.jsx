@@ -1,18 +1,18 @@
-import React from "react"
-import { Row, Col, Card, CardBody, CardTitle, Container } from "reactstrap"
+import React from 'react';
+import { Row, Col, Card, CardBody, CardTitle, Container } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
 // Charts
-import Gauge from "../AllCharts/echart/gaugechart"
-import Line from "../AllCharts/echart/linechart"
-import LineBar from "../AllCharts/echart/linebarchart"
-import Doughnut from "../AllCharts/echart/doughnutchart"
-import Pie from "../AllCharts/echart/piechart"
-import Scatter from "../AllCharts/echart/scatterchart"
-import Bubble from "../AllCharts/echart/bubblechart"
-import Candlestick from "../AllCharts/echart/candlestickchart"
+import Gauge from '../AllCharts/echart/gaugechart"
+import Line from '../AllCharts/echart/linechart"
+import LineBar from '../AllCharts/echart/linebarchart"
+import Doughnut from '../AllCharts/echart/doughnutchart"
+import Pie from '../AllCharts/echart/piechart"
+import Scatter from '../AllCharts/echart/scatterchart"
+import Bubble from '../AllCharts/echart/bubblechart"
+import Candlestick from '../AllCharts/echart/candlestickchart"
 
 const EChart = () => {
   

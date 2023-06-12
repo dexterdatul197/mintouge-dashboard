@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -10,11 +10,11 @@ import {
   Label,
   Input,
   Row,
-} from "reactstrap"
+} from 'reactstrap';
 
 // import images
-import logodark from "../../assets/images/logo-dark.png"
-import logolight from "../../assets/images/logo-light.png"
+import logodark from '../../assets/images/logo-dark.png';
+import logolight from '../../assets/images/logo-light.png';
 
 const TwostepVerification = () => {
 

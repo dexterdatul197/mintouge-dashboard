@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { isEmpty } from "lodash";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { isEmpty } from 'lodash';
 
 import {
   Button,
@@ -16,12 +16,12 @@ import {
   ModalBody,
   ModalHeader,
   Row,
-} from "reactstrap";
-import * as Yup from "yup";
-import { useFormik } from "formik";
+} from 'reactstrap';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
 
 import {
   addNewEvent as onAddNewEvent,
@@ -29,24 +29,24 @@ import {
   getCategories as onGetCategories,
   getEvents as onGetEvents,
   updateEvent as onUpdateEvent,
-} from "../../store/actions";
+} from '../../store/actions';
 
-import DeleteModal from "./DeleteModal";
+import DeleteModal from './DeleteModal';
 
 //import Images
-import verification from "../../assets/images/verification-img.png";
+import verification from '../../assets/images/verification-img.png';
 
 //css
-import "@fullcalendar/bootstrap/main.css";
+import '@fullcalendar/bootstrap/main.css';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
-import "@fullcalendar/react/dist/vdom";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin, { Draggable } from "@fullcalendar/interaction";
-import BootstrapTheme from "@fullcalendar/bootstrap";
+import '@fullcalendar/react/dist/vdom';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
+import BootstrapTheme from '@fullcalendar/bootstrap';
 
 const Calender = (props) => {
   //meta title

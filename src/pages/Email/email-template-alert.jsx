@@ -1,9 +1,9 @@
-import React from "react"
-import { Row, Col, Container } from "reactstrap"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Row, Col, Container } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
 const EmailAlertTemplte = props => {
    //meta title

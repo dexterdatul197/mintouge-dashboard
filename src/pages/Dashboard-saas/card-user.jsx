@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import {
   Row,
   Col,
@@ -8,10 +8,10 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-} from "reactstrap"
+} from 'reactstrap';
 
 //Import Images
-import avatar1 from "../../assets/images/users/avatar-1.jpg"
+import avatar1 from '../../assets/images/users/avatar-1.jpg';
 
 function CardUser(props) {
   const [settingsMenu, setSettingsMenu] = useState(false)

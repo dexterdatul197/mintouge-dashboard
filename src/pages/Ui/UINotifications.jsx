@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Button, Card, CardBody, CardTitle, Col, Container, Label, Row } from "reactstrap";
-import toastr from "toastr";
-import "toastr/build/toastr.min.css";
+import { Button, Card, CardBody, CardTitle, Col, Container, Label, Row } from 'reactstrap';
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const UiNotifications = () => {
   const [showEasing, setshowEasing] = useState("swing");

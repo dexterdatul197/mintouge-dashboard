@@ -1,14 +1,14 @@
-import React from "react";
-import { Card, CardBody, Container } from "reactstrap";
+import React from 'react';
+import { Card, CardBody, Container } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 // import Component
-import FileLeftBar from "./FileLeftBar";
-import FileList from "./FileList";
-import RecentFile from "./RecentFile";
-import Storage from "./Storage";
+import FileLeftBar from './FileLeftBar';
+import FileList from './FileList';
+import RecentFile from './RecentFile';
+import Storage from './Storage';
 
 const Index = () => {
   //meta title

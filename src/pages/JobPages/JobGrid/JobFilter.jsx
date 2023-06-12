@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Card, CardBody, Col, Collapse, Row, Form, Label, Input } from 'reactstrap';
 
 //Date Picker
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const JobFilter = () => {
     const [selectDate, setSelectDate] = useState();

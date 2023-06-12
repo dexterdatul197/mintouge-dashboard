@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import {
   Col,
   Card,
@@ -9,12 +9,12 @@ import {
   Table,
   Input,
   Label,
-} from "reactstrap"
-import { Link } from "react-router-dom"
-import classnames from "classnames"
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
+import classnames from 'classnames"
 
 //Simple bar
-import SimpleBar from "simplebar-react"
+import SimpleBar from 'simplebar-react"
 
 const TotalSellongProduct = props => {
   const [activeTab, setActiveTab] = useState("1")

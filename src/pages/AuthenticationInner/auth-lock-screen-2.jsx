@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Container, Row, Alert, Form, Label, Input, FormFeedback } from "reactstrap";
+import { Col, Container, Row, Alert, Form, Label, Input, FormFeedback } from 'reactstrap';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // Formik Validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 // import images
-import logodark from "../../assets/images/logo-dark.png";
-import logolight from "../../assets/images/logo-light.png";
-import user from "../../assets/images/users/avatar-1.jpg";
-import CarouselPage from "./CarouselPage";
+import logodark from '../../assets/images/logo-dark.png';
+import logolight from '../../assets/images/logo-light.png';
+import user from '../../assets/images/users/avatar-1.jpg';
+import CarouselPage from './CarouselPage';
 
 const LockScreen2 = (props) => {
 

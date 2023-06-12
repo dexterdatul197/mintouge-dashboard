@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import React from "react"
-import { Col, Card, CardBody } from "reactstrap"
+import React from 'react';
+import { Col, Card, CardBody } from 'reactstrap';
 
 const CardMaintenance = props => {
   return (

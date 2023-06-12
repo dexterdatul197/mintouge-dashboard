@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Col,
   Card,
@@ -13,8 +13,8 @@ import {
   NavLink,
   TabContent,
   TabPane,
-} from "reactstrap";
-import classnames from "classnames";
+} from 'reactstrap';
+import classnames from 'classnames';
 
 const BuySell = () => {
   // Declare a new state variable, which we'll call "menu"

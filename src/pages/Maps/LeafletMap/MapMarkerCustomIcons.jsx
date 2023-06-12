@@ -1,8 +1,8 @@
-import React, { Component } from "react"
-import Leaflet from "leaflet"
-import { Map, TileLayer, Marker, Popup } from "react-leaflet"
-import L from "leaflet"
-import "leaflet/dist/leaflet.css"
+import React, { Component } from 'react';
+import Leaflet from 'leaflet"
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet"
+import L from 'leaflet"
+import 'leaflet/dist/leaflet.css"
 
 Leaflet.Icon.Default.imagePath = "../node_modules/leaflet"
 
@@ -30,7 +30,7 @@ export default class MapMarkerCustomIcons extends Component {
       >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
         />
         <Marker position={position}>
           <Popup>

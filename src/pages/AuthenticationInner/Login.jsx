@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 // Redux
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import { Row, Col, CardBody, Card, Container, Form, Input, Label, FormFeedback } from "reactstrap";
+import { Row, Col, CardBody, Card, Container, Form, Input, Label, FormFeedback } from 'reactstrap';
 
 // Formik validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 // import images
-import profile from "../../assets/images/profile-img.png";
-import logo from "../../assets/images/slogo-dark.svg";
-import lightlogo from "../../assets/images/slogo-light.svg";
+import profile from '../../assets/images/profile-img.png';
+import logo from '../../assets/images/slogo-dark.svg';
+import lightlogo from '../../assets/images/slogo-light.svg';
 
 const Login = () => {
   const [show, setShow] = useState(false);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 import {
   Container,
@@ -9,19 +9,19 @@ import {
   Table,
   Input,
   CardTitle
-} from "reactstrap";
-import { Link } from "react-router-dom";
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 //Import Product Images
-import img1 from "../../assets/images/product/img-1.png";
-import img2 from "../../assets/images/product/img-2.png";
-import img3 from "../../assets/images/product/img-3.png";
-import img4 from "../../assets/images/product/img-4.png";
-import img5 from "../../assets/images/product/img-5.png";
-import img6 from "../../assets/images/product/img-6.png";
+import img1 from '../../assets/images/product/img-1.png';
+import img2 from '../../assets/images/product/img-2.png';
+import img3 from '../../assets/images/product/img-3.png';
+import img4 from '../../assets/images/product/img-4.png';
+import img5 from '../../assets/images/product/img-5.png';
+import img6 from '../../assets/images/product/img-6.png';
 
 const productListvar = [
   {

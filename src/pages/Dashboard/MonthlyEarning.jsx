@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Row, Col, Card, CardBody, CardTitle } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import ApexRadial from "./ApexRadial";
+import ApexRadial from './ApexRadial';
 
 const MonthlyEarning = () => {
   return (

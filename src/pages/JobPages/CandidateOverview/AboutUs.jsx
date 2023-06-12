@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, Col, Row } from 'reactstrap';
 
 //import images
-import img1 from "../../../assets/images/companies/img-1.png";
-import img4 from "../../../assets/images/companies/img-4.png";
-import img5 from "../../../assets/images/companies/img-5.png";
-import avatar1 from "../../../assets/images/users/avatar-1.jpg";
-import avatar2 from "../../../assets/images/users/avatar-2.jpg";
-import avatar3 from "../../../assets/images/users/avatar-3.jpg";
-import avatar4 from "../../../assets/images/users/avatar-4.jpg";
-import avatar5 from "../../../assets/images/users/avatar-5.jpg";
+import img1 from '../../../assets/images/companies/img-1.png';
+import img4 from '../../../assets/images/companies/img-4.png';
+import img5 from '../../../assets/images/companies/img-5.png';
+import avatar1 from '../../../assets/images/users/avatar-1.jpg';
+import avatar2 from '../../../assets/images/users/avatar-2.jpg';
+import avatar3 from '../../../assets/images/users/avatar-3.jpg';
+import avatar4 from '../../../assets/images/users/avatar-4.jpg';
+import avatar5 from '../../../assets/images/users/avatar-5.jpg';
 
 const AboutUs = () => {
     return (

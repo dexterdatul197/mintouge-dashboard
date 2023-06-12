@@ -1,17 +1,17 @@
 import React from 'react';
 
 // //Import Scrollbar
-import SimpleBar from "simplebar-react";
+import SimpleBar from 'simplebar-react';
 
 //import images
-import wechat from "../../assets/images/companies/wechat.svg";
-import sass from "../../assets/images/companies/sass.svg";
-import adobe from "../../assets/images/companies/adobe.svg";
-import airbnb from "../../assets/images/companies/airbnb.svg";
-import flutter from "../../assets/images/companies/flutter.svg";
-import mailchimp from "../../assets/images/companies/mailchimp.svg";
-import spotify from "../../assets/images/companies/spotify.svg";
-import reddit from "../../assets/images/companies/reddit.svg";
+import wechat from '../../assets/images/companies/wechat.svg';
+import sass from '../../assets/images/companies/sass.svg';
+import adobe from '../../assets/images/companies/adobe.svg';
+import airbnb from '../../assets/images/companies/airbnb.svg';
+import flutter from '../../assets/images/companies/flutter.svg';
+import mailchimp from '../../assets/images/companies/mailchimp.svg';
+import spotify from '../../assets/images/companies/spotify.svg';
+import reddit from '../../assets/images/companies/reddit.svg';
 import { DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown } from 'reactstrap';
 import { Link } from 'react-router-dom';
 

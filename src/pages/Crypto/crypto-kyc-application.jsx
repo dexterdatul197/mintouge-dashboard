@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Container,
   Row,
@@ -17,18 +17,18 @@ import {
   Input,
   Form,
   FormGroup,
-} from "reactstrap";
-import classnames from "classnames";
-import { Link } from "react-router-dom";
+} from 'reactstrap';
+import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 
 //Dropzone
-import Dropzone from "react-dropzone";
+import Dropzone from 'react-dropzone';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 //Import images
-import verificationImg from "../../assets/images/verification-img.png";
+import verificationImg from '../../assets/images/verification-img.png';
 
 const CryptoKYCApplication = props => {
 

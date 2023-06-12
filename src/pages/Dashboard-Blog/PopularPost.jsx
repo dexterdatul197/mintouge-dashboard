@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -7,12 +7,12 @@ import {
   DropdownMenu,
   DropdownToggle,
   UncontrolledDropdown,
-} from "reactstrap"
+} from 'reactstrap';
 
 // import images
-import img1 from "../../assets/images/small/img-2.jpg"
-import img2 from "../../assets/images/small/img-6.jpg"
-import img3 from "../../assets/images/small/img-1.jpg"
+import img1 from '../../assets/images/small/img-2.jpg';
+import img2 from '../../assets/images/small/img-6.jpg';
+import img3 from '../../assets/images/small/img-1.jpg';
 
 const PopularPost = () => {
   const popularpost = [

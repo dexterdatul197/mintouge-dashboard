@@ -13,9 +13,9 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem
-} from "reactstrap";
+} from 'reactstrap';
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const UiDrawer = () => {
 

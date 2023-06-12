@@ -1,5 +1,5 @@
-import React from "react";
-import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from "recharts";
+import React from 'react';
+import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
   {

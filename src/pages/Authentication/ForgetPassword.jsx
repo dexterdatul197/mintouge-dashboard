@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types';
+import React from 'react';
 import {
   Row,
   Col,
@@ -11,23 +11,23 @@ import {
   Input,
   Label,
   Form,
-} from "reactstrap";
+} from 'reactstrap';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import withRouter from "../../components/Common/withRouter";
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import withRouter from '../../components/Common/withRouter';
 
 // Formik Validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 // action
-import { userForgetPassword } from "../../store/actions";
+import { userForgetPassword } from '../../store/actions';
 
 // import images
-import profile from "../../assets/images/profile-img.png";
-import logo from "../../assets/images/slogo-dark.svg";
+import profile from '../../assets/images/profile-img.png';
+import logo from '../../assets/images/slogo-dark.svg';
 
 const ForgetPasswordPage = (props) => {
   //meta title

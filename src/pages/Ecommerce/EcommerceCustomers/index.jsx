@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { isEmpty } from "lodash";
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import React, { useEffect, useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { isEmpty } from 'lodash';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 import {
   Card,
   CardBody,
@@ -18,22 +18,22 @@ import {
   FormFeedback,
   Label,
   Form,
-} from "reactstrap";
+} from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
 
-import DeleteModal from "../../../components/Common/DeleteModal";
+import DeleteModal from '../../../components/Common/DeleteModal';
 import {
   getCustomers as onGetCustomers,
   addNewCustomer as onAddNewCustomer,
   updateCustomer as onUpdateCustomer,
   deleteCustomer as onDeleteCustomer,
-} from "/src/store/e-commerce/actions";
+} from '/src/store/e-commerce/actions';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
-import TableContainer from "../../../components/Common/TableContainer";
+import { useSelector, useDispatch } from 'react-redux';
+import TableContainer from '../../../components/Common/TableContainer';
 
 // Column
 import {
@@ -43,7 +43,7 @@ import {
   Rating,
   WalletBalances,
   JoiningDate,
-} from "./EcommerceCustCol";
+} from './EcommerceCustCol';
 
 const EcommerceCustomers = (props) => {
   //meta title

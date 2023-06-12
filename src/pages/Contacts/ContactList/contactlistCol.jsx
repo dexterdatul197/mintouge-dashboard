@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as moment from "moment";
-import { size, map } from "lodash";
+import * as moment from 'moment';
+import { size, map } from 'lodash';
 
 
 const formateDate = (date, format) => {

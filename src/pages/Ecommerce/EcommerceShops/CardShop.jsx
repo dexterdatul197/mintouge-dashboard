@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import React from "react"
-import { Link } from "react-router-dom"
-import { Card, Col, Row } from "reactstrap"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Card, Col, Row } from 'reactstrap';
 
 const CardShop = props => {
   const { shop } = props

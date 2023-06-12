@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Row, Col, FormGroup } from "reactstrap";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Row, Col, FormGroup } from 'reactstrap';
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import {
   changeLayout,
   changeLayoutMode,
@@ -13,14 +13,14 @@ import {
   changePreloader,
   changeTopbarTheme,
   showRightSidebarAction,
-} from "../../store/actions";
+} from '../../store/actions';
 
 //SimpleBar
-import SimpleBar from "simplebar-react";
+import SimpleBar from 'simplebar-react';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import "../../components/CommonForBoth/rightbar.scss";
+import '../../components/CommonForBoth/rightbar.scss';
 
 //constants
 import {
@@ -31,7 +31,7 @@ import {
   leftBarThemeImageTypes,
   leftSidebarTypes,
   leftSideBarThemeTypes,
-} from "../../constants/layout";
+} from '../../constants/layout';
 
 const RightSidebar = props => {
   const onCloseRightBar = () => {

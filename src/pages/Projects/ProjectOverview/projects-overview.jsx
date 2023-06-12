@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import withRouter from "../../../components/Common/withRouter";
-import { isEmpty } from "lodash";
-import { Col, Container, Row } from "reactstrap";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import withRouter from '../../../components/Common/withRouter';
+import { isEmpty } from 'lodash';
+import { Col, Container, Row } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
 
-import { getProjectDetail as onGetProjectDetail } from "/src/store/projects/actions";
-import ProjectDetail from "./projectDetail";
-import TeamMembers from "./teamMembers";
-import OverviewChart from "./overviewChart";
-import AttachedFiles from "./attachedFiles";
-import Comments from "./comments";
+import { getProjectDetail as onGetProjectDetail } from '/src/store/projects/actions';
+import ProjectDetail from './projectDetail';
+import TeamMembers from './teamMembers';
+import OverviewChart from './overviewChart';
+import AttachedFiles from './attachedFiles';
+import Comments from './comments';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const ProjectsOverview = (props) => {
   //meta title

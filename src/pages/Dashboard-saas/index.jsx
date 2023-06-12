@@ -1,18 +1,18 @@
-import React, { useEffect } from "react";
-import { Container, Row, Col } from "reactstrap";
+import React, { useEffect } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 //Import Components
-import CardUser from "./card-user";
-import CardWelcome from "./card-welcome";
-import MiniWidget from "./mini-widget";
-import Earning from "./earning";
-import SalesAnalytics from "./sales-analytics";
-import TotalSellingProduct from "./total-selling-product";
-import Tasks from "./tasks";
-import ChatBox from "./chat-box";
+import CardUser from './card-user';
+import CardWelcome from './card-welcome';
+import MiniWidget from './mini-widget';
+import Earning from './earning';
+import SalesAnalytics from './sales-analytics';
+import TotalSellingProduct from './total-selling-product';
+import Tasks from './tasks';
+import ChatBox from './chat-box';
 
 const DashboardSaas = (props) => {
   const reports = [

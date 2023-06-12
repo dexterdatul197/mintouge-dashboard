@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import Leaflet from "leaflet"
+import React, { Component } from 'react';
+import Leaflet from 'leaflet"
 import {
   Circle,
   FeatureGroup,
@@ -10,8 +10,8 @@ import {
   Popup,
   Rectangle,
   TileLayer,
-} from "react-leaflet"
-import "leaflet/dist/leaflet.css"
+} from 'react-leaflet"
+import 'leaflet/dist/leaflet.css"
 
 Leaflet.Icon.Default.imagePath = "../node_modules/leaflet"
 
@@ -49,13 +49,13 @@ export default class MapLayerControl extends Component {
           <BaseLayer checked name="OpenStreetMap.Mapnik">
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
             />
           </BaseLayer>
           <BaseLayer name="OpenStreetMap.BlackAndWhite">
             <TileLayer
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
+              url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png';
             />
           </BaseLayer>
           <Overlay name="Marker with popup">

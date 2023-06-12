@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { map, get } from "lodash";
-import { Card, CardBody, Col, Row } from "reactstrap";
-import img1 from "../../../assets/images/companies/img-1.png";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { map, get } from 'lodash';
+import { Card, CardBody, Col, Row } from 'reactstrap';
+import img1 from '../../../assets/images/companies/img-1.png';
 
 const ProjectDetail = ({ project }) => {
   return (

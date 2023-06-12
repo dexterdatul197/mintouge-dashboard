@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Col, Row, Card, CardBody, CardTitle, Container } from "reactstrap";
+import { Col, Row, Card, CardBody, CardTitle, Container } from 'reactstrap';
 import {
   Button,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
   ButtonDropdown,
-} from "reactstrap";
+} from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const UiButtons = () => {
 

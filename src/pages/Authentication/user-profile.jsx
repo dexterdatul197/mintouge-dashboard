@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Row,
@@ -11,28 +11,28 @@ import {
   Input,
   FormFeedback,
   Form,
-} from "reactstrap";
+} from 'reactstrap';
 
 // Formik Validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
-import withRouter from "../../components/Common/withRouter";
+import withRouter from '../../components/Common/withRouter';
 
 //Import Breadcrumb
-import Breadcrumb from "../../components/Common/Breadcrumb";
+import Breadcrumb from '../../components/Common/Breadcrumb';
 
-import avatar from "../../assets/images/users/avatar-1.jpg";
+import avatar from '../../assets/images/users/avatar-1.jpg';
 // actions
-import { editProfile, resetProfileFlag } from "../../store/actions";
+import { editProfile, resetProfileFlag } from '../../store/actions';
 
 const UserProfile = (props) => {
 
   //meta title
-  document.title = "Profile | Mintouge - React Admin & Dashboard Template";
+  document.title = "Profile | Mintouge - React Admin & Dashboard Template';
 
   const dispatch = useDispatch();
 

@@ -1,17 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Routes, Route } from "react-router-dom";
-import { connect } from "react-redux";
-import { useSelector } from "react-redux";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Routes, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { authProtectedRoutes, publicRoutes } from "./routes";
-import Authmiddleware from "./routes/route";
-import AuthLayout from "./components/Layout";
-import NonAuthLayout from "./components/NonAuthLayout";
+import { authProtectedRoutes, publicRoutes } from './routes';
+import Authmiddleware from './routes/route';
+import AuthLayout from './components/Layout';
+import NonAuthLayout from './components/NonAuthLayout';
 
 // Import scss
-import "./assets/scss/theme.scss";
-import fakeBackend from "/src/helpers/AuthType/fakeBackend";
+import './assets/scss/theme.scss';
+import fakeBackend from '/src/helpers/AuthType/fakeBackend';
 
 // Activating fake backend
 fakeBackend();

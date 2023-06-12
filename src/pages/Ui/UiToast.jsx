@@ -11,13 +11,13 @@ import {
     ToastHeader,
     ToastBody,
     CardTitle,
-} from "reactstrap";
+} from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 //import images
-import logo from "../../assets/images/slogo-dark.svg";
+import logo from '../../assets/images/slogo-dark.svg';
 
 const UiToast = () => {
 

@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, Col, DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown } from 'reactstrap';
 
 //import images
-import jobs from "../../assets/images/jobs.png";
-import avatar2 from "../../assets/images/users/avatar-2.jpg";
-import avatar1 from "../../assets/images/users/avatar-1.jpg";
-import avatar3 from "../../assets/images/users/avatar-3.jpg";
-import avatar4 from "../../assets/images/users/avatar-4.jpg";
+import jobs from '../../assets/images/jobs.png';
+import avatar2 from '../../assets/images/users/avatar-2.jpg';
+import avatar1 from '../../assets/images/users/avatar-1.jpg';
+import avatar3 from '../../assets/images/users/avatar-3.jpg';
+import avatar4 from '../../assets/images/users/avatar-4.jpg';
 
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from "swiper";
-import "../../../node_modules/swiper/swiper.scss";
+import { Pagination, Navigation, Autoplay } from 'swiper';
+import '../../../node_modules/swiper/swiper.scss';
 
 class CandidateSection extends Component {
     render() {

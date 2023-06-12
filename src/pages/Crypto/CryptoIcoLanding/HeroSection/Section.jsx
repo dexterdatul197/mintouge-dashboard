@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Container,
   Row,
@@ -7,11 +7,11 @@ import {
   CardBody,
   CardHeader,
   Button,
-} from "reactstrap";
-import { Link } from "react-router-dom";
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 //Import Countdown
-import Countdown from "react-countdown";
+import Countdown from 'react-countdown';
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {

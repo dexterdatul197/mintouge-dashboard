@@ -1,5 +1,5 @@
-import axios from "axios";
-import accessToken from "./jwt-token-access/accessToken";
+import axios from 'axios';
+import accessToken from './jwt-token-access/accessToken';
 
 //pass new generated access token here
 const token = accessToken;

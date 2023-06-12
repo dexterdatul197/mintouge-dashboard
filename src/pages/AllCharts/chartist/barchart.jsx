@@ -1,6 +1,6 @@
-import React from "react";
-import getChartColorsArray from "../../../components/Common/ChartsDynamicColor";
-import ChartistGraph from "react-chartist";
+import React from 'react';
+import getChartColorsArray from '../../../components/Common/ChartsDynamicColor';
+import ChartistGraph from 'react-chartist';
 
 const barchart = ({ dataColors }) => {
   var barChartistColors = getChartColorsArray(dataColors);

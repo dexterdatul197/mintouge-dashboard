@@ -1,8 +1,8 @@
-import React from "react"
-import { Row, Col, Card, CardBody, CardTitle } from "reactstrap"
+import React from 'react';
+import { Row, Col, Card, CardBody, CardTitle } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 import {
   Sparklines,
   SparklinesLine,
@@ -10,7 +10,7 @@ import {
   SparklinesSpots,
   SparklinesReferenceLine,
   SparklinesCurve,
-} from "react-sparklines"
+} from 'react-sparklines"
 
 const SparklineChart = () => {
 

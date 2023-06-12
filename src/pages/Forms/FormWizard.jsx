@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 
 import {
   Card,
@@ -14,13 +14,13 @@ import {
   Row,
   TabContent,
   TabPane,
-} from "reactstrap"
+} from 'reactstrap';
 
-import classnames from "classnames"
-import { Link } from "react-router-dom"
+import classnames from 'classnames"
+import { Link } from 'react-router-dom';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
 const FormWizard = () => {
 

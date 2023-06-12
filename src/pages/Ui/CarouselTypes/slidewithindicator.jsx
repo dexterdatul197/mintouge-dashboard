@@ -1,15 +1,15 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-} from "reactstrap"
+} from 'reactstrap';
 
 // Carousel images
-import img3 from "../../../assets/images/small/img-3.jpg"
-import img4 from "../../../assets/images/small/img-4.jpg"
-import img5 from "../../../assets/images/small/img-5.jpg"
+import img3 from '../../../assets/images/small/img-3.jpg';
+import img4 from '../../../assets/images/small/img-4.jpg';
+import img5 from '../../../assets/images/small/img-5.jpg';
 
 const items = [
   {

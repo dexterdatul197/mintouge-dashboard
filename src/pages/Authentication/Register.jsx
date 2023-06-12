@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFeedback } from "reactstrap";
+import React, { useEffect } from 'react';
+import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFeedback } from 'reactstrap';
 
 // Formik Validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 // action
-import { registerUser, apiError } from "../../store/actions";
+import { registerUser, apiError } from '../../store/actions';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // import images
-import profileImg from "../../assets/images/profile-img.png";
-import logoImg from "../../assets/images/slogo-dark.svg";
+import profileImg from '../../assets/images/profile-img.png';
+import logoImg from '../../assets/images/slogo-dark.svg';
 
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";

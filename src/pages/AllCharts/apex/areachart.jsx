@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react';
 
-import ReactApexChart from "react-apexcharts"
+import ReactApexChart from 'react-apexcharts';
 
 const areachart = () => {
   const options = {

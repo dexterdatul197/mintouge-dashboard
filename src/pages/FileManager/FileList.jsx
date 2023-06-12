@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
@@ -10,7 +10,7 @@ import {
   Form,
   Row,
   UncontrolledDropdown,
-} from "reactstrap"
+} from 'reactstrap';
 
 const FileList = () => {
   const myfiles = [

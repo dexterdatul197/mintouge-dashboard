@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
   CardFooter,
   Col,
   UncontrolledTooltip,
-} from "reactstrap";
-import { isEmpty, size, map } from "lodash";
+} from 'reactstrap';
+import { isEmpty, size, map } from 'lodash';
 
 const CardContact = props => {
   const { user } = props;

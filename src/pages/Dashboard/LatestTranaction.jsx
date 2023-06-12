@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useMemo } from "react";
-import PropTypes from "prop-types";
-import withRouter from "../../components/Common/withRouter";
-import { isEmpty } from "lodash";
+import React, { useEffect, useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import withRouter from '../../components/Common/withRouter';
+import { isEmpty } from 'lodash';
 
 import {
   Button,
   Card,
   CardBody,
-} from "reactstrap";
-import { getOrders as onGetOrders } from "../../store/actions"
+} from 'reactstrap';
+import { getOrders as onGetOrders } from '../../store/actions';
 
-import EcommerceOrdersModal from "../Ecommerce/EcommerceOrders/EcommerceOrdersModal";
+import EcommerceOrdersModal from '../Ecommerce/EcommerceOrders/EcommerceOrdersModal';
 
 import {
   OrderId,
@@ -19,12 +19,12 @@ import {
   Total,
   PaymentStatus,
   PaymentMethod,
-} from "./LatestTranactionCol";
+} from './LatestTranactionCol';
 
-import TableContainer from "../../components/Common/TableContainer";
+import TableContainer from '../../components/Common/TableContainer';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const LatestTranaction = props => {
   const dispatch = useDispatch();

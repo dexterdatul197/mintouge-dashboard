@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Col } from 'reactstrap';
 
 //Date Picker
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const JobListGlobalFilter = () => {
     const [selectDate, setSelectDate] = useState();

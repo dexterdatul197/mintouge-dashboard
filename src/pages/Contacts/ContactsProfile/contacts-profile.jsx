@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useMemo } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import withRouter from "../../../components/Common/withRouter";
-import { map } from "lodash";
+import React, { useEffect, useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import withRouter from '../../../components/Common/withRouter';
+import { map } from 'lodash';
 import {
   Card,
   CardBody,
@@ -12,26 +12,26 @@ import {
   Container,
   Row,
   Table,
-} from "reactstrap";
+} from 'reactstrap';
 
 // TableContainer
 
-import { Pdate, Ddate, Name, Idno, Budget } from "./CryptoCol";
+import { Pdate, Ddate, Name, Idno, Budget } from './CryptoCol';
 
-import TableContainer from "/src/components/Common/TableContainer";
+import TableContainer from '/src/components/Common/TableContainer';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
 
 //Import mini card widgets
-import MiniCards from "./mini-card";
+import MiniCards from './mini-card';
 
 //Import Images
-import profile1 from "/src/assets/images/profile-img.png";
+import profile1 from '/src/assets/images/profile-img.png';
 
 // import charts
-import ApexRevenue from "../ApexRevenue";
-import { getUserProfile } from "/src/store/actions";
+import ApexRevenue from '../ApexRevenue';
+import { getUserProfile } from '/src/store/actions';
 
 const ContactsProfile = (props) => {
   //meta title

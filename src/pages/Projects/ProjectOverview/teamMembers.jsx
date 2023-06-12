@@ -1,9 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Card, CardBody, CardTitle, Table } from "reactstrap"
-import { Link } from "react-router-dom"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Card, CardBody, CardTitle, Table } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import { OverviewTeamMember } from "../../../common/data";
+import { OverviewTeamMember } from '../../../common/data';
 
 const TeamMembers = () => {
   return (

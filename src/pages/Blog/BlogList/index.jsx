@@ -1,11 +1,11 @@
-import React from "react"
-import { Container, Row } from "reactstrap"
+import React from 'react';
+import { Container, Row } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../../components/Common/Breadcrumb"
 
-import BlogList from "./BlogList"
-import RightBar from "./RightBar"
+import BlogList from './BlogList"
+import RightBar from './RightBar"
 
 const Index = () => {
     //meta title

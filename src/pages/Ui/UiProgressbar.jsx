@@ -1,8 +1,8 @@
-import React from "react"
-import { Card, CardBody, CardHeader, CardTitle, Col, Container, Progress, Row } from "reactstrap"
+import React from 'react';
+import { Card, CardBody, CardHeader, CardTitle, Col, Container, Progress, Row } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
 const UiProgressbar = () => {
 

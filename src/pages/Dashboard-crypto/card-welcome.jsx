@@ -1,8 +1,8 @@
-import React from "react"
-import { Row, Col, Card } from "reactstrap"
+import React from 'react';
+import { Row, Col, Card } from 'reactstrap';
 
 //Import Image
-import features from "../../assets/images/crypto/features-img/img-1.png"
+import features from '../../assets/images/crypto/features-img/img-1.png';
 
 const CardWelcome = () => {
   return (

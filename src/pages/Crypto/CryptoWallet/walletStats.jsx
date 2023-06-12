@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardBody,
@@ -9,8 +9,8 @@ import {
   DropdownMenu,
   DropdownToggle,
   Row,
-} from "reactstrap"
-import { Link } from "react-router-dom"
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const WalletStats = ({ wallet, isMenu, toggleMenu }) => {
   return (

@@ -1,7 +1,5 @@
-import React from "react"
-import ReactApexChart from "react-apexcharts"
-
 import React from 'react';
+import ReactApexChart from 'react-apexcharts';
 
 const stackedbarchart = (props) => {
   const options=  {

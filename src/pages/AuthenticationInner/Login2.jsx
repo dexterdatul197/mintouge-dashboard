@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Col, Container, Form, Row, Input, Label, FormFeedback } from "reactstrap";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Col, Container, Form, Row, Input, Label, FormFeedback } from 'reactstrap';
 
 // Formik validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 // import images
-import logodark from "../../assets/images/logo-dark.png";
-import logolight from "../../assets/images/logo-light.png";
-import CarouselPage from "./CarouselPage";
+import logodark from '../../assets/images/logo-dark.png';
+import logolight from '../../assets/images/logo-light.png';
+import CarouselPage from './CarouselPage';
 
 const Login2 = () => {
   const [passwordShow, setPasswordShow] = useState(false);

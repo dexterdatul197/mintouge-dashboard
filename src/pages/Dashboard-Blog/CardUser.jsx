@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardBody, Col, Row } from "reactstrap";
-import ReactApexChart from "react-apexcharts";
-import getChartColorsArray from "../../components/Common/ChartsDynamicColor";
+import { Card, CardBody, Col, Row } from 'reactstrap';
+import ReactApexChart from 'react-apexcharts';
+import getChartColorsArray from '../../components/Common/ChartsDynamicColor';
 import { useSelector, useDispatch } from 'react-redux';
 import { dashboardBlogVisitorData } from '../../store/actions';
 

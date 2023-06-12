@@ -1,12 +1,12 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Table,
   DropdownMenu,
   DropdownToggle,
   UncontrolledDropdown,
   DropdownItem,
-} from "reactstrap"
+} from 'reactstrap';
 
 
 const RecentFile = props => {

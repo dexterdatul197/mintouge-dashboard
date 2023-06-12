@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import {
   Container,
   Row,
@@ -10,18 +10,18 @@ import {
   FormGroup,
   Label,
   Button,
-} from "reactstrap"
+} from 'reactstrap';
 
 // Import Editor
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 //Import Date Picker
-import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
+import DatePicker from 'react-datepicker"
+import 'react-datepicker/dist/react-datepicker.css"
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb"
+import Breadcrumbs from '/src/components/Common/Breadcrumb"
 
 const TasksCreate = () => {
 

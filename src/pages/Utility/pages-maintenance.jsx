@@ -1,14 +1,14 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { Container, Row, Col } from "reactstrap"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'reactstrap';
 
 //Import Cards
-import CardMaintenance from "./card-maintenance"
+import CardMaintenance from './card-maintenance';
 
 //Import Images
-import maintenance from "../../assets/images/maintenance.svg"
-import logodark from "../../assets/images/logo-dark.svg";
-import logolight from "../../assets/images/logo-light.svg";
+import maintenance from '../../assets/images/maintenance.svg';
+import logodark from '../../assets/images/logo-dark.svg';
+import logolight from '../../assets/images/logo-light.svg';
 
 const PagesMaintenance = () => {
 

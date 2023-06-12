@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import withRouter from "../../../components/Common/withRouter";
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import withRouter from '../../../components/Common/withRouter';
 import {
   Button,
   Card,
@@ -15,18 +15,18 @@ import {
   TabContent,
   Table,
   TabPane,
-} from "reactstrap";
-import classnames from "classnames";
-import { isEmpty } from "lodash";
+} from 'reactstrap';
+import classnames from 'classnames';
+import { isEmpty } from 'lodash';
 
 //Import Star Ratings
-import StarRatings from "react-star-ratings";
+import StarRatings from 'react-star-ratings';
 
 //Import Product Images
-import { productImages } from "/src/assets/images/product";
+import { productImages } from '/src/assets/images/product';
 
 //Import Breadcrumb
-import Breadcrumbs from "/src/components/Common/Breadcrumb";
+import Breadcrumbs from '/src/components/Common/Breadcrumb';
 
 //Import actions
 import {
@@ -34,12 +34,12 @@ import {
   getProductComments,
   onAddReply as onAddReplyAction,
   onAddComment as onAddCommentAction,
-} from "/src/store/actions"
-import RecentProducts from "./RecentProducts"
-import Reviews from "./Reviews"
+} from '/src/store/actions';
+import RecentProducts from './RecentProducts';
+import Reviews from './Reviews';
 
 //redux
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector, useDispatch } from 'react-redux';
 
 const EcommerceProductDetail = props => {
   

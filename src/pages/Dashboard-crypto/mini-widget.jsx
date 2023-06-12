@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import React from "react"
-import { Row, Col, Card, CardBody } from "reactstrap"
-import ReactApexChart from "react-apexcharts"
+import React from 'react';
+import { Row, Col, Card, CardBody } from 'reactstrap';
+import ReactApexChart from 'react-apexcharts';
 
 const MiniWidget = props => {
   return (

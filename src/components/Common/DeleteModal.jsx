@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import React from "react"
-import { Modal, ModalBody } from "reactstrap"
+import React from 'react';
+import { Modal, ModalBody } from 'reactstrap';
 
 const DeleteModal = ({ show, onDeleteClick, onCloseClick }) => {
   return (

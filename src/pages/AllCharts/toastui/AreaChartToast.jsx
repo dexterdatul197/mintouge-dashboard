@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react';
 
-import "tui-chart/dist/tui-chart.css"
-import { AreaChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import 'tui-chart/dist/tui-chart.css"
+import { AreaChart } from '@toast-ui/react-chart"
+import TuiChart from 'tui-chart"
+import './toastui.scss"
 
 const theme = {
   chart: {

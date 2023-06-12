@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 import {
   Col,
   Card,
@@ -9,11 +9,11 @@ import {
   TabContent,
   TabPane,
   Table,
-} from "reactstrap"
-import classnames from "classnames"
+} from 'reactstrap';
+import classnames from 'classnames"
 
 //Simple bar
-import SimpleBar from "simplebar-react"
+import SimpleBar from 'simplebar-react"
 
 const Transactions = () => {
   const [activeTab, setactiveTab] = useState("1")

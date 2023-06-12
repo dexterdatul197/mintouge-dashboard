@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   Col,
@@ -8,13 +8,13 @@ import {
   Row,
   TabContent,
   TabPane,
-} from "reactstrap"
+} from 'reactstrap';
 
-import classnames from "classnames"
+import classnames from 'classnames"
 
 //import images
-import small from "../../../assets/images/small/img-2.jpg"
-import small2 from "../../../assets/images/small/img-6.jpg"
+import small from '../../../assets/images/small/img-2.jpg';
+import small2 from '../../../assets/images/small/img-6.jpg';
 
 const BlogList = () => {
   const [activeTab, toggleTab] = useState("1");

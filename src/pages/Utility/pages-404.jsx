@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { Container, Row, Col } from "reactstrap"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'reactstrap';
 
 //Import Images
-import error from "../../assets/images/error-img.png"
+import error from '../../assets/images/error-img.png';
 
 const Pages404 = () => {
     //meta title

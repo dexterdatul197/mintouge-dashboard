@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Button,
@@ -12,12 +12,12 @@ import {
   Input,
   Label,
   Row,
-} from "reactstrap";
-import Select from "react-select";
-import Dropzone from "react-dropzone";
+} from 'reactstrap';
+import Select from 'react-select';
+import Dropzone from 'react-dropzone';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const EcommerceAddProduct = () => {
   

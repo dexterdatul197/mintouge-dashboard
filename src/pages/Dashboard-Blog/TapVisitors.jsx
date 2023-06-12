@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
 import {
   Card,
@@ -9,7 +9,7 @@ import {
   DropdownMenu,
   DropdownToggle,
   Row,
-} from "reactstrap"
+} from 'reactstrap';
 
 function TapVisitors(props) {
     return (

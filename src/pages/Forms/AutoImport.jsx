@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Form,
@@ -10,7 +10,7 @@ import {
   Row,
   CardTitle,
   Container,
-} from "reactstrap";
+} from 'reactstrap';
 
 // Form Editor
 import Editor from 'react-simple-code-editor';
@@ -20,7 +20,7 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const FormEditors = () => {
 

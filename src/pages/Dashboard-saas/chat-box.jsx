@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Row,
   Col,
@@ -13,17 +13,17 @@ import {
   Form,
   Input,
   InputGroup,
-} from "reactstrap";
-import { Link } from "react-router-dom";
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import { chatData } from "../../common/data";
+import { chatData } from '../../common/data';
 
-import Reciver from "./Reciver";
-import Sender from "./Sender";
+import Reciver from './Reciver';
+import Sender from './Sender';
 
 //Import Scrollbar
-import PerfectScrollbar from "react-perfect-scrollbar";
-import "react-perfect-scrollbar/dist/css/styles.css";
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 const ChantBox = (props) => {
   const [searchMenu, setSearchMenu] = useState(false);

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import ReactDragListView from 'react-drag-listview/lib/index.js';
-import { Row, Col, Card, CardBody, CardTitle, Table } from "reactstrap"
+import { Row, Col, Card, CardBody, CardTitle, Table } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
 const DragDropTables = () => {
     const tabledata = [

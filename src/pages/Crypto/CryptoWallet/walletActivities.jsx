@@ -1,12 +1,12 @@
-import React from "react";
-import { useMemo } from "react";
-import PropTypes from "prop-types";
-import { Card, CardBody, NavItem, NavLink } from "reactstrap";
-import classnames from "classnames";
+import React from 'react';
+import { useMemo } from 'react';
+import PropTypes from 'prop-types';
+import { Card, CardBody, NavItem, NavLink } from 'reactstrap';
+import classnames from 'classnames';
 
-import TableContainer from "../../../components/Common/TableContainer";
+import TableContainer from '../../../components/Common/TableContainer';
 
-import { Idno, Pdate, Type, Value, ValueInUsd } from "./CryptoWalCol";
+import { Idno, Pdate, Type, Value, ValueInUsd } from './CryptoWalCol';
 
 const WalletActivities = ({ activeTab, toggleTab }) => {
 

@@ -1,7 +1,7 @@
-import React from "react";
-import { Row, Col, Card, CardBody } from "reactstrap";
-import ReactApexChart from "react-apexcharts";
-import getChartColorsArray from "../../components/Common/ChartsDynamicColor";
+import React from 'react';
+import { Row, Col, Card, CardBody } from 'reactstrap';
+import ReactApexChart from 'react-apexcharts';
+import getChartColorsArray from '../../components/Common/ChartsDynamicColor';
 
 const SalesAnalytics = ({ dataColors }) => {
   const apexsaleschartColors = getChartColorsArray(dataColors);

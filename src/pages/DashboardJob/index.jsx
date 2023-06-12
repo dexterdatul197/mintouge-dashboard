@@ -1,15 +1,15 @@
-import React from "react";
-import { Container, Row } from "reactstrap";
-import ActivityFeed from "./ActivityFeed";
-import AddedJobs from "./AddedJobs";
-import CandidateSection from "./CandidateSection";
+import React from 'react';
+import { Container, Row } from 'reactstrap';
+import ActivityFeed from './ActivityFeed';
+import AddedJobs from './AddedJobs';
+import CandidateSection from './CandidateSection';
 
 //Import Components
-import ChartSection from "./ChartSection";
-import JobVacancy from "./JobVacancy";
-import ReceivedTime from "./ReceivedTime";
-import Section from "./Section";
-import StatisticsApplications from "./StatisticsApplications";
+import ChartSection from './ChartSection';
+import JobVacancy from './JobVacancy';
+import ReceivedTime from './ReceivedTime';
+import Section from './Section';
+import StatisticsApplications from './StatisticsApplications';
 
 const DashboardJob = () => {
   document.title = "Job Dashboard | Mintouge - React Admin & Dashboard Template";

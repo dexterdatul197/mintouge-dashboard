@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Form,
@@ -8,17 +8,17 @@ import {
   Row,
   CardTitle,
   Container,
-} from "reactstrap";
+} from 'reactstrap';
 
 // Form Editor
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const FormEditors = () => {
 

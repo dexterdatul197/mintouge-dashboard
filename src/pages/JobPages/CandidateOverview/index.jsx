@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody, Col, Container, Row } from 'reactstrap';
 
 //import images 
-import avatar from "../../../assets/images/users/avatar-6.jpg";
+import avatar from '../../../assets/images/users/avatar-6.jpg";
 import AboutUs from './AboutUs';
 import Sidebar from './Sidebar';
 

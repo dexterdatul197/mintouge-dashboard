@@ -1,41 +1,41 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 
 // // //Ecommerce Pages
-import EcommerceProducts from "../pages/Ecommerce/EcommerceProducts/index";
-import EcommerceProductDetail from "../pages/Ecommerce/EcommerceProducts/EcommerceProductDetail";
-import EcommerceOrders from "../pages/Ecommerce/EcommerceOrders/index";
-import EcommerceCustomers from "../pages/Ecommerce/EcommerceCustomers/index";
-import EcommerceCheckout from "../pages/Ecommerce/EcommerceCheckout";
-import EcommerceAutoImport from "../pages/Forms/AutoImport";
-import EcommerceAddProduct from "../pages/Ecommerce/EcommerceAddProduct";
+import EcommerceProducts from '../pages/Ecommerce/EcommerceProducts/index';
+import EcommerceProductDetail from '../pages/Ecommerce/EcommerceProducts/EcommerceProductDetail';
+import EcommerceOrders from '../pages/Ecommerce/EcommerceOrders/index';
+import EcommerceCustomers from '../pages/Ecommerce/EcommerceCustomers/index';
+import EcommerceCheckout from '../pages/Ecommerce/EcommerceCheckout';
+import EcommerceAutoImport from '../pages/Forms/AutoImport';
+import EcommerceAddProduct from '../pages/Ecommerce/EcommerceAddProduct';
 
 // //Email
-import EmailInbox from "../pages/Email/email-inbox";
+import EmailInbox from '../pages/Email/email-inbox';
 
 // // Authentication related pages
-import Login from "../pages/Authentication/Login";
-import Logout from "../pages/Authentication/Logout";
-import Register from "../pages/Authentication/Register";
-import ForgetPwd from "../pages/Authentication/ForgetPassword";
+import Login from '../pages/Authentication/Login';
+import Logout from '../pages/Authentication/Logout';
+import Register from '../pages/Authentication/Register';
+import ForgetPwd from '../pages/Authentication/ForgetPassword';
 
-import PagesMaintenance from "../pages/Utility/pages-maintenance";
-import PagesComingsoon from "../pages/Utility/pages-comingsoon";
-import Pages404 from "../pages/Utility/pages-404";
-import Pages500 from "../pages/Utility/pages-500";
+import PagesMaintenance from '../pages/Utility/pages-maintenance';
+import PagesComingsoon from '../pages/Utility/pages-comingsoon';
+import Pages404 from '../pages/Utility/pages-404';
+import Pages500 from '../pages/Utility/pages-500';
 
 // // Dashboard
-import Dashboard from "../pages/Dashboard/index";
+import Dashboard from '../pages/Dashboard/index';
 
 // //Settings
-import ApiSetting from "../pages/Forms/ApiSetting";
-import Wallet from "../pages/Crypto/CryptoWallet/crypto-wallet";
+import ApiSetting from '../pages/Forms/ApiSetting';
+import Wallet from '../pages/Crypto/CryptoWallet/crypto-wallet';
 
 
 // //Contacts
-import ContactsGrid from "../pages/Contacts/contacts-grid";
-import ContactsList from "../pages/Contacts/ContactList/contacts-list";
-import ContactsProfile from "../pages/Contacts/ContactsProfile/contacts-profile";
+import ContactsGrid from '../pages/Contacts/contacts-grid';
+import ContactsList from '../pages/Contacts/ContactList/contacts-list';
+import ContactsProfile from '../pages/Contacts/ContactsProfile/contacts-profile';
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },

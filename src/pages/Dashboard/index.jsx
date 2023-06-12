@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import {
   Container,
   Row,
@@ -13,36 +13,36 @@ import {
   ModalBody,
   ModalFooter,
   Table,
-} from "reactstrap";
-import { Link } from "react-router-dom";
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import classNames from "classnames";
+import classNames from 'classnames';
 
 //import Charts
-import StackedColumnChart from "./StackedColumnChart";
+import StackedColumnChart from './StackedColumnChart';
 
 //import action
-import { getChartsData as onGetChartsData } from "../../store/actions";
+import { getChartsData as onGetChartsData } from '../../store/actions';
 
-import modalimage1 from "../../assets/images/product/img-7.png";
-import modalimage2 from "../../assets/images/product/img-4.png";
+import modalimage1 from '../../assets/images/product/img-7.png';
+import modalimage2 from '../../assets/images/product/img-4.png';
 
 // Pages Components
-import WelcomeComp from "./WelcomeComp";
-import MonthlyEarning from "./MonthlyEarning";
-import SocialSource from "./SocialSource";
-import ActivityComp from "./ActivityComp";
-import TopCities from "./TopCities";
-import LatestTranaction from "./LatestTranaction";
+import WelcomeComp from './WelcomeComp';
+import MonthlyEarning from './MonthlyEarning';
+import SocialSource from './SocialSource';
+import ActivityComp from './ActivityComp';
+import TopCities from './TopCities';
+import LatestTranaction from './LatestTranaction';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 //i18n
-import { withTranslation } from "react-i18next";
+import { withTranslation } from 'react-i18next';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const Dashboard = props => {
   const [modal, setmodal] = useState(false);

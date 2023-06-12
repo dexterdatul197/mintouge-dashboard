@@ -1,5 +1,5 @@
-import React from "react"
-import { Sparklines, SparklinesLine, SparklinesSpots } from "react-sparklines"
+import React from 'react';
+import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines"
 
 const SparkLine = () => {
   return (

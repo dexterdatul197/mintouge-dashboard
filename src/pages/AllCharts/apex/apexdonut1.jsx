@@ -1,5 +1,5 @@
-import React from "react"
-import ReactApexChart from "react-apexcharts"
+import React from 'react';
+import ReactApexChart from 'react-apexcharts';
 
 const Apexdonut = () => {
   const options = {

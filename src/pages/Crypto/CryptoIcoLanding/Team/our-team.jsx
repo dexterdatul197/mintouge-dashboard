@@ -1,13 +1,13 @@
-import React from "react"
-import { Container, Row, Col, Card, CardBody, CardFooter, UncontrolledTooltip } from "reactstrap"
+import React from 'react';
+import { Container, Row, Col, Card, CardBody, CardFooter, UncontrolledTooltip } from 'reactstrap';
 
 //Import Images
-import { Link } from "react-router-dom"
-import { icoLandingTeam } from "../../../../common/data";
+import { Link } from 'react-router-dom';
+import { icoLandingTeam } from '../../../../common/data';
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from "swiper";
-import "../../../../../node_modules/swiper/swiper.scss";
+import { Pagination, Navigation } from 'swiper';
+import '../../../../../node_modules/swiper/swiper.scss';
 
 const OurTeam = () => { 
 

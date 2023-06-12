@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import { Container, Row, Col } from "reactstrap"
+import React, { useState } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from "swiper";
-import "../../../../../node_modules/swiper/swiper.scss";
+import { Pagination, Navigation, Autoplay } from 'swiper';
+import '../../../../../node_modules/swiper/swiper.scss';
 
 const RoadMap = () => {
 

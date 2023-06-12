@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Card,
   CardBody,
@@ -14,14 +14,14 @@ import {
   TabContent,
   TabPane,
   UncontrolledCollapse,
-} from "reactstrap";
+} from 'reactstrap';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
-import classnames from "classnames";
+import classnames from 'classnames';
 function UiTabsAccordions(props) {
   //meta title
   document.title =

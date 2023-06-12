@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
 // Formik Validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
-import { Container, Row, Col, CardBody, Card, Button, Form, Label, Input, FormFeedback } from "reactstrap";
+import { Container, Row, Col, CardBody, Card, Button, Form, Label, Input, FormFeedback } from 'reactstrap';
 
 // import images
-import profileImg from "../../assets/images/profile-img.png";
-import logoImg from "../../assets/images/slogo-dark.svg";
-import avatar from "../../assets/images/users/avatar-1.jpg";
-import { Link } from "react-router-dom";
+import profileImg from '../../assets/images/profile-img.png';
+import logoImg from '../../assets/images/slogo-dark.svg';
+import avatar from '../../assets/images/users/avatar-1.jpg';
+import { Link } from 'react-router-dom';
 
 const LockScreen = () => {
 

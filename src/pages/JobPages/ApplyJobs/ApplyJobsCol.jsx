@@ -2,11 +2,11 @@ import React from 'react';
 import { Badge } from 'reactstrap';
 
 const JobTitle = (cell) => {
-    return cell.value ? cell.value : "";
+    return cell.value ? cell.value : "';
 };
 
 const CompanyName = (cell) => {
-    return cell.value ? cell.value : "";
+    return cell.value ? cell.value : "';
 };
 
 const Type = (cell) => {
@@ -23,7 +23,7 @@ const Type = (cell) => {
 };
 
 const ApplyDate = (cell) => {
-    return cell.value ? cell.value : "";
+    return cell.value ? cell.value : "';
 };
 
 const Status = (cell) => {

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import img2 from "../../assets/images/small/img-2.jpg";
-import img3 from "../../assets/images/small/img-3.jpg";
-import img4 from "../../assets/images/small/img-4.jpg";
+import img2 from '../../assets/images/small/img-2.jpg';
+import img3 from '../../assets/images/small/img-3.jpg';
+import img4 from '../../assets/images/small/img-4.jpg';
 
 import {
   Col,
@@ -11,14 +11,14 @@ import {
   CardBody,
   CardTitle,
    Container,
-} from "reactstrap";
-import avatar1 from "../../assets/images/users/avatar-1.jpg";
-import avatar3 from "../../assets/images/users/avatar-3.jpg";
-import avatar4 from "../../assets/images/users/avatar-4.jpg";
-import avatar5 from "../../assets/images/users/avatar-5.jpg";
+} from 'reactstrap';
+import avatar1 from '../../assets/images/users/avatar-1.jpg';
+import avatar3 from '../../assets/images/users/avatar-3.jpg';
+import avatar4 from '../../assets/images/users/avatar-4.jpg';
+import avatar5 from '../../assets/images/users/avatar-5.jpg';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 const UiImages = () => {
 

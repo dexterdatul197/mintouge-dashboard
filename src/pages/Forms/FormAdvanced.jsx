@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Button,
   Card,
@@ -11,23 +11,23 @@ import {
   InputGroup,
   Label,
   Row,
-} from "reactstrap";
+} from 'reactstrap';
 
-import { SketchPicker } from "react-color";
-import ColorPicker from "@vtaits/react-color-picker";
-import "@vtaits/react-color-picker/dist/index.css";
-import "react-datepicker/dist/react-datepicker.css";
-import Switch from "react-switch";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
+import { SketchPicker } from 'react-color';
+import ColorPicker from '@vtaits/react-color-picker';
+import '@vtaits/react-color-picker/dist/index.css';
+import 'react-datepicker/dist/react-datepicker.css';
+import Switch from 'react-switch';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 
 //Import Flatepicker
-import "flatpickr/dist/themes/material_blue.css";
-import Flatpickr from "react-flatpickr";
+import 'flatpickr/dist/themes/material_blue.css';
+import Flatpickr from 'react-flatpickr';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
-import { Link } from "react-router-dom";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
+import { Link } from 'react-router-dom';
 
 const animatedComponents = makeAnimated();
 
@@ -217,7 +217,7 @@ const FormAdvanced = () => {
       color.rgb.b +
       "," +
       color.rgb.a +
-      ")";
+      ")';
     setcolorRGBA(format);
   };
 

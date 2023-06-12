@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   ScatterChart,
   Scatter,
@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer
-} from "recharts";
+} from 'recharts';
 
 const data01 = [
   { x: 100, y: 200, z: 200 },

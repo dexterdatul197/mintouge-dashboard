@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     AreaChart,
     Area,
@@ -7,7 +7,7 @@ import {
     CartesianGrid,
     Tooltip,
     ResponsiveContainer
-} from "recharts";
+} from 'recharts';
 
 const data = [
     {

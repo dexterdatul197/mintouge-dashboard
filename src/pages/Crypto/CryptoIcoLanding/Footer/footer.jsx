@@ -1,9 +1,9 @@
-import React from "react"
-import { Container, Row, Col } from "reactstrap"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 //Import Components
-import FooterLink from "./footer-link"
+import FooterLink from './footer-link"
 
 const Features = () => {
   const footerLinks = [

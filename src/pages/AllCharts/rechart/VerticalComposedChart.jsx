@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     ComposedChart,
     Line,
@@ -10,7 +10,7 @@ import {
     Legend,
     Area,
     ResponsiveContainer
-} from "recharts";
+} from 'recharts';
 
 const data = [
     {

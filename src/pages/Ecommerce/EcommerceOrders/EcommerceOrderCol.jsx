@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import * as moment from "moment";
-import { Badge } from "reactstrap";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import * as moment from 'moment';
+import { Badge } from 'reactstrap';
 
 const formateDate = (date, format) => {
   const dateFormat = format ? format : "DD MMM Y";

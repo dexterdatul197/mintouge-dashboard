@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Card,
@@ -8,10 +8,10 @@ import {
   UncontrolledDropdown,
   DropdownMenu,
   DropdownToggle,
-} from "reactstrap"
+} from 'reactstrap';
 
 //SimpleBar
-import SimpleBar from "simplebar-react"
+import SimpleBar from 'simplebar-react"
 
 const Activity = props => {
   return (

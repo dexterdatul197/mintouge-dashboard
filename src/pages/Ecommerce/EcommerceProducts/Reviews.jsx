@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Input, Button } from "reactstrap";
-import { Link } from "react-router-dom";
-import images from "/src/assets/images";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Input, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import images from '/src/assets/images';
 
 //redux
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
 //action
-import { onLikeComment, onLikeReply } from "../../../store/actions";
+import { onLikeComment, onLikeReply } from '../../../store/actions';
 
 const CommentBox = ({
   value,

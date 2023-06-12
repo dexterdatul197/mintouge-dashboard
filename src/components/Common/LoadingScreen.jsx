@@ -1,4 +1,4 @@
-import { Avatar, Box } from "@mui/material";
+import { Avatar, Box } from '@mui/material';
 
 export const LoadingScreen = () => {
     return (
@@ -25,7 +25,7 @@ export const LoadingScreen = () => {
             >
                 <Avatar
                     alt="Versify Labs"
-                    src="/static/brand/logo.png"
+                    src="/static/brand/logo.png';
                     sx={{ width: 100, height: 100, backgroundClip: "transparent" }}
                 />
             </Box>

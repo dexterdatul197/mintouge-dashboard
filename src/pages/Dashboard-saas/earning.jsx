@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Row, Col, Card, CardBody } from "reactstrap";
-import { Link } from "react-router-dom";
-import ReactApexChart from "react-apexcharts";
+import React, { useEffect, useState } from 'react';
+import { Row, Col, Card, CardBody } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import ReactApexChart from 'react-apexcharts';
 
 //actions
-import { getEarningChartsData } from "../../store/actions";
+import { getEarningChartsData } from '../../store/actions';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
-import getChartColorsArray from "../../components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../components/Common/ChartsDynamicColor';
 
 const Earning = ({ dataColors }) => {
   const dispatch = useDispatch();

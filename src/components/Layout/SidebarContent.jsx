@@ -1,17 +1,17 @@
-import PropTypes from "prop-types";
-import React, { useEffect, useRef } from "react";
+import PropTypes from 'prop-types';
+import React, { useEffect, useRef } from 'react';
 
 // //Import Scrollbar
-import SimpleBar from "simplebar-react";
+import SimpleBar from 'simplebar-react';
 
 // MetisMenu
-import MetisMenu from "metismenujs";
-import { Link, useLocation } from "react-router-dom";
-import withRouter from "../Common/withRouter";
+import MetisMenu from 'metismenujs';
+import { Link, useLocation } from 'react-router-dom';
+import withRouter from '../Common/withRouter';
 
 //i18n
-import { withTranslation } from "react-i18next";
-import { useCallback } from "react";
+import { withTranslation } from 'react-i18next';
+import { useCallback } from 'react';
 
 const SidebarContent = (props) => {
   const ref = useRef();

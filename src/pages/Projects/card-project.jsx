@@ -1,16 +1,16 @@
-import PropTypes from "prop-types";
-import React from "react";
-import { Link } from "react-router-dom";
-import { map } from "lodash";
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { map } from 'lodash';
 import {
   Badge,
   Card,
   CardBody,
   Col,
   UncontrolledTooltip,
-} from "reactstrap";
-import images from "/src/assets/images";
-import companies from "/src/assets/images/companies";
+} from 'reactstrap';
+import images from '/src/assets/images';
+import companies from '/src/assets/images/companies';
 
 const CardProject = ({ projects }) => {
   return (

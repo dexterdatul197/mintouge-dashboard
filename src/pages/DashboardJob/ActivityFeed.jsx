@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, Col } from 'reactstrap';
 
 // //Import Scrollbar
-import SimpleBar from "simplebar-react";
+import SimpleBar from 'simplebar-react';
 
 //import images
 import avatar5 from '../../assets/images/users/avatar-5.jpg';

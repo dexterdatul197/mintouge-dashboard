@@ -1,13 +1,13 @@
-import React from "react";
-import { Col, Card, CardBody } from "reactstrap";
+import React from 'react';
+import { Col, Card, CardBody } from 'reactstrap';
 
 //Simple bar
-import SimpleBar from "simplebar-react";
+import SimpleBar from 'simplebar-react';
 
 //Import Images
-import img1 from "../../assets/images/companies/img-1.png";
-import img2 from "../../assets/images/companies/img-2.png";
-import img3 from "../../assets/images/companies/img-3.png";
+import img1 from '../../assets/images/companies/img-1.png';
+import img2 from '../../assets/images/companies/img-2.png';
+import img3 from '../../assets/images/companies/img-3.png';
 
 const Notifications = () => {
   return (

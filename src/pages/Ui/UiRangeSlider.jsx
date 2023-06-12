@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Row, Col, Card, CardBody, CardTitle, Container } from "reactstrap"
+import React, { useState } from 'react';
+import { Row, Col, Card, CardBody, CardTitle, Container } from 'reactstrap';
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb"
+import Breadcrumbs from '../../components/Common/Breadcrumb"
 
-import Slider from "react-rangeslider"
-import "react-rangeslider/lib/index.css"
+import Slider from 'react-rangeslider"
+import 'react-rangeslider/lib/index.css"
 
 const UiRangeSlider = () => {
 

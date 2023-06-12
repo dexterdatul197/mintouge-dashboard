@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import withRouter from "../../components/Common/withRouter";
-import { Card, CardBody, Col, Container, Row, Table } from "reactstrap";
-import { isEmpty, map } from "lodash";
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import withRouter from '../../components/Common/withRouter';
+import { Card, CardBody, Col, Container, Row, Table } from 'reactstrap';
+import { isEmpty, map } from 'lodash';
 
 //Import Breadcrumb
-import Breadcrumbs from "../../components/Common/Breadcrumb";
+import Breadcrumbs from '../../components/Common/Breadcrumb';
 
 //Import Image
-import logo from "../../assets/images/logo-dark.png";
-import logoLight from "../../assets/images/logo-light.png";
-import { getInvoiceDetail as onGetInvoiceDetail } from "../../store/invoices/actions";
+import logo from '../../assets/images/logo-dark.png';
+import logoLight from '../../assets/images/logo-light.png';
+import { getInvoiceDetail as onGetInvoiceDetail } from '../../store/invoices/actions';
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
 const InvoiceDetail = (props) => {
   //meta title

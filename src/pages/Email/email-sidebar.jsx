@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Modal,
@@ -8,7 +8,7 @@ import {
   ModalFooter,
   Input,
   Card,
-} from "reactstrap"
+} from 'reactstrap';
 
 // Import Editor
 
@@ -16,10 +16,10 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 //Import images
-import avatar2 from "../../assets/images/users/avatar-2.jpg"
-import avatar3 from "../../assets/images/users/avatar-3.jpg"
-import avatar4 from "../../assets/images/users/avatar-4.jpg"
-import avatar6 from "../../assets/images/users/avatar-6.jpg"
+import avatar2 from '../../assets/images/users/avatar-2.jpg';
+import avatar3 from '../../assets/images/users/avatar-3.jpg';
+import avatar4 from '../../assets/images/users/avatar-4.jpg';
+import avatar6 from '../../assets/images/users/avatar-6.jpg';
 
 const EmailSideBar = props => {
   const [modal, setmodal] = useState(false)

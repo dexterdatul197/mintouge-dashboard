@@ -1,15 +1,15 @@
-import React from "react";
-import { Row, Col, CardBody, Card, Container, Button, Form, Label, Input, FormFeedback } from "reactstrap";
+import React from 'react';
+import { Row, Col, CardBody, Card, Container, Button, Form, Label, Input, FormFeedback } from 'reactstrap';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // Formik Validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
 
 // import images
-import profile from "../../assets/images/profile-img.png";
-import logo from "../../assets/images/slogo-dark.svg";
+import profile from '../../assets/images/profile-img.png';
+import logo from '../../assets/images/slogo-dark.svg';
 
 const ForgetPasswordPage = () => {
   const validation = useFormik({

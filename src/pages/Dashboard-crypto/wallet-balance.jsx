@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Row, Col, Card, CardBody } from "reactstrap";
-import { Link } from "react-router-dom";
-import ReactApexChart from "react-apexcharts";
+import React, { useState, useEffect } from 'react';
+import { Row, Col, Card, CardBody } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import ReactApexChart from 'react-apexcharts';
 
 //actions
-import { getWalletbalanceData } from "../../store/actions";
+import { getWalletbalanceData } from '../../store/actions';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 
-import getChartColorsArray from "../../components/Common/ChartsDynamicColor";
+import getChartColorsArray from '../../components/Common/ChartsDynamicColor';
 
 const WalletBalance = ({ dataColors }) => {
   const dispatch = useDispatch();

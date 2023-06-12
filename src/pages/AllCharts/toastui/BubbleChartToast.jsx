@@ -1,8 +1,8 @@
-import React from "react"
-import "tui-chart/dist/tui-chart.css"
-import { BubbleChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import React from 'react';
+import 'tui-chart/dist/tui-chart.css"
+import { BubbleChart } from '@toast-ui/react-chart"
+import TuiChart from 'tui-chart"
+import './toastui.scss"
 
 const theme = {
   chart: {
