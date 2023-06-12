@@ -1,41 +1,41 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 
 // // //Ecommerce Pages
-import EcommerceProducts from '../pages/Ecommerce/EcommerceProducts/index';
-import EcommerceProductDetail from '../pages/Ecommerce/EcommerceProducts/EcommerceProductDetail';
-import EcommerceOrders from '../pages/Ecommerce/EcommerceOrders/index';
-import EcommerceCustomers from '../pages/Ecommerce/EcommerceCustomers/index';
-import EcommerceCheckout from '../pages/Ecommerce/EcommerceCheckout';
-import EcommerceAutoImport from '../pages/Forms/AutoImport';
-import EcommerceAddProduct from '../pages/Ecommerce/EcommerceAddProduct';
+const EcommerceProducts = lazy(() => import('@pages/Ecommerce/EcommerceProducts/index'));
+const EcommerceProductDetail = lazy(() => import('@pages/Ecommerce/EcommerceProducts/EcommerceProductDetail'));
+const EcommerceOrders = lazy(() => import('@pages/Ecommerce/EcommerceOrders/index'));
+const EcommerceCustomers = lazy(() => import('@pages/Ecommerce/EcommerceCustomers/index'));
+const EcommerceCheckout = lazy(() => import('@pages/Ecommerce/EcommerceCheckout'));
+const EcommerceAutoconst = lazy(() => import('@pages/Forms/Autoconst'));
+const EcommerceAddProduct = lazy(() => import('@pages/Ecommerce/EcommerceAddProduct'));
 
 // //Email
-import EmailInbox from '../pages/Email/email-inbox';
+const EmailInbox = lazy(() => import('@pages/Email/email-inbox'));
 
 // // Authentication related pages
-import Login from '../pages/Authentication/Login';
-import Logout from '../pages/Authentication/Logout';
-import Register from '../pages/Authentication/Register';
-import ForgetPwd from '../pages/Authentication/ForgetPassword';
+const Login = lazy(() => import('@pages/Authentication/Login'));
+const Logout = lazy(() => import('@pages/Authentication/Logout'));
+const Register = lazy(() => import('@pages/Authentication/Register'));
+const ForgetPwd = lazy(() => import('@pages/Authentication/ForgetPassword'));
 
-import PagesMaintenance from '../pages/Utility/pages-maintenance';
-import PagesComingsoon from '../pages/Utility/pages-comingsoon';
-import Pages404 from '../pages/Utility/pages-404';
-import Pages500 from '../pages/Utility/pages-500';
+const PagesMaintenance = lazy(() => import('@pages/Utility/pages-maintenance'));
+const PagesComingsoon = lazy(() => import('@pages/Utility/pages-comingsoon'));
+const Pages404 = lazy(() => import('@pages/Utility/pages-404'));
+const Pages500 = lazy(() => import('@pages/Utility/pages-500'));
 
 // // Dashboard
-import Dashboard from '../pages/Dashboard/index';
+const Dashboard = lazy(() => import('@pages/Dashboard/index'));
 
 // //Settings
-import ApiSetting from '../pages/Forms/ApiSetting';
-import Wallet from '../pages/Crypto/CryptoWallet/crypto-wallet';
+const ApiSetting = lazy(() => import('@pages/Forms/ApiSetting'));
+const Wallet = lazy(() => import('@pages/Crypto/CryptoWallet/crypto-wallet'));
 
 
 // //Contacts
-import ContactsGrid from '../pages/Contacts/contacts-grid';
-import ContactsList from '../pages/Contacts/ContactList/contacts-list';
-import ContactsProfile from '../pages/Contacts/ContactsProfile/contacts-profile';
+const ContactsGrid = lazy(() => import('@pages/Contacts/contacts-grid'));
+const ContactsList = lazy(() => import('@pages/Contacts/ContactList/contacts-list'));
+const ContactsProfile = lazy(() => import('@pages/Contacts/ContactsProfile/contacts-profile'));
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -50,7 +50,7 @@ const authProtectedRoutes = [
   { path: "/ecommerce-customers", component: <EcommerceCustomers /> },
   { path: "/ecommerce-checkout", component: <EcommerceCheckout /> },
   { path: "/ecommerce-add-product", component: <EcommerceAddProduct /> },
-  { path: "/ecommerce-auto-import", component: <EcommerceAutoImport /> },
+  { path: "/ecommerce-auto-const", component: <EcommerceAutoconst /> },
 
   //   //Settings
   { path: "/setting-api", component: <ApiSetting /> },
