@@ -1,57 +1,25 @@
-import PropTypes from "prop-types";
 import React from "react";
-
+import PropTypes from "prop-types";
 import { Routes, Route } from "react-router-dom";
 import { connect } from "react-redux";
-
 import { useSelector } from "react-redux";
 
-// Import Routes all
 import { authProtectedRoutes, publicRoutes } from "./routes";
-
-// Import all middleware
 import Authmiddleware from "./routes/route";
-
-// layouts Format
-import VerticalLayout from "./components/VerticalLayout/";
+import AuthLayout from "./components/Layout";
 import NonAuthLayout from "./components/NonAuthLayout";
 
 // Import scss
 import "./assets/scss/theme.scss";
-
-// Import Firebase Configuration file
-// import { initFirebaseBackend } from "./helpers/firebase_helper"
-
 import fakeBackend from "/src/helpers/AuthType/fakeBackend";
 
 // Activating fake backend
 fakeBackend();
 
-// const firebaseConfig = {
-//   apiKey: import.meta.env.VITE_APP_APIKEY,
-//   authDomain: import.meta.env.VITE_APP_AUTHDOMAIN,
-//   databaseURL: import.meta.env.VITE_APP_DATABASEURL,
-//   projectId: import.meta.env.VITE_APP_PROJECTID,
-//   storageBucket: import.meta.env.VITE_APP_STORAGEBUCKET,
-//   messagingSenderId: import.meta.env.VITE_APP_MESSAGINGSENDERID,
-//   appId: import.meta.env.VITE_APP_APPID,
-//   measurementId: import.meta.env.VITE_APP_MEASUREMENTID,
-// };
-
-// init firebase backend
-// initFirebaseBackend(firebaseConfig)
-
 const App = (props) => {
   const { layoutType } = useSelector((state) => ({
     layoutType: state.Layout.layoutType,
   }));
-
-  function getLayout(layoutType) {
-    let layoutCls = VerticalLayout;
-    return layoutCls;
-  }
-
-  const Layout = getLayout(layoutType);
 
   return (
     <React.Fragment>
@@ -70,7 +38,7 @@ const App = (props) => {
             path={route.path}
             element={
               <Authmiddleware>
-                <Layout>{route.component}</Layout>
+                <AuthLayout>{route.component}</AuthLayout>
               </Authmiddleware>
             }
             key={idx}
