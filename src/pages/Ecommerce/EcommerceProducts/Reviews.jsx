@@ -8,7 +8,7 @@ import images from '@assets/images';
 import { useDispatch } from 'react-redux';
 
 //action
-import { onLikeComment, onLikeReply } from '@storeactions';
+import { onLikeComment, onLikeReply } from '@store/actions';
 
 const CommentBox = ({
   value,
