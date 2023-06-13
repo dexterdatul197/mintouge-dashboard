@@ -10,7 +10,7 @@ const Footer = () => {
             <Col md={6}>{new Date().getFullYear()} © Mintouge.</Col>
             <Col md={6}>
               <div className="text-sm-end d-none d-sm-block">
-                Design & Develop by Gucci
+                Design & Develop by Mintouge
               </div>
             </Col>  
           </Row>

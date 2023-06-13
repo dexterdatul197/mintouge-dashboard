@@ -14,7 +14,7 @@ const FooterLink = () => {
           </div>
 
           <p className="mb-2">
-            {new Date().getFullYear()} © Mintouge. Design & Develop by Gucci
+            {new Date().getFullYear()} © Mintouge. Design & Develop by Mintouge
           </p>
           <p>
             It will be as simple as occidental in fact, it will be to an english

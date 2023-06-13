@@ -68,7 +68,7 @@ const ConfirmMail = () => {
               <div className="mt-5 text-center">
                 <p>
                   © {new Date().getFullYear()} Mintouge. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger"></i> by Gucci
+                  <i className="mdi mdi-heart text-danger"></i> by Mintouge
                 </p>
               </div>
             </Col>

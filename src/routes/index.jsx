@@ -7,7 +7,7 @@ const EcommerceProductDetail = lazy(() => import('@pages/Ecommerce/EcommerceProd
 const EcommerceOrders = lazy(() => import('@pages/Ecommerce/EcommerceOrders/index'));
 const EcommerceCustomers = lazy(() => import('@pages/Ecommerce/EcommerceCustomers/index'));
 const EcommerceCheckout = lazy(() => import('@pages/Ecommerce/EcommerceCheckout'));
-const EcommerceAutoconst = lazy(() => import('@pages/Forms/Autoconst'));
+const EcommerceAutoImport = lazy(() => import('@pages/Forms/AutoImport'));
 const EcommerceAddProduct = lazy(() => import('@pages/Ecommerce/EcommerceAddProduct'));
 
 // //Email
@@ -50,7 +50,7 @@ const authProtectedRoutes = [
   { path: "/ecommerce-customers", component: <EcommerceCustomers /> },
   { path: "/ecommerce-checkout", component: <EcommerceCheckout /> },
   { path: "/ecommerce-add-product", component: <EcommerceAddProduct /> },
-  { path: "/ecommerce-auto-const", component: <EcommerceAutoconst /> },
+  { path: "/ecommerce-auto-import", component: <EcommerceAutoImport /> },
 
   //   //Settings
   { path: "/setting-api", component: <ApiSetting /> },

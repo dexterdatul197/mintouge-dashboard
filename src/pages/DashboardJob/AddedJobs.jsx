@@ -33,7 +33,7 @@ const AddedJobs = () => {
                         </Link>
                       </h6>
                       <p className="text-muted mb-0">
-                        Gucci, USA - <b>53</b> sec ago
+                        Mintouge, USA - <b>53</b> sec ago
                       </p>
                     </div>
                     <UncontrolledDropdown>
@@ -65,7 +65,7 @@ const AddedJobs = () => {
                         </Link>
                       </h6>
                       <p className="text-muted mb-0">
-                        Gucci, Hong-Kong - <b>47</b> min ago
+                        Mintouge, Hong-Kong - <b>47</b> min ago
                       </p>
                     </div>
                     <UncontrolledDropdown>
@@ -226,7 +226,7 @@ const AddedJobs = () => {
                         </Link>
                       </h6>
                       <p className="text-muted mb-0">
-                        Gucci, Russia - <b>2</b> days ago
+                        Mintouge, Russia - <b>2</b> days ago
                       </p>
                     </div>
                     <UncontrolledDropdown>

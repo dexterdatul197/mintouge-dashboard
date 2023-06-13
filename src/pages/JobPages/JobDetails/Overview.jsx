@@ -58,7 +58,7 @@ const Overview = () => {
                     <CardBody>
                         <div className="text-center">
                             <img src={adobephotoshop} alt="" height="50" className="mx-auto d-block" />
-                            <h5 className="mt-3 mb-1">Gucci</h5>
+                            <h5 className="mt-3 mb-1">Mintouge</h5>
                             <p className="text-muted mb-0">Since July 2017</p>
                         </div>
 
@@ -77,7 +77,7 @@ const Overview = () => {
                                     <i className="bx bx-mail-send text-primary fs-4"></i>
                                     <div className="ms-3">
                                         <h6 className="fs-14 mb-2">Email</h6>
-                                        <p className="text-muted fs-14 mb-0">gucci@gmail.com</p>
+                                        <p className="text-muted fs-14 mb-0">mintouge@gmail.com</p>
                                     </div>
                                 </div>
                             </li>
@@ -86,7 +86,7 @@ const Overview = () => {
                                     <i className="bx bx-globe text-primary fs-4"></i>
                                     <div className="ms-3">
                                         <h6 className="fs-14 mb-2">Website</h6>
-                                        <p className="text-muted fs-14 text-break mb-0">www.gucci.com</p>
+                                        <p className="text-muted fs-14 text-break mb-0">www.mintouge.com</p>
                                     </div>
                                 </div>
                             </li>

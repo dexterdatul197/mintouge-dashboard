@@ -53,7 +53,7 @@ let users = [
     username: "admin",
     role: "admin",
     password: "123456",
-    email: "admin@gucci.com",
+    email: "admin@mintouge.com",
   },
 ];
 

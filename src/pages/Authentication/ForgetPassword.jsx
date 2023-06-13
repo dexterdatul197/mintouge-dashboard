@@ -160,7 +160,7 @@ const ForgetPasswordPage = (props) => {
                 </p>
                 <p>
                   © {new Date().getFullYear()} Mintouge. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Gucci
+                  <i className="mdi mdi-heart text-danger" /> by Mintouge
                 </p>
               </div>
             </Col>

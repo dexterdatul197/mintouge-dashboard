@@ -50,11 +50,11 @@ async function transform(productUrl) {
 
     const products: ProductModal[] = data.map(item => ({
         brand: apiPublicKey,
-        name: item.name || "Gucci Bag Model X",
-        description: item.description || "Best Gucci Bag beloved by everyone",
-        images: item.images || ["https://cdn.gucci.com/bag1.png", "https://cdn.gucci.com/bag2.png"],
-        asset: item.asset || "https://cdn.gucci.com/bag.gltf",
-        productUrl: item.productUrl || "https://gucci.com/products?productId=11840302",
+        name: item.name || "Mintouge Bag Model X",
+        description: item.description || "Best Mintouge Bag beloved by everyone",
+        images: item.images || ["https://cdn.mintouge.com/bag1.png", "https://cdn.mintouge.com/bag2.png"],
+        asset: item.asset || "https://cdn.mintouge.com/bag.gltf",
+        productUrl: item.productUrl || "https://mintouge.com/products?productId=11840302",
         productCode: item.productCode || "PD-11840302",
         category: item.category || "bag",
         feature: item.feature || "UK Only",
@@ -87,7 +87,7 @@ async function transform(productUrl) {
                 type="text"
                 className="form-control"
                 id="horizontal-firstname-Input"
-                value="https://gucci.com/public/products"
+                value="https://mintouge.com/public/products"
                 contentEditable={true}
               />
             </div>

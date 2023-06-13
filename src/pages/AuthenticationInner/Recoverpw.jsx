@@ -148,7 +148,7 @@ const Recoverpw = () => {
                 </p>
                 <p>
                   © {new Date().getFullYear()} Mintouge. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger"></i> by Gucci
+                  <i className="mdi mdi-heart text-danger"></i> by Mintouge
                 </p>
               </div>
             </Col>

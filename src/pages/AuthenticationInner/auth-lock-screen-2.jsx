@@ -134,7 +134,7 @@ const LockScreen2 = (props) => {
                         {new Date().getFullYear()}{" "}
                         Mintouge. Crafted with{" "}
                         <i className="mdi mdi-heart text-danger"></i> by
-                        Gucci
+                        Mintouge
                       </p>
                     </div>
                   </div>

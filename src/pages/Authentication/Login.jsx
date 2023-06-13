@@ -41,7 +41,7 @@ const Login = (props) => {
     enableReinitialize: true,
 
     initialValues: {
-      email: "admin@gucci.com" || "",
+      email: "admin@mintouge.com" || "",
       password: "123456" || "",
     },
     validationSchema: Yup.object({
@@ -200,7 +200,7 @@ const Login = (props) => {
                 </p>
                 <p>
                   © {new Date().getFullYear()} Mintouge. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Gucci
+                  <i className="mdi mdi-heart text-danger" /> by Mintouge
                 </p>
               </div>
             </Col>
