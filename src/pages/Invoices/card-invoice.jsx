@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Card, CardBody, Col, Row, UncontrolledTooltip } from 'reactstrap';
-import images from '/src/assets/images"
+import images from '@assets/images"
 
 const CardInvoice = ({ data }) => {
   const name = data.founder

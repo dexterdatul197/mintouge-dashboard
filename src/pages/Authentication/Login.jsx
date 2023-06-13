@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
-import withRouter from '../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -24,11 +24,11 @@ import {
 } from 'reactstrap';
 
 // actions
-import { loginUser } from '../../store/actions';
+import { loginUser } from '@store/actions';
 
 // import images
-import profile from '../../assets/images/profile-img.png';
-import logo from '../../assets/images/slogo-dark.svg';
+import profile from '@assets/images/profile-img.png';
+import logo from '@assets/images/slogo-dark.svg';
 
 const Login = (props) => {
   //meta title

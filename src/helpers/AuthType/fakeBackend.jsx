@@ -45,7 +45,7 @@ import {
   productData,
   cryptoOrderData,
   mailDB
-} from '../../common/data';
+} from '@common/data';
 
 let users = [
   {

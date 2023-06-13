@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import withRouter from '../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 import { Col, Container, Row } from 'reactstrap';
 import { map } from 'lodash';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 //Import Card
 import CardContact from './card-contact';
@@ -13,7 +13,7 @@ import CardContact from './card-contact';
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getUsers as onGetUsers } from '/src/store/contacts/actions';
+import { getUsers as onGetUsers } from '@store/contacts/actions';
 
 const ContactsGrid = () => {
   //meta title

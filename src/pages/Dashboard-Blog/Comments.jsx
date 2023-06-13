@@ -12,7 +12,7 @@ import {
 //SimpleBar
 import SimpleBar from 'simplebar-react"
 // import images
-import user1 from '../../assets/images/users/avatar-2.jpg';
+import user1 from '@assets/images/users/avatar-2.jpg';
 
 const Comments = props => {
   return (

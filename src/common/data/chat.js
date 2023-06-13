@@ -1,8 +1,8 @@
 //import Images
-import avatar02 from "../../assets/images/users/avatar-2.jpg";
-import avatar03 from "../../assets/images/users/avatar-3.jpg";
-import avatar04 from "../../assets/images/users/avatar-4.jpg";
-import avatar06 from "../../assets/images/users/avatar-6.jpg";
+import avatar02 from "@assets/images/users/avatar-2.jpg";
+import avatar03 from "@assets/images/users/avatar-3.jpg";
+import avatar04 from "@assets/images/users/avatar-4.jpg";
+import avatar06 from "@assets/images/users/avatar-6.jpg";
 
 const chats = [
   {

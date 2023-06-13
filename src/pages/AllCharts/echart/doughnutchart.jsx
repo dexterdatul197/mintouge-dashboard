@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import getChartColorsArray from '../../../components/Common/ChartsDynamicColor';
+import getChartColorsArray from '@components/Common/ChartsDynamicColor';
 
 const Doughnut = ({ dataColors }) => {
   const doughnutEChartColors = getChartColorsArray(dataColors);

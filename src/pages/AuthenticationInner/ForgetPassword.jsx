@@ -8,8 +8,8 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 // import images
-import profile from '../../assets/images/profile-img.png';
-import logo from '../../assets/images/slogo-dark.svg';
+import profile from '@assets/images/profile-img.png';
+import logo from '@assets/images/slogo-dark.svg';
 
 const ForgetPasswordPage = () => {
   const validation = useFormik({

@@ -20,7 +20,7 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 const FormEditors = () => {
 

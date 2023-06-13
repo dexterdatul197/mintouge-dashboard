@@ -24,16 +24,16 @@ import ModalVideo from 'react-modal-video';
 import 'react-modal-video/scss/modal-video.scss';
 
 // import image
-import img1 from '../../assets/images/small/img-1.jpg';
-import img2 from '../../assets/images/small/img-2.jpg';
-import img3 from '../../assets/images/small/img-3.jpg';
-import img4 from '../../assets/images/small/img-4.jpg';
-import img5 from '../../assets/images/small/img-5.jpg';
-import img6 from '../../assets/images/small/img-6.jpg';
-import img7 from '../../assets/images/small/img-7.jpg';
+import img1 from '@assets/images/small/img-1.jpg';
+import img2 from '@assets/images/small/img-2.jpg';
+import img3 from '@assets/images/small/img-3.jpg';
+import img4 from '@assets/images/small/img-4.jpg';
+import img5 from '@assets/images/small/img-5.jpg';
+import img6 from '@assets/images/small/img-6.jpg';
+import img7 from '@assets/images/small/img-7.jpg';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 const images = [img1, img2, img3, img4, img5, img6];
 const imageZoom = [img3, img7];

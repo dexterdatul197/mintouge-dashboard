@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, CardBody, CardFooter, UncontrolledTooltip } 
 
 //Import Images
 import { Link } from 'react-router-dom';
-import { icoLandingTeam } from '../../../../common/data';
+import { icoLandingTeam } from '@common/data';
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper';

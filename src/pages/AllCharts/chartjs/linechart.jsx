@@ -1,6 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import getChartColorsArray from '../../../components/Common/ChartsDynamicColor';
+import getChartColorsArray from '@components/Common/ChartsDynamicColor';
 
 const LineChart = ({ dataColors }) => {
   var lineChartColor = getChartColorsArray(dataColors);

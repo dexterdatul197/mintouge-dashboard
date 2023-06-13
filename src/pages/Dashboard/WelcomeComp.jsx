@@ -3,8 +3,8 @@ import React from 'react';
 import { Row, Col, Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import avatar1 from '../../assets/images/users/avatar-1.jpg';
-import profileImg from '../../assets/images/profile-img.png';
+import avatar1 from '@assets/images/users/avatar-1.jpg';
+import profileImg from '@assets/images/profile-img.png';
 
 const WelcomeComp = () => {
   return (

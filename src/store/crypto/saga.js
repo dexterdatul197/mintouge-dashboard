@@ -10,7 +10,7 @@ import {
 } from "./actions"
 
 //Include Both Helper File with needed methods
-import { getWallet, getCryptoOrder } from "../../helpers/fakebackend_helper"
+import { getWallet, getCryptoOrder } from "@helpers/fakebackend_helper"
 
 function* fetchWallet() {
   try {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Row, Col, Card, CardBody, CardTitle, Container } from 'reactstrap';
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 // import chartJs
 import LineChart from '../AllCharts/chartjs/linechart';

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import getChartColorsArray from '../../components/Common/ChartsDynamicColor';
+import getChartColorsArray from '@components/Common/ChartsDynamicColor';
 
 const ApexRevenue = ({ dataColors }) => {
   const apexprofileChartColors = getChartColorsArray(dataColors);

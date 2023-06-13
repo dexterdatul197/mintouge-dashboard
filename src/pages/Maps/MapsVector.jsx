@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 import Vector from './Vectormap"
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb"
+import Breadcrumbs from '@components/Common/Breadcrumb"
 
 const MapsVector = () => {
 

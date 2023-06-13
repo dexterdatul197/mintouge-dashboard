@@ -26,7 +26,7 @@ import 'flatpickr/dist/themes/material_blue.css';
 import Flatpickr from 'react-flatpickr';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 import { Link } from 'react-router-dom';
 
 const animatedComponents = makeAnimated();

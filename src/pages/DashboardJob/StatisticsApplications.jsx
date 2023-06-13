@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardBody, Col, Nav, NavItem, NavLink } from 'reactstrap';
 import { StatisticsApplicationsChart } from './JobCharts';
 
-import { getStatisticData } from '../../store/actions';
+import { getStatisticData } from '@store/actions';
 import {useDispatch, useSelector} from 'react-redux';
 
 const StatisticsApplications = () => {

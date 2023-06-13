@@ -20,7 +20,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 const FormValidations = () => {
   //meta title

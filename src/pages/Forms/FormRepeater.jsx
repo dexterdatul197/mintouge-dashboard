@@ -12,7 +12,7 @@ import {
   Container,
 } from 'reactstrap';
 
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 const FormRepeater = () => {
   const [rows1, setrows1] = useState([{ id: 1 }]);

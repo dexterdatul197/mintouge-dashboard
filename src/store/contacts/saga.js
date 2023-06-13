@@ -17,7 +17,7 @@ import {
 } from "./actions"
 
 //Include Both Helper File with needed methods
-import { getUsers, getUserProfile , addNewUser, updateUser ,deleteUser } from "../../helpers/fakebackend_helper"
+import { getUsers, getUserProfile , addNewUser, updateUser ,deleteUser } from "@helpers/fakebackend_helper"
 
 function* fetchUsers() {
   try {

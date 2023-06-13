@@ -4,10 +4,14 @@
     "paths": {
       "@/*": ["src/*"],
       "@assets/*": ["/src/assets/*"],
+      "@common/*": ["/src/common/*"],
       "@components/*": ["/src/components/*"],
+      "@constants/*": ["/src/constants/*"],
+      "@helpers/*": ["/src/helpers/*"],
       "@hooks/*": ["/src/hooks/*"],
       "@pages/*": ["/src/pages/*"],
       "@styles/*": ["/src/styles/*"],
+      "@store/*": ["/src/store/*"],
     }
   }
 }

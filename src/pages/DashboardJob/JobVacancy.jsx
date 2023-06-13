@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardBody, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { jobVacancyData } from '../../common/data/dashboard-job';
+import { jobVacancyData } from '@common/data/dashboard-job';
 
 const JobVacancy = () => {
     return (

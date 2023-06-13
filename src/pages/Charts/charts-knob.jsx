@@ -4,7 +4,7 @@ import { Container, Row, Col, Card, CardBody } from 'reactstrap';
 import Knob from '../AllCharts/knob/knob';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 const ChartsKnob = () => {
 

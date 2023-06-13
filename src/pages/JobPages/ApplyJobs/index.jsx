@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import Breadcrumbs from '../../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 import {
   Row,
   Col,
@@ -8,16 +8,16 @@ import {
   Container,
   UncontrolledTooltip,
 } from 'reactstrap';
-import { jobApply } from '../../../common/data/job';
-import TableContainer from '../../../components/Common/TableContainer';
+import { jobApply } from '@common/data/job';
+import TableContainer from '@components/Common/TableContainer';
 import { JobTitle, CompanyName, Type, ApplyDate, Status } from './ApplyJobsCol';
-import DeleteModal from '../../../components/Common/DeleteModal';
+import DeleteModal from '@components/Common/DeleteModal';
 import { Link } from 'react-router-dom';
 
 import {
   getApplyJob as OnGetApplyJob,
   deleteApplyJob as OnDeleteApplyJob,
-} from '/src/store/actions';
+} from '@store/actions';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';

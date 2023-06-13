@@ -23,7 +23,7 @@ import {
     deleteJobList,
     getApplyJob,
     deleteApplyJob
-} from "../../helpers/fakebackend_helper";
+} from "@helpers/fakebackend_helper";
 
 function* fetchJobsList() {
     try {

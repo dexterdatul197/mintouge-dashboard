@@ -16,7 +16,7 @@ import {
   setFolderOnSelectedMails as onFolderOnSelectedMails,
   selectFolders as onSelectFolders,
   getSelectedMails as onGetSelectedMails,
-} from '/src/store/mails/actions';
+} from '@store/mails/actions';
 
 const EmailToolbar = (props) => {
   const dispatch = useDispatch();

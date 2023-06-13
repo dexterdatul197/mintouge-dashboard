@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 import { Row, Col, CardBody, Card, Container, Form, Label, Input, FormFeedback } from 'reactstrap';
 
 // import images
-import profileImg from '../../assets/images/profile-img.png';
-import logoImg from '../../assets/images/slogo-dark.svg';
-import lightlogo from '../../assets/images/slogo-light.svg';
+import profileImg from '@assets/images/profile-img.png';
+import logoImg from '@assets/images/slogo-dark.svg';
+import lightlogo from '@assets/images/slogo-light.svg';
 
 const Register = () => {
 

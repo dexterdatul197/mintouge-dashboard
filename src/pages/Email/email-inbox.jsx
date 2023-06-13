@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import withRouter from '../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 import {
   Button,
   Card,
@@ -19,7 +19,7 @@ import {
 } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 import classnames from 'classnames';
 
@@ -35,16 +35,16 @@ import {
   getMailsLists as onGetMailsLists,
   getSelectedMails as onGetSelectedMails,
   updateMail as onUpdateMail
-} from '/src/store/mails/actions';
+} from '@store/mails/actions';
 
 //Import Email Topbar
 import EmailToolbar from './email-toolbar';
 
 //Import images
-import avatar2 from '../../assets/images/users/avatar-2.jpg';
-import avatar3 from '../../assets/images/users/avatar-3.jpg';
-import avatar4 from '../../assets/images/users/avatar-4.jpg';
-import avatar6 from '../../assets/images/users/avatar-6.jpg';
+import avatar2 from '@assets/images/users/avatar-2.jpg';
+import avatar3 from '@assets/images/users/avatar-3.jpg';
+import avatar4 from '@assets/images/users/avatar-4.jpg';
+import avatar6 from '@assets/images/users/avatar-6.jpg';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';

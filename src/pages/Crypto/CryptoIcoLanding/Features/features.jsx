@@ -5,8 +5,8 @@ import { Container, Row, Col } from 'reactstrap';
 import FeatureBox from './feature-box';
 
 //Import images
-import feature1 from '../../../../assets/images/crypto/features-img/img-1.png';
-import feature2 from '../../../../assets/images/crypto/features-img/img-2.png';
+import feature1 from '@assets/images/crypto/features-img/img-1.png';
+import feature2 from '@assets/images/crypto/features-img/img-2.png';
 
 const Features = () => {
   const features1 = [

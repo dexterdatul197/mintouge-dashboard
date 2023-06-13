@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import withRouter from '../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 import { isEmpty } from 'lodash';
 
 import {
@@ -8,7 +8,7 @@ import {
   Card,
   CardBody,
 } from 'reactstrap';
-import { getOrders as onGetOrders } from '../../store/actions';
+import { getOrders as onGetOrders } from '@store/actions';
 
 import EcommerceOrdersModal from '../Ecommerce/EcommerceOrders/EcommerceOrdersModal';
 
@@ -21,7 +21,7 @@ import {
   PaymentMethod,
 } from './LatestTranactionCol';
 
-import TableContainer from '../../components/Common/TableContainer';
+import TableContainer from '@components/Common/TableContainer';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';

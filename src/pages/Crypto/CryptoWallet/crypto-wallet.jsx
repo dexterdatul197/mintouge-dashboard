@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 import { Card, CardBody, Col, Container, Row } from 'reactstrap';
-import withRouter from '../../../components/Common/withRouter';
-import '/src/assets/scss/datatables.scss';
+import withRouter from '@components/Common/withRouter';
+import '@assets/scss/datatables.scss';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
-import { getWallet as onGetWallet } from '/src/store/actions';
+import Breadcrumbs from '@components/Common/Breadcrumb';
+import { getWallet as onGetWallet } from '@store/actions';
 import WalletActivities from './walletActivities';
 import WalletStats from './walletStats';
 import WalletOverView from './walletOverView';

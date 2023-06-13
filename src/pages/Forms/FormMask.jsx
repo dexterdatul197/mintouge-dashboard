@@ -12,7 +12,7 @@ import {
   Input
 } from 'reactstrap';
 
-import Breadcrumbs from '../../components/Common/Breadcrumb"
+import Breadcrumbs from '@components/Common/Breadcrumb"
 
 // Form Mask
 import InputMask from 'react-input-mask"

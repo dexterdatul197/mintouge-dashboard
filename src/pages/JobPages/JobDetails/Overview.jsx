@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, Col } from 'reactstrap';
 
 //import images
-import adobephotoshop from '../../../assets/images/companies/adobe-photoshop.svg';
+import adobephotoshop from '@assets/images/companies/adobe-photoshop.svg';
 
 const Overview = () => {
     return (

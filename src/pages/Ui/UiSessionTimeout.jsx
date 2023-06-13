@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Card, Row, Col, CardBody, CardTitle, Container, Alert } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb"
+import Breadcrumbs from '@components/Common/Breadcrumb"
 
 class UiSessionTimeout extends Component {
   constructor(props) {

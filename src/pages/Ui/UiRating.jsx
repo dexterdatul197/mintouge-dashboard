@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 import { Row, Col, Card, CardBody, Container, Badge } from 'reactstrap';
 
 // Rating Plugin

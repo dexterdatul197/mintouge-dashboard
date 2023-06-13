@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import ReactApexChart from 'react-apexcharts';
 
 //actions
-import { getEarningChartsData } from '../../store/actions';
+import { getEarningChartsData } from '@store/actions';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 
-import getChartColorsArray from '../../components/Common/ChartsDynamicColor';
+import getChartColorsArray from '@components/Common/ChartsDynamicColor';
 
 const Earning = ({ dataColors }) => {
   const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import ReactApexChart from 'react-apexcharts';
 import { useSelector, useDispatch } from 'react-redux';
 
 //actions
-import { getTopSellingProduct } from '../../store/actions';
+import { getTopSellingProduct } from '@store/actions';
 
 const getChartOptions = index => {
   var options = {

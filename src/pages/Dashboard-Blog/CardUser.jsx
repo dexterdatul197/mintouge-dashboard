@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardBody, Col, Row } from 'reactstrap';
 import ReactApexChart from 'react-apexcharts';
-import getChartColorsArray from '../../components/Common/ChartsDynamicColor';
+import getChartColorsArray from '@components/Common/ChartsDynamicColor';
 import { useSelector, useDispatch } from 'react-redux';
-import { dashboardBlogVisitorData } from '../../store/actions';
+import { dashboardBlogVisitorData } from '@store/actions';
 
 const CardUser = ({ dataColors }) => {
   const apexCardUserChartColors = getChartColorsArray(dataColors);

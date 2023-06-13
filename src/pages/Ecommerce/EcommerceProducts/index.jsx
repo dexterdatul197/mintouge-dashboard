@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
-import withRouter from '../../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 import {
   Card,
   CardBody,
@@ -30,16 +30,16 @@ import Nouislider from 'nouislider-react';
 import 'nouislider/distribute/nouislider.css';
 
 //Import Product Images
-import { productImages } from '/src/assets/images/product';
+import { productImages } from '@assets/images/product';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 //Import data
 import { discountData, productsData } from '/src/common/data';
 
 //Import actions
-import { getProducts as onGetProducts } from '/src/store/e-commerce/actions';
+import { getProducts as onGetProducts } from '@store/e-commerce/actions';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';

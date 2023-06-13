@@ -17,21 +17,21 @@ import {
 } from 'reactstrap';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-import withRouter from '../../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 
 import { Pdate, Type, Value, ValueinUSD, Status, Coin } from './CryptoCol';
 
-import TableContainer from '../../../components/Common/TableContainer';
+import TableContainer from '@components/Common/TableContainer';
 
 //Date Picker
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import '/src/assets/scss/datatables.scss';
+import '@assets/scss/datatables.scss';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
-import { getCryptoOrders } from '/src/store/crypto/actions';
+import Breadcrumbs from '@components/Common/Breadcrumb';
+import { getCryptoOrders } from '@store/crypto/actions';
 
 const CryptoOrders = (props) => {
   //meta title

@@ -4,7 +4,7 @@ import { Card, CardBody, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
 import { map } from 'lodash';
-import images from '/src/assets/images';
+import images from '@assets/images';
 
 const RecentProducts = ({ recentProducts }) => {
   return (

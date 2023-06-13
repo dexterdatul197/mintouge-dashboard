@@ -13,10 +13,10 @@ import { withTranslation } from 'react-i18next';
 // Redux
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import withRouter from '../../Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 
 // users
-import user1 from '../../../assets/images/users/avatar-1.jpg';
+import user1 from '@assets/images/users/avatar-1.jpg';
 
 const ProfileMenu = (props) => {
   // Declare a new state variable, which we'll call "menu"

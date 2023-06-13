@@ -12,10 +12,10 @@ import ChartBar from '../AllCharts/chartist/chartbar';
 import LineAreaChart from '../AllCharts/chartist/lineareachart';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 import '../../../node_modules/chartist/dist/chartist.css';
-import '../../assets/scss/chartist.scss';
+import '@assets/scss/chartist.scss';
 const ChartistChart = () => {
   //meta title
   document.title = "Chartist Charts | Mintouge - React Admin & Dashboard Template";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
-import withRouter from '../../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 import {
   Button,
   Card,
@@ -23,10 +23,10 @@ import { isEmpty } from 'lodash';
 import StarRatings from 'react-star-ratings';
 
 //Import Product Images
-import { productImages } from '/src/assets/images/product';
+import { productImages } from '@assets/images/product';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 //Import actions
 import {
@@ -34,7 +34,7 @@ import {
   getProductComments,
   onAddReply as onAddReplyAction,
   onAddComment as onAddCommentAction,
-} from '/src/store/actions';
+} from '@store/actions';
 import RecentProducts from './RecentProducts';
 import Reviews from './Reviews';
 

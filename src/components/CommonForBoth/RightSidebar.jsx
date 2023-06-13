@@ -13,14 +13,14 @@ import {
   changePreloader,
   changeTopbarTheme,
   showRightSidebarAction,
-} from '../../store/actions';
+} from '@store/actions';
 
 //SimpleBar
 import SimpleBar from 'simplebar-react';
 
 import { Link } from 'react-router-dom';
 
-import '../../components/CommonForBoth/rightbar.scss';
+import '@components/CommonForBoth/rightbar.scss';
 
 //constants
 import {
@@ -31,7 +31,7 @@ import {
   leftBarThemeImageTypes,
   leftSidebarTypes,
   leftSideBarThemeTypes,
-} from '../../constants/layout';
+} from '@constants/layout';
 
 const RightSidebar = props => {
   const onCloseRightBar = () => {

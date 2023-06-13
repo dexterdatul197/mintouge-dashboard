@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import withRouter from '../Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 
 //i18n
 import { withTranslation } from 'react-i18next';
@@ -9,10 +9,10 @@ import SidebarContent from './SidebarContent';
 
 import { Link } from 'react-router-dom';
 
-import logo from '../../assets/images/slogo-dark.svg';
-import logoLightPng from '../../assets/images/logo-light.svg';
-import logoLightSvg from '../../assets/images/slogo-light.svg';
-import logoDark from '../../assets/images/logo-dark.svg';
+import logo from '@assets/images/slogo-dark.svg';
+import logoLightPng from '@assets/images/logo-light.svg';
+import logoLightSvg from '@assets/images/slogo-light.svg';
+import logoDark from '@assets/images/logo-dark.svg';
 
 const Sidebar = (props) => {
   return (

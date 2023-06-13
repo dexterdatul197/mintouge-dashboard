@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Card, CardBody, CardTitle } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 import SimpleLineChart from '../AllCharts/rechart/SimpleLineChart';
 import SimpleAreaChart from '../AllCharts/rechart/SimpleAreaChart';
 import MixBarChart from '../AllCharts/rechart/MixBarChart';

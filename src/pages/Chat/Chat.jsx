@@ -32,15 +32,15 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
-import images from '/src/assets/images';
+import Breadcrumbs from '@components/Common/Breadcrumb';
+import images from '@assets/images';
 import {
   addMessage as onAddMessage,
   getChats as onGetChats,
   getContacts as onGetContacts,
   getGroups as onGetGroups,
   getMessages as onGetMessages,
-} from '/src/store/actions';
+} from '@store/actions';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';

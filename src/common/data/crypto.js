@@ -1,11 +1,11 @@
-import avatar1 from "../../assets/images/users/avatar-1.jpg";
-import avatar2 from "../../assets/images/users/avatar-2.jpg";
-import avatar3 from "../../assets/images/users/avatar-3.jpg";
-import avatar8 from "../../assets/images/users/avatar-8.jpg";
-import avatar5 from "../../assets/images/users/avatar-5.jpg";
-import blog1 from "../../assets/images/crypto/blog/img-1.jpg";
-import blog2 from "../../assets/images/crypto/blog/img-2.jpg";
-import blog3 from "../../assets/images/crypto/blog/img-3.jpg";
+import avatar1 from "@assets/images/users/avatar-1.jpg";
+import avatar2 from "@assets/images/users/avatar-2.jpg";
+import avatar3 from "@assets/images/users/avatar-3.jpg";
+import avatar8 from "@assets/images/users/avatar-8.jpg";
+import avatar5 from "@assets/images/users/avatar-5.jpg";
+import blog1 from "@assets/images/crypto/blog/img-1.jpg";
+import blog2 from "@assets/images/crypto/blog/img-2.jpg";
+import blog3 from "@assets/images/crypto/blog/img-3.jpg";
 
 const wallet = {
   id: "#SK0234",

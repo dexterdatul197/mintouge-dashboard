@@ -5,7 +5,7 @@ import DualListBox from 'react-dual-listbox';
 import 'react-dual-listbox/lib/react-dual-listbox.css';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb"
+import Breadcrumbs from '@components/Common/Breadcrumb"
 
 const options = [
     { value: 'luna', label: 'Moon' },

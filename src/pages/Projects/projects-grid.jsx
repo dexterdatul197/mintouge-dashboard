@@ -6,16 +6,16 @@ import {
   PaginationLink,
   Row,
 } from 'reactstrap';
-import withRouter from '../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 import { map } from 'lodash';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 //Import Cards
 import CardProject from './card-project';
 
-import { getProjects as onGetProjects } from '/src/store/actions';
+import { getProjects as onGetProjects } from '@store/actions';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';

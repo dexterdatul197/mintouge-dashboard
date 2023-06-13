@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import withRouter from '../Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 import {
   changeLayout,
   changeLayoutMode,
@@ -10,13 +10,13 @@ import {
   changeTopbarTheme,
   changeLayoutWidth,
   showRightSidebarAction,
-} from '../../store/actions';
+} from '@store/actions';
 
 // Layout Related Components
 import Header from './Header';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import RightSidebar from '../CommonForBoth/RightSidebar';
+import RightSidebar from '@components/CommonForBoth/RightSidebar';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';

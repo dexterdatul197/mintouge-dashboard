@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 
 //Import Images
-import avatar1 from '../../assets/images/users/avatar-1.jpg';
+import avatar1 from '@assets/images/users/avatar-1.jpg';
 
 function CardUser(props) {
   const [settingsMenu, setSettingsMenu] = useState(false)

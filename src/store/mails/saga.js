@@ -29,7 +29,7 @@ import {
   setfolderonmails,
   selectFolders,
   updateMail
-} from "../../helpers/fakebackend_helper";
+} from "@helpers/fakebackend_helper";
 
 function* fetchMailsLists({ payload: filter }) {
   try {

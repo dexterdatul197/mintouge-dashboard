@@ -21,19 +21,19 @@ import {
 } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
-import DeleteModal from '../../../components/Common/DeleteModal';
+import DeleteModal from '@components/Common/DeleteModal';
 import {
   getCustomers as onGetCustomers,
   addNewCustomer as onAddNewCustomer,
   updateCustomer as onUpdateCustomer,
   deleteCustomer as onDeleteCustomer,
-} from '/src/store/e-commerce/actions';
+} from '@store/e-commerce/actions';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
-import TableContainer from '../../../components/Common/TableContainer';
+import TableContainer from '@components/Common/TableContainer';
 
 // Column
 import {

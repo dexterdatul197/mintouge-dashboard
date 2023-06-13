@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Input, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import images from '/src/assets/images';
+import images from '@assets/images';
 
 //redux
 import { useDispatch } from 'react-redux';
 
 //action
-import { onLikeComment, onLikeReply } from '../../../store/actions';
+import { onLikeComment, onLikeReply } from '@storeactions';
 
 const CommentBox = ({
   value,

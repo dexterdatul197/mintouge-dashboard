@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, Col } from 'reactstrap';
 
 //import images
-import wechat from '../../../assets/images/companies/wechat.svg';
+import wechat from '@assets/images/companies/wechat.svg';
 
 const DetailsSection = () => {
     return (

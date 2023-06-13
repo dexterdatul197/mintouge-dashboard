@@ -28,7 +28,7 @@ import {
   updateEvent,
   deleteEvent,
   getCategories,
-} from "../../helpers/fakebackend_helper"
+} from "@helpers/fakebackend_helper"
 
 function* fetchEvents() {
   try {

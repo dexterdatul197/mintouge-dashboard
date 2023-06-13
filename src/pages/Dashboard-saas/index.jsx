@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 //Import Components
 import CardUser from './card-user';

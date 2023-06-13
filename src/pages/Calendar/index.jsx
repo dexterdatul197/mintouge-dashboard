@@ -21,7 +21,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 import {
   addNewEvent as onAddNewEvent,
@@ -29,12 +29,12 @@ import {
   getCategories as onGetCategories,
   getEvents as onGetEvents,
   updateEvent as onUpdateEvent,
-} from '../../store/actions';
+} from '@store/actions';
 
 import DeleteModal from './DeleteModal';
 
 //import Images
-import verification from '../../assets/images/verification-img.png';
+import verification from '@assets/images/verification-img.png';
 
 //css
 import '@fullcalendar/bootstrap/main.css';

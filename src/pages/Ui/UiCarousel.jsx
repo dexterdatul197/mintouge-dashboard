@@ -19,7 +19,7 @@ import IndividualInterval from './CarouselTypes/individualInterval';
 import SlideDark from './CarouselTypes/slideDark';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 const UiCarousel = () => {
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Card } from 'reactstrap';
 
 //Import Images
-import profileImg from '../../assets/images/profile-img.png';
+import profileImg from '@assets/images/profile-img.png';
 
 function CardWelcome(props) {
   return (

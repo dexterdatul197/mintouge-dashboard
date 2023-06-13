@@ -1,40 +1,40 @@
 /** Product 1 */
-import product1 from "../../assets/images/product/img-1.png";
-import product7 from "../../assets/images/product/Pro-1a.png";
-import product8 from "../../assets/images/product/Pro-1b.png";
+import product1 from "@assets/images/product/img-1.png";
+import product7 from "@assets/images/product/Pro-1a.png";
+import product8 from "@assets/images/product/Pro-1b.png";
 
 /** Product 2 */
-import product2a from "../../assets/images/product/img-2.png";
-import product2b from "../../assets/images/product/Pro-2a.png";
-import product2c from "../../assets/images/product/Pro-2b.png";
+import product2a from "@assets/images/product/img-2.png";
+import product2b from "@assets/images/product/Pro-2a.png";
+import product2c from "@assets/images/product/Pro-2b.png";
 
 /** Product 3 */
-import product3a from "../../assets/images/product/img-3.png";
-import product3b from "../../assets/images/product/Pro-4.png";
-import product3c from "../../assets/images/product/Pro-4a.png";
+import product3a from "@assets/images/product/img-3.png";
+import product3b from "@assets/images/product/Pro-4.png";
+import product3c from "@assets/images/product/Pro-4a.png";
 
 /** Product 4 */
-import product4a from "../../assets/images/product/img-4.png";
-import product4b from "../../assets/images/product/Pro-12a.png";
-import product4c from "../../assets/images/product/Pro-12b.png";
+import product4a from "@assets/images/product/img-4.png";
+import product4b from "@assets/images/product/Pro-12a.png";
+import product4c from "@assets/images/product/Pro-12b.png";
 
 /** Product 5 */
-import product5a from "../../assets/images/product/img-5.png";
-import product5b from "../../assets/images/product/Pro-8a.png";
-import product5c from "../../assets/images/product/Pro-8b.png";
+import product5a from "@assets/images/product/img-5.png";
+import product5b from "@assets/images/product/Pro-8a.png";
+import product5c from "@assets/images/product/Pro-8b.png";
 
 /** Product 6 */
-import product6a from "../../assets/images/product/img-6.png";
-import product6b from "../../assets/images/product/Pro-17.png";
-import product6c from "../../assets/images/product/Pro-17a.png";
+import product6a from "@assets/images/product/img-6.png";
+import product6b from "@assets/images/product/Pro-17.png";
+import product6c from "@assets/images/product/Pro-17a.png";
 
 //Import Product Images
-import img1 from "../../assets/images/product/img-1.png";
-import img2 from "../../assets/images/product/img-2.png";
-import img3 from "../../assets/images/product/img-3.png";
-import img4 from "../../assets/images/product/img-4.png";
-import img5 from "../../assets/images/product/img-5.png";
-import img6 from "../../assets/images/product/img-6.png";
+import img1 from "@assets/images/product/img-1.png";
+import img2 from "@assets/images/product/img-2.png";
+import img3 from "@assets/images/product/img-3.png";
+import img4 from "@assets/images/product/img-4.png";
+import img5 from "@assets/images/product/img-5.png";
+import img6 from "@assets/images/product/img-6.png";
 
 
 const productsData = [

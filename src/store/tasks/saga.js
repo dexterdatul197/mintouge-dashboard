@@ -5,7 +5,7 @@ import { GET_TASKS } from "./actionTypes"
 import { getTasksSuccess, getTasksFail } from "./actions"
 
 //Include Both Helper File with needed methods
-import { getTasks } from "../../helpers/fakebackend_helper"
+import { getTasks } from "@helpers/fakebackend_helper"
 
 function* fetchTasks() {
   try {

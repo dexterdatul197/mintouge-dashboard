@@ -9,7 +9,7 @@ import {
     topSellingData as topSellingDataApi,
     getEarningChartsData as getEarningChartsDataApi
 }
-    from "../../helpers/fakebackend_helper";
+    from "@helpers/fakebackend_helper";
 
 function* getSellingData({ payload: month }) {
     try {

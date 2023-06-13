@@ -1,10 +1,10 @@
 //import images
-import airbnb from "../../assets/images/companies/airbnb.svg";
-import mailchimp from "../../assets/images/companies/mailchimp.svg";
-import reddit from "../../assets/images/companies/reddit.svg";
-import amzon from "../../assets/images/companies/amazon.svg";
-import adobPhotoshop from "../../assets/images/companies/adobe-photoshop.svg";
-import line from "../../assets/images/companies/line.svg";
+import airbnb from "@assets/images/companies/airbnb.svg";
+import mailchimp from "@assets/images/companies/mailchimp.svg";
+import reddit from "@assets/images/companies/reddit.svg";
+import amzon from "@assets/images/companies/amazon.svg";
+import adobPhotoshop from "@assets/images/companies/adobe-photoshop.svg";
+import line from "@assets/images/companies/line.svg";
 
 
 const jobVacancyData = [

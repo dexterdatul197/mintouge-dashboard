@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardBody, Col, Container, Row, Collapse, Label, Input } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 import List from './List';
 
 //Date Picker

@@ -6,8 +6,8 @@ import { Card, CardBody, Col } from 'reactstrap';
 import SimpleBar from 'simplebar-react';
 
 //import images
-import avatar5 from '../../assets/images/users/avatar-5.jpg';
-import avatar2 from '../../assets/images/users/avatar-2.jpg';
+import avatar5 from '@assets/images/users/avatar-5.jpg';
+import avatar2 from '@assets/images/users/avatar-2.jpg';
 
 const ActivityFeed = () => {
     return (

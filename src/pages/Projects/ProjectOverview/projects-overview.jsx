@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import withRouter from '../../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 import { isEmpty } from 'lodash';
 import { Col, Container, Row } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
-import { getProjectDetail as onGetProjectDetail } from '/src/store/projects/actions';
+import { getProjectDetail as onGetProjectDetail } from '@store/projects/actions';
 import ProjectDetail from './projectDetail';
 import TeamMembers from './teamMembers';
 import OverviewChart from './overviewChart';

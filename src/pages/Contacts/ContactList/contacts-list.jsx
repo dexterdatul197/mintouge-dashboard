@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import withRouter from '../../../components/Common/withRouter';
-import TableContainer from '../../../components/Common/TableContainer';
+import withRouter from '@components/Common/withRouter';
+import TableContainer from '@components/Common/TableContainer';
 import {
   Card,
   CardBody,
@@ -23,15 +23,15 @@ import { useFormik } from 'formik';
 import { Name, Email, Tags, Projects, Img } from './contactlistCol';
 
 //Import Breadcrumb
-import Breadcrumbs from '/src/components/Common/Breadcrumb';
-import DeleteModal from '/src/components/Common/DeleteModal';
+import Breadcrumbs from '@components/Common/Breadcrumb';
+import DeleteModal from '@components/Common/DeleteModal';
 
 import {
   getUsers as onGetUsers,
   addNewUser as onAddNewUser,
   updateUser as onUpdateUser,
   deleteUser as onDeleteUser,
-} from '/src/store/contacts/actions';
+} from '@store/contacts/actions';
 import { isEmpty } from 'lodash';
 
 //redux

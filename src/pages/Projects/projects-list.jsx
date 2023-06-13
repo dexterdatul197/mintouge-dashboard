@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import withRouter from '../../components/Common/withRouter';
+import withRouter from '@components/Common/withRouter';
 import { isEmpty, map } from 'lodash';
 import * as moment from 'moment';
 import {
@@ -26,19 +26,19 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 //Import Component
-import Breadcrumbs from '../../components/Common/Breadcrumb';
-import DeleteModal from '../../components/Common/DeleteModal';
+import Breadcrumbs from '@components/Common/Breadcrumb';
+import DeleteModal from '@components/Common/DeleteModal';
 
 //Import Image
-import images from '../../assets/images';
-import companies from '../../assets/images/companies';
+import images from '@assets/images';
+import companies from '@assets/images/companies';
 
 import {
   getProjects as onGetProjects,
   addNewProject as onAddNewProject,
   updateProject as onUpdateProject,
   deleteProject as onDeleteProject,
-} from '../../store/actions';
+} from '@store/actions';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';

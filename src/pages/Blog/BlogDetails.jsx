@@ -12,11 +12,11 @@ import {
 } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb"
+import Breadcrumbs from '@components/Common/Breadcrumb"
 
 // import images
-import img1 from '../../assets/images/small/img-2.jpg';
-import avtar1 from '../../assets/images/users/avatar-2.jpg';
+import img1 from '@assets/images/small/img-2.jpg';
+import avtar1 from '@assets/images/users/avatar-2.jpg';
 
 const BlogDetails = () => {
     //meta title

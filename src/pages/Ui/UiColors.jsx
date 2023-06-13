@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Col, Row, Container, Card, CardBody } from 'reactstrap';
 //Import Breadcrumb
-import Breadcrumbs from '../../components/Common/Breadcrumb';
+import Breadcrumbs from '@components/Common/Breadcrumb';
 
 const UiColors = () => {
   //meta title

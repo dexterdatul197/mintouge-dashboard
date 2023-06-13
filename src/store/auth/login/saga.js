@@ -5,12 +5,12 @@ import { LOGIN_USER, LOGOUT_USER, SOCIAL_LOGIN } from "./actionTypes";
 import { apiError, loginSuccess, logoutUserSuccess } from "./actions";
 
 //Include Both Helper File with needed methods
-import { getFirebaseBackend } from "../../../helpers/firebase_helper";
+import { getFirebaseBackend } from "@helpers/firebase_helper";
 import {
   postFakeLogin,
   postJwtLogin,
   postSocialLogin,
-} from "../../../helpers/fakebackend_helper";
+} from "@helpers/fakebackend_helper";
 
 const fireBaseBackend = getFirebaseBackend();
 
