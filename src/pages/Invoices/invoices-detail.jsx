@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import withRouter from '../../components/Common/withRouter';
 import { Card, CardBody, Col, Container, Row, Table } from 'reactstrap';
 import { isEmpty, map } from 'lodash';
@@ -26,7 +26,7 @@ const InvoiceDetail = (props) => {
     invoiceDetail: state.invoices.invoiceDetail,
   }));
 
-  const params = props.router.params;
+  const params = useParams();
   useEffect(() => {
     if (params && params.id) {
       dispatch(onGetInvoiceDetail(params.id));

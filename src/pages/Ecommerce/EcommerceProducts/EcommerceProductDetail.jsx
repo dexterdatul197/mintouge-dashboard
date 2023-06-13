@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import withRouter from '../../../components/Common/withRouter';
 import {
   Button,
@@ -55,7 +55,7 @@ const EcommerceProductDetail = props => {
 
   const [activeTab, setActiveTab] = useState("1")
   
-  const params = props.router.params;
+  const params = useParams();
   useEffect(() => {
     if (params && params.id) {
       dispatch(onGetProductDetail(params.id))
@@ -401,7 +401,7 @@ const EcommerceProductDetail = props => {
 
                     <Reviews
                       comments={[...comments]}
-                      productId={props.router.params.id || 1}
+                      productId={params.id || 1}
                       onClickReply={onClickReply}
                       onCancelReply={onCancelReply}
                       onAddReply={onAddReply}

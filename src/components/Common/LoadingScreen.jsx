@@ -1,8 +1,15 @@
 const LoadingScreen = () => {
     return (
-        <div className="flex flex-1 flex-col items-center justify-center p-24">
-            <div className="spinner-border" role="status">
-                <span className="sr-only">Loading...</span>
+        <div id="preloader">
+            <div id="status">
+                <div className="spinner-chase">
+                    <div className="chase-dot" />
+                    <div className="chase-dot" />
+                    <div className="chase-dot" />
+                    <div className="chase-dot" />
+                    <div className="chase-dot" />
+                    <div className="chase-dot" />
+                </div>
             </div>
         </div>
     );

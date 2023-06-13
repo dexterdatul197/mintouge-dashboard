@@ -74,18 +74,18 @@ const Layout = (props) => {
     //init body click event fot toggle rightbar
     document.body.addEventListener("click", hideRightbar, true);
 
-    if (isPreloader === true) {
-      document.getElementById("preloader").style.display = "block";
-      document.getElementById("status").style.display = "block";
+    // if (isPreloader === true) {
+    //   document.getElementById("preloader").style.display = "block";
+    //   document.getElementById("status").style.display = "block";
 
-      setTimeout(function () {
-        document.getElementById("preloader").style.display = "none";
-        document.getElementById("status").style.display = "none";
-      }, 2500);
-    } else {
-      document.getElementById("preloader").style.display = "none";
-      document.getElementById("status").style.display = "none";
-    }
+    //   setTimeout(function () {
+    //     document.getElementById("preloader").style.display = "none";
+    //     document.getElementById("status").style.display = "none";
+    //   }, 2500);
+    // } else {
+    //   document.getElementById("preloader").style.display = "none";
+    //   document.getElementById("status").style.display = "none";
+    // }
   }, [isPreloader]);
 
   useEffect(() => {
@@ -134,19 +134,6 @@ const Layout = (props) => {
 
   return (
     <React.Fragment>
-      <div id="preloader">
-        <div id="status">
-          <div className="spinner-chase">
-            <div className="chase-dot" />
-            <div className="chase-dot" />
-            <div className="chase-dot" />
-            <div className="chase-dot" />
-            <div className="chase-dot" />
-            <div className="chase-dot" />
-          </div>
-        </div>
-      </div>
-
       <div id="layout-wrapper">
         <Header toggleMenuCallback={toggleMenuCallback} />
         <Sidebar

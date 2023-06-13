@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import withRouter from '../../components/Common/withRouter';
 
 //redux
@@ -34,6 +34,7 @@ const Login = (props) => {
   //meta title
   document.title = "Login | Mintouge - Brands Dashboard";
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
@@ -49,7 +50,7 @@ const Login = (props) => {
     }),
     onSubmit: (values) => {
       console.log("----", values);
-      dispatch(loginUser(values, props.router.navigate));
+      dispatch(loginUser(values, navigate));
     },
   });
 
