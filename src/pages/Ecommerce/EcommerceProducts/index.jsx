@@ -33,17 +33,14 @@ import { productImages } from '@assets/images/product';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Common/Breadcrumb';
-
-//Import data
-import { discountData, productsData } from '/src/common/data';
+import { discountData, productsData } from '@common/data';
 
 const EcommerceProducts = (props) => {
   //meta title
   document.title = "Products | Mintouge - Brands Dashboard";
 
   const navigate = useNavigate();
-
-  const { products } = {};
+  const products = productsData;
 
   const { history } = props;
   // eslint-disable-next-line no-unused-vars

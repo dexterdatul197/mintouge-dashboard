@@ -10,20 +10,18 @@ import WalletActivities from './walletActivities';
 import WalletStats from './walletStats';
 import WalletOverView from './walletOverView';
 
+import { wallet } from '@common/data';
 
 const CryptoWallet = () => {
   //meta title
   document.title = "Wallet | Mintouge - Brands Dashboard";
 
-
-  const { wallet } = {};
-
   const [isMenu, setIsMenu] = useState(false);
   const [activeTab, setActiveTab] = useState("1");
 
-  useEffect(() => {
-    // dispatch(onGetWallet());
-  }, [onGetWallet]);
+  // useEffect(() => {
+  //   dispatch(onGetWallet());
+  // }, [onGetWallet]);
 
   const toggleTab = (tab) => {
     if (activeTab !== tab) {

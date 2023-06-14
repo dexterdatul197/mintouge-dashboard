@@ -36,12 +36,11 @@ import {
   JoiningDate,
 } from './EcommerceCustCol';
 
+import { customerData as customers } from '@common/data';
+
 const EcommerceCustomers = (props) => {
   //meta title
   document.title = "Customers | Mintouge - Brands Dashboard";
-
-
-  const { customers } = {};
 
   const [modal, setModal] = useState(false);
   const [customerList, setCustomerList] = useState([]);

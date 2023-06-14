@@ -9,10 +9,6 @@ import NonAuthLayout from './components/NonAuthLayout';
 
 // Import scss
 import './assets/scss/theme.scss';
-import fakeBackend from '/src/helpers/AuthType/fakeBackend';
-
-// Activating fake backend
-fakeBackend();
 
 const App = (props) => {
   return (

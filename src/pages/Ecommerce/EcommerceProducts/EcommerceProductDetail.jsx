@@ -28,26 +28,28 @@ import { productImages } from '@assets/images/product';
 import Breadcrumbs from '@components/Common/Breadcrumb';
 
 import RecentProducts from './RecentProducts';
-import Reviews from './Reviews';
-
+import { recentProducts, productsData } from '@common/data';
 
 const EcommerceProductDetail = props => {
   
   //meta title
   document.title="Product Details | Mintouge - Brands Dashboard";
 
-  const { product, productComments } = {};
+  const { product, productComments } = {
+    product: productsData[0],
+    productComments: [],
+  };
 
   const [activeTab, setActiveTab] = useState("1")
   
-  const params = useParams();
-  useEffect(() => {
-    if (params && params.id) {
-      // dispatch(onGetProductDetail(params.id))
-    } else {
-      // dispatch(onGetProductDetail(1))
-    }
-  }, [])
+  // const params = useParams();
+  // useEffect(() => {
+  //   if (params && params.id) {
+  //     dispatch(onGetProductDetail(params.id))
+  //   } else {
+  //     dispatch(onGetProductDetail(1))
+  //   }
+  // }, []);
 
   const toggleTab = tab => {
     if (activeTab !== tab) {
@@ -60,16 +62,16 @@ const EcommerceProductDetail = props => {
     expandImg.src = img
   }
 
-  useEffect(() => {
-    // dispatch(getProductComments())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(getProductComments())
+  // }, [])
 
-  const [comments, setComments] = useState([])
-  useEffect(() => {
-    if (productComments) {
-      setComments(productComments)
-    }
-  }, [productComments])
+  const [comments, setComments] = useState([]);
+  // useEffect(() => {
+  //   if (productComments) {
+  //     setComments(productComments)
+  //   }
+  // }, [productComments])
 
   const onClickReply = commentId => {
     const modifiedComments = [...comments]
@@ -383,21 +385,12 @@ const EcommerceProductDetail = props => {
                         </Table>
                       </div>
                     </div>
-
-                    <Reviews
-                      comments={[...comments]}
-                      productId={params.id || 1}
-                      onClickReply={onClickReply}
-                      onCancelReply={onCancelReply}
-                      onAddReply={onAddReply}
-                      onAddComment={onAddComment}
-                    />
                   </CardBody>
                 </Card>
               </Col>
             </Row>
           )}
-          <RecentProducts recentProducts={product.recentProducts} />
+          <RecentProducts recentProducts={recentProducts} />
         </Container>
       </div>
     </React.Fragment>

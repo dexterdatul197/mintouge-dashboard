@@ -26,7 +26,7 @@ import Breadcrumbs from '@components/Common/Breadcrumb';
 import DeleteModal from '@components/Common/DeleteModal';
 
 import { isEmpty } from 'lodash';
-
+import { users } from '@common/data';
 
 const ContactsList = (props) => {
   //meta title
@@ -85,8 +85,6 @@ const ContactsList = (props) => {
       toggle();
     },
   });
-
-  const { users } = {};
 
   const [userList, setUserList] = useState([]);
   const [modal, setModal] = useState(false);

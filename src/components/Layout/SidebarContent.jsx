@@ -209,13 +209,6 @@ const SidebarContent = (props) => {
               </Link>
             </li>
 
-            <li>
-              <Link to="/email-inbox" className="">
-                <i className="bx bx-bell"></i>
-                <span>{t("Notifications")}</span>
-              </Link>
-            </li>
-
           </ul>
         </div>
       </SimpleBar>

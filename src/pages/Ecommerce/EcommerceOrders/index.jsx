@@ -41,6 +41,8 @@ import {
   CardBody,
 } from 'reactstrap';
 
+import { orders } from '@common/data';
+
 function EcommerceOrder() {
   //meta title
   document.title = "Orders | Mintouge - Brands Dashboard";
@@ -115,24 +117,22 @@ function EcommerceOrder() {
 
   const toggleViewModal = () => setModal1(!modal1);
 
-  const { orders } = {};
+  // useEffect(() => {
+  //   if (orders && !orders.length) {
+  //     dispatch(onGetOrders());
+  //   }
+  // }, [orders]);
 
-  useEffect(() => {
-    if (orders && !orders.length) {
-      // dispatch(onGetOrders());
-    }
-  }, [orders]);
+  // useEffect(() => {
+  //   setOrderList(orders);
+  // }, [orders]);
 
-  useEffect(() => {
-    setOrderList(orders);
-  }, [orders]);
-
-  useEffect(() => {
-    if (!isEmpty(orders) && !!isEdit) {
-      setOrderList(orders);
-      setIsEdit(false);
-    }
-  }, [orders]);
+  // useEffect(() => {
+  //   if (!isEmpty(orders) && !!isEdit) {
+  //     setOrderList(orders);
+  //     setIsEdit(false);
+  //   }
+  // }, [orders]);
 
   const toggle = () => {
     if (modal) {
