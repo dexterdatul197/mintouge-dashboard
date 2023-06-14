@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import LanguageDropdown from '@components/CommonForBoth/TopbarDropdown/LanguageDropdown';
-import NotificationDropdown from '@components/CommonForBoth/TopbarDropdown/NotificationDropdown';
-import ProfileMenu from '@components/CommonForBoth/TopbarDropdown/ProfileMenu';
+import LanguageDropdown from './LanguageDropdown';
+import NotificationDropdown from './NotificationDropdown';
+import ProfileMenu from './ProfileMenu';
 
 import logo from '@assets/images/slogo-light.svg';
 import logoLightSvg from '@assets/images/logo-light.svg';
