@@ -7,7 +7,6 @@ import {
   Card,
   CardBody,
 } from 'reactstrap';
-import { getOrders as onGetOrders } from '@store/actions';
 
 import EcommerceOrdersModal from '../Ecommerce/EcommerceOrders/EcommerceOrdersModal';
 
@@ -22,19 +21,14 @@ import {
 
 import TableContainer from '@components/Common/TableContainer';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 const LatestTranaction = props => {
-  const dispatch = useDispatch();
 
-  const { orders } = useSelector(state => ({
-    orders: state.ecommerce.orders,
-  }));
+  const { orders } = {};
 
   useEffect(() => {
-    dispatch(onGetOrders());
-  }, [dispatch]);
+    // dispatch(onGetOrders());
+  }, []);
 
   const [modal1, setModal1] = useState(false);
   const [orderList, setOrderList] = useState([]);
@@ -128,9 +122,8 @@ const LatestTranaction = props => {
 
   useEffect(() => {
     if (orders && !orders.length) {
-      onGetOrders();
     }
-  }, [onGetOrders, orders]);
+  }, [orders]);
 
   useEffect(() => {
     setOrderList(orders);

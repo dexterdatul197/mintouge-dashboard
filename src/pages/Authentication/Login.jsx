@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
 // Formik validation
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
@@ -22,9 +19,6 @@ import {
   Label,
 } from 'reactstrap';
 
-// actions
-import { loginUser } from '@store/actions';
-
 // import images
 import profile from '@assets/images/profile-img.png';
 import logo from '@assets/images/slogo-dark.svg';
@@ -32,7 +26,6 @@ import logo from '@assets/images/slogo-dark.svg';
 const Login = (props) => {
   //meta title
   document.title = "Login | Mintouge - Brands Dashboard";
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const validation = useFormik({
@@ -49,13 +42,11 @@ const Login = (props) => {
     }),
     onSubmit: (values) => {
       console.log("----", values);
-      dispatch(loginUser(values, navigate));
+      // dispatch(loginUser(values, navigate));
     },
   });
 
-  const { error } = useSelector((state) => ({
-    error: state.Login.error,
-  }));
+  const { error } = {};
 
   return (
     <React.Fragment>

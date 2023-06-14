@@ -37,22 +37,13 @@ import Breadcrumbs from '@components/Common/Breadcrumb';
 //Import data
 import { discountData, productsData } from '/src/common/data';
 
-//Import actions
-import { getProducts as onGetProducts } from '@store/e-commerce/actions';
-
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
 const EcommerceProducts = (props) => {
   //meta title
   document.title = "Products | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { products } = useSelector((state) => ({
-    products: state.ecommerce.products,
-  }));
+  const { products } = {};
 
   const { history } = props;
   // eslint-disable-next-line no-unused-vars
@@ -80,8 +71,8 @@ const EcommerceProducts = (props) => {
   }, [products, discountData]);
 
   useEffect(() => {
-    dispatch(onGetProducts());
-  }, [dispatch]);
+    // dispatch(onGetProducts());
+  }, []);
 
   useEffect(() => {
     if (!isEmpty(products)) setProductList(products);

@@ -21,9 +21,6 @@ import classNames from 'classnames';
 //import Charts
 import StackedColumnChart from './StackedColumnChart';
 
-//import action
-import { getChartsData as onGetChartsData } from '@store/actions';
-
 import modalimage1 from '@assets/images/product/img-7.png';
 import modalimage2 from '@assets/images/product/img-4.png';
 
@@ -41,17 +38,13 @@ import Breadcrumbs from '@components/Common/Breadcrumb';
 //i18n
 import { useTranslation } from 'react-i18next';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 const Dashboard = props => {
   const [modal, setmodal] = useState(false);
   const [subscribemodal, setSubscribemodal] = useState(false);
   const { t } = useTranslation();
   
-  const { chartsData } = useSelector(state => ({
-    chartsData: state.Dashboard.chartsData
-  }));
+  const { chartsData } = {};
 
   const reports = [
     { title: "Orders", iconClass: "bx-copy-alt", description: "1,235" },
@@ -78,13 +71,12 @@ const Dashboard = props => {
 
   const onChangeChartPeriod = pType => {
     setPeriodType(pType);
-    dispatch(onGetChartsData(pType));
+    // dispatch(onGetChartsData(pType));
   };
 
-  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(onGetChartsData("yearly"));
-  }, [dispatch]);
+    // dispatch(onGetChartsData("yearly"));
+  }, []);
 
   //meta title
   document.title="Dashboard | Mintouge - Brands Dashboard";
@@ -143,7 +135,7 @@ const Dashboard = props => {
 
           <Row>
             <Col lg="12">
-              <LatestTranaction />
+              {/* <LatestTranaction /> */}
             </Col>
           </Row>
         </Container>

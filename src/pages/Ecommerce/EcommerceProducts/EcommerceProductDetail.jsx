@@ -27,41 +27,27 @@ import { productImages } from '@assets/images/product';
 //Import Breadcrumb
 import Breadcrumbs from '@components/Common/Breadcrumb';
 
-//Import actions
-import {
-  getProductDetail as onGetProductDetail,
-  getProductComments,
-  onAddReply as onAddReplyAction,
-  onAddComment as onAddCommentAction,
-} from '@store/actions';
 import RecentProducts from './RecentProducts';
 import Reviews from './Reviews';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 const EcommerceProductDetail = props => {
   
   //meta title
   document.title="Product Details | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch()
-
-  const { product, productComments } = useSelector(state => ({
-    product: state.ecommerce.product,
-    productComments: state.ecommerce.productComments,
-  }))
+  const { product, productComments } = {};
 
   const [activeTab, setActiveTab] = useState("1")
   
   const params = useParams();
   useEffect(() => {
     if (params && params.id) {
-      dispatch(onGetProductDetail(params.id))
+      // dispatch(onGetProductDetail(params.id))
     } else {
-      dispatch(onGetProductDetail(1))
+      // dispatch(onGetProductDetail(1))
     }
-  }, [dispatch])
+  }, [])
 
   const toggleTab = tab => {
     if (activeTab !== tab) {
@@ -75,8 +61,8 @@ const EcommerceProductDetail = props => {
   }
 
   useEffect(() => {
-    dispatch(getProductComments())
-  }, [dispatch])
+    // dispatch(getProductComments())
+  }, [])
 
   const [comments, setComments] = useState([])
   useEffect(() => {
@@ -120,13 +106,13 @@ const EcommerceProductDetail = props => {
   const onAddReply = (commentId, replyText) => {
     if (commentId) {
       const productId = params.id || 1
-      dispatch(onAddReplyAction(commentId, productId, replyText))
+      // dispatch(onAddReplyAction(commentId, productId, replyText))
     }
   }
 
   const onAddComment = commentText => {
     const productId = params.id || 1
-    dispatch(onAddCommentAction(productId, commentText))
+    // dispatch(onAddCommentAction(productId, commentText))
   }
 
   return (

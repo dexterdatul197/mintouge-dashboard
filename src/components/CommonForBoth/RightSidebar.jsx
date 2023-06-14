@@ -2,18 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, FormGroup } from 'reactstrap';
 
-import {
-  changeLayout,
-  changeLayoutMode,
-  changeLayoutWidth,
-  changeSidebarTheme,
-  changeSidebarThemeImage,
-  changeSidebarType,
-  changePreloader,
-  changeTopbarTheme,
-  showRightSidebarAction,
-} from '@store/actions';
-
 //SimpleBar
 import SimpleBar from 'simplebar-react';
 

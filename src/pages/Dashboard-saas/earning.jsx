@@ -3,21 +3,12 @@ import { Row, Col, Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import ReactApexChart from 'react-apexcharts';
 
-//actions
-import { getEarningChartsData } from '@store/actions';
-
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
 import getChartColorsArray from '@components/Common/ChartsDynamicColor';
 
 const Earning = ({ dataColors }) => {
-  const dispatch = useDispatch();
   const apexlineColors = getChartColorsArray(dataColors);
 
-  const { earningChartData } = useSelector((state) => ({
-    earningChartData: state.DashboardSaas.earningChartData,
-  }));
+  const { earningChartData } = {};
 
   const options = {
     chart: {
@@ -52,13 +43,13 @@ const Earning = ({ dataColors }) => {
   call api action to receive data
   */
   useEffect(() => {
-    dispatch(getEarningChartsData("jan"));
-  }, [dispatch]);
+    // dispatch(getEarningChartsData("jan"));
+  }, []);
 
   const [seletedMonth, setSeletedMonth] = useState("jan");
   const onChangeMonth = (value) => {
     setSeletedMonth(value);
-    dispatch(getEarningChartsData(value));
+    // dispatch(getEarningChartsData(value));
   };
 
   return (

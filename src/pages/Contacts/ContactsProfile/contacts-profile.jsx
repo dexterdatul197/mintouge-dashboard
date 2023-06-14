@@ -29,7 +29,6 @@ import profile1 from '@assets/images/profile-img.png';
 
 // import charts
 import ApexRevenue from '../ApexRevenue';
-import { getUserProfile } from '@store/actions';
 
 const ContactsProfile = (props) => {
   //meta title

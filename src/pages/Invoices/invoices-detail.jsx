@@ -10,27 +10,21 @@ import Breadcrumbs from '@components/Common/Breadcrumb';
 //Import Image
 import logo from '@assets/images/logo-dark.png';
 import logoLight from '@assets/images/logo-light.png';
-import { getInvoiceDetail as onGetInvoiceDetail } from '@store/invoices/actions';
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 const InvoiceDetail = (props) => {
   //meta title
   document.title =
     "Invoice Detail | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch();
 
-  const { invoiceDetail } = useSelector((state) => ({
-    invoiceDetail: state.invoices.invoiceDetail,
-  }));
+  const { invoiceDetail } = {};
 
   const params = useParams();
   useEffect(() => {
     if (params && params.id) {
-      dispatch(onGetInvoiceDetail(params.id));
+      // dispatch(onGetInvoiceDetail(params.id));
     } else {
-      dispatch(onGetInvoiceDetail(1)); //remove this after full integration
+      // dispatch(onGetInvoiceDetail(1)); //remove this after full integration
     }
   }, [onGetInvoiceDetail]);
 

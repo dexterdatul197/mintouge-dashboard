@@ -3,20 +3,11 @@ import { Row, Col, Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import ReactApexChart from 'react-apexcharts';
 
-//actions
-import { getWalletbalanceData } from '@store/actions';
-
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
 import getChartColorsArray from '@components/Common/ChartsDynamicColor';
 
 const WalletBalance = ({ dataColors }) => {
-  const dispatch = useDispatch();
 
-  const { walletbalanceData } = useSelector(state => ({
-    walletbalanceData: state.DashboardCrypto.walletbalanceData,
-  }));
+  const { walletbalanceData } = {};
 
   const walletBalanceChartColors = getChartColorsArray(dataColors);
 
@@ -33,12 +24,12 @@ const WalletBalance = ({ dataColors }) => {
 call api action to receive data
 */
   useEffect(() => {
-    dispatch(getWalletbalanceData("jan"));
-  }, [dispatch]);
+    // dispatch(getWalletbalanceData("jan"));
+  }, []);
 
   const onChangeMonth = (month) => {
     setSeletedMonth(month);
-    dispatch(getWalletbalanceData(month));
+    // dispatch(getWalletbalanceData(month));
   };
 
   const walletOptions = {

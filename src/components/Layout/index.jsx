@@ -1,15 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import {
-  changeLayout,
-  changeLayoutMode,
-  changeSidebarTheme,
-  changeSidebarThemeImage,
-  changeSidebarType,
-  changeTopbarTheme,
-  changeLayoutWidth,
-  showRightSidebarAction,
-} from '@store/actions';
 
 // Layout Related Components
 import Header from './Header';
@@ -17,11 +7,7 @@ import Sidebar from './Sidebar';
 import Footer from './Footer';
 import RightSidebar from '@components/CommonForBoth/RightSidebar';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
 const Layout = (props) => {
-  const dispatch = useDispatch();
 
   const {
     isPreloader,
@@ -32,24 +18,15 @@ const Layout = (props) => {
     showRightSidebar,
     leftSideBarTheme,
     layoutModeType,
-  } = useSelector((state) => ({
-    isPreloader: state.Layout.isPreloader,
-    layoutModeType: state.Layout.layoutModeType,
-    leftSideBarThemeImage: state.Layout.leftSideBarThemeImage,
-    leftSideBarType: state.Layout.leftSideBarType,
-    layoutWidth: state.Layout.layoutWidth,
-    topbarTheme: state.Layout.topbarTheme,
-    showRightSidebar: state.Layout.showRightSidebar,
-    leftSideBarTheme: state.Layout.leftSideBarTheme,
-  }));
+  } = {};
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   const toggleMenuCallback = () => {
     if (leftSideBarType === "default") {
-      dispatch(changeSidebarType("condensed", isMobile));
+      // dispatch(changeSidebarType("condensed", isMobile));
     } else if (leftSideBarType === "condensed") {
-      dispatch(changeSidebarType("default", isMobile));
+      // dispatch(changeSidebarType("default", isMobile));
     }
   };
 
@@ -61,7 +38,7 @@ const Layout = (props) => {
       return;
     } else {
       //if clicked in outside of rightbar then fire action for hide rightbar
-      dispatch(showRightSidebarAction(false));
+      // dispatch(showRightSidebarAction(false));
     }
   };
 
@@ -92,44 +69,44 @@ const Layout = (props) => {
   }, []);
 
   useEffect(() => {
-    dispatch(changeLayout("vertical"));
-  }, [dispatch]);
+    // dispatch(changeLayout("vertical"));
+  }, []);
 
   useEffect(() => {
     if (leftSideBarTheme) {
-      dispatch(changeSidebarTheme(leftSideBarTheme));
+      // dispatch(changeSidebarTheme(leftSideBarTheme));
     }
-  }, [leftSideBarTheme, dispatch]);
+  }, [leftSideBarTheme, ]);
 
   useEffect(() => {
     if (layoutModeType) {
-      dispatch(changeLayoutMode(layoutModeType));
+      // dispatch(changeLayoutMode(layoutModeType));
     }
-  }, [layoutModeType, dispatch]);
+  }, [layoutModeType, ]);
 
   useEffect(() => {
     if (leftSideBarThemeImage) {
-      dispatch(changeSidebarThemeImage(leftSideBarThemeImage));
+      // dispatch(changeSidebarThemeImage(leftSideBarThemeImage));
     }
-  }, [leftSideBarThemeImage, dispatch]);
+  }, [leftSideBarThemeImage, ]);
 
   useEffect(() => {
     if (layoutWidth) {
-      dispatch(changeLayoutWidth(layoutWidth));
+      // dispatch(changeLayoutWidth(layoutWidth));
     }
-  }, [layoutWidth, dispatch]);
+  }, [layoutWidth, ]);
 
   useEffect(() => {
     if (leftSideBarType) {
-      dispatch(changeSidebarType(leftSideBarType));
+      // dispatch(changeSidebarType(leftSideBarType));
     }
-  }, [leftSideBarType, dispatch]);
+  }, [leftSideBarType, ]);
 
   useEffect(() => {
     if (topbarTheme) {
-      dispatch(changeTopbarTheme(topbarTheme));
+      // dispatch(changeTopbarTheme(topbarTheme));
     }
-  }, [topbarTheme, dispatch]);
+  }, [topbarTheme]);
 
   return (
     <React.Fragment>

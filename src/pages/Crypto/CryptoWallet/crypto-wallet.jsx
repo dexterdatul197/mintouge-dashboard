@@ -6,29 +6,23 @@ import '@assets/scss/datatables.scss';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Common/Breadcrumb';
-import { getWallet as onGetWallet } from '@store/actions';
 import WalletActivities from './walletActivities';
 import WalletStats from './walletStats';
 import WalletOverView from './walletOverView';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 const CryptoWallet = () => {
   //meta title
   document.title = "Wallet | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch();
 
-  const { wallet } = useSelector((state) => ({
-    wallet: state.crypto.wallet,
-  }));
+  const { wallet } = {};
 
   const [isMenu, setIsMenu] = useState(false);
   const [activeTab, setActiveTab] = useState("1");
 
   useEffect(() => {
-    dispatch(onGetWallet());
+    // dispatch(onGetWallet());
   }, [onGetWallet]);
 
   const toggleTab = (tab) => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 import { authProtectedRoutes, publicRoutes } from './routes';
 import Authmiddleware from './routes/route';
@@ -16,10 +15,6 @@ import fakeBackend from '/src/helpers/AuthType/fakeBackend';
 fakeBackend();
 
 const App = (props) => {
-  const { layoutType } = useSelector((state) => ({
-    layoutType: state.Layout.layoutType,
-  }));
-
   return (
     <React.Fragment>
       <Routes>

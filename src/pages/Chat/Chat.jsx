@@ -34,30 +34,13 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 //Import Breadcrumb
 import Breadcrumbs from '@components/Common/Breadcrumb';
 import images from '@assets/images';
-import {
-  addMessage as onAddMessage,
-  getChats as onGetChats,
-  getContacts as onGetContacts,
-  getGroups as onGetGroups,
-  getMessages as onGetMessages,
-} from '@store/actions';
-
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 const Chat = props => {
 
   //meta title
   document.title = "Chat | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch();
-
-  const { chats, groups, contacts, messages } = useSelector(state => ({
-    chats: state.chat.chats,
-    groups: state.chat.groups,
-    contacts: state.chat.contacts,
-    messages: state.chat.messages,
-  }));
+  const { chats, groups, contacts, messages } = {};
 
   const [messageBox, setMessageBox] = useState(null);
   // const Chat_Box_Username2 = "Henry Wells"
@@ -78,10 +61,10 @@ const Chat = props => {
   const [curMessage, setcurMessage] = useState("");
 
   useEffect(() => {
-    dispatch(onGetChats());
-    dispatch(onGetGroups());
-    dispatch(onGetContacts());
-    dispatch(onGetMessages(currentRoomId));
+    // dispatch(onGetChats());
+    // dispatch(onGetGroups());
+    // dispatch(onGetContacts());
+    // dispatch(onGetMessages(currentRoomId));
   }, [onGetChats, onGetGroups, onGetContacts, onGetMessages, currentRoomId]);
 
   useEffect(() => {
@@ -115,7 +98,7 @@ const Chat = props => {
   const userChatOpen = (id, name, status, roomId) => {
     setChat_Box_Username(name);
     setCurrentRoomId(roomId);
-    dispatch(onGetMessages(roomId));
+    // dispatch(onGetMessages(roomId));
   };
 
   const addMessage = (roomId, sender) => {
@@ -127,7 +110,7 @@ const Chat = props => {
       createdAt: new Date(),
     };
     setcurMessage("");
-    dispatch(onAddMessage(message));
+    // dispatch(onAddMessage(message));
   };
 
   const scrollToBottom = () => {

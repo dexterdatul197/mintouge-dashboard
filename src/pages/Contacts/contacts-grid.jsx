@@ -9,26 +9,18 @@ import Breadcrumbs from '@components/Common/Breadcrumb';
 //Import Card
 import CardContact from './card-contact';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
-import { getUsers as onGetUsers } from '@store/contacts/actions';
-
 const ContactsGrid = () => {
   //meta title
   document.title = "User Grid | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch();
 
-  const { users } = useSelector((state) => ({
-    users: state.contacts.users,
-  }));
+  const { users } = {};
 
   useEffect(() => {
     if (users && !users.length) {
-      dispatch(onGetUsers());
+      // dispatch(onGetUsers());
     }
-  }, [dispatch, users]);
+  }, [users]);
 
   return (
     <React.Fragment>

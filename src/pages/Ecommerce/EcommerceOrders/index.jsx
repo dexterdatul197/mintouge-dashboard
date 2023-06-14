@@ -15,13 +15,6 @@ import Breadcrumbs from '@components/Common/Breadcrumb';
 import DeleteModal from '@components/Common/DeleteModal';
 
 import {
-  getOrders as onGetOrders,
-  addNewOrder as onAddNewOrder,
-  updateOrder as onUpdateOrder,
-  deleteOrder as onDeleteOrder,
-} from '@store/actions';
-
-import {
   OrderId,
   BillingName,
   Date,
@@ -30,8 +23,6 @@ import {
   PaymentMethod,
 } from './EcommerceOrderCol';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 import EcommerceOrdersModal from './EcommerceOrdersModal';
 
 import {
@@ -101,7 +92,7 @@ function EcommerceOrder() {
           badgeclass: values.badgeclass,
         };
         // update order
-        dispatch(onUpdateOrder(updateOrder));
+        // dispatch(onUpdateOrder(updateOrder));
         validation.resetForm();
       } else {
         const newOrder = {
@@ -115,7 +106,7 @@ function EcommerceOrder() {
           badgeclass: values["badgeclass"],
         };
         // save new order
-        dispatch(onAddNewOrder(newOrder));
+        // dispatch(onAddNewOrder(newOrder));
         validation.resetForm();
       }
       toggle();
@@ -124,16 +115,13 @@ function EcommerceOrder() {
 
   const toggleViewModal = () => setModal1(!modal1);
 
-  const dispatch = useDispatch();
-  const { orders } = useSelector((state) => ({
-    orders: state.ecommerce.orders,
-  }));
+  const { orders } = {};
 
   useEffect(() => {
     if (orders && !orders.length) {
-      dispatch(onGetOrders());
+      // dispatch(onGetOrders());
     }
-  }, [dispatch, orders]);
+  }, [orders]);
 
   useEffect(() => {
     setOrderList(orders);
@@ -183,7 +171,7 @@ function EcommerceOrder() {
 
   const handleDeleteOrder = () => {
     if (order && order.id) {
-      dispatch(onDeleteOrder(order.id));
+      // dispatch(onDeleteOrder(order.id));
       setDeleteModal(false);
       setOrder("");
     }

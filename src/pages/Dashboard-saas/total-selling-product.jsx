@@ -2,12 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Col, Card, CardBody, Table } from 'reactstrap';
 import ReactApexChart from 'react-apexcharts';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
-//actions
-import { getTopSellingProduct } from '@store/actions';
-
 const getChartOptions = index => {
   var options = {
     chart: { sparkline: { enabled: !0 } },
@@ -39,21 +33,18 @@ const getChartOptions = index => {
 };
 
 const TotalSellngProduct = props => {
-  const dispatch = useDispatch();
 
-  const { sellingData } = useSelector(state => ({
-    sellingData: state.DashboardSaas.sellingData,
-  }));
+  const { sellingData } = {};
 
   useEffect(() => {
-    dispatch(getTopSellingProduct("jan"));
-  }, [dispatch]);
+    // dispatch(getTopSellingProduct("jan"));
+  }, []);
 
   const [seletedMonth, setSeletedMonth] = useState("jan");
 
   const onChangeMonth = value => {
     setSeletedMonth(value);
-    dispatch(getTopSellingProduct(value));
+    // dispatch(getTopSellingProduct(value));
   };
 
   return (

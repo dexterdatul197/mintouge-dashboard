@@ -4,12 +4,6 @@ import { Input, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import images from '@assets/images';
 
-//redux
-import { useDispatch } from 'react-redux';
-
-//action
-import { onLikeComment, onLikeReply } from '@store/actions';
-
 const CommentBox = ({
   value,
   onChange,
@@ -254,18 +248,17 @@ const Reviews = ({
   onAddReply,
   onAddComment,
 }) => {
-  const dispatch = useDispatch();
   const [commentText, setCommentText] = useState("");
   const onChangeCommentText = (value) => {
     setCommentText(value);
   };
 
   const onLikeUnlikeComment = (commentId) => {
-    dispatch(onLikeComment(commentId, productId));
+    // dispatch(onLikeComment(commentId, productId));
   };
 
   const onLikeUnlikeReply = (commentId, replyId) => {
-    dispatch(onLikeReply(commentId, productId, replyId));
+    // dispatch(onLikeReply(commentId, productId, replyId));
   };
 
   const [isCommentAdd, setIsCommentAdd] = useState(false);

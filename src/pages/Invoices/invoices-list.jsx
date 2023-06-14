@@ -4,30 +4,24 @@ import { Col, Container, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { map } from 'lodash';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Common/Breadcrumb';
 
 //Import Card invoice
 import CardInvoice from './card-invoice';
-import { getInvoices as onGetInvoices } from '@store/actions';
 
 const InvoicesList = (props) => {
   //meta title
   document.title =
     "Invoice List | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch();
 
-  const { invoices } = useSelector((state) => ({
-    invoices: state.invoices.invoices,
-  }));
+  const { invoices } = {};
 
   useEffect(() => {
-    dispatch(onGetInvoices());
-  }, [dispatch]);
+    // dispatch(onGetInvoices());
+  }, []);
 
   return (
     <React.Fragment>

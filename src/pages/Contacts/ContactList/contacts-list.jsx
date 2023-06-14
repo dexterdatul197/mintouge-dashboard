@@ -25,22 +25,13 @@ import { Name, Email, Tags, Projects, Img } from './contactlistCol';
 import Breadcrumbs from '@components/Common/Breadcrumb';
 import DeleteModal from '@components/Common/DeleteModal';
 
-import {
-  getUsers as onGetUsers,
-  addNewUser as onAddNewUser,
-  updateUser as onUpdateUser,
-  deleteUser as onDeleteUser,
-} from '@store/contacts/actions';
 import { isEmpty } from 'lodash';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 const ContactsList = (props) => {
   //meta title
   document.title = "User List | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch();
   const [contact, setContact] = useState();
   // validation
   const validation = useFormik({
@@ -75,7 +66,7 @@ const ContactsList = (props) => {
         };
 
         // update user
-        dispatch(onUpdateUser(updateUser));
+        // dispatch(onUpdateUser(updateUser));
         validation.resetForm();
         setIsEdit(false);
       } else {
@@ -88,16 +79,14 @@ const ContactsList = (props) => {
           projects: values["projects"],
         };
         // save new user
-        dispatch(onAddNewUser(newUser));
+        // dispatch(onAddNewUser(newUser));
         validation.resetForm();
       }
       toggle();
     },
   });
 
-  const { users } = useSelector((state) => ({
-    users: state.contacts.users,
-  }));
+  const { users } = {};
 
   const [userList, setUserList] = useState([]);
   const [modal, setModal] = useState(false);
@@ -214,10 +203,10 @@ const ContactsList = (props) => {
 
   useEffect(() => {
     if (users && !users.length) {
-      dispatch(onGetUsers());
+      // dispatch(onGetUsers());
       setIsEdit(false);
     }
-  }, [dispatch, users]);
+  }, [users]);
 
   useEffect(() => {
     setContact(users);
@@ -274,7 +263,7 @@ const ContactsList = (props) => {
 
   const handleDeleteUser = () => {
     if (contact && contact.id) {
-      dispatch(onDeleteUser(contact.id));
+      // dispatch(onDeleteUser(contact.id));
     }
     setContact("");
     onPaginationPageChange(1);

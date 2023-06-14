@@ -24,15 +24,6 @@ import {
 import Breadcrumbs from '@components/Common/Breadcrumb';
 
 import DeleteModal from '@components/Common/DeleteModal';
-import {
-  getCustomers as onGetCustomers,
-  addNewCustomer as onAddNewCustomer,
-  updateCustomer as onUpdateCustomer,
-  deleteCustomer as onDeleteCustomer,
-} from '@store/e-commerce/actions';
-
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 import TableContainer from '@components/Common/TableContainer';
 
 // Column
@@ -49,11 +40,8 @@ const EcommerceCustomers = (props) => {
   //meta title
   document.title = "Customers | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch();
 
-  const { customers } = useSelector((state) => ({
-    customers: state.ecommerce.customers,
-  }));
+  const { customers } = {};
 
   const [modal, setModal] = useState(false);
   const [customerList, setCustomerList] = useState([]);
@@ -100,7 +88,7 @@ const EcommerceCustomers = (props) => {
           joiningDate: values.joiningDate,
         };
         // update customer
-        dispatch(onUpdateCustomer(updateCustomer));
+        // dispatch(onUpdateCustomer(updateCustomer));
         validation.resetForm();
       } else {
         const newCustomer = {
@@ -114,7 +102,7 @@ const EcommerceCustomers = (props) => {
           joiningDate: values["joiningDate"],
         };
         // save new customer
-        dispatch(onAddNewCustomer(newCustomer));
+        // dispatch(onAddNewCustomer(newCustomer));
         validation.resetForm();
       }
       toggle();
@@ -253,7 +241,7 @@ const EcommerceCustomers = (props) => {
 
   const handleDeleteCustomer = () => {
     if (customer && customer.id) {
-      dispatch(onDeleteCustomer(customer.id));
+      // dispatch(onDeleteCustomer(customer.id));
       setDeleteModal(false);
       setCustomer("");
     }
@@ -261,9 +249,9 @@ const EcommerceCustomers = (props) => {
 
   useEffect(() => {
     if (customers && !customers.length) {
-      dispatch(onGetCustomers());
+      // dispatch(onGetCustomers());
     }
-  }, [dispatch, customers]);
+  }, [customers]);
 
   useEffect(() => {
     setCustomerList(customers);

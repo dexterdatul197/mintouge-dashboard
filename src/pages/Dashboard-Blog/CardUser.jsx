@@ -3,25 +3,20 @@ import PropTypes from 'prop-types';
 import { Card, CardBody, Col, Row } from 'reactstrap';
 import ReactApexChart from 'react-apexcharts';
 import getChartColorsArray from '@components/Common/ChartsDynamicColor';
-import { useSelector, useDispatch } from 'react-redux';
-import { dashboardBlogVisitorData } from '@store/actions';
 
 const CardUser = ({ dataColors }) => {
   const apexCardUserChartColors = getChartColorsArray(dataColors);
   const [duration, setDuration] = useState("year");
-  const dispatch = useDispatch();
   const visitorDurationData = (duration) => {
     setDuration(duration);
-    dispatch(dashboardBlogVisitorData(duration));
+    // dispatch(dashboardBlogVisitorData(duration));
   };
 
   useEffect(() => {
-    dispatch(dashboardBlogVisitorData("year"));
-  }, [dispatch]);
+    // dispatch(dashboardBlogVisitorData("year"));
+  }, []);
 
-  const { visitor } = useSelector(state => ({
-    visitor: state.DashboardBlog.visitor
-  }));
+  const { visitor } = {};
 
   const series = [
     {

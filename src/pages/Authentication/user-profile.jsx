@@ -17,32 +17,21 @@ import {
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
-
 //Import Breadcrumb
 import Breadcrumb from '@components/Common/Breadcrumb';
 
 import avatar from '@assets/images/users/avatar-1.jpg';
-// actions
-import { editProfile, resetProfileFlag } from '@store/actions';
 
 const UserProfile = (props) => {
 
   //meta title
   document.title = 'Profile | Mintouge - React Admin & Dashboard Template';
 
-  const dispatch = useDispatch();
-
   const [email, setemail] = useState("");
   const [name, setname] = useState("");
   const [idx, setidx] = useState(1);
 
-  const { error, success } = useSelector(state => ({
-    error: state.Profile.error,
-    success: state.Profile.success,
-  }));
+  const { error, success } = {};
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"));
@@ -59,10 +48,10 @@ const UserProfile = (props) => {
         setidx(obj.uid);
       }
       setTimeout(() => {
-        dispatch(resetProfileFlag());
+        // dispatch(resetProfileFlag());
       }, 3000);
     }
-  }, [dispatch, success]);
+  }, [success]);
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
@@ -76,7 +65,7 @@ const UserProfile = (props) => {
       username: Yup.string().required("Please Enter Your UserName"),
     }),
     onSubmit: (values) => {
-      dispatch(editProfile(values));
+      // dispatch(editProfile(values));
     }
   });
 

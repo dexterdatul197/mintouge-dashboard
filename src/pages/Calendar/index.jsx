@@ -22,15 +22,6 @@ import { useFormik } from 'formik';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Common/Breadcrumb';
-
-import {
-  addNewEvent as onAddNewEvent,
-  deleteEvent as onDeleteEvent,
-  getCategories as onGetCategories,
-  getEvents as onGetEvents,
-  updateEvent as onUpdateEvent,
-} from '@store/actions';
-
 import DeleteModal from './DeleteModal';
 
 //import Images
@@ -38,9 +29,6 @@ import verification from '@assets/images/verification-img.png';
 
 //css
 import '@fullcalendar/bootstrap/main.css';
-
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 import '@fullcalendar/react/dist/vdom';
 import FullCalendar from '@fullcalendar/react';
@@ -52,8 +40,6 @@ const Calender = (props) => {
   //meta title
   document.title =
     "Full Calendar | Mintouge - Brands Dashboard";
-
-  const dispatch = useDispatch();
 
   const [event, setEvent] = useState({});
 
@@ -79,7 +65,7 @@ const Calender = (props) => {
           start: event.start,
         };
         // update event
-        dispatch(onUpdateEvent(updateEvent));
+        // dispatch(onUpdateEvent(updateEvent));
         validation.resetForm();
       } else {
         const newEvent = {
@@ -89,7 +75,7 @@ const Calender = (props) => {
           className: values.category + " text-white",
         };
         // save new event
-        dispatch(onAddNewEvent(newEvent));
+        // // dispatch(onAddNewEvent(newEvent));
         validation.resetForm();
       }
       setSelectedDay(null);
@@ -121,15 +107,12 @@ const Calender = (props) => {
       };
       // save new event
 
-      dispatch(onAddNewEvent(newEvent));
+      // dispatch(onAddNewEvent(newEvent));
       toggleCategory();
     },
   });
 
-  const { events, categories } = useSelector((state) => ({
-    events: state.calendar.events,
-    categories: state.calendar.categories,
-  }));
+  const { events, categories } = {};
 
   const [modal, setModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -139,12 +122,12 @@ const Calender = (props) => {
   const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
-    dispatch(onGetCategories());
-    dispatch(onGetEvents());
+    // // dispatch(onGetCategories());
+    // // dispatch(onGetEvents());
     new Draggable(document.getElementById("external-events"), {
       itemSelector: ".external-event",
     });
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (!modal && !isEmpty(event) && !!isEdit) {
@@ -221,7 +204,7 @@ const Calender = (props) => {
    */
   const handleDeleteEvent = () => {
     if (event && event.id) {
-      dispatch(onDeleteEvent(event.id));
+      // dispatch(onDeleteEvent(event.id));
     }
     setDeleteModal(false);
     toggle();
@@ -268,7 +251,7 @@ const Calender = (props) => {
         start: modifiedDate,
         className: draggedEl.className,
       };
-      dispatch(onAddNewEvent(modifiedData));
+      // dispatch(onAddNewEvent(modifiedData));
     }
   };
 

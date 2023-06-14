@@ -85,8 +85,8 @@ const TableContainer = ({
     state: { pageIndex, pageSize },
   } = useTable(
     {
-      columns,
-      data,
+      columns: [],
+      data: [],
       defaultColumn: { Filter: DefaultColumnFilter },
       initialState: {
         pageIndex: 0,

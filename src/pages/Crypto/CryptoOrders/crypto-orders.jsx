@@ -29,7 +29,6 @@ import '@assets/scss/datatables.scss';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Common/Breadcrumb';
-import { getCryptoOrders } from '@store/crypto/actions';
 
 const CryptoOrders = (props) => {
   //meta title
@@ -37,10 +36,6 @@ const CryptoOrders = (props) => {
 
   const { orders, onGetOrders } = props;
   const [activeTab, setActiveTab] = useState("1");
-
-  useEffect(() => {
-    onGetOrders();
-  }, [onGetOrders]);
 
   const handleChange = (date) => {
     // setStartDate(date)

@@ -5,12 +5,6 @@ import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFee
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
-// action
-import { registerUser, apiError } from '@store/actions';
-
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
 import { Link } from 'react-router-dom';
 
 // import images
@@ -19,8 +13,6 @@ import logoImg from '@assets/images/slogo-dark.svg';
 
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
-
-  const dispatch = useDispatch();
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
@@ -37,18 +29,14 @@ const Register = props => {
       password: Yup.string().required("Please Enter Your Password"),
     }),
     onSubmit: (values) => {
-      dispatch(registerUser(values));
+      // // dispatch(registerUser(values));
     }
   });
 
-  const { user, registrationError, loading } = useSelector(state => ({
-    user: state.Account.user,
-    registrationError: state.Account.registrationError,
-    loading: state.Account.loading,
-  }));
+  const { user, registrationError, loading } = {};
 
   useEffect(() => {
-    dispatch(apiError(""));
+    // // dispatch(apiError(""));
   }, []);
 
   return (

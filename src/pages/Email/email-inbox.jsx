@@ -30,12 +30,6 @@ import { map } from 'lodash';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-import {
-  getMailsLists as onGetMailsLists,
-  getSelectedMails as onGetSelectedMails,
-  updateMail as onUpdateMail
-} from '@store/mails/actions';
-
 //Import Email Topbar
 import EmailToolbar from './email-toolbar';
 
@@ -45,32 +39,26 @@ import avatar3 from '@assets/images/users/avatar-3.jpg';
 import avatar4 from '@assets/images/users/avatar-4.jpg';
 import avatar6 from '@assets/images/users/avatar-6.jpg';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 const EmailInbox = (props) => {
   //meta title
   document.title = "Inbox | Mintouge - Brands Dashboard";
 
-  const dispatch = useDispatch();
 
   const {
     mailslists,
     selectedmails
-  } = useSelector(state => ({
-    mailslists: state.mails.mailslists,
-    selectedmails: state.mails.selectedmails,
-  }));
+  } = {};
 
   const [activeTab, setactiveTab] = useState(0);
   const [modal, setmodal] = useState(false);
 
   useEffect(() => {
-    dispatch(onGetMailsLists(0));
-  }, [dispatch]);
+    // dispatch(onGetMailsLists(0));
+  }, []);
 
   const handleSelect = (selectedItems) => {
-    dispatch(onGetSelectedMails(selectedItems));
+    // dispatch(onGetSelectedMails(selectedItems));
   };
 
   const hasStarred = (mail) => {
@@ -78,7 +66,7 @@ const EmailInbox = (props) => {
       id: mail.id,
       starred: !mail.starred
     };
-    dispatch(onUpdateMail(updateTodo));
+    // dispatch(onUpdateMail(updateTodo));
   };
 
   return (
@@ -111,7 +99,7 @@ const EmailInbox = (props) => {
                         })}
                         onClick={() => {
                           setactiveTab(0);
-                          dispatch(onGetMailsLists(0));
+                          // dispatch(onGetMailsLists(0));
                         }}
                       >
                         <i className="mdi mdi-email-outline me-2"></i> Inbox{" "}
@@ -126,7 +114,7 @@ const EmailInbox = (props) => {
                         })}
                         onClick={() => {
                           setactiveTab(6);
-                          dispatch(onGetMailsLists(6));
+                          // dispatch(onGetMailsLists(6));
                         }}
                       >
                         <i className="mdi mdi-star-outline me-2"></i>Starred
@@ -140,7 +128,7 @@ const EmailInbox = (props) => {
                         })}
                         onClick={() => {
                           setactiveTab(1);
-                          dispatch(onGetMailsLists(1));
+                          // dispatch(onGetMailsLists(1));
                         }}
                       >
                         <i className="mdi mdi-diamond-stone me-2"></i>Important
@@ -154,7 +142,7 @@ const EmailInbox = (props) => {
                         })}
                         onClick={() => {
                           setactiveTab(2);
-                          dispatch(onGetMailsLists(2));
+                          // dispatch(onGetMailsLists(2));
                         }}
                       >
                         <i className="mdi mdi-file-outline me-2"></i>Draft
@@ -168,7 +156,7 @@ const EmailInbox = (props) => {
                         })}
                         onClick={() => {
                           setactiveTab(3);
-                          dispatch(onGetMailsLists(3));
+                          // dispatch(onGetMailsLists(3));
                         }}
                       >
                         <i className="mdi mdi-email-check-outline me-2"></i>Sent
@@ -183,7 +171,7 @@ const EmailInbox = (props) => {
                         })}
                         onClick={() => {
                           setactiveTab(4);
-                          dispatch(onGetMailsLists(4));
+                          // dispatch(onGetMailsLists(4));
                         }}
                       >
                         <i className="mdi mdi-trash-can-outline me-2"></i>Trash

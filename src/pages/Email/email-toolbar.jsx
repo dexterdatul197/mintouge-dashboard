@@ -9,26 +9,13 @@ import {
   Col,
 } from 'reactstrap';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
-
-import {
-  setFolderOnSelectedMails as onFolderOnSelectedMails,
-  selectFolders as onSelectFolders,
-  getSelectedMails as onGetSelectedMails,
-} from '@store/mails/actions';
-
 const EmailToolbar = (props) => {
-  const dispatch = useDispatch();
 
-  const { selectedmails, folders } = useSelector((state) => ({
-    selectedmails: state.mails.selectedmails,
-    folders: state.mails.folders,
-  }));
+  const { selectedmails, folders } = {};
 
   useEffect(() => {
-    dispatch(onSelectFolders());
-  }, [dispatch]);
+    // dispatch(onSelectFolders());
+  }, []);
 
   const [folder_Menu, setfolder_Menu] = useState(false);
   const [tag_Menu, settag_Menu] = useState(false);
@@ -54,7 +41,7 @@ const EmailToolbar = (props) => {
     } else {
       var forId = null;
     }
-    dispatch(onGetSelectedMails(forId));
+    // dispatch(onGetSelectedMails(forId));
   };
 
   return (
@@ -88,7 +75,7 @@ const EmailToolbar = (props) => {
                       type="button"
                       color="primary"
                       onClick={(ev) => {
-                        dispatch(
+                        // dispatch(
                           onFolderOnSelectedMails(
                             selectedmails,
                             4,
@@ -120,7 +107,7 @@ const EmailToolbar = (props) => {
                         <DropdownItem
                           to="#"
                           onClick={(ev) => {
-                            dispatch(
+                            // dispatch(
                               onFolderOnSelectedMails(
                                 selectedmails,
                                 ev.target.value,

@@ -12,17 +12,12 @@ import {
   DropdownItem,
 } from 'reactstrap';
 
-//redux
-import { useSelector, useDispatch } from 'react-redux';
 
 import { getMails as onGetMails } from 'store/actions';
 
 const MailsList = () => {
-  const dispatch = useDispatch();
 
-  const { mails } = useSelector((state) => ({
-    mails: state.mails.mails
-  }));
+  const { mails } = {};
 
   const [mailList, setmailList] = useState([]);
   const [folder_Menu, setfolder_Menu] = useState(false);
@@ -30,8 +25,8 @@ const MailsList = () => {
   const [more_Menu, setmore_Menu] = useState(false);
 
   useEffect(() => {
-    dispatch(onGetMails());
-  }, [dispatch]);
+    // dispatch(onGetMails());
+  }, []);
 
   const makeFav = (id) => {
     const allItems = [...mails];

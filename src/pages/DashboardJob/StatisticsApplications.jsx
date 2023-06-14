@@ -2,26 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardBody, Col, Nav, NavItem, NavLink } from 'reactstrap';
 import { StatisticsApplicationsChart } from './JobCharts';
 
-import { getStatisticData } from '@store/actions';
-import {useDispatch, useSelector} from 'react-redux';
-
 const StatisticsApplications = () => {
     const [duration, setDuration] = useState('year');
 
-    const dispatch = useDispatch();
-    const changeDuration = (duration) => {
+      const changeDuration = (duration) => {
         setDuration(duration)
-        dispatch(getStatisticData(duration))
+        // // dispatch(getStatisticData(duration))
     };
 
     useEffect(() => {
-        dispatch(getStatisticData(duration))
-    },[dispatch])
+        // // dispatch(getStatisticData(duration))
+    },[])
 
-    const { statistic_data } = useSelector((state) => ({
-        statistic_data : state.DashboardJob.statistic_data
-    }))
-
+    const { statistic_data } = {};
     return (
         <React.Fragment>
             <Col lg={8}>
