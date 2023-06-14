@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import TableContainer from '@components/Common/TableContainer';
 import {
   Card,
@@ -485,4 +484,4 @@ const ContactsList = (props) => {
   );
 };
 
-export default withRouter(ContactsList);
+export default ContactsList;

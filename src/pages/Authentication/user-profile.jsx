@@ -20,7 +20,6 @@ import { useFormik } from 'formik';
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 
-import withRouter from '@components/Common/withRouter';
 
 //Import Breadcrumb
 import Breadcrumb from '@components/Common/Breadcrumb';
@@ -32,7 +31,7 @@ import { editProfile, resetProfileFlag } from '@store/actions';
 const UserProfile = (props) => {
 
   //meta title
-  document.title = "Profile | Mintouge - React Admin & Dashboard Template';
+  document.title = 'Profile | Mintouge - React Admin & Dashboard Template';
 
   const dispatch = useDispatch();
 
@@ -162,4 +161,4 @@ const UserProfile = (props) => {
   );
 };
 
-export default withRouter(UserProfile);
+export default UserProfile;

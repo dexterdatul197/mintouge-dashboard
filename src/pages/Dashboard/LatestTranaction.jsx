@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import withRouter from '@components/Common/withRouter';
 import { isEmpty } from 'lodash';
 
 import {
@@ -168,4 +167,4 @@ LatestTranaction.propTypes = {
   onGetOrders: PropTypes.func,
 };
 
-export default withRouter(LatestTranaction);
+export default LatestTranaction;

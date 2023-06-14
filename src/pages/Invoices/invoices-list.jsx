@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Container, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import { map } from 'lodash';
 
 //redux
@@ -63,4 +62,4 @@ InvoicesList.propTypes = {
   onGetInvoices: PropTypes.func,
 };
 
-export default withRouter(InvoicesList);
+export default InvoicesList;

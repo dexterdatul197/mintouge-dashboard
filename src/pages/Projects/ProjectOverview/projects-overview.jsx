@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import { isEmpty } from 'lodash';
 import { Col, Container, Row } from 'reactstrap';
 
@@ -83,4 +82,4 @@ ProjectsOverview.propTypes = {
   match: PropTypes.object,
 };
 
-export default withRouter(ProjectsOverview);
+export default ProjectsOverview;

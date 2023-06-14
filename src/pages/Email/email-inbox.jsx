@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import {
   Button,
   Card,
@@ -418,4 +417,4 @@ const EmailInbox = (props) => {
   );
 };
 
-export default withRouter(EmailInbox);
+export default EmailInbox;

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import {
   Button,
   Card,
@@ -425,4 +424,4 @@ EcommerceProductDetail.propTypes = {
   onGetProductDetail: PropTypes.func,
 }
 
-export default withRouter(EcommerceProductDetail)
+export default EcommerceProductDetail)

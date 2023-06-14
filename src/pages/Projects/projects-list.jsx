@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import { isEmpty, map } from 'lodash';
 import * as moment from 'moment';
 import {
@@ -521,4 +520,4 @@ const ProjectsList = () => {
   );
 };
 
-export default withRouter(ProjectsList);
+export default ProjectsList;

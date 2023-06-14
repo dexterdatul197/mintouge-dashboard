@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import withRouter from '@components/Common/withRouter';
 
 //i18n
 import { withTranslation } from 'react-i18next';
@@ -59,4 +58,4 @@ const mapStatetoProps = (state) => {
 export default connect(
   mapStatetoProps,
   {}
-)(withRouter(withTranslation()(Sidebar)));
+)(withTranslation()(Sidebar));

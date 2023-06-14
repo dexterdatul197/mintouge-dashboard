@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 import { Card, CardBody, Col, Container, Row } from 'reactstrap';
-import withRouter from '@components/Common/withRouter';
 import '@assets/scss/datatables.scss';
 
 //Import Breadcrumb
@@ -147,4 +146,4 @@ CryptoWallet.propTypes = {
   onGetWallet: PropTypes.func,
 };
 
-export default withRouter(CryptoWallet);
+export default CryptoWallet;

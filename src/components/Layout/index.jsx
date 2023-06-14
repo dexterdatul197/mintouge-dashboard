@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import withRouter from '@components/Common/withRouter';
 import {
   changeLayout,
   changeLayoutMode,
@@ -166,4 +165,4 @@ Layout.propTypes = {
   topbarTheme: PropTypes.any,
 };
 
-export default withRouter(Layout);
+export default Layout;

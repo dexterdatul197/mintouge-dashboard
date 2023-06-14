@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import { map } from 'lodash';
 import {
   Input,
@@ -171,4 +170,4 @@ MailsList.propTypes = {
   onGetMails: PropTypes.func,
 };
 
-export default withRouter(MailsList);
+export default MailsList;

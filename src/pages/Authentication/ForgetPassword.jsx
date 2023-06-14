@@ -16,7 +16,6 @@ import {
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 
 // Formik Validation
 import * as Yup from 'yup';
@@ -175,4 +174,4 @@ ForgetPasswordPage.propTypes = {
   history: PropTypes.object,
 };
 
-export default withRouter(ForgetPasswordPage);
+export default ForgetPasswordPage;

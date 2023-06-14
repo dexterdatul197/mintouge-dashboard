@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import { Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
 //Import Breadcrumb
 import Breadcrumbs from '@components/Common/Breadcrumb';
@@ -725,4 +724,4 @@ const TasksList = () => {
   );
 };
 
-export default withRouter(TasksList);
+export default TasksList;

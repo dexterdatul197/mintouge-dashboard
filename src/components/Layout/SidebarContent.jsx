@@ -7,7 +7,6 @@ import SimpleBar from 'simplebar-react';
 // MetisMenu
 import MetisMenu from 'metismenujs';
 import { Link, useLocation } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 
 //i18n
 import { withTranslation } from 'react-i18next';
@@ -228,4 +227,4 @@ SidebarContent.propTypes = {
   t: PropTypes.any,
 };
 
-export default withRouter(withTranslation()(SidebarContent));
+export default withTranslation()(SidebarContent);

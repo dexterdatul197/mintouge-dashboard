@@ -13,7 +13,6 @@ import { withTranslation } from 'react-i18next';
 // Redux
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 
 // users
 import user1 from '@assets/images/users/avatar-1.jpg';
@@ -95,6 +94,4 @@ const mapStatetoProps = (state) => {
   return { error, success };
 };
 
-export default withRouter(
-  connect(mapStatetoProps, {})(withTranslation()(ProfileMenu))
-);
+export default connect(mapStatetoProps, {})(withTranslation()(ProfileMenu));

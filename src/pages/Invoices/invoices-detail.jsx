@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import { Card, CardBody, Col, Container, Row, Table } from 'reactstrap';
 import { isEmpty, map } from 'lodash';
 
@@ -194,4 +193,4 @@ InvoiceDetail.propTypes = {
   match: PropTypes.any,
 };
 
-export default withRouter(InvoiceDetail);
+export default InvoiceDetail;

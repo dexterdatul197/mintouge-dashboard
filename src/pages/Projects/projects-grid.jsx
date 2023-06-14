@@ -6,7 +6,6 @@ import {
   PaginationLink,
   Row,
 } from 'reactstrap';
-import withRouter from '@components/Common/withRouter';
 import { map } from 'lodash';
 
 //Import Breadcrumb
@@ -90,4 +89,4 @@ const ProjectsGrid = (props) => {
   );
 };
 
-export default withRouter(ProjectsGrid);
+export default ProjectsGrid;

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import { Col, Container, Row } from 'reactstrap';
 import { map } from 'lodash';
 
@@ -60,4 +59,4 @@ const ContactsGrid = () => {
   );
 };
 
-export default withRouter(ContactsGrid);
+export default ContactsGrid;

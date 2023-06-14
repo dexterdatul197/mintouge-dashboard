@@ -2,7 +2,6 @@ import React, { useEffect, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 import { map } from 'lodash';
 import {
   Card,
@@ -317,4 +316,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(ContactsProfile));
+)(ContactsProfile));

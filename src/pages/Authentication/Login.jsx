@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
-import withRouter from '@components/Common/withRouter';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -211,7 +210,7 @@ const Login = (props) => {
   );
 };
 
-export default withRouter(Login);
+export default Login;
 
 Login.propTypes = {
   history: PropTypes.object,

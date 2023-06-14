@@ -17,7 +17,6 @@ import {
 } from 'reactstrap';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-import withRouter from '@components/Common/withRouter';
 
 import { Pdate, Type, Value, ValueinUSD, Status, Coin } from './CryptoCol';
 
@@ -479,4 +478,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(CryptoOrders));
+)(CryptoOrders));
