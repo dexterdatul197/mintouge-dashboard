@@ -5,7 +5,6 @@ import React, { useEffect } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import RightSidebar from '@components/CommonForBoth/RightSidebar';
 
 const Layout = (props) => {
 
@@ -15,7 +14,6 @@ const Layout = (props) => {
     layoutWidth,
     leftSideBarType,
     topbarTheme,
-    showRightSidebar,
     leftSideBarTheme,
     layoutModeType,
   } = {};
@@ -36,9 +34,6 @@ const Layout = (props) => {
     //if clicked in inside right bar, then do nothing
     if (rightbar && rightbar.contains(event.target)) {
       return;
-    } else {
-      //if clicked in outside of rightbar then fire action for hide rightbar
-      // dispatch(showRightSidebarAction(false));
     }
   };
 
@@ -120,7 +115,6 @@ const Layout = (props) => {
         <div className="main-content">{props.children}</div>
         <Footer />
       </div>
-      {showRightSidebar ? <RightSidebar /> : null}
     </React.Fragment>
   );
 };
@@ -138,7 +132,6 @@ Layout.propTypes = {
   leftSideBarThemeImage: PropTypes.any,
   leftSideBarType: PropTypes.any,
   location: PropTypes.object,
-  showRightSidebar: PropTypes.any,
   topbarTheme: PropTypes.any,
 };
 

@@ -13,11 +13,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^35.4.0",
-    "@ckeditor/ckeditor5-react": "^5.0.5",
     "apexcharts": "^3.36.3",
-    "axios": "^1.2.1",
-    "axios-mock-adapter": "^1.21.2",
     "bootstrap": "^5.2.0",
     "chart.js": "^4.1.1",
     "chartist": "^0.11.4",

@@ -1,25 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-
-import { Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-// Reactstrap
-import { Dropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
-
-// Import menuDropdown
 import LanguageDropdown from '@components/CommonForBoth/TopbarDropdown/LanguageDropdown';
 import NotificationDropdown from '@components/CommonForBoth/TopbarDropdown/NotificationDropdown';
 import ProfileMenu from '@components/CommonForBoth/TopbarDropdown/ProfileMenu';
-import megamenuImg from '@assets/images/megamenu-img.png';
-
-// import images
-import github from '@assets/images/brands/github.png';
-import bitbucket from '@assets/images/brands/bitbucket.png';
-import dribbble from '@assets/images/brands/dribbble.png';
-import dropbox from '@assets/images/brands/dropbox.png';
-import mail_chimp from '@assets/images/brands/mail_chimp.png';
-import slack from '@assets/images/brands/slack.png';
 
 import logo from '@assets/images/slogo-light.svg';
 import logoLightSvg from '@assets/images/logo-light.svg';
@@ -29,8 +14,6 @@ import { useTranslation } from 'react-i18next';
 
 const Header = props => {
   const [search, setsearch] = useState(false);
-  const [megaMenu, setmegaMenu] = useState(false);
-  const [socialDrp, setsocialDrp] = useState(false);
   const { t } = useTranslation();
 
   function toggleFullscreen() {
@@ -171,12 +154,7 @@ const Header = props => {
             <NotificationDropdown />
             <ProfileMenu />
             
-            <div
-               onClick={() => {
-                props.showRightSidebarAction(!props.showRightSidebar);
-              }}
-              className="dropdown d-inline-block"
-            >
+            <div className="dropdown d-inline-block">
               <button
                 type="button"
                 className="btn header-item noti-icon right-bar-toggle "
@@ -192,13 +170,6 @@ const Header = props => {
 };
 
 Header.propTypes = {
-  changeSidebarType: PropTypes.func,
-  leftMenu: PropTypes.any,
-  leftSideBarType: PropTypes.any,
-  showRightSidebar: PropTypes.any,
-  showRightSidebarAction: PropTypes.func,
-  t: PropTypes.any,
-  toggleLeftmenu: PropTypes.func
 };
 
 export default Header;
