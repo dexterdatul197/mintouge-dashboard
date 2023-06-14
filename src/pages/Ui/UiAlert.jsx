@@ -12,7 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 
 const UiAlert = () => {
   //meta title

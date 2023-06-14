@@ -20,7 +20,7 @@ import {
 } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb"
+import Breadcrumbs from '@components/commons/Breadcrumb"
 
 const UiDropdown = () => {
 

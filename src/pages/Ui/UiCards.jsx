@@ -29,7 +29,7 @@ import { Link } from 'react-router-dom';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 
 const UiCards = () => {
 

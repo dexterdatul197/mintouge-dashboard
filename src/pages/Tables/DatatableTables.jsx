@@ -3,8 +3,8 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 //import components
-import Breadcrumbs from '@components/Common/Breadcrumb';
-import TableContainer from '@components/Common/TableContainer';
+import Breadcrumbs from '@components/commons/Breadcrumb';
+import TableContainer from '@components/commons/TableContainer';
 
 function DatatableTables() {
     const columns = useMemo(

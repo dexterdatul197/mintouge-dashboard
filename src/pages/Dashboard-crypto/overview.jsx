@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Card, CardBody, Button } from 'reactstrap';
 import ReactApexChart from 'react-apexcharts';
-import getChartColorsArray from '@components/Common/ChartsDynamicColor';
+import getChartColorsArray from '@components/commons/ChartsDynamicColor';
 
 const Oerview = ({ dataColors }) => {
   const apexoverviewchartColors = getChartColorsArray(dataColors);

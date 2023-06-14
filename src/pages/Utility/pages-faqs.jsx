@@ -16,7 +16,7 @@ import {
 import classnames from 'classnames';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 
 const PagesFaqs = () => {
 

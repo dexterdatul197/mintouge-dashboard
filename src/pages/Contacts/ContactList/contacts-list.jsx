@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import TableContainer from '@components/Common/TableContainer';
+import TableContainer from '@components/commons/TableContainer';
 import {
   Card,
   CardBody,
@@ -22,8 +22,8 @@ import { useFormik } from 'formik';
 import { Name, Email, Tags, Projects, Img } from './contactlistCol';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
-import DeleteModal from '@components/Common/DeleteModal';
+import Breadcrumbs from '@components/commons/Breadcrumb';
+import DeleteModal from '@components/commons/DeleteModal';
 
 import { isEmpty } from 'lodash';
 import { users } from '@common/data';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
-import getChartColorsArray from '@components/Common/ChartsDynamicColor';
+import getChartColorsArray from '@components/commons/ChartsDynamicColor';
 
 const PieChart = ({ dataColors }) => {
   var pieChartColors = getChartColorsArray(dataColors);

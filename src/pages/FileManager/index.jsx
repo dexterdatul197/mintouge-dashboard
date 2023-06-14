@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody, Container } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 
 // import Component
 import FileLeftBar from './FileLeftBar';

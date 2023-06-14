@@ -15,7 +15,7 @@ import DonutChart from '../AllCharts/apex/dountchart';
 import { Row, Col, Card, CardBody, CardTitle } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 
 const Apexchart = () => {
 

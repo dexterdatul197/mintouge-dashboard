@@ -25,7 +25,7 @@ import StarRatings from 'react-star-ratings';
 import { productImages } from '@assets/images/product';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 
 import RecentProducts from './RecentProducts';
 import { recentProducts, productsData } from '@common/data';

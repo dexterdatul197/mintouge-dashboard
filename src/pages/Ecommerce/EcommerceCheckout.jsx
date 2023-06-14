@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 
 //Import Images
 import img1 from '@assets/images/product/img-1.png';

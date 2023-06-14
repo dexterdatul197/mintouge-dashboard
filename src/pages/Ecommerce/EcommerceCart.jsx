@@ -13,7 +13,7 @@ import {
 import { Link } from 'react-router-dom';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 
 //Import Product Images
 import img1 from '@assets/images/product/img-1.png';

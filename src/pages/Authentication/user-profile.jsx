@@ -18,7 +18,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 //Import Breadcrumb
-import Breadcrumb from '@components/Common/Breadcrumb';
+import Breadcrumb from '@components/commons/Breadcrumb';
 
 import avatar from '@assets/images/users/avatar-1.jpg';
 

@@ -8220,7 +8220,7 @@ react-select@^5.7.0:
 
 react-simple-code-editor@^0.13.1:
   version "0.13.1"
-  resolved "https://registry.npmjs.org/react-simple-code-editor/-/react-simple-code-editor-0.13.1.tgz"
+  resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.13.1.tgz#4514553fa132dcaffec33a6612c58f1613c52416"
   integrity sha512-XYeVwRZwgyKtjNIYcAEgg2FaQcCZwhbarnkJIV20U2wkCU9q/CPFBo8nRXrK4GXUz3AvbqZFsZRrpUTkqqEYyQ==
 
 react-smooth@^2.0.1:

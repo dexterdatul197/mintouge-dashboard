@@ -3,7 +3,7 @@ import React from 'react';
 import { Row, Col, Card, CardBody, Container } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb"
+import Breadcrumbs from '@components/commons/Breadcrumb"
 
 const IconDripicons = () => {
   

@@ -19,7 +19,7 @@ import classnames from 'classnames';
 
 import { Pdate, Type, Value, ValueinUSD, Status, Coin } from './CryptoCol';
 
-import TableContainer from '@components/Common/TableContainer';
+import TableContainer from '@components/commons/TableContainer';
 
 //Date Picker
 import DatePicker from 'react-datepicker';
@@ -28,7 +28,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import '@assets/scss/datatables.scss';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 
 const CryptoOrders = (props) => {
   //meta title

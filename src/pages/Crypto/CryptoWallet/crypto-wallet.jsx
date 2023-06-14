@@ -5,7 +5,7 @@ import { Card, CardBody, Col, Container, Row } from 'reactstrap';
 import '@assets/scss/datatables.scss';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/Common/Breadcrumb';
+import Breadcrumbs from '@components/commons/Breadcrumb';
 import WalletActivities from './walletActivities';
 import WalletStats from './walletStats';
 import WalletOverView from './walletOverView';

@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './i18n';
 import App from './App';
-import LoadingScreen from '@components/Common/LoadingScreen';
+import LoadingScreen from '@components/commons/LoadingScreen';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.Fragment>

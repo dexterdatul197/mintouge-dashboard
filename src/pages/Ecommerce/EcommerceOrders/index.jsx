@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TableContainer from '@components/Common/TableContainer';
+import TableContainer from '@components/commons/TableContainer';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 //import components
-import Breadcrumbs from '@components/Common/Breadcrumb';
-import DeleteModal from '@components/Common/DeleteModal';
+import Breadcrumbs from '@components/commons/Breadcrumb';
+import DeleteModal from '@components/commons/DeleteModal';
 
 import {
   OrderId,

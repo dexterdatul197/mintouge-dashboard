@@ -1,5 +1,5 @@
 import React from 'react';
-import getChartColorsArray from '@components/Common/ChartsDynamicColor';
+import getChartColorsArray from '@components/commons/ChartsDynamicColor';
 import ChartistGraph from 'react-chartist';
 
 const barchart = ({ dataColors }) => {
