@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, FormGroup } from 'reactstrap';
 
-import { connect } from 'react-redux';
 import {
   changeLayout,
   changeLayoutMode,
@@ -422,18 +421,4 @@ RightSidebar.propTypes = {
   onClose: PropTypes.func,
 };
 
-const mapStateToProps = state => {
-  return { ...state.Layout };
-};
-
-export default connect(mapStateToProps, {
-  changeLayout,
-  changeLayoutMode,
-  changeSidebarTheme,
-  changeSidebarThemeImage,
-  changeSidebarType,
-  changeLayoutWidth,
-  changeTopbarTheme,
-  changePreloader,
-  showRightSidebarAction,
-})(RightSidebar);
+export default RightSidebar;

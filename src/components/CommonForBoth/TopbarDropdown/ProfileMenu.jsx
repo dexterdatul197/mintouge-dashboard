@@ -8,10 +8,9 @@ import {
 } from 'reactstrap';
 
 //i18n
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 // Redux
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // users
@@ -20,8 +19,8 @@ import user1 from '@assets/images/users/avatar-1.jpg';
 const ProfileMenu = (props) => {
   // Declare a new state variable, which we'll call "menu"
   const [menu, setMenu] = useState(false);
-
   const [username, setusername] = useState("Admin");
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
@@ -62,21 +61,21 @@ const ProfileMenu = (props) => {
           <DropdownItem tag="a" href="/profile">
             {" "}
             <i className="bx bx-user font-size-16 align-middle me-1" />
-            {props.t("Profile")}{" "}
+            {t("Profile")}{" "}
           </DropdownItem>
           <DropdownItem tag="a" href="#">
             <span className="badge bg-success float-end">11</span>
             <i className="bx bx-wrench font-size-16 align-middle me-1" />
-            {props.t("Settings")}
+            {t("Settings")}
           </DropdownItem>
           <DropdownItem tag="a" href="auth-lock-screen">
             <i className="bx bx-lock-open font-size-16 align-middle me-1" />
-            {props.t("Lock screen")}
+            {t("Lock screen")}
           </DropdownItem>
           <div className="dropdown-divider" />
           <Link to="/logout" className="dropdown-item">
             <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger" />
-            <span>{props.t("Logout")}</span>
+            <span>{t("Logout")}</span>
           </Link>
         </DropdownMenu>
       </Dropdown>
@@ -89,9 +88,4 @@ ProfileMenu.propTypes = {
   t: PropTypes.any,
 };
 
-const mapStatetoProps = (state) => {
-  const { error, success } = state.Profile;
-  return { error, success };
-};
-
-export default connect(mapStatetoProps, {})(withTranslation()(ProfileMenu));
+export default ProfileMenu;

@@ -6,7 +6,7 @@ import {
   DropdownToggle,
 } from 'reactstrap';
 import { get, map } from 'lodash';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 //i18n
 import i18n from '@/i18n';
@@ -69,4 +69,4 @@ const LanguageDropdown = () => {
   )
 }
 
-export default withTranslation()(LanguageDropdown)
+export default LanguageDropdown;

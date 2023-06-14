@@ -16,7 +16,6 @@ import {
   TabPane,
 } from 'reactstrap';
 import classnames from 'classnames';
-import { connect } from 'react-redux';
 
 import { Pdate, Type, Value, ValueinUSD, Status, Coin } from './CryptoCol';
 
@@ -467,15 +466,4 @@ CryptoOrders.propTypes = {
   onGetOrders: PropTypes.func,
 };
 
-const mapStateToProps = ({ crypto }) => ({
-  orders: crypto.orders,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onGetOrders: () => dispatch(getCryptoOrders()),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CryptoOrders));
+export default CryptoOrders;

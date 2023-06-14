@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Routes, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { authProtectedRoutes, publicRoutes } from './routes';
@@ -54,10 +53,4 @@ App.propTypes = {
   layout: PropTypes.any,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    layout: state.Layout,
-  };
-};
-
-export default connect(mapStateToProps, null)(App);
+export default App;

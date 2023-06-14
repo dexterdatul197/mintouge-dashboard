@@ -9,11 +9,12 @@ import avatar3 from '@assets/images/users/avatar-3.jpg';
 import avatar4 from '@assets/images/users/avatar-4.jpg';
 
 //i18n
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const NotificationDropdown = props => {
   // Declare a new state variable, which we'll call "menu"
   const [menu, setMenu] = useState(false)
+  const { t } = useTranslation();
 
   return (
     <React.Fragment>
@@ -36,7 +37,7 @@ const NotificationDropdown = props => {
           <div className="p-3">
             <Row className="align-items-center">
               <Col>
-                <h6 className="m-0"> {props.t("Notifications")} </h6>
+                <h6 className="m-0"> {t("Notifications")} </h6>
               </Col>
               <div className="col-auto">
                 <a href="#!" className="small">
@@ -57,15 +58,15 @@ const NotificationDropdown = props => {
                 </div>
                 <div className="flex-grow-1">
                   <h6 className="mt-0 mb-1">
-                    {props.t("Your order is placed")}
+                    {t("Your order is placed")}
                   </h6>
                   <div className="font-size-12 text-muted">
                     <p className="mb-1">
-                      {props.t("If several languages coalesce the grammar")}
+                      {t("If several languages coalesce the grammar")}
                     </p>
                     <p className="mb-0">
                       <i className="mdi mdi-clock-outline" />{" "}
-                      {props.t("3 min ago")}{" "}
+                      {t("3 min ago")}{" "}
                     </p>
                   </div>
                 </div>
@@ -82,11 +83,11 @@ const NotificationDropdown = props => {
                   <h6 className="mt-0 mb-1">James Lemire</h6>
                   <div className="font-size-12 text-muted">
                     <p className="mb-1">
-                      {props.t("It will seem like simplified English") + "."}
+                      {t("It will seem like simplified English") + "."}
                     </p>
                     <p className="mb-0">
                       <i className="mdi mdi-clock-outline" />
-                      {props.t("1 hours ago")}{" "}
+                      {t("1 hours ago")}{" "}
                     </p>
                   </div>
                 </div>
@@ -101,15 +102,15 @@ const NotificationDropdown = props => {
                 </div>
                 <div className="flex-grow-1">
                   <h6 className="mt-0 mb-1">
-                    {props.t("Your item is shipped")}
+                    {t("Your item is shipped")}
                   </h6>
                   <div className="font-size-12 text-muted">
                     <p className="mb-1">
-                      {props.t("If several languages coalesce the grammar")}
+                      {t("If several languages coalesce the grammar")}
                     </p>
                     <p className="mb-0">
                       <i className="mdi mdi-clock-outline" />{" "}
-                      {props.t("3 min ago")}
+                      {t("3 min ago")}
                     </p>
                   </div>
                 </div>
@@ -127,13 +128,13 @@ const NotificationDropdown = props => {
                   <h6 className="mt-0 mb-1">Salena Layfield</h6>
                   <div className="font-size-12 text-muted">
                     <p className="mb-1">
-                      {props.t(
+                      {t(
                         "As a skeptical Cambridge friend of mine occidental"
                       ) + "."}
                     </p>
                     <p className="mb-0">
                       <i className="mdi mdi-clock-outline" />
-                      {props.t("1 hours ago")}{" "}
+                      {t("1 hours ago")}{" "}
                     </p>
                   </div>
                 </div>
@@ -147,7 +148,7 @@ const NotificationDropdown = props => {
             >
               <i className="mdi mdi-arrow-right-circle me-1"></i>
               {" "}
-              {props.t("View all")}{" "}
+              {t("View all")}{" "}
             </Link>
           </div>
         </DropdownMenu>
@@ -156,7 +157,7 @@ const NotificationDropdown = props => {
   )
 }
 
-export default withTranslation()(NotificationDropdown)
+export default NotificationDropdown;
 
 NotificationDropdown.propTypes = {
   t: PropTypes.any

@@ -424,4 +424,4 @@ EcommerceProductDetail.propTypes = {
   onGetProductDetail: PropTypes.func,
 }
 
-export default EcommerceProductDetail)
+export default EcommerceProductDetail;

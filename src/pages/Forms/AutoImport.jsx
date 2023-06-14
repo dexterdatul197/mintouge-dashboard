@@ -26,6 +26,7 @@ const FormEditors = () => {
 
   //meta title
   document.title = "API Setting | Mintouge - Brands Dashboard"
+  const [endpoint, setEndpoint] = React.useState("https://mintouge.com/public/products");
   const [code, setCode] = React.useState(
     `// Product Data Model
 interface ProductModal {
@@ -87,8 +88,9 @@ async function transform(productUrl) {
                 type="text"
                 className="form-control"
                 id="horizontal-firstname-Input"
-                value="https://mintouge.com/public/products"
+                value={endpoint}
                 contentEditable={true}
+                onChange={(e) => setEndpoint(e.target.value)}
               />
             </div>
 
@@ -100,19 +102,16 @@ async function transform(productUrl) {
                     <p className="card-title-desc">
                       Below is the code to import products automatically in background
                     </p>
-
-                    <Form method="post">
-                      <Editor
-                        value={code}
-                        onValueChange={code => setCode(code)}
-                        highlight={code => highlight(code, languages.js)}
-                        padding={10}
-                        style={{
-                          fontFamily: '"Fira code", "Fira Mono", monospace',
-                          fontSize: 12,
-                        }}
-                      />
-                    </Form>
+                    <Editor
+                      value={code}
+                      onValueChange={code => setCode(code)}
+                      highlight={code => highlight(code, languages.js)}
+                      padding={10}
+                      style={{
+                        fontFamily: '"Fira code", "Fira Mono", monospace',
+                        fontSize: 12,
+                      }}
+                    />
                   </CardBody>
                 </Card>
               </Col>

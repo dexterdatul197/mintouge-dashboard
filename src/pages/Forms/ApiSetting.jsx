@@ -25,9 +25,11 @@ import Breadcrumbs from '@components/Common/Breadcrumb';
 const FormEditors = () => {
 
   //meta title
-  document.title = "API Setting | Mintouge - Brands Dashboard"
+  document.title = "API Setting | Mintouge - Brands Dashboard";
+  const [privateKey, setPrivateKey] = React.useState("UJX893-MDI82K-PMX90H-XDTPQM");
+  const [publicKey, setPublicKey] = React.useState("PQMXDT-90HPMX-I82MDK-JX8U93");
   const [code, setCode] = React.useState(
-`// How to use Private API Key
+    `// How to use Private API Key
 try {
   const response = await fetch("https://mintouge.com/auth", {
     method: "POST",
@@ -81,8 +83,9 @@ try {
                 type="text"
                 className="form-control"
                 id="horizontal-firstname-Input"
-                value="UJX893-MDI82K-PMX90H-XDTPQM"
+                value={privateKey}
                 contentEditable={false}
+                readOnly
               />
             </div>
 
@@ -98,8 +101,9 @@ try {
                 type="text"
                 className="form-control"
                 id="horizontal-firstname-Input"
-                value="PQMXDT-90HPMX-I82MDK-JX8U93"
+                value={publicKey}
                 contentEditable={false}
+                readOnly
               />
             </div>
 
@@ -112,18 +116,16 @@ try {
                       Below is the code of how to use Api Key to use Mintouge SDK
                     </p>
 
-                    <Form method="post">
-                      <Editor
-                        value={code}
-                        onValueChange={code => setCode(code)}
-                        highlight={code => highlight(code,  languages.js)}
-                        padding={10}
-                        style={{
-                          fontFamily: '"Fira code", "Fira Mono", monospace',
-                          fontSize: 12,
-                        }}
-                      />
-                    </Form>
+                    <Editor
+                      value={code}
+                      onValueChange={code => setCode(code)}
+                      highlight={code => highlight(code, languages.js)}
+                      padding={10}
+                      style={{
+                        fontFamily: '"Fira code", "Fira Mono", monospace',
+                        fontSize: 12,
+                      }}
+                    />
                   </CardBody>
                 </Card>
               </Col>

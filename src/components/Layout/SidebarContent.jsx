@@ -9,12 +9,13 @@ import MetisMenu from 'metismenujs';
 import { Link, useLocation } from 'react-router-dom';
 
 //i18n
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
 
 const SidebarContent = (props) => {
   const ref = useRef();
   const path = useLocation();
+  const { t } = useTranslation();
 
   const activateParentDropdown = useCallback((item) => {
     item.classList.add("active");
@@ -146,39 +147,39 @@ const SidebarContent = (props) => {
             <li>
               <Link to="/dashboard" className="">
                 <i className="bx bx-home-circle"></i>
-                <span>{props.t("Dashboards")}</span>
+                <span>{t("Dashboards")}</span>
               </Link>
             </li>
 
             <li>
               <Link to="/#" className="has-arrow">
                 <i className="bx bx-store"></i>
-                <span>{props.t("Product")}</span>
+                <span>{t("Product")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="true">
                 <li>
-                  <Link to="/ecommerce-products">{props.t("Products")}</Link>
+                  <Link to="/ecommerce-products">{t("Products")}</Link>
                 </li>
                 <li>
                   <Link to="/ecommerce-product-detail/1">
-                    {props.t("Product Detail")}
+                    {t("Product Detail")}
                   </Link>
                 </li>
                 <li>
                   <Link to="/ecommerce-add-product">
-                    {props.t("Add Product")}
+                    {t("Add Product")}
                   </Link>
                 </li>
                 <li>
                   <Link to="/ecommerce-auto-import">
-                    {props.t("Auto Import")}
+                    {t("Auto Import")}
                   </Link>
                 </li>
                 <li>
-                  <Link to="/ecommerce-orders">{props.t("Orders")}</Link>
+                  <Link to="/ecommerce-orders">{t("Orders")}</Link>
                 </li>
                 <li>
-                  <Link to="/ecommerce-customers">{props.t("Customers")}</Link>
+                  <Link to="/ecommerce-customers">{t("Customers")}</Link>
                 </li>
               </ul>
             </li>
@@ -186,17 +187,17 @@ const SidebarContent = (props) => {
             <li>
               <Link to="/#" className="has-arrow">
                 <i className="bx bx-cog"></i>
-                <span>{props.t("Settings")}</span>
+                <span>{t("Settings")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="true">
                 <li>
-                  <Link to="/setting-api">{props.t("API Settings")}</Link>
+                  <Link to="/setting-api">{t("API Settings")}</Link>
                 </li>
                 <li>
-                  <Link to="/ecommerce-checkout">{props.t("Payments")}</Link>
+                  <Link to="/ecommerce-checkout">{t("Payments")}</Link>
                 </li>
                 <li>
-                  <Link to="/wallet">{props.t("Wallet")}</Link>
+                  <Link to="/wallet">{t("Wallet")}</Link>
                 </li>
               </ul>
             </li>
@@ -204,14 +205,14 @@ const SidebarContent = (props) => {
             <li>
               <Link to="/contacts-list">
                 <i className="bx bxs-user-detail"></i>
-                <span>{props.t("User Management")}</span>
+                <span>{t("User Management")}</span>
               </Link>
             </li>
 
             <li>
               <Link to="/email-inbox" className="">
                 <i className="bx bx-bell"></i>
-                <span>{props.t("Notifications")}</span>
+                <span>{t("Notifications")}</span>
               </Link>
             </li>
 
@@ -227,4 +228,4 @@ SidebarContent.propTypes = {
   t: PropTypes.any,
 };
 
-export default withTranslation()(SidebarContent);
+export default SidebarContent;

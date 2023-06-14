@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { connect } from 'react-redux';
 
 //i18n
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import SidebarContent from './SidebarContent';
 
 import { Link } from 'react-router-dom';
@@ -50,12 +49,4 @@ Sidebar.propTypes = {
   type: PropTypes.string,
 };
 
-const mapStatetoProps = (state) => {
-  return {
-    layout: state.Layout,
-  };
-};
-export default connect(
-  mapStatetoProps,
-  {}
-)(withTranslation()(Sidebar));
+export default Sidebar;

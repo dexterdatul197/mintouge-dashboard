@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { map } from 'lodash';
 import {
@@ -305,15 +304,4 @@ ContactsProfile.propTypes = {
   onGetUserProfile: PropTypes.func,
 };
 
-const mapStateToProps = ({ contacts }) => ({
-  userProfile: contacts.userProfile,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onGetUserProfile: () => dispatch(getUserProfile()),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ContactsProfile));
+export default ContactsProfile;

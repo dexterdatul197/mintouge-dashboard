@@ -39,7 +39,7 @@ import LatestTranaction from './LatestTranaction';
 import Breadcrumbs from '@components/Common/Breadcrumb';
 
 //i18n
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -47,7 +47,8 @@ import { useSelector, useDispatch } from 'react-redux';
 const Dashboard = props => {
   const [modal, setmodal] = useState(false);
   const [subscribemodal, setSubscribemodal] = useState(false);
-
+  const { t } = useTranslation();
+  
   const { chartsData } = useSelector(state => ({
     chartsData: state.Dashboard.chartsData
   }));
@@ -94,8 +95,8 @@ const Dashboard = props => {
         <Container fluid>
           {/* Render Breadcrumb */}
           <Breadcrumbs
-            title={props.t("Dashboards")}
-            breadcrumbItem={props.t("Dashboard")}
+            title={t("Dashboards")}
+            breadcrumbItem={t("Dashboard")}
           />
 
           <Row>
@@ -263,4 +264,4 @@ Dashboard.propTypes = {
   onGetChartsData: PropTypes.func,
 };
 
-export default withTranslation()(Dashboard);
+export default Dashboard;
