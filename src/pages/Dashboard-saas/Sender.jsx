@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 
 const Sender = ({ message }) => {
-  const obj = JSON.parse(localStorage.getItem("authUser"))
+  const obj = JSON.parse(localStorage.getItem("accessToken"))
   const name = obj && obj.username ? obj.username : message["name"]
 
   return (

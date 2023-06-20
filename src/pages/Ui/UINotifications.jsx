@@ -5,7 +5,7 @@ import toastr from 'toastr';
 import 'toastr/build/toastr.min.css';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 const UiNotifications = () => {
   const [showEasing, setshowEasing] = useState("swing");

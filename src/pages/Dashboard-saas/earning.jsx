@@ -3,7 +3,7 @@ import { Row, Col, Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import ReactApexChart from 'react-apexcharts';
 
-import getChartColorsArray from '@components/commons/ChartsDynamicColor';
+import getChartColorsArray from '@components/ChartsDynamicColor';
 
 const Earning = ({ dataColors }) => {
   const apexlineColors = getChartColorsArray(dataColors);

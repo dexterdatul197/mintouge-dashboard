@@ -41,8 +41,7 @@ const Login = (props) => {
       password: Yup.string().required("Please Enter Your Password"),
     }),
     onSubmit: (values) => {
-      console.log("----", values);
-      localStorage.setItem("authUser", validation.values.password);
+      localStorage.setItem("accessToken", validation.values.password);
       navigate("/dashboard");
     },
   });

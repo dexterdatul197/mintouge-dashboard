@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import getChartColorsArray from '@components/commons/ChartsDynamicColor';
+import getChartColorsArray from '@components/ChartsDynamicColor';
 
 const Scatter = ({ dataColors }) => {
   const scatterEChartColors = getChartColorsArray(dataColors);

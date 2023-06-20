@@ -5,7 +5,7 @@ import { Card, CardBody, Col, Container, Row, Table } from 'reactstrap';
 import { isEmpty, map } from 'lodash';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 //Import Image
 import logo from '@assets/images/logo-dark.png';

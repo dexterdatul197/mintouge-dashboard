@@ -21,10 +21,10 @@ import {
 } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
-import DeleteModal from '@components/commons/DeleteModal';
-import TableContainer from '@components/commons/TableContainer';
+import DeleteModal from '@components/DeleteModal';
+import TableContainer from '@components/TableContainer';
 
 // Column
 import {

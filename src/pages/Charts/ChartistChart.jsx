@@ -12,7 +12,7 @@ import ChartBar from '../AllCharts/chartist/chartbar';
 import LineAreaChart from '../AllCharts/chartist/lineareachart';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 import '../../../node_modules/chartist/dist/chartist.css';
 import '@assets/scss/chartist.scss';

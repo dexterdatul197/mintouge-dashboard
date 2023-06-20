@@ -33,7 +33,7 @@ import TopCities from './TopCities';
 import LatestTranaction from './LatestTranaction';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 //i18n
 import { useTranslation } from 'react-i18next';

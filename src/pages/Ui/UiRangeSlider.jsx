@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col, Card, CardBody, CardTitle, Container } from 'reactstrap';
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb"
+import Breadcrumbs from '@components/Breadcrumb"
 
 import Slider from 'react-rangeslider"
 import 'react-rangeslider/lib/index.css"

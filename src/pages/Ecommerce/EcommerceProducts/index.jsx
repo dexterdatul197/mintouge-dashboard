@@ -32,7 +32,7 @@ import 'nouislider/distribute/nouislider.css';
 import { productImages } from '@assets/images/product';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 import { discountData, productsData } from '@common/data';
 
 const EcommerceProducts = (props) => {

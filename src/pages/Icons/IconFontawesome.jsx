@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb"
+import Breadcrumbs from '@components/Breadcrumb"
 
 import { Row, Col, Card, CardBody, Container, Badge } from 'reactstrap';
 

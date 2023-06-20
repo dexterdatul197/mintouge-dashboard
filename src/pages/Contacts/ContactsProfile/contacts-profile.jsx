@@ -16,10 +16,10 @@ import {
 
 import { Pdate, Ddate, Name, Idno, Budget } from './CryptoCol';
 
-import TableContainer from '@components/commons/TableContainer';
+import TableContainer from '@components/TableContainer';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 //Import mini card widgets
 import MiniCards from './mini-card';

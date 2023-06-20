@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import getChartColorsArray from '@components/commons/ChartsDynamicColor';
+import getChartColorsArray from '@components/ChartsDynamicColor';
 
 const Apaexlinecolumn = ({ dataColors }) => {
   const apaexlineColumnColors = getChartColorsArray(dataColors);
@@ -68,7 +68,7 @@ const Apaexlinecolumn = ({ dataColors }) => {
     tooltip: {
       y: {
         formatter: function (val) {
-          return "$ " + val + " thousands';
+          return "$ " + val + " thousands";
         },
       },
     },

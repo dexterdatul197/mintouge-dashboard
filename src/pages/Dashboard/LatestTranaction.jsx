@@ -19,7 +19,7 @@ import {
   PaymentMethod,
 } from './LatestTranactionCol';
 
-import TableContainer from '@components/commons/TableContainer';
+import TableContainer from '@components/TableContainer';
 
 
 const LatestTranaction = props => {

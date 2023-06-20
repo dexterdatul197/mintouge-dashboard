@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody, CardSubtitle, CardTitle, Col, Container, Row } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb"
+import Breadcrumbs from '@components/Breadcrumb"
 
 const UiVideo = () => {
   //meta title

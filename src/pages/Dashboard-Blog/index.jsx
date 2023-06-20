@@ -11,7 +11,7 @@ import Activity from './Activity';
 import PopularPost from './PopularPost';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 const index = () => {
   //meta title

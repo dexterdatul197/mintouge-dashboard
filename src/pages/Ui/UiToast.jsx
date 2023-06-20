@@ -14,7 +14,7 @@ import {
 } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 //import images
 import logo from '@assets/images/slogo-dark.svg';

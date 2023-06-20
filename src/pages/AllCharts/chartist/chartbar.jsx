@@ -1,6 +1,6 @@
 import React from 'react';
 import ChartistGraph from 'react-chartist';
-import getChartColorsArray from '@components/commons/ChartsDynamicColor';
+import getChartColorsArray from '@components/ChartsDynamicColor';
 
 const chartbar = ({ dataColors }) => {
   var chatbarchartColors = getChartColorsArray(dataColors);

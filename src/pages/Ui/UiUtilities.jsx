@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 import avtar2 from '@assets/images/users/avatar-2.jpg';
 import avtar5 from '@assets/images/users/avatar-5.jpg';

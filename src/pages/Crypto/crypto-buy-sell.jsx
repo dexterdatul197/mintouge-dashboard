@@ -23,7 +23,7 @@ import {
 import classnames from 'classnames';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 const CryptoBuySell = props => {
 

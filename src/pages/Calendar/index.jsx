@@ -21,7 +21,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 import DeleteModal from './DeleteModal';
 
 //import Images

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Card, CardBody, NavItem, NavLink } from 'reactstrap';
 import classnames from 'classnames';
 
-import TableContainer from '@components/commons/TableContainer';
+import TableContainer from '@components/TableContainer';
 
 import { Idno, Pdate, Type, Value, ValueInUsd } from './CryptoWalCol';
 

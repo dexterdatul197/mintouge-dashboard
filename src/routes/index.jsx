@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import LoadingScreen from '@components/commons/LoadingScreen';
+import LoadingScreen from '@components/LoadingScreen';
 
 const Loader = (Component) => (props) => (
   <Suspense fallback={<LoadingScreen />} >

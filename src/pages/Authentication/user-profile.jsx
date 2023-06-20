@@ -18,7 +18,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 //Import Breadcrumb
-import Breadcrumb from '@components/commons/Breadcrumb';
+import Breadcrumb from '@components/Breadcrumb';
 
 import avatar from '@assets/images/users/avatar-1.jpg';
 
@@ -33,8 +33,8 @@ const UserProfile = (props) => {
 
   const { error, success } = {};
   useEffect(() => {
-    if (localStorage.getItem("authUser")) {
-      const obj = JSON.parse(localStorage.getItem("authUser"));
+    if (localStorage.getItem("accessToken")) {
+      const obj = JSON.parse(localStorage.getItem("accessToken"));
       if (import.meta.env.VITE_APP_DEFAULTAUTH === "firebase") {
         setname(obj.displayName);
         setemail(obj.email);

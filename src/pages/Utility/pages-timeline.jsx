@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Card, CardBody, CardTitle } from 'reactstrap';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb"
+import Breadcrumbs from '@components/Breadcrumb"
 
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';

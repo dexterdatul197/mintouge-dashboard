@@ -1,6 +1,6 @@
 import React from 'react';
 import { Radar } from 'react-chartjs-2';
-import getChartColorsArray from '@components/commons/ChartsDynamicColor';
+import getChartColorsArray from '@components/ChartsDynamicColor';
 
 const RadarChart = ({ dataColors }) => {
   var radarChartColors = getChartColorsArray(dataColors);

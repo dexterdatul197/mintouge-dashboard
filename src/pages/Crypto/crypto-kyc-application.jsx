@@ -25,7 +25,7 @@ import { Link } from 'react-router-dom';
 import Dropzone from 'react-dropzone';
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 //Import images
 import verificationImg from '@assets/images/verification-img.png';

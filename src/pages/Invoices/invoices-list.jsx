@@ -6,7 +6,7 @@ import { map } from 'lodash';
 
 
 //Import Breadcrumb
-import Breadcrumbs from '@components/commons/Breadcrumb';
+import Breadcrumbs from '@components/Breadcrumb';
 
 //Import Card invoice
 import CardInvoice from './card-invoice';

@@ -49,7 +49,7 @@ const ChantBox = (props) => {
 
 
   const onSendMessage = () => {
-    const obj = JSON.parse(localStorage.getItem("authUser"));
+    const obj = JSON.parse(localStorage.getItem("accessToken"));
     const name = obj && obj.username ? obj.username : "Admin";
 
     var modifiedMessages = [...messages];

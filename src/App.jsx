@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { authProtectedRoutes, publicRoutes } from './routes';
 import Authmiddleware from './routes/route';
-import AuthLayout from './components/Layout';
+import AuthLayout from './components';
 import NonAuthLayout from './components/NonAuthLayout';
 
 // Import scss

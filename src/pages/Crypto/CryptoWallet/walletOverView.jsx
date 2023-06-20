@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardBody } from 'reactstrap';
 import ReactApexChart from 'react-apexcharts';
-import getChartColorsArray from '@components/commons/ChartsDynamicColor';
+import getChartColorsArray from '@components/ChartsDynamicColor';
 
 const WalletOverView = ({ dataColors }) => {
   const apexwalletChartColors = getChartColorsArray(dataColors);
