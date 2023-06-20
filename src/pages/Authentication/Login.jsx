@@ -42,7 +42,8 @@ const Login = (props) => {
     }),
     onSubmit: (values) => {
       console.log("----", values);
-      // dispatch(loginUser(values, navigate));
+      localStorage.setItem("authUser", validation.values.password);
+      navigate("/dashboard");
     },
   });
 

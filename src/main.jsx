@@ -1,17 +1,14 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import './i18n';
 import App from './App';
-import LoadingScreen from '@components/commons/LoadingScreen';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.Fragment>
         <BrowserRouter>
-            <Suspense fallback={<LoadingScreen />}>
-                <App />
-            </Suspense>
+            <App />
         </BrowserRouter>
     </React.Fragment>
 );

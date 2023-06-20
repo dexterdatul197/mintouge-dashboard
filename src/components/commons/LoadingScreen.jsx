@@ -1,6 +1,6 @@
 const LoadingScreen = () => {
     return (
-        <div id="preloader">
+        <div className="d-flex ">
             <div id="status">
                 <div className="spinner-chase">
                     <div className="chase-dot" />

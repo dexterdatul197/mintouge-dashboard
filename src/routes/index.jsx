@@ -1,41 +1,49 @@
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Navigate } from 'react-router-dom';
 
+import LoadingScreen from '@components/commons/LoadingScreen';
+
+const Loader = (Component) => (props) => (
+  <Suspense fallback={LoadingScreen} >
+    <Component {...props} />
+  </Suspense>
+);
+
 // // //Ecommerce Pages
-const EcommerceProducts = lazy(() => import('@pages/Ecommerce/EcommerceProducts/index'));
-const EcommerceProductDetail = lazy(() => import('@pages/Ecommerce/EcommerceProducts/EcommerceProductDetail'));
-const EcommerceOrders = lazy(() => import('@pages/Ecommerce/EcommerceOrders/index'));
-const EcommerceCustomers = lazy(() => import('@pages/Ecommerce/EcommerceCustomers/index'));
-const EcommerceCheckout = lazy(() => import('@pages/Ecommerce/EcommerceCheckout'));
-const EcommerceAutoImport = lazy(() => import('@pages/Forms/AutoImport'));
-const EcommerceAddProduct = lazy(() => import('@pages/Ecommerce/EcommerceAddProduct'));
+const EcommerceProducts = Loader(lazy(() => import('@pages/Ecommerce/EcommerceProducts/index')));
+const EcommerceProductDetail = Loader(lazy(() => import('@pages/Ecommerce/EcommerceProducts/EcommerceProductDetail')));
+const EcommerceOrders = Loader(lazy(() => import('@pages/Ecommerce/EcommerceOrders/index')));
+const EcommerceCustomers = Loader(lazy(() => import('@pages/Ecommerce/EcommerceCustomers/index')));
+const EcommerceCheckout = Loader(lazy(() => import('@pages/Ecommerce/EcommerceCheckout')));
+const EcommerceAutoImport = Loader(lazy(() => import('@pages/Forms/AutoImport')));
+const EcommerceAddProduct = Loader(lazy(() => import('@pages/Ecommerce/EcommerceAddProduct')));
 
 // //Email
-const EmailInbox = lazy(() => import('@pages/Email/email-inbox'));
+const EmailInbox = Loader(lazy(() => import('@pages/Email/email-inbox')));
 
 // // Authentication related pages
-const Login = lazy(() => import('@pages/Authentication/Login'));
-const Logout = lazy(() => import('@pages/Authentication/Logout'));
-const Register = lazy(() => import('@pages/Authentication/Register'));
-const ForgetPwd = lazy(() => import('@pages/Authentication/ForgetPassword'));
+const Login = Loader(lazy(() => import('@pages/Authentication/Login')));
+const Logout = Loader(lazy(() => import('@pages/Authentication/Logout')));
+const Register = Loader(lazy(() => import('@pages/Authentication/Register')));
+const ForgetPwd = Loader(lazy(() => import('@pages/Authentication/ForgetPassword')));
 
-const PagesMaintenance = lazy(() => import('@pages/Utility/pages-maintenance'));
-const PagesComingsoon = lazy(() => import('@pages/Utility/pages-comingsoon'));
-const Pages404 = lazy(() => import('@pages/Utility/pages-404'));
-const Pages500 = lazy(() => import('@pages/Utility/pages-500'));
+const PagesMaintenance = Loader(lazy(() => import('@pages/Utility/pages-maintenance')));
+const PagesComingsoon = Loader(lazy(() => import('@pages/Utility/pages-comingsoon')));
+const Pages404 = Loader(lazy(() => import('@pages/Utility/pages-404')));
+const Pages500 = Loader(lazy(() => import('@pages/Utility/pages-500')));
 
 // // Dashboard
-const Dashboard = lazy(() => import('@pages/Dashboard/index'));
+const Dashboard = Loader(lazy(() => import('@pages/Dashboard/index')));
 
 // //Settings
-const ApiSetting = lazy(() => import('@pages/Forms/ApiSetting'));
-const Wallet = lazy(() => import('@pages/Crypto/CryptoWallet/crypto-wallet'));
+const ApiSetting = Loader(lazy(() => import('@pages/Forms/ApiSetting')));
+const Wallet = Loader(lazy(() => import('@pages/Crypto/CryptoWallet/crypto-wallet')));
 
 
 // //Contacts
-const ContactsGrid = lazy(() => import('@pages/Contacts/contacts-grid'));
-const ContactsList = lazy(() => import('@pages/Contacts/ContactList/contacts-list'));
-const ContactsProfile = lazy(() => import('@pages/Contacts/ContactsProfile/contacts-profile'));
+const ContactsGrid = Loader(lazy(() => import('@pages/Contacts/contacts-grid')));
+const ContactsList = Loader(lazy(() => import('@pages/Contacts/ContactList/contacts-list')));
+const ContactsProfile = Loader(lazy(() => import('@pages/Contacts/ContactsProfile/contacts-profile')));
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },

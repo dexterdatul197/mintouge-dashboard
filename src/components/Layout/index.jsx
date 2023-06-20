@@ -8,25 +8,7 @@ import Footer from './Footer';
 
 const Layout = (props) => {
 
-  const {
-    isPreloader,
-    leftSideBarThemeImage,
-    layoutWidth,
-    leftSideBarType,
-    topbarTheme,
-    leftSideBarTheme,
-    layoutModeType,
-  } = {};
-
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-  const toggleMenuCallback = () => {
-    if (leftSideBarType === "default") {
-      // dispatch(changeSidebarType("condensed", isMobile));
-    } else if (leftSideBarType === "condensed") {
-      // dispatch(changeSidebarType("default", isMobile));
-    }
-  };
 
   //hides right sidebar on body click
   const hideRightbar = (event) => {
@@ -37,82 +19,26 @@ const Layout = (props) => {
     }
   };
 
-  /*
-  layout  settings
-  */
-
   useEffect(() => {
-    //init body click event fot toggle rightbar
-    document.body.addEventListener("click", hideRightbar, true);
-
-    // if (isPreloader === true) {
-    //   document.getElementById("preloader").style.display = "block";
-    //   document.getElementById("status").style.display = "block";
-
-    //   setTimeout(function () {
-    //     document.getElementById("preloader").style.display = "none";
-    //     document.getElementById("status").style.display = "none";
-    //   }, 2500);
-    // } else {
-    //   document.getElementById("preloader").style.display = "none";
-    //   document.getElementById("status").style.display = "none";
-    // }
-  }, [isPreloader]);
+    document.body.addEventListener("click", hideRightbar, true)
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    // dispatch(changeLayout("vertical"));
-  }, []);
-
-  useEffect(() => {
-    if (leftSideBarTheme) {
-      // dispatch(changeSidebarTheme(leftSideBarTheme));
-    }
-  }, [leftSideBarTheme, ]);
-
-  useEffect(() => {
-    if (layoutModeType) {
-      // dispatch(changeLayoutMode(layoutModeType));
-    }
-  }, [layoutModeType, ]);
-
-  useEffect(() => {
-    if (leftSideBarThemeImage) {
-      // dispatch(changeSidebarThemeImage(leftSideBarThemeImage));
-    }
-  }, [leftSideBarThemeImage, ]);
-
-  useEffect(() => {
-    if (layoutWidth) {
-      // dispatch(changeLayoutWidth(layoutWidth));
-    }
-  }, [layoutWidth, ]);
-
-  useEffect(() => {
-    if (leftSideBarType) {
-      // dispatch(changeSidebarType(leftSideBarType));
-    }
-  }, [leftSideBarType, ]);
-
-  useEffect(() => {
-    if (topbarTheme) {
-      // dispatch(changeTopbarTheme(topbarTheme));
-    }
-  }, [topbarTheme]);
-
   return (
     <React.Fragment>
       <div id="layout-wrapper">
-        <Header toggleMenuCallback={toggleMenuCallback} />
+        <Header toggleMenuCallback={() => { }} />
         <Sidebar
-          theme={leftSideBarTheme}
-          type={leftSideBarType}
+          theme={undefined}
+          type={undefined}
           isMobile={isMobile}
         />
-        <div className="main-content">{props.children}</div>
+        <div className="main-content">
+          {props.children}
+        </div>
         <Footer />
       </div>
     </React.Fragment>
