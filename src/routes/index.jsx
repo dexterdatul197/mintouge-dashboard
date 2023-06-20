@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import LoadingScreen from '@components/commons/LoadingScreen';
 
 const Loader = (Component) => (props) => (
-  <Suspense fallback={LoadingScreen} >
+  <Suspense fallback={<LoadingScreen />} >
     <Component {...props} />
   </Suspense>
 );
