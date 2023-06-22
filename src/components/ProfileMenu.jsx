@@ -23,19 +23,9 @@ const ProfileMenu = (props) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (localStorage.getItem("accessToken")) {
-      if (import.meta.env.VITE_APP_DEFAULTAUTH === "firebase") {
-        const obj = JSON.parse(localStorage.getItem("accessToken"));
-        setusername(obj.displayName);
-      } else if (
-        import.meta.env.VITE_APP_DEFAULTAUTH === "fake" ||
-        import.meta.env.VITE_APP_DEFAULTAUTH === "jwt"
-      ) {
-        const obj = JSON.parse(localStorage.getItem("accessToken"));
-        setusername(obj.username);
-      }
-    }
-  }, [props.success]);
+    const obj = JSON.parse(localStorage.getItem("accessToken"));
+    setusername(obj.username);
+  }, []);
 
   return (
     <React.Fragment>

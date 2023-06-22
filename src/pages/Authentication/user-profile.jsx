@@ -33,25 +33,11 @@ const UserProfile = (props) => {
 
   const { error, success } = {};
   useEffect(() => {
-    if (localStorage.getItem("accessToken")) {
-      const obj = JSON.parse(localStorage.getItem("accessToken"));
-      if (import.meta.env.VITE_APP_DEFAULTAUTH === "firebase") {
-        setname(obj.displayName);
-        setemail(obj.email);
-        setidx(obj.uid);
-      } else if (
-        import.meta.env.VITE_APP_DEFAULTAUTH === "fake" ||
-        import.meta.env.VITE_APP_DEFAULTAUTH === "jwt"
-      ) {
-        setname(obj.username);
-        setemail(obj.email);
-        setidx(obj.uid);
-      }
-      setTimeout(() => {
-        // dispatch(resetProfileFlag());
-      }, 3000);
-    }
-  }, [success]);
+    const obj = JSON.parse(localStorage.getItem("accessToken"));
+    setname(obj.username);
+    setemail(obj.email);
+    setidx(obj.uid);
+  }, []);
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed

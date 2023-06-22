@@ -1,20 +1,14 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const Logout = () => {
-  const history = useNavigate();
-
   useEffect(() => {
-    // // dispatch(logoutUser(history));
-  }, [history]);
+    localStorage.removeItem("accessToken");
+  }, []);
 
-  return <></>;
-};
-
-Logout.propTypes = {
-  history: PropTypes.object,
+  return (
+    <Navigate to={{ pathname: "/login" }} />
+  );
 };
 
 export default Logout;

@@ -28,9 +28,7 @@ const Register = Loader(lazy(() => import('@pages/Authentication/Register')));
 const ForgetPwd = Loader(lazy(() => import('@pages/Authentication/ForgetPassword')));
 
 const PagesMaintenance = Loader(lazy(() => import('@pages/Utility/pages-maintenance')));
-const PagesComingsoon = Loader(lazy(() => import('@pages/Utility/pages-comingsoon')));
 const Pages404 = Loader(lazy(() => import('@pages/Utility/pages-404')));
-const Pages500 = Loader(lazy(() => import('@pages/Utility/pages-500')));
 
 // // Dashboard
 const Dashboard = Loader(lazy(() => import('@pages/Dashboard/index')));
@@ -39,16 +37,13 @@ const Dashboard = Loader(lazy(() => import('@pages/Dashboard/index')));
 const ApiSetting = Loader(lazy(() => import('@pages/Forms/ApiSetting')));
 const Wallet = Loader(lazy(() => import('@pages/Crypto/CryptoWallet/crypto-wallet')));
 
-
-// //Contacts
-const ContactsGrid = Loader(lazy(() => import('@pages/Contacts/contacts-grid')));
+// Contacts
 const ContactsList = Loader(lazy(() => import('@pages/Contacts/ContactList/contacts-list')));
-const ContactsProfile = Loader(lazy(() => import('@pages/Contacts/ContactsProfile/contacts-profile')));
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
 
-  //   //Product
+  // Product
   {
     path: "/ecommerce-product-detail/:id",
     component: <EcommerceProductDetail />,
@@ -60,20 +55,15 @@ const authProtectedRoutes = [
   { path: "/ecommerce-add-product", component: <EcommerceAddProduct /> },
   { path: "/ecommerce-auto-import", component: <EcommerceAutoImport /> },
 
-  //   //Settings
+  // Settings
   { path: "/setting-api", component: <ApiSetting /> },
   { path: "/wallet", component: <Wallet /> },
 
-  //   //Notifications
-  { path: "/email-inbox", component: <EmailInbox /> },
-
   // User Management
-  { path: "/contacts-grid", component: <ContactsGrid /> },
   { path: "/contacts-list", component: <ContactsList /> },
-  { path: "/contacts-profile", component: <ContactsProfile /> },
 
-  //   // this route should be at the end of all other routes
-  //   // eslint-disable-next-line react/display-name
+  //  this route should be at the end of all other routes
+  //  eslint-disable-next-line react/display-name
   { path: "/", exact: true, component: <Navigate to="/dashboard" /> },
 ];
 
