@@ -207,7 +207,7 @@ const EcommerceCart = () => {
                   <Row className="mt-4">
                     <Col sm="6">
                       <Link
-                        to="/ecommerce-products"
+                        to="/products"
                         className="btn btn-secondary"
                       >
                         <i className="mdi mdi-arrow-left me-1" /> Continue

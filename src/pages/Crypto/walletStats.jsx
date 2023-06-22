@@ -10,7 +10,6 @@ import {
   DropdownToggle,
   Row,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
 const WalletStats = ({ wallet, isMenu, toggleMenu }) => {
   return (
@@ -61,61 +60,6 @@ const WalletStats = ({ wallet, isMenu, toggleMenu }) => {
             </div>
           </Col>
         </Row>
-      </CardBody>
-      <CardBody className="border-top">
-        <p className="text-muted mb-4">In this month</p>
-        <div className="text-center">
-          <Row>
-            <Col sm="4">
-              <div>
-                <div className="font-size-24 text-primary mb-2">
-                  <i className="bx bx-send" />
-                </div>
-
-                <p className="text-muted mb-2">Send</p>
-                <h5>{wallet.send}</h5>
-
-                <div className="mt-3">
-                  <Link to="#" className="btn btn-primary btn-sm w-md">
-                    Send
-                  </Link>
-                </div>
-              </div>
-            </Col>
-            <Col sm="4">
-              <div className="mt-4 mt-sm-0">
-                <div className="font-size-24 text-primary mb-2">
-                  <i className="bx bx-import" />
-                </div>
-
-                <p className="text-muted mb-2">receive</p>
-                <h5>{wallet.receive}</h5>
-
-                <div className="mt-3">
-                  <Link to="#" className="btn btn-primary btn-sm w-md">
-                    Receive
-                  </Link>
-                </div>
-              </div>
-            </Col>
-            <Col sm="4">
-              <div className="mt-4 mt-sm-0">
-                <div className="font-size-24 text-primary mb-2">
-                  <i className="bx bx-wallet" />
-                </div>
-
-                <p className="text-muted mb-2">Withdraw</p>
-                <h5>{wallet.withdraw}</h5>
-
-                <div className="mt-3">
-                  <Link to="#" className="btn btn-primary btn-sm w-md">
-                    Withdraw
-                  </Link>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </div>
       </CardBody>
     </Card>
   )

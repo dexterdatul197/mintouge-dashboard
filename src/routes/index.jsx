@@ -18,16 +18,12 @@ const EcommerceCheckout = Loader(lazy(() => import('@pages/Ecommerce/EcommerceCh
 const EcommerceAutoImport = Loader(lazy(() => import('@pages/Forms/AutoImport')));
 const EcommerceAddProduct = Loader(lazy(() => import('@pages/Ecommerce/EcommerceAddProduct')));
 
-// //Email
-const EmailInbox = Loader(lazy(() => import('@pages/Email/email-inbox')));
-
 // // Authentication related pages
 const Login = Loader(lazy(() => import('@pages/Authentication/Login')));
 const Logout = Loader(lazy(() => import('@pages/Authentication/Logout')));
 const Register = Loader(lazy(() => import('@pages/Authentication/Register')));
 const ForgetPwd = Loader(lazy(() => import('@pages/Authentication/ForgetPassword')));
 
-const PagesMaintenance = Loader(lazy(() => import('@pages/Utility/pages-maintenance')));
 const Pages404 = Loader(lazy(() => import('@pages/Utility/pages-404')));
 
 // // Dashboard
@@ -35,10 +31,10 @@ const Dashboard = Loader(lazy(() => import('@pages/Dashboard/index')));
 
 // //Settings
 const ApiSetting = Loader(lazy(() => import('@pages/Forms/ApiSetting')));
-const Wallet = Loader(lazy(() => import('@pages/Crypto/CryptoWallet/crypto-wallet')));
+const Wallet = Loader(lazy(() => import('@pages/Crypto/crypto-wallet')));
 
 // Contacts
-const ContactsList = Loader(lazy(() => import('@pages/Contacts/ContactList/contacts-list')));
+const ContactsList = Loader(lazy(() => import('@pages/Contacts/contacts-list')));
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -48,7 +44,7 @@ const authProtectedRoutes = [
     path: "/ecommerce-product-detail/:id",
     component: <EcommerceProductDetail />,
   },
-  { path: "/ecommerce-products", component: <EcommerceProducts /> },
+  { path: "/products", component: <EcommerceProducts /> },
   { path: "/ecommerce-orders", component: <EcommerceOrders /> },
   { path: "/ecommerce-customers", component: <EcommerceCustomers /> },
   { path: "/ecommerce-checkout", component: <EcommerceCheckout /> },
@@ -73,10 +69,7 @@ const publicRoutes = [
   { path: "/forgot-password", component: <ForgetPwd /> },
   { path: "/register", component: <Register /> },
 
-  { path: "/pages-maintenance", component: <PagesMaintenance /> },
-  { path: "/pages-comingsoon", component: <PagesComingsoon /> },
   { path: "/pages-404", component: <Pages404 /> },
-  { path: "/pages-500", component: <Pages500 /> },
 ];
 
 export { authProtectedRoutes, publicRoutes };

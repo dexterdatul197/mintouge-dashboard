@@ -6,9 +6,7 @@ import '@assets/scss/datatables.scss';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Breadcrumb';
-import WalletActivities from './walletActivities';
 import WalletStats from './walletStats';
-import WalletOverView from './walletOverView';
 
 import { wallet } from '@common/data';
 
@@ -18,16 +16,6 @@ const CryptoWallet = () => {
 
   const [isMenu, setIsMenu] = useState(false);
   const [activeTab, setActiveTab] = useState("1");
-
-  // useEffect(() => {
-  //   dispatch(onGetWallet());
-  // }, [onGetWallet]);
-
-  const toggleTab = (tab) => {
-    if (activeTab !== tab) {
-      setActiveTab(tab);
-    }
-  };
 
   const toggleMenu = () => {
     setIsMenu(!isMenu);
@@ -111,22 +99,9 @@ const CryptoWallet = () => {
                     </Card>
                   </Col>
                 </Row>
-
-                <WalletOverView dataColors='["--bs-warning", "--bs-primary", "--bs-info"]' />
               </Col>
             </Row>
           )}
-          <Row>
-            <Col lg="12">
-              {!isEmpty(wallet["walletHistory"]) && (
-                <WalletActivities
-                  walletHistory={wallet["walletHistory"]}
-                  activeTab={activeTab}
-                  toggleTab={toggleTab}
-                />
-              )}
-            </Col>
-          </Row>
         </Container>
       </div>
     </React.Fragment>
