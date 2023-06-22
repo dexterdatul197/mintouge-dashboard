@@ -1,95 +1,120 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef } from 'react';
-
-// //Import Scrollbar
-import SimpleBar from 'simplebar-react';
-
-// MetisMenu
 import MetisMenu from 'metismenujs';
-import { Link, useLocation } from 'react-router-dom';
-
-//i18n
+import SimpleBar from 'simplebar-react';
 import { useTranslation } from 'react-i18next';
-import { useCallback } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useRef, useCallback } from 'react';
 
-const SidebarContent = (props) => {
+/**
+ * A Menu Group component, which will have menu items inside.
+ * 
+ * @param {string} title A caption of the menu with i18n
+ * @param {string} to A link to be redirected when click
+ * @param {string} icon A menu icon
+ * @param {string} hasArrow A flag if it has sub menu items
+ * @param {string} children A set of child components
+ */
+const MenuGroup = ({ to, hasArrow, icon, title, children }) => (
+  <li>
+    <Link to={to} className={hasArrow ? "has-arrow" : ""}>
+      <i className={"bx " + icon}></i>
+      <span>{title}</span>
+    </Link>
+
+    {hasArrow &&
+      <ul className="sub-menu" aria-expanded="true">
+        {children}
+      </ul>
+    }
+  </li>
+)
+
+const MenuItem = (props) => (
+  <li>
+    <Link to={props.to}>
+      {props.title}
+    </Link>
+  </li>
+
+)
+const SidebarContent = () => {
   const ref = useRef();
   const path = useLocation();
   const { t } = useTranslation();
 
-  const activateParentDropdown = useCallback((item) => {
-    item.classList.add("active");
-    const parent = item.parentElement;
-    const parent2El = parent.childNodes[1];
+  const activateParentDropdown = useCallback((aTagItem) => {
+    aTagItem.classList.add("active");
+    const liTagParent = aTagItem.parentElement;
+    const parent2El = liTagParent.childNodes[1];
     if (parent2El && parent2El.id !== "side-menu") {
       parent2El.classList.add("mm-show");
     }
 
-    if (parent) {
-      parent.classList.add("mm-active");
-      const parent2 = parent.parentElement;
+    if (liTagParent) {
+      liTagParent.classList.add("mm-active");
+      const ulSubMenu = liTagParent.parentElement;
 
-      if (parent2) {
-        parent2.classList.add("mm-show"); // ul tag
+      if (ulSubMenu) {
+        ulSubMenu.classList.add("mm-show"); // ul tag
 
-        const parent3 = parent2.parentElement; // li tag
+        const parent3 = ulSubMenu.parentElement; // li tag
 
         if (parent3) {
           parent3.classList.add("mm-active"); // li
           parent3.childNodes[0].classList.add("mm-active"); //a
-          const parent4 = parent3.parentElement; // ul
-          if (parent4) {
-            parent4.classList.add("mm-show"); // ul
-            const parent5 = parent4.parentElement;
-            if (parent5) {
-              parent5.classList.add("mm-show"); // li
-              parent5.childNodes[0].classList.add("mm-active"); // a tag
+          const sideMenu = parent3.parentElement; // ul
+          if (sideMenu) {
+            sideMenu.classList.add("mm-show"); // ul
+            const sidebarMenu = sideMenu.parentElement;
+            if (sidebarMenu) {
+              sidebarMenu.classList.add("mm-show"); // li
+              sidebarMenu.childNodes[0].classList.add("mm-active"); // a tag
             }
           }
         }
       }
-      scrollElement(item);
+      scrollElement(aTagItem);
       return false;
     }
-    scrollElement(item);
+    scrollElement(aTagItem);
     return false;
   }, []);
 
   const removeActivation = (items) => {
     for (var i = 0; i < items.length; ++i) {
       var item = items[i];
-      const parent = items[i].parentElement;
+      const liTagParent = items[i].parentElement;
 
       if (item && item.classList.contains("active")) {
         item.classList.remove("active");
       }
-      if (parent) {
+      if (liTagParent) {
         const parent2El =
-          parent.childNodes && parent.childNodes.lenght && parent.childNodes[1]
-            ? parent.childNodes[1]
+          liTagParent.childNodes && liTagParent.childNodes.lenght && liTagParent.childNodes[1]
+            ? liTagParent.childNodes[1]
             : null;
         if (parent2El && parent2El.id !== "side-menu") {
           parent2El.classList.remove("mm-show");
         }
 
-        parent.classList.remove("mm-active");
-        const parent2 = parent.parentElement;
+        liTagParent.classList.remove("mm-active");
+        const ulSubMenu = liTagParent.parentElement;
 
-        if (parent2) {
-          parent2.classList.remove("mm-show");
+        if (ulSubMenu) {
+          ulSubMenu.classList.remove("mm-show");
 
-          const parent3 = parent2.parentElement;
+          const parent3 = ulSubMenu.parentElement;
           if (parent3) {
             parent3.classList.remove("mm-active"); // li
             parent3.childNodes[0].classList.remove("mm-active");
 
-            const parent4 = parent3.parentElement; // ul
-            if (parent4) {
-              parent4.classList.remove("mm-show"); // ul
-              const parent5 = parent4.parentElement;
-              if (parent5) {
-                parent5.classList.remove("mm-show"); // li
-                parent5.childNodes[0].classList.remove("mm-active"); // a tag
+            const sideMenu = parent3.parentElement; // ul
+            if (sideMenu) {
+              sideMenu.classList.remove("mm-show"); // ul
+              const sidebarMenu = sideMenu.parentElement;
+              if (sidebarMenu) {
+                sidebarMenu.classList.remove("mm-show"); // li
+                sidebarMenu.childNodes[0].classList.remove("mm-active"); // a tag
               }
             }
           }
@@ -144,71 +169,32 @@ const SidebarContent = (props) => {
       <SimpleBar className="h-100" ref={ref}>
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
-            <li>
-              <Link to="/dashboard" className="">
-                <i className="bx bx-home-circle"></i>
-                <span>{t("Dashboards")}</span>
-              </Link>
-            </li>
+            <MenuGroup
+              to="/dashboard"
+              icon="bx-home-circle"
+              title={t("Dashboards")}
+            />
 
-            <li>
-              <Link to="/#" className="has-arrow">
-                <i className="bx bx-store"></i>
-                <span>{t("Product")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="true">
-                <li>
-                  <Link to="/products">{t("Products")}</Link>
-                </li>
-                <li>
-                  <Link to="/ecommerce-product-detail/1">
-                    {t("Product Detail")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/ecommerce-add-product">
-                    {t("Add Product")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/ecommerce-auto-import">
-                    {t("Auto Import")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/ecommerce-orders">{t("Orders")}</Link>
-                </li>
-                <li>
-                  <Link to="/ecommerce-customers">{t("Customers")}</Link>
-                </li>
-              </ul>
-            </li>
+            <MenuGroup to="/#" hasArrow={true} title={t("Product")} icon="bx-store">
+              <MenuItem to="/products" title={t("Products")} />
+              <MenuItem to="/ecommerce-product-detail/1" title={t("Product Detail")} />
+              <MenuItem to="/ecommerce-add-product" title={t("Add Product")} />
+              <MenuItem to="/ecommerce-auto-import" title={t("Auto Import")} />
+              <MenuItem to="/ecommerce-orders" title={t("Orders")} />
+              <MenuItem to="/ecommerce-customers" title={t("Customers")} />
+            </MenuGroup>
 
-            <li>
-              <Link to="/#" className="has-arrow">
-                <i className="bx bx-cog"></i>
-                <span>{t("Settings")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="true">
-                <li>
-                  <Link to="/setting-api">{t("API Settings")}</Link>
-                </li>
-                <li>
-                  <Link to="/ecommerce-checkout">{t("Payments")}</Link>
-                </li>
-                <li>
-                  <Link to="/wallet">{t("Wallet")}</Link>
-                </li>
-              </ul>
-            </li>
+            <MenuGroup to="/#" hasArrow={true} title={t("Settings")} icon="bx-cog">
+              <MenuItem to="/setting-api" title={t("API Settings")} />
+              <MenuItem to="/ecommerce-checkout" title={t("Payments")} />
+              <MenuItem to="/wallet" title={t("Wallet")} />
+            </MenuGroup>
 
-            <li>
-              <Link to="/contacts-list">
-                <i className="bx bxs-user-detail"></i>
-                <span>{t("User Management")}</span>
-              </Link>
-            </li>
-
+            <MenuGroup
+              to="/contacts-list"
+              icon="bxs-user-detail"
+              title={t("User Management")}
+            />
           </ul>
         </div>
       </SimpleBar>

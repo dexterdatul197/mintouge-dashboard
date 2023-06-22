@@ -35,8 +35,9 @@ const Sidebar = (props) => {
             </span>
           </Link>
         </div>
+
         <div data-simplebar className="h-100">
-          {props.type !== "condensed" ? <SidebarContent /> : <SidebarContent />}
+          <SidebarContent />
         </div>
 
         <div className="sidebar-background"></div>
