@@ -1,4 +1,4 @@
-export const API_ENDPOINT = process.env.VITE_APP_ENDPOINT || 'localhost:3000';
+export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'http://localhost:3000';
 
 /**
  * HTTP Request using GET method
@@ -11,12 +11,11 @@ export const API_ENDPOINT = process.env.VITE_APP_ENDPOINT || 'localhost:3000';
  */
 export const apiGet = async ({ url, queryParams, hasToken = true }) => {
     const token = hasToken ? localStorage.getItem("accessToken") : undefined;
-
     if (!url.endsWith("/") && !url.endsWith("\\")) {
         url += "/";
     }
 
-    const queryString = queryParams ? "" : Object.keys(queryParams)
+    const queryString = !queryParams ? "" : Object.keys(queryParams)
         .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
         .join('&');
 
@@ -54,14 +53,14 @@ export const apiGet = async ({ url, queryParams, hasToken = true }) => {
  * 
  * @returns HTTP Request Response
  */
-export const apiPost = async (url, queryParams, bodyParam, hasToken = true) => {
+export const apiPost = async ({ url, queryParams, bodyParam, hasToken = true }) => {
     const token = hasToken ? localStorage.getItem("accessToken") : undefined;
-    
+
     if (!url.endsWith("/") && !url.endsWith("\\")) {
         url += "/";
     }
 
-    const queryString = queryParams ? "" : Object.keys(queryParams)
+    const queryString = !queryParams ? "" : Object.keys(queryParams)
         .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
         .join('&');
 

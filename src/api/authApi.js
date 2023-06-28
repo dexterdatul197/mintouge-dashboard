@@ -1,8 +1,13 @@
 import { apiPost, API_ENDPOINT } from "./baseApi";
 
 export const signIn = async ({ email, password }) => {
-    if (process.env.VITE_APP_MOCK_BACKEND) {
-        return "0x13dd9dhee2xru";
+    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
+        return {
+            token: "0x13dd9dhee2xru",
+            userName: "Takao Kato",
+            email,
+            brand: "Gucci",
+        };
     }
 
     try {
@@ -21,7 +26,7 @@ export const signIn = async ({ email, password }) => {
 };
 
 export const signUp = async ({ email, password, brand }) => {
-    if (process.env.VITE_APP_MOCK_BACKEND) {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
         return "0x13dd9dhee2xru";
     }
 

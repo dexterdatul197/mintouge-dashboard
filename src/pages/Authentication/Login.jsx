@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';
-
-// Formik validation
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-
 import {
   Row,
   Col,
@@ -19,34 +16,68 @@ import {
   Label,
 } from 'reactstrap';
 
-// import images
+import { useUser } from '@/store/user';
+import * as AuthApi from '@/api/authApi';
 import profile from '@assets/images/profile-img.png';
 import logo from '@assets/images/slogo-dark.svg';
 
 const Login = (props) => {
   //meta title
+  const { setUser } = useUser();
+  const [errorMessage, setErrorMessage] = useState("");
+
   document.title = "Login | Mintouge - Brands Dashboard";
   const navigate = useNavigate();
 
-  const validation = useFormik({
+  const onLoginSuccess = (response) => {
+    if (!response.token) {
+      setErrorMessage("Invalid token. Please retry again.");
+      return;
+    }
+
+    localStorage.setItem("accessToken", response.token);
+    if (loginFormik.values.rememberMe) {
+      localStorage.setItem("rememberMe", true);
+    } else {
+      localStorage.removeItem("rememberMe");
+    }
+
+    setUser({
+      userName: response.userName,
+      email: response.email,
+      brand: response.brand,
+    });
+    navigate("/dashboard");
+  };
+
+  const onLoginFailed = () => {
+    setErrorMessage("Your Email or Password is incorrect.");
+  };
+
+  const loginFormik = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
 
     initialValues: {
-      email: "admin@mintouge.com" || "",
-      password: "123456" || "",
+      email: "",
+      password: "",
+      rememberMe: false,
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
     }),
-    onSubmit: (values) => {
-      localStorage.setItem("accessToken", validation.values.password);
-      navigate("/dashboard");
+    onSubmit: async (values) => {
+      const { email, password } = values;
+      try {
+        const response = await AuthApi.signIn({ email, password });
+        onLoginSuccess(response);
+      } catch (err) {
+        console.log(err);
+        onLoginFailed();
+      }
     },
   });
-
-  const { error } = {};
 
   return (
     <React.Fragment>
@@ -59,6 +90,7 @@ const Login = (props) => {
         <Container>
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={5}>
+
               <Card className="overflow-hidden">
                 <div className="bg-primary bg-soft">
                   <Row>
@@ -73,6 +105,7 @@ const Login = (props) => {
                     </Col>
                   </Row>
                 </div>
+
                 <CardBody className="pt-0">
                   <div>
                     <Link to="/" className="auth-logo-light">
@@ -88,16 +121,17 @@ const Login = (props) => {
                       </div>
                     </Link>
                   </div>
+
                   <div className="p-2">
                     <Form
                       className="form-horizontal"
                       onSubmit={(e) => {
                         e.preventDefault();
-                        validation.handleSubmit();
+                        loginFormik.handleSubmit();
                         return false;
                       }}
                     >
-                      {error ? <Alert color="danger">{error}</Alert> : null}
+                      {errorMessage ? <Alert color="danger">{errorMessage}</Alert> : null}
 
                       <div className="mb-3">
                         <Label className="form-label">Email</Label>
@@ -106,18 +140,18 @@ const Login = (props) => {
                           className="form-control"
                           placeholder="Enter email"
                           type="email"
-                          onChange={validation.handleChange}
-                          onBlur={validation.handleBlur}
-                          value={validation.values.email || ""}
+                          onChange={loginFormik.handleChange}
+                          onBlur={loginFormik.handleBlur}
+                          value={loginFormik.values.email || ""}
                           invalid={
-                            validation.touched.email && validation.errors.email
+                            loginFormik.touched.email && loginFormik.errors.email
                               ? true
                               : false
                           }
                         />
-                        {validation.touched.email && validation.errors.email ? (
+                        {loginFormik.touched.email && loginFormik.errors.email ? (
                           <FormFeedback type="invalid">
-                            {validation.errors.email}
+                            {loginFormik.errors.email}
                           </FormFeedback>
                         ) : null}
                       </div>
@@ -126,35 +160,36 @@ const Login = (props) => {
                         <Label className="form-label">Password</Label>
                         <Input
                           name="password"
-                          value={validation.values.password || ""}
+                          value={loginFormik.values.password || ""}
                           type="password"
                           placeholder="Enter Password"
-                          onChange={validation.handleChange}
-                          onBlur={validation.handleBlur}
+                          onChange={loginFormik.handleChange}
+                          onBlur={loginFormik.handleBlur}
                           invalid={
-                            validation.touched.password &&
-                            validation.errors.password
+                            loginFormik.touched.password &&
+                              loginFormik.errors.password
                               ? true
                               : false
                           }
                         />
-                        {validation.touched.password &&
-                        validation.errors.password ? (
+                        {loginFormik.touched.password &&
+                          loginFormik.errors.password ? (
                           <FormFeedback type="invalid">
-                            {validation.errors.password}
+                            {loginFormik.errors.password}
                           </FormFeedback>
                         ) : null}
                       </div>
 
                       <div className="form-check">
                         <input
+                          name="rememberMe"
                           type="checkbox"
                           className="form-check-input"
-                          id="customControlInline"
+                          id="rememberMe"
                         />
                         <label
                           className="form-check-label"
-                          htmlFor="customControlInline"
+                          htmlFor="rememberMe"
                         >
                           Remember me
                         </label>
@@ -180,6 +215,7 @@ const Login = (props) => {
                   </div>
                 </CardBody>
               </Card>
+
               <div className="mt-5 text-center">
                 <p>
                   Don&#39;t have an account ?{" "}

@@ -2,7 +2,7 @@ import { apiGet, apiPost, API_ENDPOINT } from "./baseApi";
 import { productsData } from "./mockData";
 
 export const getProducts = async (page, pageSize) => {
-    if (process.env.VITE_APP_MOCK_BACKEND) {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
         return productsData;
     }
 
@@ -20,7 +20,7 @@ export const getProducts = async (page, pageSize) => {
 };
 
 export const getProductDetail = async (productId) => {
-    if (process.env.VITE_APP_MOCK_BACKEND) {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
         return productsData.find((_product) => _product.id === productId);
     }
 
@@ -39,7 +39,7 @@ export const getProductDetail = async (productId) => {
 }
 
 export const addProduct = async (product) => {
-    if (process.env.VITE_APP_MOCK_BACKEND) {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
         product.id = productsData[productsData.length-1].id + 1;
         productsData.push(product);
 

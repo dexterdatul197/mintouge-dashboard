@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
-const Authmiddleware = (props) => {
+const AuthMiddleware = (props) => {
     if (!localStorage.getItem("accessToken")) {
         return (
             <Navigate to={{ pathname: "/login", state: { from: props.location } }} />
@@ -10,4 +10,4 @@ const Authmiddleware = (props) => {
     return <React.Fragment>{props.children}</React.Fragment>;
 };
 
-export default Authmiddleware;
+export default AuthMiddleware;

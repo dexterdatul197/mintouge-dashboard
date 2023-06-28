@@ -23,8 +23,11 @@ const ProfileMenu = (props) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const obj = JSON.parse(localStorage.getItem("accessToken"));
-    setusername(obj.username);
+    const token = localStorage.getItem("accessToken");
+    console.log("Token:", token);
+    if (token) {
+      setusername("NickName");
+    }
   }, []);
 
   return (

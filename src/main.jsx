@@ -1,4 +1,5 @@
 import React from 'react';
+import { RecoilRoot } from 'recoil';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -7,8 +8,10 @@ import App from './App';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.Fragment>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <RecoilRoot>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </RecoilRoot>
     </React.Fragment>
 );

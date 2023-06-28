@@ -1,4 +1,4 @@
-export const API_ENDPOINT = process.env.VITE_APP_ENDPOINT || 'localhost:3000';
+export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'localhost:3000';
 
 export const getProducts = async ({ brands, password }) => {
     try {
