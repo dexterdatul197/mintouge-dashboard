@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 // import images
 import profileImg from '@assets/images/profile-img.png';
 import logoImg from '@assets/images/slogo-dark.svg';
-
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
 
@@ -21,12 +20,20 @@ const Register = props => {
     initialValues: {
       email: '',
       username: '',
+      brand: '',
       password: '',
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),
-      username: Yup.string().required("Please Enter Your Username"),
-      password: Yup.string().required("Please Enter Your Password"),
+      username: Yup.string().required("Please Enter Your Username").min(8, "Password is too short - should be 8 letters minimum."),
+      password: Yup.string()
+        .required("Please Enter Your Password")
+        .min(8, 'Password must be 8 characters long')
+        .matches(/[0-9]/, 'Password requires a number')
+        .matches(/[a-z]/, 'Password requires a lowercase letter')
+        .matches(/[A-Z]/, 'Password requires an uppercase letter')
+        .matches(/[^\w]/, 'Password requires a symbol'),
+      brand: Yup.string().required("Please Enter Your Password"),
     }),
     onSubmit: (values) => {
       // // dispatch(registerUser(values));
@@ -120,6 +127,24 @@ const Register = props => {
                       </div>
 
                       <div className="mb-3">
+                        <Label className="form-label">Password</Label>
+                        <Input
+                          name="password"
+                          type="password"
+                          placeholder="Enter Password"
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          value={validation.values.password || ""}
+                          invalid={
+                            validation.touched.password && validation.errors.password ? true : false
+                          }
+                        />
+                        {validation.touched.password && validation.errors.password ? (
+                          <FormFeedback type="invalid">{validation.errors.password}</FormFeedback>
+                        ) : null}
+                      </div>
+
+                      <div className="mb-3">
                         <Label className="form-label">Username</Label>
                         <Input
                           name="username"
@@ -136,21 +161,22 @@ const Register = props => {
                           <FormFeedback type="invalid">{validation.errors.username}</FormFeedback>
                         ) : null}
                       </div>
+
                       <div className="mb-3">
-                        <Label className="form-label">Password</Label>
+                        <Label className="form-label">Brand Name</Label>
                         <Input
-                          name="password"
-                          type="password"
-                          placeholder="Enter Password"
+                          name="brand"
+                          type="text"
+                          placeholder="Enter your brand name. ex:) Gucci"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
-                          value={validation.values.password || ""}
+                          value={validation.values.brand || ""}
                           invalid={
-                            validation.touched.password && validation.errors.password ? true : false
+                            validation.touched.brand && validation.errors.brand ? true : false
                           }
                         />
-                        {validation.touched.password && validation.errors.password ? (
-                          <FormFeedback type="invalid">{validation.errors.password}</FormFeedback>
+                        {validation.touched.brand && validation.errors.brand ? (
+                          <FormFeedback type="invalid">{validation.errors.brand}</FormFeedback>
                         ) : null}
                       </div>
 
