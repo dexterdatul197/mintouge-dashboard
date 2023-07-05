@@ -5,12 +5,7 @@
   "scripts": {
     "dev": "GENERATE_SOURCEMAP=false vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "format": "prettier --write \"**/*.{js,jsx,json,md,html,css,less,scss}\"",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "serve": "vite preview"
   },
   "dependencies": {
     "apexcharts": "^3.36.3",

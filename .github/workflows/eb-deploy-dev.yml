@@ -1,0 +1,41 @@
+# This workflow will build and push a new container image to Amazon ECR,
+# and then will deploy a new task definition to Amazon ECS, when there is a push to the "develop" branch.
+name: Deploy to Amazon ECS
+
+on:
+  push:
+    branches: [ "develop" ]
+
+env:
+  AWS_REGION: eu-west-2
+  EB_APP_NAME: brand-dashboard-front
+  EB_ENVIRONMENT: brand-dashboard-front-dev
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: development
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Generate deployment package
+      run: zip -r deploy.zip . -x '*.git*' 'dist/*' 'node_modules/*' '.env*' '.*ignore' 'readme.md'
+
+    - name: Beanstalk Deploy
+      uses: einaregilsson/beanstalk-deploy@v21
+      with:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws-region: ${{ env.AWS_REGION }}
+      application_name: ${{ env.EB_APP_NAME }}
+      environment_name: ${{ env.EB_ENVIRONMENT }}
+      region: ${{ env.AWS_REGION }}
+      version_label: version-1
+      deployment_package: deploy.zip
