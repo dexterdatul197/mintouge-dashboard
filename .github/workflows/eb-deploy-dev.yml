@@ -9,7 +9,7 @@ on:
 env:
   AWS_REGION: eu-west-2
   EB_APP_NAME: brand-dashboard-front
-  EB_ENVIRONMENT: dev
+  EB_ENVIRONMENT: development
 
 permissions:
   id-token: write
@@ -39,3 +39,4 @@ jobs:
         version_label: version-2
         deployment_package: deploy.zip
         use_existing_version_if_available: true
+        existing_bucket_name: eb-deploy-package
