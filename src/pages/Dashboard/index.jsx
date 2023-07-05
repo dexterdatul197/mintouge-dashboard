@@ -54,6 +54,9 @@ const Dashboard = props => {
       iconClass: "bx-purchase-tag-alt",
       description: "$16.2",
     },
+    { title: "Rewards", iconClass: "bx-award", description: "100"},
+    { title: "Cash out", iconClass: "bx-archive-out", description: "$20, 500"},
+    { title: "Analytics", iconClass: "bx-analyse", description: "Consumer"}
   ];
 
   useEffect(() => {
