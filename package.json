@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "GENERATE_SOURCEMAP=false vite",
+    "dev": "set GENERATE_SOURCEMAP=false&& vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
