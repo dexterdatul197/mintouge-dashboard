@@ -8,7 +8,7 @@ on:
 
 env:
   AWS_REGION: eu-west-2
-  EB_APP_NAME: brand-dashboard-front
+  EB_APP_NAME: brand-dashboard-frontend
   EB_ENVIRONMENT: development
 
 permissions:
