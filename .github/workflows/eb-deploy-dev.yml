@@ -26,9 +26,10 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Build Node.js
-      run: yarn install
-      run: yarn build
-      run: cd dist && zip -r ../deploy.zip .
+      run: |
+        yarn install
+        yarn build
+        cd dist && zip -r ../deploy.zip .
     
     # - name: Generate deployment package
     #   run: zip -r deploy.zip . -x '*.git*' 'dist/*' 'node_modules/*' '.env*' '.*ignore' 'README.md' 'deploy.zip'
