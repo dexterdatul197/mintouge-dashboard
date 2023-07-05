@@ -31,11 +31,10 @@ jobs:
     - name: Beanstalk Deploy
       uses: einaregilsson/beanstalk-deploy@v21
       with:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      aws-region: ${{ env.AWS_REGION }}
-      application_name: ${{ env.EB_APP_NAME }}
-      environment_name: ${{ env.EB_ENVIRONMENT }}
-      region: ${{ env.AWS_REGION }}
-      version_label: version-1
-      deployment_package: deploy.zip
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        region: ${{ env.AWS_REGION }}
+        application_name: ${{ env.EB_APP_NAME }}
+        environment_name: ${{ env.EB_ENVIRONMENT }}
+        version_label: version-1
+        deployment_package: deploy.zip
