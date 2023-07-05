@@ -26,7 +26,7 @@ jobs:
       uses: actions/checkout@v3
     
     - name: Generate deployment package
-      run: zip -r deploy.zip . -x '*.git*' 'dist/*' 'node_modules/*' '.env*' '.*ignore' 'readme.md'
+      run: zip -r deploy.zip . -x '*.git*' 'dist/*' 'node_modules/*' '.env*' '.*ignore' 'readme.md' 'deploy.zip'
 
     - name: Beanstalk Deploy
       uses: einaregilsson/beanstalk-deploy@v21
@@ -36,6 +36,6 @@ jobs:
         region: ${{ env.AWS_REGION }}
         application_name: ${{ env.EB_APP_NAME }}
         environment_name: ${{ env.EB_ENVIRONMENT }}
-        version_label: v1
+        version_label: ${{ github.run_number }}
         deployment_package: deploy.zip
         use_existing_version_if_available: true
