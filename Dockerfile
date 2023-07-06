@@ -9,9 +9,9 @@ CMD ["yarn", "serve"]
 EXPOSE 80
 EXPOSE 3000
 
-# FROM ubuntu
-# RUN apt-get update
-# RUN apt-get install nginx -y
-# COPY --from=build /app/dist /var/www/html/
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
-# CMD ["nginx","-g","daemon off;"]
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install nginx -y
+COPY --from=build /app/dist /var/www/html/
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+CMD ["nginx","-g","daemon off;"]
