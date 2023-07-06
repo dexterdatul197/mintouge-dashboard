@@ -17,6 +17,7 @@ import {
 } from 'reactstrap';
 import classnames from 'classnames';
 import { isEmpty } from 'lodash';
+import QRCode from 'react-qr-code';
 
 //Import Star Ratings
 import StarRatings from 'react-star-ratings';
@@ -474,15 +475,13 @@ const EcommerceProductDetail = (props) => {
                       </Col>
                       <Col md={6}>
                         <h5 className="mb-3">QR code :</h5>
-                        <div
-                          style={{
-                            width: "150px",
-                            height: "150px",
-                            background: "black",
-                          }}
-                        >
-                          <img src="" alt="" />
-                        </div>
+                        <QRCode
+                          title="GeeksForGeeks"
+                          value={"value"}
+                          bgColor={'#FFFFFF'}
+                          fgColor={'#000000'}
+                          size={150}
+                        />
                       </Col>
                     </Row>
                   </CardBody>
