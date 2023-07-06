@@ -9,7 +9,7 @@ on:
 env:
   AWS_REGION: eu-west-2
   EB_APP_NAME: brand-dashboard-front
-  EB_ENVIRONMENT: brand-dashboard-front-node-dev
+  EB_ENVIRONMENT: brand-dashboard-front-development
 
 permissions:
   id-token: write
