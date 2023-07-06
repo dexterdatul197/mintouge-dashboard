@@ -25,14 +25,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Build Node.js
-      run: |
-        yarn install
-        yarn build
-        cd dist && zip -r ../deploy.zip .
-    
-    # - name: Generate deployment package
-    #   run: zip -r deploy.zip . -x '*.git*' 'dist/*' 'node_modules/*' '.env*' '.*ignore' 'README.md' 'deploy.zip'
+    - name: Generate deployment package
+      run: zip -r deploy.zip . -x '*.git*' 'dist/*' 'node_modules/*' '.env*' '.*ignore' 'README.md' 'deploy.zip'
 
     - name: Beanstalk Deploy
       uses: einaregilsson/beanstalk-deploy@v21
