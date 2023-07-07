@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "GENERATE_SOURCEMAP=false vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview --port 3000"
   },
   "dependencies": {
     "apexcharts": "^3.36.3",
