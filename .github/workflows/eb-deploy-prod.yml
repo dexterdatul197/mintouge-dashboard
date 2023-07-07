@@ -24,7 +24,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    
+
     - name: Generate deployment package
       run: zip -r deploy.zip . -x '*.git*' 'dist/*' 'node_modules/*' '.env*' '.*ignore' 'README.md' 'deploy.zip'
 
