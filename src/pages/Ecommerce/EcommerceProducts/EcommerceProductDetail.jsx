@@ -17,6 +17,7 @@ import {
 } from 'reactstrap';
 import classnames from 'classnames';
 import { isEmpty } from 'lodash';
+import QRCode from 'react-qr-code';
 
 //Import Star Ratings
 import StarRatings from 'react-star-ratings';
@@ -30,18 +31,28 @@ import Breadcrumbs from '@components/Breadcrumb';
 import RecentProducts from './RecentProducts';
 import { recentProducts, productsData } from '@common/data';
 
-const EcommerceProductDetail = props => {
-  
+const EcommerceProductDetail = (props) => {
   //meta title
-  document.title="Product Details | Mintouge - Brands Dashboard";
+  document.title = "Product Details | Mintouge - Brands Dashboard";
 
   const { product, productComments } = {
     product: productsData[0],
     productComments: [],
   };
 
-  const [activeTab, setActiveTab] = useState("1")
-  
+  const [activeTab, setActiveTab] = useState("1");
+
+  const [selectedProductColor, setSelectedProductColor] = useState(
+    product.colorOptions ? product.colorOptions[0].color : ""
+  );
+  const [selectedProductSize, setSelectedProductSize] = useState(
+    product.colorOptions ? product.colorOptions[0].size[0].name : ""
+  );
+  const [productStock, setProductStock] = useState(
+    product.colorOptions ? product.colorOptions[0].size[0].stock : product.stock
+  );
+  const [quantityCount, setQuantityCount] = useState(1);
+
   // const params = useParams();
   // useEffect(() => {
   //   if (params && params.id) {
@@ -51,16 +62,16 @@ const EcommerceProductDetail = props => {
   //   }
   // }, []);
 
-  const toggleTab = tab => {
+  const toggleTab = (tab) => {
     if (activeTab !== tab) {
-      setActiveTab(tab)
+      setActiveTab(tab);
     }
-  }
+  };
 
   const imageShow = (img, id) => {
-    const expandImg = document.getElementById("expandedImg" + id)
-    expandImg.src = img
-  }
+    const expandImg = document.getElementById("expandedImg" + id);
+    expandImg.src = img;
+  };
 
   // useEffect(() => {
   //   dispatch(getProductComments())
@@ -73,49 +84,49 @@ const EcommerceProductDetail = props => {
   //   }
   // }, [productComments])
 
-  const onClickReply = commentId => {
-    const modifiedComments = [...comments]
+  const onClickReply = (commentId) => {
+    const modifiedComments = [...comments];
 
     const commentIdx = (modifiedComments || []).findIndex(
-      comment => comment.commentId.toString() === commentId.toString()
-    )
+      (comment) => comment.commentId.toString() === commentId.toString()
+    );
     if (commentIdx > -1) {
       if (modifiedComments[commentIdx]) {
-        modifiedComments[commentIdx]["showAddComment"] = true
+        modifiedComments[commentIdx]["showAddComment"] = true;
 
         for (let i = 0; i < (modifiedComments || []).length; i++) {
           if (i !== commentIdx) {
-            modifiedComments[i]["showAddComment"] = false
+            modifiedComments[i]["showAddComment"] = false;
           }
         }
       } else {
-        modifiedComments[commentIdx]["showAddComment"] = false
+        modifiedComments[commentIdx]["showAddComment"] = false;
       }
-      setComments(modifiedComments)
+      setComments(modifiedComments);
     }
-  }
+  };
 
-  const onCancelReply = commentId => {
+  const onCancelReply = (commentId) => {
     if (commentId) {
-      const modifiedComments = [...comments]
+      const modifiedComments = [...comments];
       for (let i = 0; i < (modifiedComments || []).length; i++) {
-        modifiedComments[i]["showAddComment"] = false
+        modifiedComments[i]["showAddComment"] = false;
       }
-      setComments(modifiedComments)
+      setComments(modifiedComments);
     }
-  }
+  };
 
   const onAddReply = (commentId, replyText) => {
     if (commentId) {
-      const productId = params.id || 1
+      const productId = params.id || 1;
       // dispatch(onAddReplyAction(commentId, productId, replyText))
     }
-  }
+  };
 
-  const onAddComment = commentText => {
-    const productId = params.id || 1
+  const onAddComment = (commentText) => {
+    const productId = params.id || 1;
     // dispatch(onAddCommentAction(productId, commentText))
-  }
+  };
 
   return (
     <React.Fragment>
@@ -139,17 +150,14 @@ const EcommerceProductDetail = props => {
                                       active: activeTab === "1",
                                     })}
                                     onClick={() => {
-                                      toggleTab("1")
+                                      toggleTab("1");
                                     }}
                                   >
                                     <img
                                       src={product["subImage"][0]}
                                       alt=""
                                       onClick={() => {
-                                        imageShow(
-                                          product["subImage"][0],
-                                          1
-                                        )
+                                        imageShow(product["subImage"][0], 1);
                                       }}
                                       className="img-fluid mx-auto d-block rounded"
                                     />
@@ -161,17 +169,14 @@ const EcommerceProductDetail = props => {
                                       active: activeTab === "2",
                                     })}
                                     onClick={() => {
-                                      toggleTab("2")
+                                      toggleTab("2");
                                     }}
                                   >
                                     <img
                                       src={product["subImage"][1]}
                                       alt=""
                                       onClick={() => {
-                                        imageShow(
-                                          product["subImage"][1],
-                                          2
-                                        )
+                                        imageShow(product["subImage"][1], 2);
                                       }}
                                       className="img-fluid mx-auto d-block rounded"
                                     />
@@ -183,17 +188,33 @@ const EcommerceProductDetail = props => {
                                       active: activeTab === "3",
                                     })}
                                     onClick={() => {
-                                      toggleTab("3")
+                                      toggleTab("3");
                                     }}
                                   >
                                     <img
                                       src={product["subImage"][2]}
                                       alt=""
                                       onClick={() => {
-                                        imageShow(
-                                          product["subImage"][2],
-                                          3
-                                        )
+                                        imageShow(product["subImage"][2], 3);
+                                      }}
+                                      className="img-fluid mx-auto d-block rounded"
+                                    />
+                                  </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                  <NavLink
+                                    className={classnames({
+                                      active: activeTab === "4",
+                                    })}
+                                    onClick={() => {
+                                      toggleTab("4");
+                                    }}
+                                  >
+                                    <img
+                                      src={product.nft}
+                                      alt=""
+                                      onClick={() => {
+                                        imageShow(product.nft, 4);
                                       }}
                                       className="img-fluid mx-auto d-block rounded"
                                     />
@@ -293,6 +314,20 @@ const EcommerceProductDetail = props => {
                               {product.offer} % Off
                             </h6>
                           )}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              gap: "20px",
+                            }}
+                          >
+                            <h5>
+                              Sold Units : <b>3000</b>
+                            </h5>
+                            <h5>
+                              Units in Stock : <b>3000</b>
+                            </h5>
+                          </div>
                           <h5 className="mb-4">
                             Price :{" "}
                             <span className="text-muted me-2">
@@ -342,49 +377,113 @@ const EcommerceProductDetail = props => {
                             </Col>
                           </Row>
 
+                          <div className="pro-details-size mb-4">
+                            <h5 className="font-size-15">Size :</h5>
+                            <div className="pro-details-size-content">
+                              {product.colorOptions &&
+                                product.colorOptions.map((single) => {
+                                  return single.color === selectedProductColor
+                                    ? single.size.map((singleSize, key) => {
+                                        return (
+                                          <label
+                                            className={`pro-details-size-content--single`}
+                                            key={key}
+                                          >
+                                            <input
+                                              type="radio"
+                                              value={singleSize.name}
+                                              checked={
+                                                singleSize.name ===
+                                                selectedProductSize
+                                                  ? "checked"
+                                                  : ""
+                                              }
+                                              onChange={() => {
+                                                setSelectedProductSize(
+                                                  singleSize.name
+                                                );
+                                                setProductStock(
+                                                  singleSize.stock
+                                                );
+                                                setQuantityCount(1);
+                                              }}
+                                            />
+                                            <span className="size-name">
+                                              {singleSize.name}
+                                            </span>
+                                          </label>
+                                        );
+                                      })
+                                    : "";
+                                })}
+                            </div>
+                          </div>
+
                           <div className="product-color">
                             <h5 className="font-size-15">Color :</h5>
                             {product.colorOptions &&
-                              product.colorOptions.map((option, i) => (
-                                <Link to="#" className="active" key={i}>
+                              product.colorOptions.map((single, i) => (
+                                <div
+                                  key={i}
+                                  onClick={() => {
+                                    setSelectedProductColor(single.color);
+                                    setSelectedProductSize(single.size[0].name);
+                                    setProductStock(single.size[0].stock);
+                                    setQuantityCount(1);
+                                  }}
+                                >
                                   <div className="product-color-item border rounded">
                                     <img
-                                      src={productImages[option.image]}
+                                      src={productImages[single.image]}
                                       alt=""
                                       className="avatar-md"
                                     />
                                   </div>
-                                  <p>{option.color}</p>
-                                </Link>
+                                  <p>{single.color}</p>
+                                </div>
                               ))}
                           </div>
                         </div>
                       </Col>
                     </Row>
 
-                    <div className="mt-5">
-                      <h5 className="mb-3">Specifications :</h5>
+                    <Row className="mt-5">
+                      <Col md={6}>
+                        <h5 className="mb-3">Specifications :</h5>
 
-                      <div className="table-responsive">
-                        <Table className="table mb-0 table-bordered">
-                          <tbody>
-                            {product.specification &&
-                              product.specification.map((specification, i) => (
-                                <tr key={i}>
-                                  <th
-                                    scope="row"
-                                    style={{ width: "400px" }}
-                                    className={"text-capitalize"}
-                                  >
-                                    {specification.type}
-                                  </th>
-                                  <td>{specification.value}</td>
-                                </tr>
-                              ))}
-                          </tbody>
-                        </Table>
-                      </div>
-                    </div>
+                        <div className="table-responsive">
+                          <Table className="table mb-0 table-bordered">
+                            <tbody>
+                              {product.specification &&
+                                product.specification.map(
+                                  (specification, i) => (
+                                    <tr key={i}>
+                                      <th
+                                        scope="row"
+                                        style={{ width: "400px" }}
+                                        className={"text-capitalize"}
+                                      >
+                                        {specification.type}
+                                      </th>
+                                      <td>{specification.value}</td>
+                                    </tr>
+                                  )
+                                )}
+                            </tbody>
+                          </Table>
+                        </div>
+                      </Col>
+                      <Col md={6}>
+                        <h5 className="mb-3">QR code :</h5>
+                        <QRCode
+                          title="GeeksForGeeks"
+                          value={"value"}
+                          bgColor={'#FFFFFF'}
+                          fgColor={'#000000'}
+                          size={150}
+                        />
+                      </Col>
+                    </Row>
                   </CardBody>
                 </Card>
               </Col>
@@ -394,13 +493,13 @@ const EcommerceProductDetail = props => {
         </Container>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
 EcommerceProductDetail.propTypes = {
   product: PropTypes.object,
   match: PropTypes.any,
   onGetProductDetail: PropTypes.func,
-}
+};
 
 export default EcommerceProductDetail;

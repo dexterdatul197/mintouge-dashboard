@@ -36,7 +36,6 @@ import img4 from "@assets/images/product/img-4.png";
 import img5 from "@assets/images/product/img-5.png";
 import img6 from "@assets/images/product/img-6.png";
 
-
 const productsData = [
   {
     id: 1,
@@ -51,6 +50,7 @@ const productsData = [
     offer: 25,
     reviews: 0,
     subImage: [product1, product7, product8],
+    nft: product1,
     specification: [
       { type: "Category", value: "T-shirt" },
       { type: "Brand", value: "Levis" },
@@ -73,8 +73,72 @@ const productsData = [
       },
     ],
     colorOptions: [
-      { image: "product8", color: "Red" },
-      { image: "product7", color: "Black" },
+      {
+        image: "product1",
+        color: "Red",
+        size: [
+          {
+            name: "s",
+            stock: 3,
+          },
+          {
+            name: "m",
+            stock: 2,
+          },
+          {
+            name: "xl",
+            stock: 5,
+          },
+        ],
+      },
+      {
+        image: "product7",
+        color: "Blue",
+        size: [
+          {
+            name: "s",
+            stock: 4,
+          },
+          {
+            name: "m",
+            stock: 7,
+          },
+          {
+            name: "x",
+            stock: 9,
+          },
+          {
+            name: "xxl",
+            stock: 1,
+          },
+        ],
+      },
+      {
+        image: "product8",
+        color: "Apricot",
+        size: [
+          {
+            name: "s",
+            stock: 4,
+          },
+          {
+            name: "m",
+            stock: 7,
+          },
+          {
+            name: "x",
+            stock: 9,
+          },
+          {
+            name: "xl",
+            stock: 9,
+          },
+          {
+            name: "xxl",
+            stock: 1,
+          },
+        ],
+      },
     ],
   },
   {
@@ -874,5 +938,5 @@ export {
   customerData,
   cartData,
   productComments,
-  productListvar
+  productListvar,
 };
