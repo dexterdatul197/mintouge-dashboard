@@ -8,8 +8,6 @@ import {
   CardBody,
 } from 'reactstrap';
 
-import EcommerceOrdersModal from '../Ecommerce/EcommerceOrders/EcommerceOrdersModal';
-
 import {
   OrderId,
   BillingName,
@@ -19,8 +17,8 @@ import {
   PaymentMethod,
 } from './LatestTranactionCol';
 
-import TableContainer from '@components/TableContainer';
-
+const TableContainer = lazy(() => import('@components/TableContainer'));
+const EcommerceOrdersModal = lazy(() => import('../Ecommerce/EcommerceOrders/EcommerceOrdersModal'));
 
 const LatestTranaction = props => {
 

@@ -23,8 +23,6 @@ import {
   PaymentMethod,
 } from './EcommerceOrderCol';
 
-import EcommerceOrdersModal from './EcommerceOrdersModal';
-
 import {
   Button,
   Col,
@@ -42,6 +40,8 @@ import {
 } from 'reactstrap';
 
 import { orders } from '@common/data';
+
+const EcommerceOrdersModal = lazy(() => import('./EcommerceOrdersModal'));
 
 function EcommerceOrder() {
   //meta title

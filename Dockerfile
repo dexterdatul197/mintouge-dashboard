@@ -5,9 +5,9 @@ COPY package.json /app
 
 RUN apk update && apk add --no-cache git
 
-RUN yarn install
+RUN npm ci
 COPY . /app
-RUN yarn build
+RUN npm run build
 
 EXPOSE 3000
-CMD ["yarn", "serve"]
+CMD ["npm", "run", "serve"]
