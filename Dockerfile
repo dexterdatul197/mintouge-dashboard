@@ -5,7 +5,7 @@ COPY package.json /app
 
 RUN apk update && apk add --no-cache git
 
-RUN npm ci
+RUN npm install
 COPY . /app
 RUN npm run build
 
