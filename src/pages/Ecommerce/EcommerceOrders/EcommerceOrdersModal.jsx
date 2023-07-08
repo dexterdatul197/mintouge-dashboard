@@ -8,8 +8,9 @@ import {
   ModalHeader,
   Table,
 } from 'reactstrap';
-import img7 from '@assets/images/product/img-7.png';
-import img4 from '@assets/images/product/img-4.png';
+
+const img4 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-4.webp";
+const img7 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-7.webp";
 
 const EcommerceOrdersModal = props => {
   const { isOpen, toggle } = props

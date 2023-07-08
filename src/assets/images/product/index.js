@@ -1,18 +1,18 @@
-import product1 from "./img-1.png";
-import product2 from "./img-2.png";
-import product3 from "./img-3.png";
-import product4 from "./img-4.png";
-import product5 from "./img-5.png";
-import product6 from "./img-6.png";
-import product7 from "./Pro-1a.png"
-import product8 from "./Pro-1b.png"
-import product9 from "./Pro-2b.png"
-import product10 from "./Pro-4a.png";
-import product11 from "./Pro-12b.png";
-import product12 from "./Pro-8b.png";
-import product13 from "./Pro-17.png";
-import product07 from "./img-7.png";
-import product08 from "./img-8.png";
+const product1 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-1.webp";
+const product2 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-2.webp";
+const product3 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-3.webp";
+const product4 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-4.webp";
+const product5 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-5.webp";
+const product6 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-6.webp";
+const product7 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-1a.webp"
+const product8 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-1b.webp"
+const product9 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-2b.webp"
+const product10 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-4a.webp";
+const product11 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-12b.webp";
+const product12 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-8b.webp";
+const product13 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-17.webp";
+const product07 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-7.webp";
+const product08 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-8.webp";
 
 export { product1, product2, product3, product4, product5, product6, product7, product8, product9, product10, product11, product12, product13, product07, product08 }
 

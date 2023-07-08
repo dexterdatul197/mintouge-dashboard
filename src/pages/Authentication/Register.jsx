@@ -8,7 +8,6 @@ import { useFormik } from 'formik';
 import { Link } from 'react-router-dom';
 
 // import images
-import profileImg from '@assets/images/profile-img.png';
 import logoImg from '@assets/images/slogo-dark.svg';
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
@@ -68,7 +67,7 @@ const Register = props => {
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
-                      <img src={profileImg} alt="" className="img-fluid" />
+                      <img src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
                     </Col>
                   </Row>
                 </div>

@@ -14,23 +14,13 @@ import {
   ModalFooter,
   Table,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
-import classNames from 'classnames';
-
-//import Charts
-import StackedColumnChart from './StackedColumnChart';
-
-import modalimage1 from '@assets/images/product/img-7.png';
-import modalimage2 from '@assets/images/product/img-4.png';
+const modalimage2 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-4.webp";
+const modalimage1 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-7.webp";
 
 // Pages Components
-import WelcomeComp from './WelcomeComp';
 import MonthlyEarning from './MonthlyEarning';
-import SocialSource from './SocialSource';
-import ActivityComp from './ActivityComp';
 import TopCities from './TopCities';
-import LatestTranaction from './LatestTranaction';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Breadcrumb';

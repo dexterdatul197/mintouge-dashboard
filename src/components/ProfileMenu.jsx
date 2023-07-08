@@ -13,9 +13,6 @@ import { useTranslation } from 'react-i18next';
 // Redux
 import { Link } from 'react-router-dom';
 
-// users
-import user1 from '@assets/images/users/avatar-1.jpg';
-
 const ProfileMenu = (props) => {
   // Declare a new state variable, which we'll call "menu"
   const [menu, setMenu] = useState(false);
@@ -44,7 +41,7 @@ const ProfileMenu = (props) => {
         >
           <img
             className="rounded-circle header-profile-user"
-            src={user1}
+            src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp"}
             alt="Header Avatar"
           />
           <span className="d-none d-xl-inline-block ms-2 me-1">{username}</span>

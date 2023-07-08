@@ -16,12 +16,13 @@ import { Link } from 'react-router-dom';
 import Breadcrumbs from '@components/Breadcrumb';
 
 //Import Product Images
-import img1 from '@assets/images/product/img-1.png';
-import img2 from '@assets/images/product/img-2.png';
-import img3 from '@assets/images/product/img-3.png';
-import img4 from '@assets/images/product/img-4.png';
-import img5 from '@assets/images/product/img-5.png';
-import img6 from '@assets/images/product/img-6.png';
+const img1 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-1.webp";
+const img2 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-2.webp";
+const img3 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-3.webp";
+const img4 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-4.webp";
+const img5 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-5.webp";
+const img6 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-6.webp";
+
 
 const productListvar = [
   {

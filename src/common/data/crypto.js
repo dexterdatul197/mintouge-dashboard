@@ -1,12 +1,3 @@
-import avatar1 from "@assets/images/users/avatar-1.jpg";
-import avatar2 from "@assets/images/users/avatar-2.jpg";
-import avatar3 from "@assets/images/users/avatar-3.jpg";
-import avatar8 from "@assets/images/users/avatar-8.jpg";
-import avatar5 from "@assets/images/users/avatar-5.jpg";
-import blog1 from "@assets/images/crypto/blog/img-1.jpg";
-import blog2 from "@assets/images/crypto/blog/img-2.jpg";
-import blog3 from "@assets/images/crypto/blog/img-3.jpg";
-
 const wallet = {
   id: "#SK0234",
   userName: "Henry Wells",
@@ -618,62 +609,4 @@ const cryptoOrderData = [
   },
 ];
 
-const icoLandingTeam = [
-  {
-    id: 1,
-    img: avatar2,
-    author: "Mark Hurley",
-    post: "CEO & Lead",
-  },
-  {
-    id: 2,
-    img: avatar3,
-    author: "Calvin Smith",
-    post: "Blockchain developer",
-  },
-  {
-    id: 3,
-    img: avatar8,
-    author: "Vickie Sample",
-    post: "Designer",
-  },
-  {
-    id: 4,
-    img: avatar5,
-    author: "Alma Farley",
-    post: "App developer",
-  },
-  {
-    id: 6,
-    img: avatar1,
-    author: "Amy Hood",
-    post: "Designer",
-  },
-];
-
-const blogs = [
-  {
-    imgUrl: blog1,
-    tag: "Cryptocurrency",
-    date: "04 Mar, 2020",
-    title: "Donec pede justo, fringilla vele",
-    desc:
-      "If several languages coalesce, the grammar of the resulting language",
-  },
-  {
-    imgUrl: blog2,
-    tag: "Cryptocurrency",
-    date: "12 Feb, 2020",
-    title: "Aenean ut eros et nisl",
-    desc: "Everyone realizes why a new common language would be desirable",
-  },
-  {
-    imgUrl: blog3,
-    tag: "Cryptocurrency",
-    date: "06 Jan, 2020",
-    title: "In turpis, pellentesque posuere",
-    desc:
-      "To an English person, it will seem like simplified English, as a skeptical Cambridge",
-  },
-];
-export { wallet, cryptoOrders, productData, cryptoOrderData, icoLandingTeam, blogs }
+export { wallet, cryptoOrders, productData, cryptoOrderData }

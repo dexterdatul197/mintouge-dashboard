@@ -1,41 +1,40 @@
 /** Product 1 */
-import product1 from "@assets/images/product/img-1.png";
-import product7 from "@assets/images/product/Pro-1a.png";
-import product8 from "@assets/images/product/Pro-1b.png";
+const product1 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-1.webp";
+const product7 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-1a.webp";
+const product8 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-1b.webp";
 
 /** Product 2 */
-import product2a from "@assets/images/product/img-2.png";
-import product2b from "@assets/images/product/Pro-2a.png";
-import product2c from "@assets/images/product/Pro-2b.png";
+const product2a = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-2.webp";
+const product2b = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-2a.webp";
+const product2c = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-2b.webp";
 
 /** Product 3 */
-import product3a from "@assets/images/product/img-3.png";
-import product3b from "@assets/images/product/Pro-4.png";
-import product3c from "@assets/images/product/Pro-4a.png";
+const product3a = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-3.webp";
+const product3b = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-4.webp";
+const product3c = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-4a.webp";
 
 /** Product 4 */
-import product4a from "@assets/images/product/img-4.png";
-import product4b from "@assets/images/product/Pro-12a.png";
-import product4c from "@assets/images/product/Pro-12b.png";
+const product4a = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-4.webp";
+const product4b = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-12a.webp";
+const product4c = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-12b.webp";
 
 /** Product 5 */
-import product5a from "@assets/images/product/img-5.png";
-import product5b from "@assets/images/product/Pro-8a.png";
-import product5c from "@assets/images/product/Pro-8b.png";
+const product5a = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-5.webp";
+const product5b = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-8a.webp";
+const product5c = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-8b.webp";
 
 /** Product 6 */
-import product6a from "@assets/images/product/img-6.png";
-import product6b from "@assets/images/product/Pro-17.png";
-import product6c from "@assets/images/product/Pro-17a.png";
+const product6a = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-6.webp";
+const product6b = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-17.webp";
+const product6c = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/Pro-17a.webp";
 
 //Import Product Images
-import img1 from "@assets/images/product/img-1.png";
-import img2 from "@assets/images/product/img-2.png";
-import img3 from "@assets/images/product/img-3.png";
-import img4 from "@assets/images/product/img-4.png";
-import img5 from "@assets/images/product/img-5.png";
-import img6 from "@assets/images/product/img-6.png";
-
+const img1 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-1.webp";
+const img2 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-2.webp";
+const img3 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-3.webp";
+const img4 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-4.webp";
+const img5 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-5.webp";
+const img6 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-6.webp";
 
 let productsData = [
   {

@@ -1,10 +1,3 @@
-import avatar1 from "@assets/images/users/avatar-1.jpg"
-import avatar2 from "@assets/images/users/avatar-2.jpg"
-import avatar3 from "@assets/images/users/avatar-3.jpg"
-import avatar4 from "@assets/images/users/avatar-4.jpg"
-import avatar5 from "@assets/images/users/avatar-5.jpg"
-import avatar7 from "@assets/images/users/avatar-7.jpg"
-
 const users = [
   {
     id: 1,
@@ -17,7 +10,7 @@ const users = [
   },
   {
     id: 2,
-    img: avatar2,
+    img: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp",
     name: "Frank Kirk",
     designation: "Frontend Developer",
     email: "frank@gucci.com",
@@ -26,7 +19,7 @@ const users = [
   },
   {
     id: 3,
-    img: avatar3,
+    img: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp",
     name: "Rafael Morales",
     designation: "Backend Developer",
     email: "Rafael@gucci.com",
@@ -44,7 +37,7 @@ const users = [
   },
   {
     id: 5,
-    img: avatar4,
+    img: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp",
     name: "Minnie Walter",
     designation: "Frontend Developer",
     email: "minnie@gucci.com",
@@ -53,7 +46,7 @@ const users = [
   },
   {
     id: 6,
-    img: avatar5,
+    img: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp",
     name: "Shirley Smith",
     designation: "UI/UX Designer",
     email: "shirley@gucci.com",
@@ -71,7 +64,7 @@ const users = [
   },
   {
     id: 8,
-    img: avatar7,
+    img: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp",
     name: "Colin Melton",
     designation: "Backend Developer",
     color: "",
@@ -84,7 +77,7 @@ const userProfile = {
   id: 1,
   name: "Cynthia Price",
   designation: "UI/UX Designer",
-  img: avatar1,
+  img: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp",
   projectCount: 125,
   revenue: 1245,
   personalDetail:

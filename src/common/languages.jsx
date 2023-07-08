@@ -1,29 +1,23 @@
-import usFlag from '@assets/images/flags/us.jpg';
-import spain from '@assets/images/flags/spain.jpg';
-import germany from '@assets/images/flags/germany.jpg';
-import italy from '@assets/images/flags/italy.jpg';
-import russia from '@assets/images/flags/russia.jpg';
-
 const languages = {
   sp: {
     label: "Spanish",
-    flag: spain,
+    flag: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/flags/spain.webp",
   },
   gr: {
     label: "German",
-    flag: germany,
+    flag: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/flags/germany.webp",
   },
   it: {
     label: "Italian",
-    flag: italy,
+    flag: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/flags/italy.webp",
   },
   rs: {
     label: "Russian",
-    flag: russia,
+    flag: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/flags/russia.webp",
   },
   en: {
     label: "English",
-    flag: usFlag,
+    flag: "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/flags/us.webp",
   },
 }
 

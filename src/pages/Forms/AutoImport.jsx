@@ -53,7 +53,7 @@ async function transform(productUrl) {
         brand: apiPublicKey,
         name: item.name || "Mintouge Bag Model X",
         description: item.description || "Best Mintouge Bag beloved by everyone",
-        images: item.images || ["https://cdn.mintouge.com/bag1.png", "https://cdn.mintouge.com/bag2.png"],
+        images: item.images || ["https://cdn.mintouge.com/bag1.webp", "https://cdn.mintouge.com/bag2.webp"],
         asset: item.asset || "https://cdn.mintouge.com/bag.gltf",
         productUrl: item.productUrl || "https://mintouge.com/products?productId=11840302",
         productCode: item.productCode || "PD-11840302",

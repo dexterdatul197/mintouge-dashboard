@@ -18,17 +18,14 @@ import {
   CardBody,
   CardTitle,
 } from 'reactstrap';
-import Select from 'react-select';
 import { Link } from 'react-router-dom';
-
-import classnames from 'classnames';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Breadcrumb';
 
 //Import Images
-import img1 from '@assets/images/product/img-1.png';
-import img7 from '@assets/images/product/img-7.png';
+const img1 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-1.webp";
+const img7 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-7.webp";
 
 const optionGroup = [
   {

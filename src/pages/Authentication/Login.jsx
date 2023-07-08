@@ -18,7 +18,6 @@ import {
 
 import { useUser } from '@/store/user';
 import * as AuthApi from '@/api/authApi';
-import profile from '@assets/images/profile-img.png';
 import logo from '@assets/images/slogo-dark.svg';
 
 const Login = (props) => {
@@ -101,7 +100,7 @@ const Login = (props) => {
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
-                      <img src={profile} alt="" className="img-fluid" />
+                      <img src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
                     </Col>
                   </Row>
                 </div>

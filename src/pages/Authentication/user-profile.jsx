@@ -19,8 +19,6 @@ import { useFormik } from 'formik';
 
 import Breadcrumb from '@components/Breadcrumb';
 
-import avatar from '@assets/images/users/avatar-1.jpg';
-
 const UserProfile = (props) => {
 
   //meta title
@@ -71,7 +69,7 @@ const UserProfile = (props) => {
                   <div className="d-flex">
                     <div className="ms-3">
                       <img
-                        src={avatar}
+                        src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp"}
                         alt=""
                         className="avatar-md rounded-circle img-thumbnail"
                       />

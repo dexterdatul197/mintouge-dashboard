@@ -3,9 +3,6 @@ import React from 'react';
 import { Row, Col, Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import avatar1 from '@assets/images/users/avatar-1.jpg';
-import profileImg from '@assets/images/profile-img.png';
-
 const WelcomeComp = () => {
   return (
     <React.Fragment>
@@ -19,7 +16,7 @@ const WelcomeComp = () => {
               </div>
             </Col>
             <Col xs="5" className="align-self-end">
-              <img src={profileImg} alt="" className="img-fluid" />
+              <img src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
             </Col>
           </Row>
         </div>
@@ -28,7 +25,7 @@ const WelcomeComp = () => {
             <Col sm="4">
               <div className="avatar-md profile-user-wid mb-4">
                 <img
-                  src={avatar1}
+                  src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp"}
                   alt=""
                   className="img-thumbnail rounded-circle"
                 />
