@@ -4,12 +4,7 @@
     font-weight: normal;
     font-style: normal;
 
-    src: url('/src/assets/fonts/boxicons.eot');
-    src: url('/src/assets/fonts/boxicons.eot') format('embedded-opentype'),
-    url('/src/assets/fonts/boxicons.woff2') format('woff2'),
-    url('/src/assets/fonts/boxicons.woff') format('woff'),
-    url('/src/assets/fonts/boxicons.ttf') format('truetype'),
-    url('/src/assets/fonts/boxicons.svg?#boxicons') format('svg');
+    src: url('/src/assets/fonts/boxicons.woff2') format('woff');
 }
 .bx
 {

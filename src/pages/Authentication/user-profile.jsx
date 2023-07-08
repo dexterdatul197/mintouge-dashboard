@@ -17,7 +17,7 @@ import {
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
-const Breadcrumb = lazy(() => import('@components/Breadcrumb'));
+import Breadcrumb from '@components/Breadcrumb';
 
 import avatar from '@assets/images/users/avatar-1.jpg';
 

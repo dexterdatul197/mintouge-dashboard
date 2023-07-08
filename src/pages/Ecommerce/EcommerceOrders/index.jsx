@@ -41,7 +41,7 @@ import {
 
 import { orders } from '@common/data';
 
-const EcommerceOrdersModal = lazy(() => import('./EcommerceOrdersModal'));
+import EcommerceOrdersModal from './EcommerceOrdersModal';
 
 function EcommerceOrder() {
   //meta title

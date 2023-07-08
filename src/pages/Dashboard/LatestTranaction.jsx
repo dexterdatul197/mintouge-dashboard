@@ -17,8 +17,8 @@ import {
   PaymentMethod,
 } from './LatestTranactionCol';
 
-const TableContainer = lazy(() => import('@components/TableContainer'));
-const EcommerceOrdersModal = lazy(() => import('../Ecommerce/EcommerceOrders/EcommerceOrdersModal'));
+import TableContainer from '@components/TableContainer';
+import EcommerceOrdersModal from '../Ecommerce/EcommerceOrders/EcommerceOrdersModal';
 
 const LatestTranaction = props => {
 
