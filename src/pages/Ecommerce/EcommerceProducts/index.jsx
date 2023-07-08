@@ -29,7 +29,7 @@ import Nouislider from 'nouislider-react';
 import 'nouislider/distribute/nouislider.css';
 
 //Import Product Images
-import { productImages } from '@assets/images/product';
+import { productImages } from '@assets/images';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Breadcrumb';

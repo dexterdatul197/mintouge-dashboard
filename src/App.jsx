@@ -12,7 +12,7 @@ import './assets/scss/theme.scss';
 
 if (document.body) {
     document.body.setAttribute("data-sidebar", "dark");
-    // document.body.setAttribute("data-topbar", "dark");
+    document.body.setAttribute("data-topbar", "dark");
 }
 
 const App = (props) => {

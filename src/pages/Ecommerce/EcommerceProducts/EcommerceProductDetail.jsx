@@ -23,7 +23,7 @@ import QRCode from 'react-qr-code';
 import StarRatings from 'react-star-ratings';
 
 //Import Product Images
-import { productImages } from '@assets/images/product';
+import { productImages } from '@assets/images';
 
 //Import Breadcrumb
 import Breadcrumbs from '@components/Breadcrumb';

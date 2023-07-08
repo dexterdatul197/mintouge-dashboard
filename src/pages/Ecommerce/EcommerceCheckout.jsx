@@ -4,13 +4,7 @@ import {
   Container,
   Row,
   Col,
-  Table,
   Input,
-  Nav,
-  NavItem,
-  NavLink,
-  TabContent,
-  TabPane,
   Card,
   Form,
   FormGroup,
@@ -23,46 +17,11 @@ import { Link } from 'react-router-dom';
 //Import Breadcrumb
 import Breadcrumbs from '@components/Breadcrumb';
 
-//Import Images
-const img1 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-1.webp";
-const img7 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-7.webp";
-
-const optionGroup = [
-  {
-    label: "Picnic",
-    options: [
-      { label: "Mustard", value: "Mustard" },
-      { label: "Ketchup", value: "Ketchup" },
-      { label: "Relish", value: "Relish" },
-    ],
-  },
-  {
-    label: "Camping",
-    options: [
-      { label: "Tent", value: "Tent" },
-      { label: "Flashlight", value: "Flashlight" },
-      { label: "Toilet Paper", value: "Toilet Paper" },
-    ],
-  },
-]
-
-const orderSummary = [
-  {
-    id: 1,
-    img: img1,
-    productTitle: "Half sleeve T-shirt (64GB)",
-    price: 450,
-    qty: 1,
-  },
-  { id: 2, img: img7, productTitle: "Wireless Headphone", price: 225, qty: 1 },
-]
-
 const EcommerceCheckout = () => {
 
   //meta title
   document.title = "Checkout | Mintouge - Brands Dashboard";
 
-  const [activeTab, setactiveTab] = useState("1")
   const [selectedGroup, setselectedGroup] = useState(null)
 
   function handleSelectGroup(selectedGroup) {
@@ -76,9 +35,9 @@ const EcommerceCheckout = () => {
           {/* Render Breadcrumb */}
           <Breadcrumbs title="Ecommerce" breadcrumbItem="Checkout" />
 
-          <div className="checkout-tabs">
-            <Row>
-              <Col xl="10" sm="9">
+          <Row>
+            <div className="checkout-tabs">
+              <Col xl="12">
                 <Card>
                   <CardBody>
                     <div>
@@ -185,15 +144,15 @@ const EcommerceCheckout = () => {
                         to="/ecommerce-checkout"
                         className="btn btn-success"
                       >
-                        <i className="mdi mdi-truck-fast me-1" /> 
+                        <i className="mdi mdi-truck-fast me-1" />
                         Save
                       </Link>
                     </div>
                   </Col>
                 </Row>
               </Col>
-            </Row>
-          </div>
+            </div>
+          </Row>
         </Container>
       </div>
     </React.Fragment>
