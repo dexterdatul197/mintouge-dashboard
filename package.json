@@ -1,11 +1,11 @@
 {
-  "name": "Mintouge-Vite-React",
+  "name": "mintouge-brand-dashboard",
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "set GENERATE_SOURCEMAP=false&& vite",
+    "dev": "set GENERATE_SOURCEMAP=false && vite",
     "build": "vite build",
-    "serve": "vite preview --port 3000"
+    "serve": "vite preview"
   },
   "dependencies": {
     "apexcharts": "^3.36.3",
