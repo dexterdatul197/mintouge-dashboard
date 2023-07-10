@@ -20,19 +20,12 @@ import {
 } from 'reactstrap';
 import classnames from 'classnames';
 import { isEmpty, map } from 'lodash';
-
-//Import Star Ratings
 import StarRatings from 'react-star-ratings';
-
-// RangeSlider
 import Nouislider from 'nouislider-react';
-import 'nouislider/distribute/nouislider.css';
 
-//Import Product Images
 import { productImages } from '@assets/images';
-
-//Import Breadcrumb
 import Breadcrumbs from '@components/Breadcrumb';
+import 'nouislider/distribute/nouislider.css';
 import { discountData, productsData } from '@common/data';
 
 const EcommerceProducts = (props) => {
@@ -42,7 +35,6 @@ const EcommerceProducts = (props) => {
   const navigate = useNavigate();
   const products = productsData;
 
-  const { history } = props;
   // eslint-disable-next-line no-unused-vars
   const [FilterClothes, setFilterClothes] = useState([
     { id: 1, name: "T-shirts", link: "#" },

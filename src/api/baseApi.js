@@ -10,34 +10,34 @@ export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'http://localho
  * @returns HTTP Request Response
  */
 export const apiGet = async ({ url, queryParams, hasToken = true }) => {
-    const token = hasToken ? localStorage.getItem("accessToken") : undefined;
-    if (!url.endsWith("/") && !url.endsWith("\\")) {
-        url += "/";
+    const token = hasToken ? localStorage.getItem('accessToken') : undefined;
+    if (!url.endsWith('/') && !url.endsWith('\\')) {
+        url += '/';
     }
 
-    const queryString = !queryParams ? "" : Object.keys(queryParams)
+    const queryString = !queryParams ? '' : Object.keys(queryParams)
         .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
         .join('&');
 
     try {
-        const response = await fetch(
-            url + queryString,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'authorization': token ? `Bearer ${token}` : undefined
-                },
-            }
-        );
-
-        if (response.ok) {
-            const data = await response.json();
-
-            return data;
-        } else {
-            throw Error(response.statusText);
+    const response = await fetch(
+        url + queryString,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': token ? `Bearer ${token}` : undefined
+            },
         }
+    );
+
+    if (response.ok) {
+        const data = await response.json();
+
+        return data;
+    } else {
+        throw Error(response.statusText);
+    }
     } catch (error) {
         throw error;
     }
@@ -54,13 +54,13 @@ export const apiGet = async ({ url, queryParams, hasToken = true }) => {
  * @returns HTTP Request Response
  */
 export const apiPost = async ({ url, queryParams, bodyParam, hasToken = true }) => {
-    const token = hasToken ? localStorage.getItem("accessToken") : undefined;
+    const token = hasToken ? localStorage.getItem('accessToken') : undefined;
 
-    if (!url.endsWith("/") && !url.endsWith("\\")) {
-        url += "/";
+    if (!url.endsWith('/') && !url.endsWith('\\')) {
+        url += '/';
     }
 
-    const queryString = !queryParams ? "" : Object.keys(queryParams)
+    const queryString = !queryParams ? '' : Object.keys(queryParams)
         .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
         .join('&');
 

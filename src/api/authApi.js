@@ -1,18 +1,18 @@
-import { apiPost, API_ENDPOINT } from "./baseApi";
+import { apiPost, API_ENDPOINT } from './baseApi';
 
 export const signIn = async ({ email, password }) => {
     if (import.meta.env.VITE_APP_MOCK_BACKEND) {
         return {
-            token: "0x13dd9dhee2xru",
-            userName: "Takao Kato",
+            token: '0x13dd9dhee2xru',
+            userName: 'Takao Kato',
             email,
-            brand: "Gucci",
+            brand: 'Gucci',
         };
     }
 
     try {
         const token = await apiPost({
-            url: API_ENDPOINT + "/auth/signIn",
+            url: API_ENDPOINT + '/auth/signIn',
             bodyParam: { email, password },
             hasToken: false
         });
@@ -27,12 +27,12 @@ export const signIn = async ({ email, password }) => {
 
 export const signUp = async ({ email, password, brand }) => {
     if (import.meta.env.VITE_APP_MOCK_BACKEND) {
-        return "0x13dd9dhee2xru";
+        return '0x13dd9dhee2xru';
     }
 
     try {
         const token = await apiPost({
-            url: API_ENDPOINT + "/auth/signUp",
+            url: API_ENDPOINT + '/auth/signUp',
             bodyParam: { email, password, brand },
             hasToken: false
         });
