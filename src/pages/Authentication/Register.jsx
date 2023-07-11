@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFeedback } from 'reactstrap';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFeedback } from 'reactstrap';
 
+import { useUser } from '@/store/user';
 import * as AuthApi from '@/api/authApi';
 import logoImg from '@assets/images/slogo-dark.svg';
 
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
+  
+  const navigate = useNavigate();
+  const { setUser } = useUser();
   const [errorMessage, setErrorMessage] = useState();
   const [isSuccessful, setIsSuccessful] = useState(false);
 
   const onSignupSuccess = (response) => {
-
-    if (validation.values.rememberMe) {
-      localStorage.setItem("optedUser", response);
-    } else {
-      localStorage.removeItem("optedUser");
-    }
+    localStorage.setItem("optedUser", response);
 
     setUser(response);
     setIsSuccessful(true);
@@ -30,7 +29,6 @@ const Register = props => {
   };
 
   const validation = useFormik({
-    // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
 
     initialValues: {
@@ -54,14 +52,12 @@ const Register = props => {
         brandName: Yup.string().required("Please Enter Your Brand Name"),
     }),
     onSubmit: async (values) => {
-      const { email, password, firstName, lastName, brandName } = values;
       try {
         setIsSuccessful(false);
         setErrorMessage(undefined);
         const response = await AuthApi.signUp(values);
         onSignupSuccess(response);
       } catch (err) {
-        console.log(err);
         onSignupFailed(err);
       }
     }

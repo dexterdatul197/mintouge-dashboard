@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Row,
   Col,
@@ -29,23 +29,9 @@ const Login = (props) => {
   const navigate = useNavigate();
 
   const onLoginSuccess = (response) => {
-    if (!response.token) {
-      setErrorMessage("Invalid token. Please retry again.");
-      return;
-    }
-
-    localStorage.setItem("accessToken", response.token);
-    if (loginFormik.values.rememberMe) {
-      localStorage.setItem("rememberMe", true);
-    } else {
-      localStorage.removeItem("rememberMe");
-    }
-
-    setUser({
-      userName: response.userName,
-      email: response.email,
-      brand: response.brand,
-    });
+    localStorage.setItem("optedUser", response);
+    
+    setUser(response);
     navigate("/dashboard");
   };
 

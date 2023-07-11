@@ -19,25 +19,26 @@ export const apiGet = async ({ url, queryParams, hasToken = false }) => {
         .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
         .join('&');
 
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    token && (headers.append('authorization', `Bearer ${token}`));
+    
     try {
-    const response = await fetch(
-        url + queryString,
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'authorization': token ? `Bearer ${token}` : undefined
-            },
+        const response = await fetch(
+            url + queryString,
+            {
+                method: 'GET',
+                headers,
+            }
+        );
+
+        if (response.ok) {
+            const data = await response.json();
+
+            return data;
+        } else {
+            throw Error(response.statusText);
         }
-    );
-
-    if (response.ok) {
-        const data = await response.json();
-
-        return data;
-    } else {
-        throw Error(response.statusText);
-    }
     } catch (error) {
         throw error;
     }
@@ -64,25 +65,25 @@ export const apiPost = async ({ url, queryParams, bodyParam, hasToken = false })
         .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
         .join('&');
 
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    token && (headers.append('authorization', `Bearer ${token}`));
+
     try {
         const response = await fetch(
             url + queryString,
             {
                 method: 'POST',
-                body: bodyParam,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'authorization': token ? `Bearer ${token}` : undefined
-                },
+                body: JSON.stringify(bodyParam),
+                headers: headers,
             }
         );
 
+        const data = await response.json();
         if (response.ok) {
-            const data = await response.json();
-
             return data;
         } else {
-            throw Error(response.statusText);
+            throw Error(data.message);
         }
     } catch (error) {
         throw error;

@@ -28,11 +28,11 @@ export const UserModelValidator = yup.object().shape({
     brandName: yup.string().required('Brand Name is invalid.'),
     apiSecretKey: yup.string().required('API Secret Key is invalid.'),
     apiPublicKey: yup.string().required('API Public Key is invalid.'),
-    walletId: yup.string().required('Wallet ID is invalid.'),
     
-    address: yup.string().optional(),
-    phone: yup.string().optional(),
-    siteUrl: yup.string().optional(),
+    walletId: yup.string().optional('Wallet ID is invalid.').nullable(),
+    address: yup.string().optional().nullable(),
+    phone: yup.string().optional().nullable(),
+    siteUrl: yup.string().optional().nullable(),
 });
 
 /**
@@ -51,7 +51,7 @@ export const signIn = async ({ email, password }) => {
 
     try {
         const user = await apiPost({
-            url: API_ENDPOINT + '/auth/signIn',
+            url: API_ENDPOINT + 'auth/login',
             bodyParam: { email, password },
         });
 
@@ -76,8 +76,8 @@ export const signIn = async ({ email, password }) => {
  * @param {string} brandName A brand name like Gucci or Nike
  * @returns {UserModelValidator} A newly created user.
  */
-export const signUp = async (user) => {
-    console.log("Signing up User:", user);
+export const signUp = async (userInfo) => {
+    console.log("Signing up User:", userInfo);
 
     if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
         return userData;
@@ -85,8 +85,8 @@ export const signUp = async (user) => {
 
     try {
         const user = await apiPost({
-            url: API_ENDPOINT + '/auth/signUp',
-            bodyParam: user,
+            url: API_ENDPOINT + 'auth/signup',
+            bodyParam: userInfo,
         });
 
         await userValidate(user);
