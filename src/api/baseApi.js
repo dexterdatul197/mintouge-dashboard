@@ -9,7 +9,7 @@ export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'http://localho
  * 
  * @returns HTTP Request Response
  */
-export const apiGet = async ({ url, queryParams, hasToken = true }) => {
+export const apiGet = async ({ url, queryParams, hasToken = false }) => {
     const token = hasToken ? localStorage.getItem('accessToken') : undefined;
     if (!url.endsWith('/') && !url.endsWith('\\')) {
         url += '/';
@@ -53,7 +53,7 @@ export const apiGet = async ({ url, queryParams, hasToken = true }) => {
  * 
  * @returns HTTP Request Response
  */
-export const apiPost = async ({ url, queryParams, bodyParam, hasToken = true }) => {
+export const apiPost = async ({ url, queryParams, bodyParam, hasToken = false }) => {
     const token = hasToken ? localStorage.getItem('accessToken') : undefined;
 
     if (!url.endsWith('/') && !url.endsWith('\\')) {

@@ -36,6 +36,21 @@ const img4 = 'https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashbo
 const img5 = 'https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-5.webp';
 const img6 = 'https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-6.webp';
 
+const userData = {
+  id: 0,
+  email: 'takao@mintouge.com',
+  firstName: 'Takao',
+  lastName: 'Kato',
+  brandName: 'Valtik',
+  apiSecretKey: 'UJX893-MDI82K-PMX90H-XDTPQM',
+  apiPublicKey: 'PQMXDT-90HPMX-I82MDK-JX8U93',
+  walletId: '1',
+
+  address: 'Shinjuku, Tokyo, Japan',
+  phone: '+81 50 5479 2016',
+  siteUrl: 'https://www.mintouge.com',
+};
+
 let productsData = [
   {
     id: 1,
@@ -864,6 +879,7 @@ let productListvar = [
 ];
 
 export {
+  userData,
   productsData,
   recentProducts,
   comments,

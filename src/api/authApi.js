@@ -1,23 +1,62 @@
+import * as yup from 'yup';
+
+import { userData } from "./mockData";
 import { apiPost, API_ENDPOINT } from './baseApi';
 
+/**
+ * This function validates the product response coming from backend.
+ * 
+ * @param {UserModelValidator} product An product object or an array of products
+ */
+const userValidate = async (user) => {
+    try {
+        const validatedResponse = await UserModelValidator.validate(user);
+        console.log(validatedResponse);
+
+        return validatedResponse;
+    } catch (validationError) {
+        console.error(validationError);
+        throw validationError;
+    }
+}
+
+export const UserModelValidator = yup.object().shape({
+    id: yup.number().required('User ID is missing'),
+    email: yup.string().required('User Email is invalid.'),
+    firstName: yup.string().required('User First Name is invalid.'),
+    lastName: yup.string().required('User Last Name is invalid.'),
+    brandName: yup.string().required('Brand Name is invalid.'),
+    apiSecretKey: yup.string().required('API Secret Key is invalid.'),
+    apiPublicKey: yup.string().required('API Public Key is invalid.'),
+    walletId: yup.string().required('Wallet ID is invalid.'),
+    
+    address: yup.string().optional(),
+    phone: yup.string().optional(),
+    siteUrl: yup.string().optional(),
+});
+
+/**
+ * Sign in to Brand Dashboard backend.
+ * The API response will send cookies as well,
+ * so the next APIs will be sent with the cookie.
+ * 
+ * @param {string} email A user's email
+ * @param {string} password A user's password
+ * @returns {UserModelValidator} A User object.
+ */
 export const signIn = async ({ email, password }) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
-        return {
-            token: '0x13dd9dhee2xru',
-            userName: 'Takao Kato',
-            email,
-            brand: 'Gucci',
-        };
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
+        return userData;
     }
 
     try {
-        const token = await apiPost({
+        const user = await apiPost({
             url: API_ENDPOINT + '/auth/signIn',
             bodyParam: { email, password },
-            hasToken: false
         });
 
-        return token;
+        await userValidate(user);
+        return user;
     } catch (error) {
         // Handle any network or server errors
         console.error('[Error] Login Failed.', error);
@@ -25,22 +64,36 @@ export const signIn = async ({ email, password }) => {
     }
 };
 
-export const signUp = async ({ email, password, brand }) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
-        return '0x13dd9dhee2xru';
+/**
+ * Sign up to Brand Dashboard backend.
+ * The API response will send a verification email.
+ * so the user should have to sign in after the account creation.
+ * 
+ * @param {string} email A user's email
+ * @param {string} password A user's password
+ * @param {string} firstName A user's first name
+ * @param {string} lastName A user's last name
+ * @param {string} brandName A brand name like Gucci or Nike
+ * @returns {UserModelValidator} A newly created user.
+ */
+export const signUp = async (user) => {
+    console.log("Signing up User:", user);
+
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
+        return userData;
     }
 
     try {
-        const token = await apiPost({
+        const user = await apiPost({
             url: API_ENDPOINT + '/auth/signUp',
-            bodyParam: { email, password, brand },
-            hasToken: false
+            bodyParam: user,
         });
 
-        return token;
+        await userValidate(user);
+        return user;
     } catch (error) {
         // Handle any network or server errors
-        console.error('[Error] Login Failed.', error);
+        console.error('[Error] Sign up Failed.', error);
         throw error;
     }
 }

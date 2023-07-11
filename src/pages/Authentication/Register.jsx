@@ -1,16 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFeedback } from 'reactstrap';
-
-// Formik Validation
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-
 import { Link } from 'react-router-dom';
 
-// import images
+import * as AuthApi from '@/api/authApi';
 import logoImg from '@assets/images/slogo-dark.svg';
+
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
+  const [errorMessage, setErrorMessage] = useState();
+  const [isSuccessful, setIsSuccessful] = useState(false);
+
+  const onSignupSuccess = (response) => {
+
+    if (validation.values.rememberMe) {
+      localStorage.setItem("optedUser", response);
+    } else {
+      localStorage.removeItem("optedUser");
+    }
+
+    setUser(response);
+    setIsSuccessful(true);
+    navigate("/dashboard");
+  };
+
+  const onSignupFailed = (error) => {
+    setErrorMessage(error.toString());
+  };
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
@@ -18,28 +35,37 @@ const Register = props => {
 
     initialValues: {
       email: '',
-      username: '',
-      brand: '',
       password: '',
+      firstName: '',
+      lastName: '',
+      brandName: '',
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),
-      username: Yup.string().required("Please Enter Your Username").min(8, "Password is too short - should be 8 letters minimum."),
       password: Yup.string()
         .required("Please Enter Your Password")
-        .min(8, 'Password must be 8 characters long')
-        .matches(/[0-9]/, 'Password requires a number')
-        .matches(/[a-z]/, 'Password requires a lowercase letter')
-        .matches(/[A-Z]/, 'Password requires an uppercase letter')
+        // .min(8, 'Password must be 8 characters long')
+        // .matches(/[0-9]/, 'Password requires a number')
+        // .matches(/[a-z]/, 'Password requires a lowercase letter')
+        // .matches(/[A-Z]/, 'Password requires an uppercase letter')
         .matches(/[^\w]/, 'Password requires a symbol'),
-      brand: Yup.string().required("Please Enter Your Password"),
+        firstName: Yup.string().required("Please Enter Your First Name"),
+        lastName: Yup.string().required("Please Enter Your Last Name"),
+        brandName: Yup.string().required("Please Enter Your Brand Name"),
     }),
-    onSubmit: (values) => {
-      // // dispatch(registerUser(values));
+    onSubmit: async (values) => {
+      const { email, password, firstName, lastName, brandName } = values;
+      try {
+        setIsSuccessful(false);
+        setErrorMessage(undefined);
+        const response = await AuthApi.signUp(values);
+        onSignupSuccess(response);
+      } catch (err) {
+        console.log(err);
+        onSignupFailed(err);
+      }
     }
   });
-
-  const { user, registrationError, loading } = {};
 
   useEffect(() => {
     // // dispatch(apiError(""));
@@ -95,15 +121,15 @@ const Register = props => {
                         return false;
                       }}
                     >
-                      {user && user ? (
+                      {isSuccessful && (
                         <Alert color="success">
                           Register User Successfully
                         </Alert>
-                      ) : null}
+                      )}
 
-                      {registrationError && registrationError ? (
-                        <Alert color="danger">{registrationError}</Alert>
-                      ) : null}
+                      {errorMessage && (
+                        <Alert color="danger">{errorMessage}</Alert>
+                      )}
 
                       <div className="mb-3">
                         <Label className="form-label">Email</Label>
@@ -144,38 +170,56 @@ const Register = props => {
                       </div>
 
                       <div className="mb-3">
-                        <Label className="form-label">Username</Label>
+                        <Label className="form-label">First Name</Label>
                         <Input
-                          name="username"
+                          name="firstName"
                           type="text"
-                          placeholder="Enter username"
+                          placeholder="Enter First Name"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
-                          value={validation.values.username || ""}
+                          value={validation.values.firstName || ""}
                           invalid={
-                            validation.touched.username && validation.errors.username ? true : false
+                            validation.touched.firstName && validation.errors.firstName ? true : false
                           }
                         />
-                        {validation.touched.username && validation.errors.username ? (
-                          <FormFeedback type="invalid">{validation.errors.username}</FormFeedback>
+                        {validation.touched.usernafirstNameme && validation.errors.firstName ? (
+                          <FormFeedback type="invalid">{validation.errors.firstName}</FormFeedback>
+                        ) : null}
+                      </div>
+
+                      <div className="mb-3">
+                        <Label className="form-label">Last Name</Label>
+                        <Input
+                          name="lastName"
+                          type="text"
+                          placeholder="Enter Last Name"
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          value={validation.values.lastName || ""}
+                          invalid={
+                            validation.touched.lastName && validation.errors.lastName ? true : false
+                          }
+                        />
+                        {validation.touched.lastName && validation.errors.lastName ? (
+                          <FormFeedback type="invalid">{validation.errors.lastName}</FormFeedback>
                         ) : null}
                       </div>
 
                       <div className="mb-3">
                         <Label className="form-label">Brand Name</Label>
                         <Input
-                          name="brand"
+                          name="brandName"
                           type="text"
                           placeholder="Enter your brand name. ex:) Gucci"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
-                          value={validation.values.brand || ""}
+                          value={validation.values.brandName || ""}
                           invalid={
-                            validation.touched.brand && validation.errors.brand ? true : false
+                            validation.touched.brandName && validation.errors.brandName ? true : false
                           }
                         />
-                        {validation.touched.brand && validation.errors.brand ? (
-                          <FormFeedback type="invalid">{validation.errors.brand}</FormFeedback>
+                        {validation.touched.brandName && validation.errors.brandName ? (
+                          <FormFeedback type="invalid">{validation.errors.brandName}</FormFeedback>
                         ) : null}
                       </div>
 

@@ -1,21 +1,25 @@
 import * as yup from 'yup';
-import { apiGet, apiPost, API_ENDPOINT } from "./baseApi";
+
 import { productsData } from "./mockData";
+import { apiGet, apiPost, API_ENDPOINT } from "./baseApi";
 
 /**
  * This function validates the product response coming from backend.
  * 
- * @param {ProductModel} product An product object or an array of products
+ * @param {ProductModelValidator} product An product object or an array of products
  */
-const productValidate = (product) => {
-    ProductModelValidator.validate(product)
-        .then(validatedResponse => {
-            console.log(validatedResponse);
-        })
-        .catch(validationError => {
-            console.error(validationError);
-        });
+const productValidate = async (product) => {
+    try {
+        const validatedResponse = await ProductModelValidator.validate(product);
+        console.log(validatedResponse);
+
+        return validatedResponse;
+    } catch (validationError) {
+        console.error(validationError);
+        throw validationError;
+    }
 }
+
 /**
  * Get paginationized products from backend.
  * 
@@ -29,7 +33,7 @@ const productValidate = (product) => {
  * @returns An array of products
  */
 export const getProducts = async (page, pageSize = 15) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
         return productsData;
     }
 
@@ -39,7 +43,7 @@ export const getProducts = async (page, pageSize = 15) => {
             queryParams: { page, pageSize },
         });
 
-        productValidate(products);
+        await productValidate(products);
 
         return products;
     } catch (error) {
@@ -57,7 +61,7 @@ export const getProducts = async (page, pageSize = 15) => {
  * @returns An object to describe details
  */
 export const getProductDetail = async (productId) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
         return productsData.find((_product) => _product.id === productId);
     }
 
@@ -68,7 +72,7 @@ export const getProductDetail = async (productId) => {
             hasToken: false
         });
 
-        productValidate(product);
+        await productValidate(product);
 
         return product;
     } catch (error) {
@@ -84,7 +88,7 @@ export const getProductDetail = async (productId) => {
  * @returns An added object. Undefined if failed.
  */
 export const addProduct = async (product) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND) {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
         product.id = productsData[productsData.length - 1].id + 1;
         productsData.push(product);
 
@@ -98,7 +102,7 @@ export const addProduct = async (product) => {
             hasToken: true
         });
 
-        productValidate(newProduct);
+        await productValidate(newProduct);
 
         return newProduct;
     } catch (error) {
