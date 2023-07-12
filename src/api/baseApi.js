@@ -1,4 +1,4 @@
-export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'http://localhost:3000';
+export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'http://localhost:3000/';
 
 /**
  * HTTP Request using GET method
@@ -11,16 +11,14 @@ export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'http://localho
  */
 export const apiGet = async ({ url, queryParams, hasToken = false }) => {
     const token = hasToken ? localStorage.getItem('accessToken') : undefined;
-    if (!url.endsWith('/') && !url.endsWith('\\')) {
-        url += '/';
-    }
 
-    const queryString = !queryParams ? '' : Object.keys(queryParams)
-        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    const queryString = !queryParams ? '' : '?' + Object.keys(queryParams)
+        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
         .join('&');
 
     var headers = new Headers();
-    headers.append("Content-Type", "application/json");
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', 'no-cors');
     token && (headers.append('authorization', `Bearer ${token}`));
     
     try {
@@ -57,16 +55,12 @@ export const apiGet = async ({ url, queryParams, hasToken = false }) => {
 export const apiPost = async ({ url, queryParams, bodyParam, hasToken = false }) => {
     const token = hasToken ? localStorage.getItem('accessToken') : undefined;
 
-    if (!url.endsWith('/') && !url.endsWith('\\')) {
-        url += '/';
-    }
-
-    const queryString = !queryParams ? '' : Object.keys(queryParams)
-        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+    const queryString = !queryParams ? '' : '?' + Object.keys(queryParams)
+        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
         .join('&');
 
     var headers = new Headers();
-    headers.append("Content-Type", "application/json");
+    headers.append('Content-Type', 'application/json');
     token && (headers.append('authorization', `Bearer ${token}`));
 
     try {

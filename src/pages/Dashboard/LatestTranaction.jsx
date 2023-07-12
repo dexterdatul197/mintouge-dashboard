@@ -18,7 +18,7 @@ import {
 } from './LatestTranactionCol';
 
 import TableContainer from '@components/TableContainer';
-import EcommerceOrdersModal from '../Ecommerce/EcommerceOrders/EcommerceOrdersModal';
+import EcommerceOrdersModal from '../Products/EcommerceOrders/EcommerceOrdersModal';
 
 const LatestTranaction = props => {
 

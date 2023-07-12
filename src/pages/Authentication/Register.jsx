@@ -7,6 +7,7 @@ import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFee
 import { useUser } from '@/store/user';
 import * as AuthApi from '@/api/authApi';
 import logoImg from '@assets/images/slogo-dark.svg';
+import { Storage, SetStorageObject } from '@/utils';
 
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
@@ -17,7 +18,7 @@ const Register = props => {
   const [isSuccessful, setIsSuccessful] = useState(false);
 
   const onSignupSuccess = (response) => {
-    localStorage.setItem("optedUser", response);
+    SetStorageObject(Storage.OptedUser, response);
 
     setUser(response);
     setIsSuccessful(true);

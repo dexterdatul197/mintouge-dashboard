@@ -19,6 +19,7 @@ import {
 import { useUser } from '@/store/user';
 import * as AuthApi from '@/api/authApi';
 import logo from '@assets/images/slogo-dark.svg';
+import { Storage, SetStorageObject } from '@/utils';
 
 const Login = (props) => {
   //meta title
@@ -29,7 +30,7 @@ const Login = (props) => {
   const navigate = useNavigate();
 
   const onLoginSuccess = (response) => {
-    localStorage.setItem("optedUser", response);
+    SetStorageObject(Storage.OptedUser, response);
     
     setUser(response);
     navigate("/dashboard");

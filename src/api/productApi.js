@@ -1,7 +1,35 @@
 import * as yup from 'yup';
 
+import { Storage, GetStorageObject } from '@/utils';
 import { productsData } from "./mockData";
 import { apiGet, apiPost, API_ENDPOINT } from "./baseApi";
+
+export const ProductModelValidator = yup.object().shape({
+    id: yup.number().required('Product ID is missing'),
+    brand: yup.string().required('Brand Name is invalid'),
+    brandKey: yup.string().required('Brand Private Key should be string.'),
+    productId: yup.number().required('Product ID is invalid'),
+    name: yup.string().required('Product Name is invalid.'),
+    price: yup.number().required('Product price is invalid'),
+    discount: yup.number().optional('Product discount is invalid'),
+    offerEnd: yup.date().optional('Product Offer Date is invalid'),
+    madeAt: yup.date().optional('Product Made Date is missing'),
+    rating: yup.number().optional('Product Rating is invalid'),
+    saleCount: yup.number().required('Product Sales is invalid'),
+    categoryId: yup.number().required('Product Sales is invalid'),
+    tags: yup.string().optional('Brand Private Key should be string.'),
+    variation: yup.array(yup.object({
+        color: yup.string().required('Variation Color is invalid.'),
+        image: yup.string().required('Variation Color is invalid.'),
+    })).optional('Variation format is invalid'),
+
+    image: yup.array(yup.string()).required('Product Images are not valid'),
+    qrcode: yup.string().optional(),
+    asset3dUrl: yup.string().optional(),
+    productUrl: yup.string().required('Product URL is invalid'),
+    shortDescription: yup.string().required('Short Description is invalid'),
+    fullDescription: yup.string().required('Full Description is invalid'),
+});
 
 /**
  * This function validates the product response coming from backend.
@@ -32,18 +60,21 @@ const productValidate = async (product) => {
  * @param {number} pageSize Page Size. default is 15.
  * @returns An array of products
  */
-export const getProducts = async (page, pageSize = 15) => {
+export const getProducts = async (page, size = 15, apiKey) => {
     if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
         return productsData;
     }
 
+    const optedUser = GetStorageObject(Storage.OptedUser);
+    const pubKey = optedUser ? optedUser.apiPublicKey : "";
+
     try {
-        const products = await apiGet({
-            url: API_ENDPOINT + "/products",
-            queryParams: { page, pageSize },
+        const data = await apiGet({
+            url: API_ENDPOINT + "/product",
+            queryParams: { page, size, pubKey },
         });
 
-        await productValidate(products);
+        await productValidate(data);
 
         return products;
     } catch (error) {
@@ -110,30 +141,3 @@ export const addProduct = async (product) => {
         throw error;
     }
 }
-
-export const ProductModelValidator = yup.object().shape({
-    id: yup.number().required('Product ID is missing'),
-    brand: yup.string().required('Brand Name is invalid'),
-    brandKey: yup.string().required('Brand Private Key should be string.'),
-    productId: yup.number().required('Product ID is invalid'),
-    name: yup.string().required('Product Name is invalid.'),
-    price: yup.number().required('Product price is invalid'),
-    discount: yup.number().optional('Product discount is invalid'),
-    offerEnd: yup.date().optional('Product Offer Date is invalid'),
-    madeAt: yup.date().optional('Product Made Date is missing'),
-    rating: yup.number().optional('Product Rating is invalid'),
-    saleCount: yup.number().required('Product Sales is invalid'),
-    categoryId: yup.number().required('Product Sales is invalid'),
-    tags: yup.string().optional('Brand Private Key should be string.'),
-    variation: yup.array(yup.shape({
-        color: yup.string().required('Variation Color is invalid.'),
-        image: yup.string().required('Variation Color is invalid.'),
-    })).optional('Variation format is invalid'),
-
-    image: yup.array(yup.string()).required('Product Images are not valid'),
-    qrcode: yup.string().optional(),
-    asset3dUrl: yup.string().optional(),
-    productUrl: yup.string().required('Product URL is invalid'),
-    shortDescription: yup.string().required('Short Description is invalid'),
-    fullDescription: yup.string().required('Full Description is invalid'),
-});

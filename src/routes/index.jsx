@@ -10,13 +10,13 @@ const Loader = (Component) => (props) => (
 );
 
 // // //Ecommerce Pages
-const EcommerceProducts = Loader(lazy(() => import('@pages/Ecommerce/EcommerceProducts/index')));
-const EcommerceProductDetail = Loader(lazy(() => import('@pages/Ecommerce/EcommerceProducts/EcommerceProductDetail')));
-const EcommerceOrders = Loader(lazy(() => import('@pages/Ecommerce/EcommerceOrders/index')));
-const EcommerceCustomers = Loader(lazy(() => import('@pages/Ecommerce/EcommerceCustomers/index')));
-const EcommerceCheckout = Loader(lazy(() => import('@pages/Ecommerce/EcommerceCheckout')));
+const Products = Loader(lazy(() => import('@pages/Products/Products')));
+const EcommerceProductDetail = Loader(lazy(() => import('@pages/Products/EcommerceProducts/EcommerceProductDetail')));
+const EcommerceOrders = Loader(lazy(() => import('@pages/Products/EcommerceOrders/index')));
+const EcommerceCustomers = Loader(lazy(() => import('@pages/Products/EcommerceCustomers/index')));
+const EcommerceCheckout = Loader(lazy(() => import('@pages/Products/EcommerceCheckout')));
 const EcommerceAutoImport = Loader(lazy(() => import('@pages/Forms/AutoImport')));
-const EcommerceAddProduct = Loader(lazy(() => import('@pages/Ecommerce/EcommerceAddProduct')));
+const EcommerceAddProduct = Loader(lazy(() => import('@pages/Products/EcommerceAddProduct')));
 
 // // Authentication related pages
 const Login = Loader(lazy(() => import('@pages/Authentication/Login')));
@@ -44,7 +44,7 @@ const authProtectedRoutes = [
     path: "/ecommerce-product-detail/:id",
     component: <EcommerceProductDetail />,
   },
-  { path: "/products", component: <EcommerceProducts /> },
+  { path: "/products", component: <Products /> },
   { path: "/ecommerce-orders", component: <EcommerceOrders /> },
   { path: "/ecommerce-customers", component: <EcommerceCustomers /> },
   { path: "/ecommerce-checkout", component: <EcommerceCheckout /> },
