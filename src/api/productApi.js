@@ -36,12 +36,15 @@ export const ProductModelValidator = yup.object().shape({
  * 
  * @param {ProductModelValidator} product An product object or an array of products
  */
-const productValidate = async (product) => {
+const productValidate = async (products) => {
     try {
-        const validatedResponse = await ProductModelValidator.validate(product);
-        console.log(validatedResponse);
-
-        return validatedResponse;
+        if (Array.isArray(products)) {
+            for (let product in products) {
+                await ProductModelValidator.validate(product);
+            }
+        } else {
+            const validatedResponse = await ProductModelValidator.validate(products);
+        }
     } catch (validationError) {
         console.error(validationError);
         throw validationError;
