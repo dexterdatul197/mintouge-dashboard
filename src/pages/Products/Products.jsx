@@ -31,7 +31,7 @@ const ProductsContainer = (props) => {
   const navigate = useNavigate();
   const products = productsData;
 
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [totalPage, setTotalPage] = useState(5);
   const [productList, setProductList] = useState([]);
   const [activeTab, setActiveTab] = useState("1");

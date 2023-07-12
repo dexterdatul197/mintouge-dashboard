@@ -69,14 +69,14 @@ export const getProducts = async (page, size = 15, apiKey) => {
     const pubKey = optedUser ? optedUser.apiPublicKey : "";
 
     try {
-        const data = await apiGet({
+        const response = await apiGet({
             url: API_ENDPOINT + "/product",
             queryParams: { page, size, pubKey },
         });
 
-        await productValidate(data);
+        await productValidate(response.data);
 
-        return products;
+        return response;
     } catch (error) {
         console.error('[Error] getProducts Failed.', error);
         throw error;
