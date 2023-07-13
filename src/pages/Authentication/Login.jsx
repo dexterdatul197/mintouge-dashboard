@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Row,
@@ -16,6 +16,7 @@ import {
   Label,
 } from 'reactstrap';
 
+import useToast from '@/utils/useToast';
 import { useUser } from '@/store/user';
 import * as AuthApi from '@/api/authApi';
 import logo from '@assets/images/slogo-dark.svg';
@@ -29,9 +30,12 @@ const Login = (props) => {
   document.title = "Login | Mintouge - Brands Dashboard";
   const navigate = useNavigate();
 
+  const { showToast } = useToast();
+
   const onLoginSuccess = (response) => {
+    showToast("Log in successful.");
     SetStorageObject(Storage.OptedUser, response);
-    
+
     setUser(response);
     navigate("/dashboard");
   };

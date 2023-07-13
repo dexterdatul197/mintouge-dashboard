@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFeedback } from 'reactstrap';
 
+import useToast from '@/utils/useToast';
 import { useUser } from '@/store/user';
 import * as AuthApi from '@/api/authApi';
 import logoImg from '@assets/images/slogo-dark.svg';
@@ -12,6 +13,7 @@ import { Storage, SetStorageObject } from '@/utils';
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
   
+  const { showToast } = useToast();
   const navigate = useNavigate();
   const { setUser } = useUser();
   const [errorMessage, setErrorMessage] = useState();
@@ -20,11 +22,13 @@ const Register = props => {
   const onSignupSuccess = (response) => {
     SetStorageObject(Storage.OptedUser, response);
 
+    showToast("Sign up successful.");
+
     setUser(response);
     setIsSuccessful(true);
     navigate("/dashboard");
   };
-
+  
   const onSignupFailed = (error) => {
     setErrorMessage(error.toString());
   };

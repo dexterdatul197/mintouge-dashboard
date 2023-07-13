@@ -57,7 +57,7 @@ let productsData = [
     image: 'product1',
     name: 'Half sleeve T-shirt',
     link: '#',
-    category: 'T-shirts',
+    category: 0,
     rating: 5,
     oldPrice: 500,
     newPrice: 450,
@@ -96,7 +96,7 @@ let productsData = [
     image: 'product2',
     name: 'Light blue T-shirt',
     link: '#',
-    category: 'T-shirts',
+    category: 0,
     rating: 4,
     oldPrice: 225,
     newPrice: 175,
@@ -133,7 +133,7 @@ let productsData = [
     image: 'product3',
     name: 'Black Color T-shirt',
     link: '#',
-    category: 'T-shirts',
+    category: 0,
     rating: 4,
     oldPrice: 177,
     newPrice: 152,
@@ -171,7 +171,7 @@ let productsData = [
     image: 'product4',
     name: 'Hoodie (Blue)',
     link: '#',
-    category: 'Hoodies',
+    category: 1,
     rating: 4,
     oldPrice: 150,
     newPrice: 145,
@@ -207,7 +207,7 @@ let productsData = [
     image: 'product5',
     name: 'Half sleeve T-Shirt',
     link: '#',
-    category: 'T-shirts',
+    category: 0,
     rating: 4,
     oldPrice: 177,
     newPrice: 152,
@@ -243,7 +243,7 @@ let productsData = [
     image: 'product6',
     name: 'Green color T-shirt',
     link: '#',
-    category: 'T-shirts',
+    category: 0,
     rating: 4,
     oldPrice: 200,
     newPrice: 100,
@@ -878,8 +878,28 @@ let productListvar = [
   },
 ];
 
+const categorysData = [
+  {
+    id: 0,
+    name: 'T-shirts',
+  },
+  {
+    id: 0,
+    name: 'Hoodlies',
+  },
+  {
+    id: 0,
+    name: 'Bags',
+  },
+  {
+    id: 0,
+    name: 'Clothe',
+  },
+];
+
 export {
   userData,
+  categorysData,
   productsData,
   recentProducts,
   comments,

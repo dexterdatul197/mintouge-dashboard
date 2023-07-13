@@ -51,7 +51,7 @@ export const signIn = async ({ email, password }) => {
 
     try {
         const user = await apiPost({
-            url: API_ENDPOINT + '/auth/login',
+            url: '/auth/login',
             bodyParam: { email, password },
         });
 
@@ -85,7 +85,7 @@ export const signUp = async (userInfo) => {
 
     try {
         const user = await apiPost({
-            url: API_ENDPOINT + '/auth/signup',
+            url: '/auth/signup',
             bodyParam: userInfo,
         });
 

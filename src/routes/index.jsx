@@ -16,7 +16,7 @@ const EcommerceOrders = Loader(lazy(() => import('@pages/Products/EcommerceOrder
 const EcommerceCustomers = Loader(lazy(() => import('@pages/Products/EcommerceCustomers/index')));
 const EcommerceCheckout = Loader(lazy(() => import('@pages/Products/EcommerceCheckout')));
 const EcommerceAutoImport = Loader(lazy(() => import('@pages/Forms/AutoImport')));
-const EcommerceAddProduct = Loader(lazy(() => import('@pages/Products/EcommerceAddProduct')));
+const AddProduct = Loader(lazy(() => import('@pages/Products/AddProduct')));
 
 // // Authentication related pages
 const Login = Loader(lazy(() => import('@pages/Authentication/Login')));
@@ -48,7 +48,7 @@ const authProtectedRoutes = [
   { path: "/ecommerce-orders", component: <EcommerceOrders /> },
   { path: "/ecommerce-customers", component: <EcommerceCustomers /> },
   { path: "/ecommerce-checkout", component: <EcommerceCheckout /> },
-  { path: "/ecommerce-add-product", component: <EcommerceAddProduct /> },
+  { path: "/ecommerce-add-product", component: <AddProduct /> },
   { path: "/ecommerce-auto-import", component: <EcommerceAutoImport /> },
 
   // Settings

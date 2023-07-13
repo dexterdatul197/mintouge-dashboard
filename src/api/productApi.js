@@ -1,14 +1,14 @@
 import * as yup from 'yup';
 
 import { Storage, GetStorageObject } from '@/utils';
-import { productsData } from "./mockData";
-import { apiGet, apiPost, API_ENDPOINT } from "./baseApi";
+import { productsData } from './mockData';
+import { apiGet, apiPost, API_ENDPOINT } from './baseApi';
 
 export const ProductModelValidator = yup.object().shape({
     id: yup.number().required('Product ID is missing'),
     brand: yup.string().required('Brand Name is invalid'),
     brandKey: yup.string().required('Brand Private Key should be string.'),
-    productId: yup.number().required('Product ID is invalid'),
+    productKey: yup.number().required('Product ID is invalid'),
     name: yup.string().required('Product Name is invalid.'),
     price: yup.number().required('Product price is invalid'),
     discount: yup.number().optional('Product discount is invalid'),
@@ -39,7 +39,7 @@ export const ProductModelValidator = yup.object().shape({
 const productValidate = async (products) => {
     try {
         if (Array.isArray(products)) {
-            for (let product in products) {
+            for (let product of products) {
                 await ProductModelValidator.validate(product);
             }
         } else {
@@ -64,16 +64,16 @@ const productValidate = async (products) => {
  * @returns An array of products
  */
 export const getProducts = async (page, size = 15, apiKey) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
         return productsData;
     }
 
     const optedUser = GetStorageObject(Storage.OptedUser);
-    const pubKey = optedUser ? optedUser.apiPublicKey : "";
+    const pubKey = optedUser ? optedUser.apiPublicKey : '';
 
     try {
         const response = await apiGet({
-            url: API_ENDPOINT + "/product",
+            url: '/product',
             queryParams: { page, size, pubKey },
         });
 
@@ -95,15 +95,14 @@ export const getProducts = async (page, size = 15, apiKey) => {
  * @returns An object to describe details
  */
 export const getProductDetail = async (productId) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
         return productsData.find((_product) => _product.id === productId);
     }
 
     try {
         const product = await apiGet({
-            url: API_ENDPOINT + "/products",
+            url: '/product',
             queryParams: { productId },
-            hasToken: false
         });
 
         await productValidate(product);
@@ -122,7 +121,7 @@ export const getProductDetail = async (productId) => {
  * @returns An added object. Undefined if failed.
  */
 export const addProduct = async (product) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
         product.id = productsData[productsData.length - 1].id + 1;
         productsData.push(product);
 
@@ -131,9 +130,8 @@ export const addProduct = async (product) => {
 
     try {
         const newProduct = await apiPost({
-            url: API_ENDPOINT + "/products",
-            bodyParam: { product },
-            hasToken: true
+            url: '/product',
+            bodyParam: product,
         });
 
         await productValidate(newProduct);

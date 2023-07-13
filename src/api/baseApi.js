@@ -1,4 +1,10 @@
+import axios from 'axios'
+
 export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'http://localhost:3000/';
+
+const axiosApi = axios.create({
+    baseURL: API_ENDPOINT
+});
 
 /**
  * HTTP Request using GET method
@@ -12,28 +18,21 @@ export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'http://localho
 export const apiGet = async ({ url, queryParams, hasToken = false }) => {
     const token = hasToken ? localStorage.getItem('accessToken') : undefined;
 
-    const queryString = !queryParams ? '' : '?' + Object.keys(queryParams)
-        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
-        .join('&');
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'no-cors');
     token && (headers.append('authorization', `Bearer ${token}`));
-    
+
     try {
-        const response = await fetch(
-            url + queryString,
-            {
-                method: 'GET',
-                headers,
-            }
-        );
+        const response = await axiosApi.get(url, {
+            params: queryParams,
+            headers,
+            withCredentials: true,
+        });
 
-        if (response.ok) {
-            const data = await response.json();
-
-            return data;
+        if (response.status === 200) {
+            return response.data;
         } else {
             throw Error(response.statusText);
         }
@@ -55,27 +54,20 @@ export const apiGet = async ({ url, queryParams, hasToken = false }) => {
 export const apiPost = async ({ url, queryParams, bodyParam, hasToken = false }) => {
     const token = hasToken ? localStorage.getItem('accessToken') : undefined;
 
-    const queryString = !queryParams ? '' : '?' + Object.keys(queryParams)
-        .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
-        .join('&');
-
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', 'no-cors');
     token && (headers.append('authorization', `Bearer ${token}`));
 
     try {
-        const response = await fetch(
-            url + queryString,
-            {
-                method: 'POST',
-                body: JSON.stringify(bodyParam),
-                headers: headers,
-            }
-        );
+        const response = await axiosApi.post(url, bodyParam, {
+            params: queryParams,
+            headers: headers,
+            withCredentials: true,
+        });
 
-        const data = await response.json();
-        if (response.ok) {
-            return data;
+        if (response.status === 200) {
+            return response.data;
         } else {
             throw Error(data.message);
         }

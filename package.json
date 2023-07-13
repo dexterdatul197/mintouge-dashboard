@@ -8,6 +8,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "bootstrap": "^5.2.0",
     "classnames": "^2.3.2",
     "formik": "^2.2.9",
@@ -33,6 +34,7 @@
     "reactstrap": "^9.1.5",
     "recoil": "^0.7.7",
     "simplebar-react": "^2.4.3",
+    "toastr": "^2.1.4",
     "yup": "^0.32.11"
   },
   "devDependencies": {
