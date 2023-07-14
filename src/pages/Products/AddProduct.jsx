@@ -18,7 +18,7 @@ import {
 } from 'reactstrap';
 import Select from 'react-select';
 
-import { CategoryApi } from '@/api';
+import { CategoryApi, ProductApi } from '@/api';
 import Breadcrumbs from '@components/Breadcrumb';
 import useToast from '@/utils/useToast';
 
@@ -33,14 +33,7 @@ const TwoColumnForm = (props) => (
         <Row>
           {props.children}
         </Row>
-        <div className="d-flex justify-content-end gap-2">
-          <Button type="submit" color="primary" className="btn ">
-            Add Product
-          </Button>
-          <Button type="button" color="secondary">
-            Clear
-          </Button>
-        </div>
+        <InnerFooter formik={props.formik} />
       </Form>
     </CardBody>
   </Card>
@@ -72,7 +65,91 @@ const InputItem = (props) => (
       </FormFeedback>
     ) : null}
   </div>
-)
+);
+
+const InnerFooter = (props) => (
+  <>
+    <ImageItem formik={props.formik} />
+    <div className="d-flex justify-content-end gap-2">
+      <Button type="submit" color="primary" className="btn ">
+        Add Product
+      </Button>
+      <Button type="button" color="secondary">
+        Clear
+      </Button>
+    </div>
+  </>
+);
+
+const ImageItem = (props) => {
+  const { formik } = props;
+  const handleImageChange = (e, key) => {
+    formik.setFieldValue("image", formik.values.image.map((_v, index) => (
+      index !== key ? formik.values.image[index] : e.target.value
+    )));
+  };
+
+  const handleAddImage = () => {
+    formik.setFieldValue("image", [...formik.values.image, ""]);
+  }
+
+  // Function for Remove Input Fields
+  const handleRemoveImage = (idx) => {
+    formik.setFieldValue("image", formik.values.image.filter((_v, index) => index !== idx));
+  }
+
+  return (
+    <>
+      <Label>Image URLs</Label>
+      <div className="inner-repeater mb-4">
+        <div className="inner form-group mb-0 row">
+          <div
+            className="inner col-lg-12 ml-md-auto"
+            id="repeater"
+          >
+            {formik.values.image.map((imageUrl, key) => (
+              <div
+                key={key}
+                id={"nested" + key}
+                className="mb-3 row align-items-base"
+              >
+                <Col md="10">
+                  <Input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter Image URL.."
+                    onChange={(e) => handleImageChange(e, key)}
+                    value={imageUrl || ""}
+                    invalid={!imageUrl}
+                  />
+                  {!imageUrl && (
+                    <FormFeedback type="invalid">
+                      Image URL should not be empty
+                    </FormFeedback>
+                  )}
+                </Col>
+                <Col md="2">
+                  <div className="mt-2 mt-md-0 d-grid">
+                    <Button color="primary" className="inner" onClick={() => { handleRemoveImage(key) }} block>
+                      Delete
+                    </Button>
+                  </div>
+                </Col>
+              </div>
+            ))}
+          </div>
+        </div>
+        <Row className="justify-content-end">
+          <Col lg="12">
+            <Button color="success" className="inner" onClick={handleAddImage}>
+              Add Image
+            </Button>
+          </Col>
+        </Row>
+      </div>
+    </>
+  );
+};
 
 const AddProduct = () => {
   document.title = "Add Product | Mintouge - Brands Dashboard";
@@ -107,10 +184,10 @@ const AddProduct = () => {
       offerEnd: '',
       madeAt: '',
       rating: 5,
-      category: undefined,
+      categoryId: undefined,
       tags: '',
       variation: [],
-      image: [],
+      image: [""],
       qrcode: '',
       productUrl: '',
       shortDescription: '',
@@ -120,11 +197,11 @@ const AddProduct = () => {
     validationSchema: yup.object({
       name: yup.string().required('Name should not be empty'),
       price: yup.number().min(0).required('Price should be greater than 0'),
-      category: yup.object().required('Please specify category'),
+      categoryId: yup.object().required('Please specify category'),
       shortDescription: yup.string().optional('Pleases provide short description'),
       fullDescription: yup.string().required('Please provide description'),
       productUrl: yup.string().required('Please provide the product url in your eCommerce site.'),
-      // image: yup.array().min(1).required('Please type image urls.'),
+      image: yup.array().min(1).required('Please type image urls.'),
       tags: yup.string().optional('Tags should be string'),
       // madeAt: yup.date().required('Made At should not be empty'),
       // discount: yup.number().optional('Invalid discount value'),
@@ -135,11 +212,11 @@ const AddProduct = () => {
 
     onSubmit: async (values) => {
       try {
-        values = { ...values, categoryId: values.category.id };
-        // const response = await ProductApi.addProduct(values);
-        console.log(values);
+        const _values = { ...values, categoryId: values.categoryId.id };
+        console.log(_values);
+        const response = await ProductApi.addProduct(_values);
       } catch (err) {
-        // console.log(err);
+        showToast(err.toString(), "error");
       }
     },
   });
@@ -175,15 +252,15 @@ const AddProduct = () => {
       )}
 
     </div>
-  )
+  );
 
   const handleAddCategory = async () => {
     try {
-      const category = await CategoryApi.addCategory(newCategory);
-      setCategories((_categories) => [ ..._categories, category]);
+      const categoryId = await CategoryApi.addCategory(newCategory);
+      setCategories((_categories) => [..._categories, categoryId]);
 
       setNewCategory("");
-      showCategoryModal(false);  
+      showCategoryModal(false);
     } catch (err) {
       showToast(err.toString(), "error");
     }
@@ -205,7 +282,7 @@ const AddProduct = () => {
             </Col>
 
             <Col sm="6">
-              <SelectItem name="category" label="Category" formik={productForm} />
+              <SelectItem name="categoryId" label="Category" formik={productForm} />
               <InputItem name="tags" label="Tags" formik={productForm} />
             </Col>
           </TwoColumnForm>
