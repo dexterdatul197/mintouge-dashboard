@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'http://localhost:3000/';
+export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'https://brand.api.mintouge.com';
 
 const axiosApi = axios.create({
     baseURL: API_ENDPOINT
