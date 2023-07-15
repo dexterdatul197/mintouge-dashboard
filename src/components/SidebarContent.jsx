@@ -169,32 +169,21 @@ const SidebarContent = () => {
       <SimpleBar className="h-100" ref={ref}>
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
-            <MenuGroup
-              to="/dashboard"
-              icon="bx-home-circle"
-              title={t("Dashboards")}
-            />
+            <MenuGroup to="/dashboard" title={t("Dashboards")} icon="bx-home-circle" />
+            <MenuGroup to="/orders" title={t("Orders")} icon="bx-cart" />
+            <MenuGroup to="/products" title={t("Product")} icon="bx-store" />
+            <MenuGroup to="/clients" title={t("Clients")} icon="bx-male" />
+            <MenuGroup to="/setting-api" title={t("Settings")} icon="bx-cog" />
+            <MenuGroup to="/payments" title={t("Payments")} icon="bx-money" />
 
-            <MenuGroup to="/#" hasArrow={true} title={t("Product")} icon="bx-store">
+            <MenuGroup to="/#" hasArrow={true} title={t("Others")} icon="bx-store">
               <MenuItem to="/products" title={t("Products")} />
               <MenuItem to="/ecommerce-product-detail/1" title={t("Product Detail")} />
               <MenuItem to="/ecommerce-add-product" title={t("Add Product")} />
               <MenuItem to="/ecommerce-auto-import" title={t("Auto Import")} />
-              <MenuItem to="/ecommerce-orders" title={t("Orders")} />
-              <MenuItem to="/ecommerce-customers" title={t("Customers")} />
+              <MenuItem to="/orders" title={t("Orders")} />
+              <MenuItem to="/clients" title={t("Customers")} />
             </MenuGroup>
-
-            <MenuGroup to="/#" hasArrow={true} title={t("Settings")} icon="bx-cog">
-              <MenuItem to="/setting-api" title={t("API Settings")} />
-              <MenuItem to="/ecommerce-checkout" title={t("Payments")} />
-              <MenuItem to="/wallet" title={t("Wallet")} />
-            </MenuGroup>
-
-            <MenuGroup
-              to="/contacts-list"
-              icon="bxs-user-detail"
-              title={t("User Management")}
-            />
           </ul>
         </div>
       </SimpleBar>

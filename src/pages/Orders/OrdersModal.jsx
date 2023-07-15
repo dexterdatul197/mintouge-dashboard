@@ -12,7 +12,7 @@ import {
 const img4 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-4.webp";
 const img7 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-7.webp";
 
-const EcommerceOrdersModal = props => {
+const OrdersModal = props => {
   const { isOpen, toggle } = props
   return (
     <Modal
@@ -108,9 +108,9 @@ const EcommerceOrdersModal = props => {
   )
 }
 
-EcommerceOrdersModal.propTypes = {
+OrdersModal.propTypes = {
   toggle: PropTypes.func,
   isOpen: PropTypes.bool,
 }
 
-export default EcommerceOrdersModal
+export default OrdersModal

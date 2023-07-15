@@ -12,10 +12,10 @@ const Loader = (Component) => (props) => (
 // // //Ecommerce Pages
 const Products = Loader(lazy(() => import('@pages/Products/Products')));
 const EcommerceProductDetail = Loader(lazy(() => import('@pages/Products/EcommerceProducts/EcommerceProductDetail')));
-const EcommerceOrders = Loader(lazy(() => import('@pages/Products/EcommerceOrders/index')));
+const Orders = Loader(lazy(() => import('@pages/Orders/index')));
 const EcommerceCustomers = Loader(lazy(() => import('@pages/Products/EcommerceCustomers/index')));
-const EcommerceCheckout = Loader(lazy(() => import('@pages/Products/EcommerceCheckout')));
-const EcommerceAutoImport = Loader(lazy(() => import('@pages/Forms/AutoImport')));
+const Payments = Loader(lazy(() => import('@pages/Settings/Payments')));
+const EcommerceAutoImport = Loader(lazy(() => import('@pages/Settings/AutoImport')));
 const AddProduct = Loader(lazy(() => import('@pages/Products/AddProduct')));
 
 // // Authentication related pages
@@ -30,7 +30,7 @@ const Pages404 = Loader(lazy(() => import('@pages/Utility/pages-404')));
 const Dashboard = Loader(lazy(() => import('@pages/Dashboard/index')));
 
 // //Settings
-const ApiSetting = Loader(lazy(() => import('@pages/Forms/ApiSetting')));
+const ApiSetting = Loader(lazy(() => import('@pages/Settings/ApiSetting')));
 const Wallet = Loader(lazy(() => import('@pages/Crypto/crypto-wallet')));
 
 // Contacts
@@ -45,9 +45,9 @@ const authProtectedRoutes = [
     component: <EcommerceProductDetail />,
   },
   { path: "/products", component: <Products /> },
-  { path: "/ecommerce-orders", component: <EcommerceOrders /> },
-  { path: "/ecommerce-customers", component: <EcommerceCustomers /> },
-  { path: "/ecommerce-checkout", component: <EcommerceCheckout /> },
+  { path: "/orders", component: <Orders /> },
+  { path: "/clients", component: <EcommerceCustomers /> },
+  { path: "/payments", component: <Payments /> },
   { path: "/ecommerce-add-product", component: <AddProduct /> },
   { path: "/ecommerce-auto-import", component: <EcommerceAutoImport /> },
 

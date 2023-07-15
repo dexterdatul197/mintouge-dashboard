@@ -18,7 +18,7 @@ import {
 } from './LatestTranactionCol';
 
 import TableContainer from '@components/TableContainer';
-import EcommerceOrdersModal from '../Products/EcommerceOrders/EcommerceOrdersModal';
+import OrdersModal from '../Orders/OrdersModal';
 
 const LatestTranaction = props => {
 
@@ -136,7 +136,7 @@ const LatestTranaction = props => {
 
   return (
     <React.Fragment>
-      <EcommerceOrdersModal isOpen={modal1} toggle={toggleViewModal} />
+      <OrdersModal isOpen={modal1} toggle={toggleViewModal} />
       <Card>
         <CardBody>
           <div className="mb-4 h4 card-title">Latest Transaction</div>
