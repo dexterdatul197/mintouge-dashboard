@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Row,
@@ -21,6 +21,7 @@ import { useUser } from '@/store/user';
 import * as AuthApi from '@/api/authApi';
 import logo from '@assets/images/slogo-dark.svg';
 import { Storage, SetStorageObject } from '@/utils';
+import LoadingScreen from '@/components/LoadingScreen';
 
 const Login = (props) => {
   //meta title
@@ -31,6 +32,7 @@ const Login = (props) => {
   const navigate = useNavigate();
 
   const { showToast } = useToast();
+  const [isLoading, setLoading] = useState(false);
 
   const onLoginSuccess = (response) => {
     showToast("Log in successful.");
@@ -40,7 +42,7 @@ const Login = (props) => {
     navigate("/dashboard");
   };
 
-  const onLoginFailed = () => {
+  const onLogin = async () => {
     setErrorMessage("Your Email or Password is incorrect.");
   };
 
@@ -60,9 +62,12 @@ const Login = (props) => {
     onSubmit: async (values) => {
       const { email, password } = values;
       try {
+        setLoading(true);
         const response = await AuthApi.signIn({ email, password });
+        setLoading(false);
         onLoginSuccess(response);
       } catch (err) {
+        setLoading(false);
         console.log(err);
         onLoginFailed();
       }
@@ -121,7 +126,8 @@ const Login = (props) => {
                         return false;
                       }}
                     >
-                      {errorMessage ? <Alert color="danger">{errorMessage}</Alert> : null}
+                      {isLoading && <LoadingScreen />}
+                      {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
 
                       <div className="mb-3">
                         <Label className="form-label">Email</Label>

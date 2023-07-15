@@ -9,6 +9,8 @@ import { useUser } from '@/store/user';
 import * as AuthApi from '@/api/authApi';
 import logoImg from '@assets/images/slogo-dark.svg';
 import { Storage, SetStorageObject } from '@/utils';
+import LoadingScreen from '@/components/LoadingScreen';
+
 
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
@@ -16,8 +18,8 @@ const Register = props => {
   const { showToast } = useToast();
   const navigate = useNavigate();
   const { setUser } = useUser();
+  const [isLoading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
-  const [isSuccessful, setIsSuccessful] = useState(false);
 
   const onSignupSuccess = (response) => {
     SetStorageObject(Storage.OptedUser, response);
@@ -25,7 +27,6 @@ const Register = props => {
     showToast("Sign up successful.");
 
     setUser(response);
-    setIsSuccessful(true);
     navigate("/dashboard");
   };
   
@@ -58,11 +59,14 @@ const Register = props => {
     }),
     onSubmit: async (values) => {
       try {
-        setIsSuccessful(false);
+
+        setLoading(true);
         setErrorMessage(undefined);
         const response = await AuthApi.signUp(values);
+        setLoading(false);
         onSignupSuccess(response);
       } catch (err) {
+        setLoading(false);
         onSignupFailed(err);
       }
     }
@@ -122,15 +126,8 @@ const Register = props => {
                         return false;
                       }}
                     >
-                      {isSuccessful && (
-                        <Alert color="success">
-                          Register User Successfully
-                        </Alert>
-                      )}
-
-                      {errorMessage && (
-                        <Alert color="danger">{errorMessage}</Alert>
-                      )}
+                      {isLoading && <LoadingScreen />}
+                      {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
 
                       <div className="mb-3">
                         <Label className="form-label">Email</Label>
