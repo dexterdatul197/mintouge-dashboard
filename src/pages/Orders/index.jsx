@@ -21,7 +21,7 @@ import {
   Total,
   PaymentStatus,
   PaymentMethod,
-} from './EcommerceOrderCol';
+} from './OrderCol';
 
 import {
   Button,
@@ -41,7 +41,7 @@ import {
 
 import { orders } from '@common/data';
 
-import EcommerceOrdersModal from './EcommerceOrdersModal';
+import OrdersModal from './OrdersModal';
 
 function EcommerceOrder() {
   //meta title
@@ -297,7 +297,7 @@ function EcommerceOrder() {
 
   return (
     <React.Fragment>
-      <EcommerceOrdersModal isOpen={modal1} toggle={toggleViewModal} />
+      <OrdersModal isOpen={modal1} toggle={toggleViewModal} />
       <DeleteModal
         show={deleteModal}
         onDeleteClick={handleDeleteOrder}

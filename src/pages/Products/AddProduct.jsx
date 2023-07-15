@@ -84,18 +84,18 @@ const InnerFooter = (props) => (
 const ImageItem = (props) => {
   const { formik } = props;
   const handleImageChange = (e, key) => {
-    formik.setFieldValue("image", formik.values.image.map((_v, index) => (
-      index !== key ? formik.values.image[index] : e.target.value
+    formik.setFieldValue("images", formik.values.images.map((_v, index) => (
+      index !== key ? formik.values.images[index] : e.target.value
     )));
   };
 
   const handleAddImage = () => {
-    formik.setFieldValue("image", [...formik.values.image, ""]);
+    formik.setFieldValue("images", [...formik.values.images, ""]);
   }
 
   // Function for Remove Input Fields
   const handleRemoveImage = (idx) => {
-    formik.setFieldValue("image", formik.values.image.filter((_v, index) => index !== idx));
+    formik.setFieldValue("images", formik.values.images.filter((_v, index) => index !== idx));
   }
 
   return (
@@ -107,7 +107,7 @@ const ImageItem = (props) => {
             className="inner col-lg-12 ml-md-auto"
             id="repeater"
           >
-            {formik.values.image.map((imageUrl, key) => (
+            {formik.values.images.map((imageUrl, key) => (
               <div
                 key={key}
                 id={"nested" + key}
@@ -176,8 +176,8 @@ const AddProduct = () => {
     enableReinitialize: true,
 
     initialValues: {
-      brand: '',
-      productKey: '',
+      brand: 'Valtik',
+      productKey: 'Valtik-01',
       name: '',
       price: 0,
       discount: 0,
@@ -187,7 +187,7 @@ const AddProduct = () => {
       categoryId: undefined,
       tags: '',
       variation: [],
-      image: [""],
+      images: [""],
       qrcode: '',
       productUrl: '',
       shortDescription: '',
@@ -201,7 +201,7 @@ const AddProduct = () => {
       shortDescription: yup.string().optional('Pleases provide short description'),
       fullDescription: yup.string().required('Please provide description'),
       productUrl: yup.string().required('Please provide the product url in your eCommerce site.'),
-      image: yup.array().min(1).required('Please type image urls.'),
+      images: yup.array().min(1).required('Please type images urls.'),
       tags: yup.string().optional('Tags should be string'),
       // madeAt: yup.date().required('Made At should not be empty'),
       // discount: yup.number().optional('Invalid discount value'),
@@ -212,8 +212,14 @@ const AddProduct = () => {
 
     onSubmit: async (values) => {
       try {
-        const _values = { ...values, categoryId: values.categoryId.id };
-        console.log(_values);
+        const _values = {
+          ...values,
+          categoryId: values.categoryId.id,
+          tags: [values.tags],
+          offerEnd: new Date(),
+          madeAt: new Date(),
+        };
+
         const response = await ProductApi.addProduct(_values);
       } catch (err) {
         showToast(err.toString(), "error");

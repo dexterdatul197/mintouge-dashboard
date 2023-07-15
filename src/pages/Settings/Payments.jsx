@@ -17,16 +17,8 @@ import { Link } from 'react-router-dom';
 //Import Breadcrumb
 import Breadcrumbs from '@components/Breadcrumb';
 
-const EcommerceCheckout = () => {
-
-  //meta title
+const Payments = () => {
   document.title = "Checkout | Mintouge - Brands Dashboard";
-
-  const [selectedGroup, setselectedGroup] = useState(null)
-
-  function handleSelectGroup(selectedGroup) {
-    setselectedGroup(selectedGroup)
-  }
 
   return (
     <React.Fragment>
@@ -43,31 +35,9 @@ const EcommerceCheckout = () => {
                     <div>
                       <CardTitle>Payment information</CardTitle>
                       <p className="card-title-desc">
-                        Fill all information below
+                        Fill in Card Information below
                       </p>
-                      <div>
-                        <div className="form-check form-check-inline font-size-16">
-                          <Input
-                            type="radio"
-                            value="1"
-                            id="customRadioInline1"
-                            name="customRadioInline1"
-                            className="form-check-input"
-                            defaultChecked
-                          />
-                          <Label
-                            className="form-check-label font-size-13"
-                            htmlFor="customRadioInline1"
-                          >
-                            <i className="fab fa-cc-mastercard me-1 font-size-20 align-top" />{" "}
-                            Credit / Debit Card
-                          </Label>
-                        </div>
-                      </div>
 
-                      <h5 className="mt-5 mb-3 font-size-15">
-                        For card Payment
-                      </h5>
                       <div className="p-4 border">
                         <Form>
                           <FormGroup className="mb-0">
@@ -141,7 +111,7 @@ const EcommerceCheckout = () => {
                   <Col sm="6">
                     <div className="text-sm-end">
                       <Link
-                        to="/ecommerce-checkout"
+                        to="/payments"
                         className="btn btn-success"
                       >
                         <i className="mdi mdi-truck-fast me-1" />
@@ -159,4 +129,4 @@ const EcommerceCheckout = () => {
   )
 }
 
-export default EcommerceCheckout
+export default Payments
