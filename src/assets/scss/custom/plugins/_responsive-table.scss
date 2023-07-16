@@ -169,10 +169,9 @@ body[data-layout="horizontal"] {
 }
 
 .state {
-  height: 30px;
   width: min-content;
-  padding: 4px 19px;
-  border-radius: 15px;
+  padding: 2px 15px;
+  border-radius: 13px;
   color: #fff;
 }
 
@@ -182,4 +181,9 @@ body[data-layout="horizontal"] {
 
 .failed-color {
   background-color: #d3455b;
+}
+
+.table-element {
+  display: flex;
+  align-items: center;
 }
