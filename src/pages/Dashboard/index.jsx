@@ -4,247 +4,157 @@ import {
   Container,
   Row,
   Col,
-  Button,
-  Card,
-  CardBody,
-  Input,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Table,
 } from 'reactstrap';
 
-const modalimage2 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-4.webp";
-const modalimage1 = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/product/img-7.webp";
+import ChartLineColumn from './ChartLineColumn';
+import LastOrders from './LastOrders';
+import SmallCard from './SmallCard';
+import getChartColorsArray from "./ChartsDynamicColor";
 
-// Pages Components
-import MonthlyEarning from './MonthlyEarning';
-import TopCities from './TopCities';
+const Dashboard = (props) => {
+  const dataColors = '["--bs-danger","--bs-primary", "--bs-success"]';
+  const lineColumnAreaColors = getChartColorsArray(dataColors);
 
-//Import Breadcrumb
-import Breadcrumbs from '@components/Breadcrumb';
-
-//i18n
-import { useTranslation } from 'react-i18next';
-
-
-const Dashboard = props => {
-  const [modal, setmodal] = useState(false);
-  const [subscribemodal, setSubscribemodal] = useState(false);
-  const { t } = useTranslation();
-  
-  const { chartsData } = {};
-
-  const reports = [
-    { title: "Orders", iconClass: "bx-copy-alt", description: "1,235" },
-    { title: "Revenue", iconClass: "bx-archive-in", description: "$35, 723" },
+  const series = [
     {
-      title: "Average Price",
-      iconClass: "bx-purchase-tag-alt",
-      description: "$16.2",
+      name: "A",
+      type: "column",
+      data: [5, 11, 22, 27, 13, 22, 37],
     },
-    { title: "Rewards", iconClass: "bx-award", description: "100"},
-    { title: "Cash out", iconClass: "bx-archive-out", description: "$20, 500"},
-    { title: "Analytics", iconClass: "bx-analyse", description: "Consumer"}
+    {
+      name: "B",
+      type: "line",
+      data: [10, 25, 16, 30, 45, 10, 64],
+    },
   ];
 
-  useEffect(() => {
-    setTimeout(() => {
-      setSubscribemodal(true);
-    }, 2000);
-  }, []);
+  const options = {
+    chart: {
+      stacked: false,
+      toolbar: {
+        show: false,
+      },
+    },
+    stroke: {
+      width: [0, 3],
+      curve: "smooth",
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: "20px",
+      },
+    },
+    colors: lineColumnAreaColors,
 
-  const [periodData, setPeriodData] = useState([]);
-  const [periodType, setPeriodType] = useState("yearly");
-
-  useEffect(() => {
-    setPeriodData(chartsData);
-  }, [chartsData]);
-
-  const onChangeChartPeriod = pType => {
-    setPeriodType(pType);
-    // dispatch(onGetChartsData(pType));
+    fill: {
+      opacity: [0.85, 1],
+      gradient: {
+        inverseColors: false,
+        shade: "light",
+        type: "vertical",
+        opacityFrom: 0.85,
+        opacityTo: 0.55,
+        stops: [0, 100, 100, 100],
+      },
+    },
+    labels: [
+      "01/01/2023",
+      "02/01/2023",
+      "03/01/2023",
+      "04/01/2023",
+      "05/01/2023",
+      "06/01/2023",
+      "07/01/2023",
+    ],
+    markers: {
+      size: 0,
+    },
+    legend: {
+      offsetY: 11,
+    },
+    xaxis: {
+      type: "datetime",
+    },
+    tooltip: {
+      shared: true,
+      intersect: false,
+      y: {
+        formatter: function (y) {
+          if (typeof y !== "undefined") {
+            return y.toFixed(0) + " points";
+          }
+          return y;
+        },
+      },
+    },
+    grid: {
+      borderColor: "#f1f1f1",
+    },
   };
 
-  useEffect(() => {
-    // dispatch(onGetChartsData("yearly"));
-  }, []);
+  const reports = [
+    {
+      icon: "bx bx-copy-alt",
+      title: "Orders",
+      value: "1,452",
+      badgeValue: "+ 0.2%",
+      color: "#d1efec",
+      desc: "From previous period",
+    },
+    {
+      icon: "bx bx-archive-in",
+      title: "Revenue",
+      value: "$ 28,452",
+      badgeValue: "+ 0.2%",
+      color: "#d2e4e1",
+      desc: "From previous period",
+    },
+    {
+      icon: "bx bx-purchase-tag-alt",
+      title: "Average Price",
+      value: "$ 16.2",
+      badgeValue: "0%",
+      color: "#fae6d8",
+      desc: "From previous period",
+    },
+  ];
 
   //meta title
-  document.title="Dashboard | Mintouge - Brands Dashboard";
+  document.title = "Dashboard | Mintouge - Brands Dashboard";
 
   return (
-    <React.Fragment>
-      <div className="page-content">
-        <Container fluid>
-          {/* Render Breadcrumb */}
-          <Breadcrumbs
-            title={t("Dashboards")}
-            breadcrumbItem={t("Dashboard")}
-          />
-
-          <Row>
-            <Col xl="4">
-              <MonthlyEarning />
-            </Col>
-            <Col xl="8">
-              <Row>
-                {/* Reports Render */}
-                {reports.map((report, key) => (
-                  <Col md="4" key={"_col_" + key}>
-                    <Card className="mini-stats-wid">
-                      <CardBody>
-                        <div className="d-flex">
-                          <div className="flex-grow-1">
-                            <p className="text-muted fw-medium">
-                              {report.title}
-                            </p>
-                            <h4 className="mb-0">{report.description}</h4>
-                          </div>
-                          <div className="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
-                            <span className="avatar-title rounded-circle bg-primary">
-                              <i
-                                className={
-                                  "bx " + report.iconClass + " font-size-24"
-                                }
-                              ></i>
-                            </span>
-                          </div>
-                        </div>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </Col>
-          </Row>
-
-          <Row>
-            <Col xl="4">
-              <TopCities />
-            </Col>
-          </Row>
-
-          <Row>
-            <Col lg="12">
-              {/* <LatestTranaction /> */}
-            </Col>
-          </Row>
-        </Container>
-      </div>
-
-
-      <Modal
-        isOpen={modal}
-        role="dialog"
-        autoFocus={true}
-        centered={true}
-        className="exampleModal"
-        tabIndex="-1"
-        toggle={() => {
-          setmodal(!modal);
-        }}
-      >
-        <div>
-          <ModalHeader
-            toggle={() => {
-              setmodal(!modal);
-            }}
-          >
-            Order Details
-          </ModalHeader>
-          <ModalBody>
-            <p className="mb-2">
-              Product id: <span className="text-primary">#SK2540</span>
-            </p>
-            <p className="mb-4">
-              Billing Name: <span className="text-primary">Neal Matthews</span>
-            </p>
-
-            <div className="table-responsive">
-              <Table className="table table-centered table-nowrap">
-                <thead>
-                  <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <div>
-                        <img src={modalimage1} alt="" className="avatar-sm" />
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                        <h5 className="text-truncate font-size-14">
-                          Wireless Headphone (Black)
-                        </h5>
-                        <p className="text-muted mb-0">$ 225 x 1</p>
-                      </div>
-                    </td>
-                    <td>$ 255</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <div>
-                        <img src={modalimage2} alt="" className="avatar-sm" />
-                      </div>
-                    </th>
-                    <td>
-                      <div>
-                        <h5 className="text-truncate font-size-14">
-                          Hoodie (Blue)
-                        </h5>
-                        <p className="text-muted mb-0">$ 145 x 1</p>
-                      </div>
-                    </td>
-                    <td>$ 145</td>
-                  </tr>
-                  <tr>
-                    <td colSpan="2">
-                      <h6 className="m-0 text-end">Sub Total:</h6>
-                    </td>
-                    <td>$ 400</td>
-                  </tr>
-                  <tr>
-                    <td colSpan="2">
-                      <h6 className="m-0 text-end">Shipping:</h6>
-                    </td>
-                    <td>Free</td>
-                  </tr>
-                  <tr>
-                    <td colSpan="2">
-                      <h6 className="m-0 text-end">Total:</h6>
-                    </td>
-                    <td>$ 400</td>
-                  </tr>
-                </tbody>
-              </Table>
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <Button
-              type="button"
-              color="secondary"
-              onClick={() => {
-                setmodal(!modal);
-              }}
-            >
-              Close
-            </Button>
-          </ModalFooter>
+    <div className="page-content">
+      <Container fluid>
+        <div className="page-title-container mb-4">
+          <div className="me-2">
+            <h3 className="">Dashboard</h3>
+          </div>
         </div>
-      </Modal>
-    </React.Fragment>
+
+        <Row className="mb-4">
+          <Col md="9">
+            <ChartLineColumn
+              series={series}
+              options={options}
+            />
+          </Col>
+          <Col md="3" className="flex-group h-429px">
+            {reports.map((report, key) => (
+              <SmallCard
+                report={report}
+                key={key}
+              />
+            ))}
+          </Col>
+        </Row>
+
+        <LastOrders />
+      </Container>
+    </div>
   );
 };
 
 Dashboard.propTypes = {
-  t: PropTypes.any,
   chartsData: PropTypes.any,
   onGetChartsData: PropTypes.func,
 };

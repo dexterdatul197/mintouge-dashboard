@@ -1,0 +1,30 @@
+.page-title-container {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orders-search {
+  width: 300px;
+  height: 40px;
+  padding: 8px;
+  border: 1px #c6d1db solid;
+  border-radius: 2px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #c6d1db;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #c6d1db;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #c6d1db;
+}
