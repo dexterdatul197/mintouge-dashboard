@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 // Layout Related Components
 import Header from './Header';
 import Sidebar from './Sidebar';
-import Footer from './Footer';
 
 const Layout = (props) => {
 
@@ -39,7 +38,6 @@ const Layout = (props) => {
         <div className="main-content">
           {props.children}
         </div>
-        <Footer />
       </div>
     </React.Fragment>
   );

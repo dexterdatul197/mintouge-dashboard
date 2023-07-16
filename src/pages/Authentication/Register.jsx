@@ -11,7 +11,6 @@ import logoImg from '@assets/images/slogo-dark.svg';
 import { Storage, SetStorageObject } from '@/utils';
 import LoadingScreen from '@/components/LoadingScreen';
 
-
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
   

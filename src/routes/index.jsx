@@ -11,7 +11,7 @@ const Loader = (Component) => (props) => (
 
 // // //Ecommerce Pages
 const Products = Loader(lazy(() => import('@pages/Products/Products')));
-const EcommerceProductDetail = Loader(lazy(() => import('@pages/Products/EcommerceProducts/EcommerceProductDetail')));
+const EcommerceProductDetail = Loader(lazy(() => import('@pages/Products/ProductDetail')));
 const Orders = Loader(lazy(() => import('@pages/Orders/index')));
 const EcommerceCustomers = Loader(lazy(() => import('@pages/Products/EcommerceCustomers/index')));
 const Payments = Loader(lazy(() => import('@pages/Settings/Payments')));

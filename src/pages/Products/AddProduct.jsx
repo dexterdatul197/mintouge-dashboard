@@ -39,29 +39,29 @@ const TwoColumnForm = (props) => (
   </Card>
 );
 
-const InputItem = (props) => (
+const InputItem = ({ name, label, isMultiline, formik, rows }) => (
   <div className="mb-3">
-    <Label htmlFor={props.name}>{props.label}</Label>
+    <Label htmlFor={name}>{label}</Label>
     <Input
-      id={props.name}
-      name={props.name}
-      type={props.isMultiline ? "textarea" : "text"}
+      id={name}
+      name={name}
+      type={isMultiline ? "textarea" : "text"}
       className="form-control"
-      placeholder={props.label}
-      rows={props.rows || 1}
-      onChange={props.formik.handleChange}
-      onBlur={props.formik.handleBlur}
-      value={props.formik.values[props.name] || ""}
+      placeholder={label}
+      rows={rows || 1}
+      onChange={formik.handleChange}
+      onBlur={formik.handleBlur}
+      value={formik.values[name] || ""}
       invalid={
-        props.formik.touched[props.name] && props.formik.errors[props.name]
+        formik.touched[name] && formik.errors[name]
           ? true
           : false
       }
     />
 
-    {props.formik.touched[props.name] && props.formik.errors[props.name] ? (
+    {formik.touched[name] && formik.errors[name] ? (
       <FormFeedback type="invalid">
-        {props.formik.errors[props.name]}
+        {formik.errors[name]}
       </FormFeedback>
     ) : null}
   </div>

@@ -17,17 +17,17 @@ export const ProductModelValidator = yup.object().shape({
     rating: yup.number().optional('Product Rating is invalid'),
     saleCount: yup.number().required('Product Sales is invalid'),
     categoryId: yup.number().required('Product Sales is invalid'),
-    tags: yup.string().optional('Brand Private Key should be string.'),
+    tags: yup.array(yup.string()).optional('Brand Private Key should be string.'),
     variation: yup.array(yup.object({
         color: yup.string().required('Variation Color is invalid.'),
         image: yup.string().required('Variation Color is invalid.'),
     })).optional('Variation format is invalid'),
 
-    image: yup.array(yup.string()).required('Product Images are not valid'),
+    images: yup.array(yup.string()).required('Product Images are not valid'),
     qrcode: yup.string().optional(),
     asset3dUrl: yup.string().optional(),
     productUrl: yup.string().required('Product URL is invalid'),
-    shortDescription: yup.string().required('Short Description is invalid'),
+    shortDescription: yup.string().optional('Short Description is invalid'),
     fullDescription: yup.string().required('Full Description is invalid'),
 });
 
