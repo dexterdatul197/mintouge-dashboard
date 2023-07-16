@@ -1,25 +1,23 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import { Input } from 'reactstrap';
+
 import getChartColorsArray from "./ChartsDynamicColor";
 
-const LineColumnArea = ({ dataColors }) => {
+const ChartLineColumn = (props) => {
+  const dataColors = '["--bs-danger","--bs-primary", "--bs-success"]';
   const lineColumnAreaColors = getChartColorsArray(dataColors);
 
   const series = [
     {
-      name: "Team A",
+      name: "A",
       type: "column",
-      data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
+      data: [5, 11, 22, 27, 13, 22, 37],
     },
     {
-      name: "Team B",
-      type: "area",
-      data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
-    },
-    {
-      name: "Team C",
+      name: "B",
       type: "line",
-      data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
+      data: [10, 25, 16, 30, 45, 10, 64],
     },
   ];
   const options = {
@@ -30,18 +28,18 @@ const LineColumnArea = ({ dataColors }) => {
       },
     },
     stroke: {
-      width: [0, 2, 4],
+      width: [0, 3],
       curve: "smooth",
     },
     plotOptions: {
       bar: {
-        columnWidth: "50%",
+        columnWidth: "20px",
       },
     },
     colors: lineColumnAreaColors,
 
     fill: {
-      opacity: [0.85, 0.25, 1],
+      opacity: [0.85, 1],
       gradient: {
         inverseColors: false,
         shade: "light",
@@ -52,17 +50,13 @@ const LineColumnArea = ({ dataColors }) => {
       },
     },
     labels: [
-      "01/01/2003",
-      "02/01/2003",
-      "03/01/2003",
-      "04/01/2003",
-      "05/01/2003",
-      "06/01/2003",
-      "07/01/2003",
-      "08/01/2003",
-      "09/01/2003",
-      "10/01/2003",
-      "11/01/2003",
+      "01/01/2023",
+      "02/01/2023",
+      "03/01/2023",
+      "04/01/2023",
+      "05/01/2023",
+      "06/01/2023",
+      "07/01/2023",
     ],
     markers: {
       size: 0,
@@ -72,11 +66,6 @@ const LineColumnArea = ({ dataColors }) => {
     },
     xaxis: {
       type: "datetime",
-    },
-    yaxis: {
-      title: {
-        text: "Points",
-      },
     },
     tooltip: {
       shared: true,
@@ -96,13 +85,29 @@ const LineColumnArea = ({ dataColors }) => {
   };
 
   return (
-    <ReactApexChart
-      options={options}
-      series={series}
-      type="line"
-      height="350"
-    />
+    <div className="table-responsive border-1 p-3">
+      <div className="flex-group h-80px">
+        <div className="d-flex">
+          <Input
+            addon
+            aria-label="Checkbox for following text input"
+            type="checkbox"
+            className="me-2"
+          />
+          <span>Digital Passport</span>
+        </div>
+        <div>1450</div>
+        <div>Minted today 43</div>
+      </div>
+
+      <ReactApexChart
+        options={options}
+        series={series}
+        type="line"
+        height="300"
+      />
+    </div>
   );
 };
 
-export default LineColumnArea;
+export default ChartLineColumn;

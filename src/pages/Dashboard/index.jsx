@@ -4,20 +4,38 @@ import {
   Container,
   Row,
   Col,
-  Card,
-  CardBody,
-  CardTitle,
 } from 'reactstrap';
 
-import LineColumnArea from "./LineColumnArea"
+import ChartLineColumn from './ChartLineColumn';
+import LastOrders from './LastOrders';
+import SmallCard from './SmallCard';
 
-const Dashboard = props => {
-  const { chartsData } = {};
-
+const Dashboard = (props) => {
   const reports = [
-    { title: "Orders", iconClass: "bx-copy-alt", description: "1,235" },
-    { title: "Revenue", iconClass: "bx-archive-in", description: "$35, 723" },
-    { title: "Analytics", iconClass: "bx-analyse", description: "Consumer" }
+    {
+      icon: "bx bx-copy-alt",
+      title: "Orders",
+      value: "1,452",
+      badgeValue: "+ 0.2%",
+      color: "#d1efec",
+      desc: "From previous period",
+    },
+    {
+      icon: "bx bx-archive-in",
+      title: "Revenue",
+      value: "$ 28,452",
+      badgeValue: "+ 0.2%",
+      color: "#d2e4e1",
+      desc: "From previous period",
+    },
+    {
+      icon: "bx bx-purchase-tag-alt",
+      title: "Average Price",
+      value: "$ 16.2",
+      badgeValue: "0%",
+      color: "#fae6d8",
+      desc: "From previous period",
+    },
   ];
 
   //meta title
@@ -32,49 +50,18 @@ const Dashboard = props => {
           </div>
         </div>
 
-        <Row>
+        <Row className="mb-4">
           <Col md="9">
-            <Card>
-              <CardBody>
-                <CardTitle className="mb-4">
-                  Line, Column & Area Chart{" "}
-                </CardTitle>
-                <LineColumnArea dataColors='["--bs-danger","--bs-primary", "--bs-success"]' />
-              </CardBody>
-            </Card>
+            <ChartLineColumn />
           </Col>
-          <Col md="3">
+          <Col md="3" className="flex-group h-429px">
             {reports.map((report, key) => (
-              <Col key={"_col_" + key}>
-                <Card className="mini-stats-wid">
-                  <CardBody>
-                    <div className="d-flex">
-                      <div className="flex-grow-1">
-                        <p className="text-muted fw-medium">
-                          {report.title}
-                        </p>
-                        <h4 className="mb-0">{report.description}</h4>
-                      </div>
-                      <div className="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
-                        <span className="avatar-title rounded-circle bg-primary">
-                          <i
-                            className={
-                              "bx " + report.iconClass + " font-size-24"
-                            }
-                          ></i>
-                        </span>
-                      </div>
-                    </div>
-                  </CardBody>
-                </Card>
-              </Col>
+              <SmallCard report={report} key={key} />
             ))}
           </Col>
         </Row>
 
-        <Row>
-
-        </Row>
+        <LastOrders />
       </Container>
     </div>
   );
