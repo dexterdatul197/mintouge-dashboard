@@ -50,11 +50,11 @@ const Orders = () => {
           <div className="me-2">
             <h3 className="">Products</h3>
           </div>
-          <input
+          {/* <input
             className="orders-search"
             placeholder="Search"
             onChange={(e) => setSearchQuery(e.target.value)}
-          />
+          /> */}
           <Button color="primary" onClick={handleAddProduct}>
             Add Product
           </Button>

@@ -171,7 +171,7 @@ const SidebarContent = () => {
           <ul className="metismenu list-unstyled" id="side-menu">
             <MenuGroup to="/dashboard" title={t("Dashboards")} icon="bx-home-circle" />
             <MenuGroup to="/orders" title={t("Orders")} icon="bx-cart" />
-            <MenuGroup to="/products" title={t("Product")} icon="bx-store" />
+            <MenuGroup to="/products" title={t("Products")} icon="bx-store" />
             <MenuGroup to="/clients" title={t("Clients")} icon="bx-male" />
             <MenuGroup to="/setting-api" title={t("Settings")} icon="bx-cog" />
             <MenuGroup to="/payments" title={t("Payments")} icon="bx-money" />
