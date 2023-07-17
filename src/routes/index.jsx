@@ -31,10 +31,6 @@ const Dashboard = Loader(lazy(() => import('@pages/Dashboard/index')));
 
 // //Settings
 const ApiSetting = Loader(lazy(() => import('@pages/Settings/ApiSetting')));
-const Wallet = Loader(lazy(() => import('@pages/Crypto/crypto-wallet')));
-
-// Contacts
-const ContactsList = Loader(lazy(() => import('@pages/Contacts/contacts-list')));
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -46,15 +42,11 @@ const authProtectedRoutes = [
   { path: "/orders", component: <Orders /> },
   { path: "/clients", component: <Clients /> },
   { path: "/payments", component: <Payments /> },
-  { path: "/ecommerce-add-product", component: <AddProduct /> },
-  { path: "/ecommerce-auto-import", component: <EcommerceAutoImport /> },
+  { path: "/add-product", component: <AddProduct /> },
+  { path: "/auto-import", component: <EcommerceAutoImport /> },
 
   // Settings
   { path: "/setting-api", component: <ApiSetting /> },
-  { path: "/wallet", component: <Wallet /> },
-
-  // User Management
-  { path: "/contacts-list", component: <ContactsList /> },
 
   //  this route should be at the end of all other routes
   //  eslint-disable-next-line react/display-name

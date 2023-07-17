@@ -84,14 +84,14 @@ const ProductDetail = (props) => {
         initialValues: {
             id: Number(product?.id) || 0,
             name: product?.name || "",
-            productKey: product?.productKey || "",
+            productUrl: product?.productUrl || "",
             images: product?.images || [],
             fullDescription: product?.fullDescription || "",
             asset3dUrl: product?.asset3dUrl || "",
         },
         validationSchema: yup.object({
             name: yup.string().required("Please Enter Product Name"),
-            productKey: yup.string().required("Please Enter Product Key"),
+            productUrl: yup.string().required("Please Enter Product Key"),
             images: yup.array().min(1).required('Please Add Product Images'),
             fullDescription: yup.string().required('Please provide description'),
             asset3dUrl: yup.string().optional('Please provide description'),
@@ -152,7 +152,7 @@ const ProductDetail = (props) => {
                         <ImageSlider images={product.images || []} />
                         <InputItem name="name" label="Product Name" formik={formik} />
                         <InputItem name="fullDescription" label="Product Description" formik={formik} isMultiline={"true"} rows={7} />
-                        <InputItem name="productKey" label="Digital Passport" formik={formik} divider={true} horizontal={true} />
+                        <InputItem name="productUrl" label="Product URL" formik={formik} divider={true} horizontal={true} />
                         <InputItem name="asset3dUrl" label="3D Asset" formik={formik} divider={true} horizontal={true} />
                         <div className="d-flex justify-content-between gap-2">
                             <Button type="button" onClick={handleDelete} className="bg-danger border-0" color="secondary">
