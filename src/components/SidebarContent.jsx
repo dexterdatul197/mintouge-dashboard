@@ -176,14 +176,14 @@ const SidebarContent = () => {
             <MenuGroup to="/setting-api" title={t("Settings")} icon="bx-cog" />
             <MenuGroup to="/payments" title={t("Payments")} icon="bx-money" />
 
-            <MenuGroup to="/#" hasArrow={true} title={t("Others")} icon="bx-store">
+            {/* <MenuGroup to="/#" hasArrow={true} title={t("Others")} icon="bx-store">
               <MenuItem to="/products" title={t("Products")} />
               <MenuItem to="/ecommerce-product-detail/1" title={t("Product Detail")} />
               <MenuItem to="/ecommerce-add-product" title={t("Add Product")} />
               <MenuItem to="/ecommerce-auto-import" title={t("Auto Import")} />
               <MenuItem to="/orders" title={t("Orders")} />
               <MenuItem to="/clients" title={t("Customers")} />
-            </MenuGroup>
+            </MenuGroup> */}
           </ul>
         </div>
       </SimpleBar>

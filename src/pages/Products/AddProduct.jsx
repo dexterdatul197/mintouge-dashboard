@@ -176,14 +176,8 @@ const AddProduct = () => {
     enableReinitialize: true,
 
     initialValues: {
-      brand: 'Valtik',
-      productKey: 'Valtik-01',
       name: '',
       price: 0,
-      discount: 0,
-      offerEnd: '',
-      madeAt: '',
-      rating: 5,
       categoryId: undefined,
       tags: '',
       variation: [],
@@ -203,11 +197,6 @@ const AddProduct = () => {
       productUrl: yup.string().required('Please provide the product url in your eCommerce site.'),
       images: yup.array().min(1).required('Please type images urls.'),
       tags: yup.string().optional('Tags should be string'),
-      // madeAt: yup.date().required('Made At should not be empty'),
-      // discount: yup.number().optional('Invalid discount value'),
-      // offerEnd: yup.date().optional('Invalid offerEnd date'),
-      // rating: yup.number().optional('Invalid rating'),
-      // variation: yup.array().optional('Invalid variation'),
     }),
 
     onSubmit: async (values) => {
