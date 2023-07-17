@@ -43,20 +43,11 @@ const Table = (props) => {
                         onError={(e) => {
                           e.onerror = null;
                           e.target.src = "https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/no_image.jpeg";
-                      }}
+                        }}
                       />
                       <span className="table-element underline text-primary">
                         {row.name}
                       </span>
-                    </td>
-                  )
-                }
-                case HeaderIDs.DPP: {
-                  return (
-                    <td key={header.id}>
-                      <Link to={row.passportUrl} className="underline text-primary" target="_blank">
-                        {row.digitalPassport}
-                      </Link>
                     </td>
                   )
                 }
@@ -71,6 +62,15 @@ const Table = (props) => {
                   )
                 }
                 default: {
+                  if (header.hasLink) {
+                    return (
+                      <td key={header.id}>
+                        <Link to={(header.uri || "") + row[header.id]} className="underline text-primary" target="_blank">
+                          {row[header.id]}
+                        </Link>
+                      </td>
+                    )
+                  }
                   return (
                     <td key={header.id}>
                       {row[header.id]}
