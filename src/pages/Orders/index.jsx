@@ -8,7 +8,7 @@ const Orders = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const ordersList = [
     {
-      id: 1,
+      id: 10,
       images: ["https://cdn-images.farfetch-contents.com/19/66/40/44/19664044_43931188_1000.jpg"],
       name: "logo-knit gingham tote bag",
       dpp: "100",
@@ -18,7 +18,7 @@ const Orders = () => {
       insurance: true,
     },
     {
-      id: 2,
+      id: 12,
       images: ["https://cdn-images.farfetch-contents.com/19/66/40/44/19664044_43931188_1000.jpg"],
       name: "logo-knit gingham tote bag",
       dpp: "100",
@@ -28,7 +28,7 @@ const Orders = () => {
       insurance: false,
     },
     {
-      id: 3,
+      id: 13,
       images: ["https://cdn-images.farfetch-contents.com/19/66/40/44/19664044_43931188_1000.jpg"],
       name: "logo-knit gingham tote bag",
       dpp: "100",
@@ -38,7 +38,7 @@ const Orders = () => {
       insurance: true,
     },
     {
-      id: 4,
+      id: 14,
       images: ["https://cdn-images.farfetch-contents.com/19/66/40/44/19664044_43931188_1000.jpg"],
       name: "logo-knit gingham tote bag",
       dpp: "100",
