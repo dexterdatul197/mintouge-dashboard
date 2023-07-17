@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Routes, Route } from 'react-router-dom';
 
-import { authProtectedRoutes, publicRoutes } from './routes';
-import Authmiddleware from './routes/route';
 import AuthLayout from '@components';
+import Authmiddleware from './routes/route';
+import Pages404 from './pages/Utility/pages-404';
 import NonAuthLayout from '@components/NonAuthLayout';
+import { authProtectedRoutes, publicRoutes } from './routes';
 
 // Import scss
 import './assets/scss/theme.scss';
@@ -47,13 +47,11 @@ const App = (props) => {
                         exact={true}
                     />
                 ))}
+
+                <Route path="*" element={<Pages404 />} />
             </Routes>
         </React.Fragment>
     );
-};
-
-App.propTypes = {
-    layout: PropTypes.any,
 };
 
 export default App;

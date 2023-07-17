@@ -38,7 +38,7 @@ import {
 
 import { customerData as customers } from '@common/data';
 
-const EcommerceCustomers = (props) => {
+const Clients = (props) => {
   //meta title
   document.title = "Customers | Mintouge - Brands Dashboard";
 
@@ -502,7 +502,7 @@ const EcommerceCustomers = (props) => {
   );
 };
 
-EcommerceCustomers.propTypes = {
+Clients.propTypes = {
   customers: PropTypes.array,
   onGetCustomers: PropTypes.func,
   onAddNewCustomer: PropTypes.func,
@@ -510,4 +510,4 @@ EcommerceCustomers.propTypes = {
   onUpdateCustomer: PropTypes.func,
 };
 
-export default EcommerceCustomers;
+export default Clients;

@@ -75,3 +75,66 @@ export const apiPost = async ({ url, queryParams, bodyParam, hasToken = false })
         throw error;
     }
 };
+
+
+/**
+ * HTTP Request using POST method
+ * 
+ * @param {string} url A url endpoint
+ * @param {string} queryParams Query Params 
+ * @param {string} bodyParam Body Params 
+ * @param {string} hasToken A flag to indicate if it is a public api or private
+ * 
+ * @returns HTTP Request Response
+ */
+export const apiPut = async ({ url, queryParams, bodyParam, hasToken = false }) => {
+    const token = hasToken ? localStorage.getItem('accessToken') : undefined;
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', 'no-cors');
+    token && (headers.append('authorization', `Bearer ${token}`));
+
+    try {
+        const response = await axiosApi.put(url, bodyParam, {
+            params: queryParams,
+            headers: headers,
+            withCredentials: true,
+        });
+
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            throw Error(data.message);
+        }
+    } catch (error) {
+        throw error;
+    }
+};
+
+
+/**
+ * HTTP Request using POST method
+ * 
+ * @param {string} url A url endpoint
+ * @param {string} queryParams Query Params 
+ * @param {string} bodyParam Body Params 
+ * @param {string} hasToken A flag to indicate if it is a public api or private
+ * 
+ * @returns HTTP Request Response
+ */
+export const apiDelete = async ({ url }) => {
+    try {
+        const response = await axiosApi.delete(url, {
+            withCredentials: true,
+        });
+
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            throw Error(data.message);
+        }
+    } catch (error) {
+        throw error;
+    }
+};

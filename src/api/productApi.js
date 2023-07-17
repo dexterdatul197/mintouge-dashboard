@@ -2,33 +2,53 @@ import * as yup from 'yup';
 
 import { Storage, GetStorageObject } from '@/utils';
 import { productsData } from './mockData';
-import { apiGet, apiPost, API_ENDPOINT } from './baseApi';
+import { apiGet, apiPost, API_ENDPOINT, apiPut, apiDelete } from './baseApi';
+
+export const initialProduct = {
+    brand: '',
+    productKey: '',
+    name: '',
+    price: 0,
+    discount: 0,
+    offerEnd: new Date(),
+    madeAt: new Date(),
+    rating: 5,
+    categoryId: 0,
+    tags: '',
+    variation: [],
+    images: [""],
+    qrcode: '',
+    productUrl: '',
+    shortDescription: '',
+    fullDescription: ''
+};
 
 export const ProductModelValidator = yup.object().shape({
     id: yup.number().required('Product ID is missing'),
-    brand: yup.string().required('Brand Name is invalid'),
-    brandKey: yup.string().required('Brand Private Key should be string.'),
-    productKey: yup.number().required('Product ID is invalid'),
     name: yup.string().required('Product Name is invalid.'),
     price: yup.number().required('Product price is invalid'),
-    discount: yup.number().optional('Product discount is invalid'),
-    offerEnd: yup.date().optional('Product Offer Date is invalid'),
-    madeAt: yup.date().optional('Product Made Date is missing'),
-    rating: yup.number().optional('Product Rating is invalid'),
-    saleCount: yup.number().required('Product Sales is invalid'),
-    categoryId: yup.number().required('Product Sales is invalid'),
-    tags: yup.array(yup.string()).optional('Brand Private Key should be string.'),
-    variation: yup.array(yup.object({
-        color: yup.string().required('Variation Color is invalid.'),
-        image: yup.string().required('Variation Color is invalid.'),
-    })).optional('Variation format is invalid'),
-
-    images: yup.array(yup.string()).required('Product Images are not valid'),
-    qrcode: yup.string().optional(),
-    asset3dUrl: yup.string().optional(),
     productUrl: yup.string().required('Product URL is invalid'),
-    shortDescription: yup.string().optional('Short Description is invalid'),
+    images: yup.array(yup.string()).required('Product Images are not valid'),
     fullDescription: yup.string().required('Full Description is invalid'),
+    asset3dUrl: yup.string().nullable().optional('Asset 3D URL is invalid'),
+
+    // brand: yup.string().required('Brand Name is invalid'),
+    // brandKey: yup.string().required('Brand Private Key should be string.'),
+    // productKey: yup.string().nullable().required('Product ID is invalid'),
+    // discount: yup.number().nullable().optional('Product discount is invalid'),
+    // offerEnd: yup.date().nullable().optional('Product Offer Date is invalid'),
+    // madeAt: yup.date().nullable().optional('Product Made Date is missing'),
+    // rating: yup.number().nullable().nullable().optional('Product Rating is invalid'),
+    // saleCount: yup.number().required('Product Sales is invalid'),
+    // categoryId: yup.number().required('Product Sales is invalid'),
+    // tags: yup.array(yup.string()).optional('Brand Private Key should be string.'),
+    // variation: yup.array(yup.object({
+    //     color: yup.string().required('Variation Color is invalid.'),
+    //     image: yup.string().required('Variation Color is invalid.'),
+    // })).optional('Variation format is invalid'),
+
+    // qrcode: yup.string().nullable().optional(),
+    // shortDescription: yup.string().nullable().nullable().optional('Short Description is invalid'),
 });
 
 /**
@@ -43,7 +63,7 @@ const productValidate = async (products) => {
                 await ProductModelValidator.validate(product);
             }
         } else {
-            const validatedResponse = await ProductModelValidator.validate(products);
+            await ProductModelValidator.validate(products);
         }
     } catch (validationError) {
         console.error(validationError);
@@ -96,13 +116,12 @@ export const getProducts = async (page, size = 15, apiKey) => {
  */
 export const getProductDetail = async (productId) => {
     if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
-        return productsData.find((_product) => _product.id === productId);
+        return productsData.find((product) => product.id === productId);
     }
 
     try {
         const product = await apiGet({
-            url: '/product',
-            queryParams: { productId },
+            url: `/product/${productId}`,
         });
 
         await productValidate(product);
@@ -129,6 +148,7 @@ export const addProduct = async (product) => {
     }
 
     try {
+        product = { ...initialProduct, ...product };
         const newProduct = await apiPost({
             url: '/product',
             bodyParam: product,
@@ -137,6 +157,58 @@ export const addProduct = async (product) => {
         await productValidate(newProduct);
 
         return newProduct;
+    } catch (error) {
+        console.error('[Error] newProduct Failed.', error);
+        throw error;
+    }
+}
+
+
+/**
+ * Updated a product to backend database and return the updated on.
+ * 
+ * @param {ProductModel} product A product object
+ * @returns An updated object. Undefined if failed.
+ */
+export const updateProduct = async (product) => {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
+        product.id = productsData[productsData.length - 1].id + 1;
+        productsData.push(product);
+
+        return productsData[productsData.length - 1];
+    }
+
+    try {
+        product = { ...initialProduct, ...product };
+        const updatedProduct = await apiPut({
+            url: `/product/${product.id}`,
+            bodyParam: product,
+        });
+
+        // await productValidate(updatedProduct);
+        console.log("updated product", updatedProduct)
+
+        return updatedProduct;
+    } catch (error) {
+        console.error('[Error] updateProduct Failed.', error);
+        throw error;
+    }
+}
+
+/**
+ * Delete a product from backend database and return the deleted on.
+ * 
+ * @param {ProductModel} product A product object
+ */
+export const deleteProduct = async (productId) => {
+    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
+        return;
+    }
+
+    try {
+        await apiDelete({
+            url: `/product/${productId}`,
+        });
     } catch (error) {
         console.error('[Error] newProduct Failed.', error);
         throw error;

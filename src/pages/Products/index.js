@@ -3,7 +3,8 @@ import ProductDetail from './ProductDetail';
 import AddProduct from './AddProduct';
 
 export {
-    Products,
     ProductDetail,
     AddProduct,
 };
+
+export default Products;

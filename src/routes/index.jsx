@@ -9,11 +9,11 @@ const Loader = (Component) => (props) => (
   </Suspense>
 );
 
-// // //Ecommerce Pages
+// //Product Pages
 const Products = Loader(lazy(() => import('@pages/Products/Products')));
-const EcommerceProductDetail = Loader(lazy(() => import('@pages/Products/ProductDetail')));
+const ProductDetail = Loader(lazy(() => import('@pages/Products/ProductDetail')));
 const Orders = Loader(lazy(() => import('@pages/Orders/index')));
-const EcommerceCustomers = Loader(lazy(() => import('@pages/Products/EcommerceCustomers/index')));
+const Clients = Loader(lazy(() => import('@pages/Clients/index')));
 const Payments = Loader(lazy(() => import('@pages/Settings/Payments')));
 const EcommerceAutoImport = Loader(lazy(() => import('@pages/Settings/AutoImport')));
 const AddProduct = Loader(lazy(() => import('@pages/Products/AddProduct')));
@@ -40,13 +40,11 @@ const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
 
   // Product
-  {
-    path: "/ecommerce-product-detail/:id",
-    component: <EcommerceProductDetail />,
-  },
   { path: "/products", component: <Products /> },
+  { path: "/products/:id", component: <ProductDetail /> },
+  { path: "/products/add-product", component: <ProductDetail /> },
   { path: "/orders", component: <Orders /> },
-  { path: "/clients", component: <EcommerceCustomers /> },
+  { path: "/clients", component: <Clients /> },
   { path: "/payments", component: <Payments /> },
   { path: "/ecommerce-add-product", component: <AddProduct /> },
   { path: "/ecommerce-auto-import", component: <EcommerceAutoImport /> },

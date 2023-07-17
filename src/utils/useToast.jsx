@@ -5,7 +5,7 @@ import 'toastr/build/toastr.min.css';
 const useToast = () => {
     useEffect(() => {
         toastr.options = {
-            positionClass: 'toastr-bottom-center',
+            positionClass: "toast-bottom-center",
             timeOut: 3000,
             closeButton: true,
             preventDuplicates: true,
