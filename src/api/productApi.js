@@ -1,8 +1,7 @@
 import * as yup from 'yup';
 
 import { Storage, GetStorageObject } from '@/utils';
-import { productsData } from './mockData';
-import { apiGet, apiPost, API_ENDPOINT, apiPut, apiDelete } from './baseApi';
+import { apiGet, apiPost, apiPut, apiDelete } from './baseApi';
 
 export const initialProduct = {
     brand: '',
@@ -14,9 +13,9 @@ export const initialProduct = {
     madeAt: new Date(),
     rating: 5,
     categoryId: 0,
-    tags: '',
+    tags: [''],
     variation: [],
-    images: [""],
+    images: [''],
     qrcode: '',
     productUrl: '',
     shortDescription: '',
@@ -84,10 +83,6 @@ const productValidate = async (products) => {
  * @returns An array of products
  */
 export const getProducts = async (page, size = 15, apiKey) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
-        return productsData;
-    }
-
     const optedUser = GetStorageObject(Storage.OptedUser);
     const pubKey = optedUser ? optedUser.apiPublicKey : '';
 
@@ -115,10 +110,6 @@ export const getProducts = async (page, size = 15, apiKey) => {
  * @returns An object to describe details
  */
 export const getProductDetail = async (productId) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
-        return productsData.find((product) => product.id === productId);
-    }
-
     try {
         const product = await apiGet({
             url: `/product/${productId}`,
@@ -140,15 +131,12 @@ export const getProductDetail = async (productId) => {
  * @returns An added object. Undefined if failed.
  */
 export const addProduct = async (product) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
-        product.id = productsData[productsData.length - 1].id + 1;
-        productsData.push(product);
-
-        return productsData[productsData.length - 1];
-    }
-
     try {
-        product = { ...initialProduct, ...product };
+        product = { 
+            ...initialProduct,
+            productKey: product.productUrl,
+            ...product,
+        };
         const newProduct = await apiPost({
             url: '/product',
             bodyParam: product,
@@ -171,15 +159,12 @@ export const addProduct = async (product) => {
  * @returns An updated object. Undefined if failed.
  */
 export const updateProduct = async (product) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
-        product.id = productsData[productsData.length - 1].id + 1;
-        productsData.push(product);
-
-        return productsData[productsData.length - 1];
-    }
-
     try {
-        product = { ...initialProduct, ...product };
+        product = { 
+            ...initialProduct,
+            productKey: product.productUrl,
+            ...product,
+        };
         const updatedProduct = await apiPut({
             url: `/product/${product.id}`,
             bodyParam: product,
@@ -201,10 +186,6 @@ export const updateProduct = async (product) => {
  * @param {ProductModel} product A product object
  */
 export const deleteProduct = async (productId) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
-        return;
-    }
-
     try {
         await apiDelete({
             url: `/product/${productId}`,

@@ -9,6 +9,11 @@ export const HeaderIDs = {
   USER: 'user',
   INSURANCE: 'insurance',
   PRODUCT_URL: 'productUrl',
+
+  CLIENT_NAME: 'name',
+  CLIENT_EMAIL: 'email',
+  CLIENT_PHONE: 'phone',
+  CLIENT_ADDRESS: 'address',
 };
 
 export const OrderHeaders = [
@@ -50,5 +55,24 @@ export const ProductHeaders = [
     title: 'Product URL',
     hasLink: true,
     uri: '',
+  },
+];
+
+export const ClientHeaders = [
+  {
+    id: HeaderIDs.CLIENT_NAME,
+    title: 'Full Name',
+  },
+  {
+    id: HeaderIDs.CLIENT_EMAIL,
+    title: 'Email',
+  },
+  {
+    id: HeaderIDs.CLIENT_PHONE,
+    title: 'Phone',
+  },
+  {
+    id: HeaderIDs.CLIENT_ADDRESS,
+    title: 'Address',
   },
 ];

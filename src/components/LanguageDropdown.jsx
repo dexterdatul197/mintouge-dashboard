@@ -6,7 +6,6 @@ import {
   DropdownToggle,
 } from 'reactstrap';
 import { get, map } from 'lodash';
-import { useTranslation } from 'react-i18next';
 
 //i18n
 import i18n from '@/i18n';

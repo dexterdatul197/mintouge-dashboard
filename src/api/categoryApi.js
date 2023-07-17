@@ -1,7 +1,6 @@
 import * as yup from 'yup';
 
-import { categorysData } from './mockData';
-import { apiGet, apiPost, API_ENDPOINT } from './baseApi';
+import { apiGet, apiPost } from './baseApi';
 
 export const CategoryModelValidator = yup.object().shape({
     id: yup.number().required('Category ID is missing'),
@@ -41,10 +40,6 @@ const categoryValidate = async (categorys) => {
  * @returns An array of categorys
  */
 export const getCategorys = async (page = 0, size = 100) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
-        return categorysData;
-    }
-
     try {
         const response = await apiGet({
             url: '/category',
@@ -69,10 +64,6 @@ export const getCategorys = async (page = 0, size = 100) => {
  * @returns An object to describe details
  */
 export const getCategoryDetail = async (categoryId) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
-        return categorysData.find((_category) => _category.id === categoryId);
-    }
-
     try {
         const category = await apiGet({
             url: '/category',
@@ -95,13 +86,6 @@ export const getCategoryDetail = async (categoryId) => {
  * @returns An added object. Undefined if failed.
  */
 export const addCategory = async (category) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === 'true') {
-        category.id = categorysData[categorysData.length - 1].id + 1;
-        categorysData.push(category);
-
-        return categorysData[categorysData.length - 1];
-    }
-
     try {
         const newCategory = await apiPost({
             url: '/category',

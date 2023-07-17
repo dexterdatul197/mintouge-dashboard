@@ -1,7 +1,6 @@
 import * as yup from 'yup';
 
-import { userData } from "./mockData";
-import { apiPost, API_ENDPOINT } from './baseApi';
+import { apiPost } from './baseApi';
 
 /**
  * This function validates the product response coming from backend.
@@ -45,10 +44,6 @@ export const UserModelValidator = yup.object().shape({
  * @returns {UserModelValidator} A User object.
  */
 export const signIn = async ({ email, password }) => {
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
-        return userData;
-    }
-
     try {
         const user = await apiPost({
             url: '/auth/login',
@@ -77,12 +72,6 @@ export const signIn = async ({ email, password }) => {
  * @returns {UserModelValidator} A newly created user.
  */
 export const signUp = async (userInfo) => {
-    console.log("Signing up User:", userInfo);
-
-    if (import.meta.env.VITE_APP_MOCK_BACKEND === "true") {
-        return userData;
-    }
-
     try {
         const user = await apiPost({
             url: '/auth/signup',

@@ -62,18 +62,21 @@ const Table = (props) => {
                   )
                 }
                 default: {
+                  const stringData = (String(row[header.id]) || "");
+                  const crop = (stringData.length > 50) ? (stringData.substring(0, 80) + "...") : stringData;
+
                   if (header.hasLink) {
                     return (
                       <td key={header.id}>
                         <Link to={(header.uri || "") + row[header.id]} className="underline text-primary" target="_blank">
-                          {row[header.id]}
+                          {crop}
                         </Link>
                       </td>
                     )
                   }
                   return (
                     <td key={header.id}>
-                      {row[header.id]}
+                      {crop}
                     </td>
                   )
                 }
