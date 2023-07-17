@@ -57,12 +57,13 @@ const ProductDetail = (props) => {
     const navigate = useNavigate();
     const { showToast } = useToast();
     const [product, setProduct] = useState({});
-    const [isLoading, setLoading] = useState(true);
+    const [isLoading, setLoading] = useState(false);
     const isAdding = location.pathname.endsWith("add-product");
     const [isInvalid, setInvalid] = useState(id === "undefined" || id === "null");
 
     useEffect(() => {
         const fetchProducts = async () => {
+            setLoading(true);
             try {
                 const _product = await ProductApi.getProductDetail(id);
                 setProduct(_product);
@@ -75,7 +76,7 @@ const ProductDetail = (props) => {
             }
         }
 
-        !isInvalid && fetchProducts();
+        !(isInvalid || isAdding) && fetchProducts();
     }, []);
 
     const formik = useFormik({
