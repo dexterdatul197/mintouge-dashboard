@@ -32,7 +32,7 @@ const Table = (props) => {
                     <td
                       key={header.id}
                       className="d-flex cursor-pointer"
-                      onClick={() => navigate(`/products/${row.id}`)}
+                      onClick={() => navigate(`/products/${row.productId || row.id}`)}
                     >
                       <img
                         src={row.images[0]}
@@ -54,10 +54,29 @@ const Table = (props) => {
                 case HeaderIDs.INSURANCE: {
                   return (
                     <td key={header.id}>
-                      {row.insurance
+                      {row[header.id]
                         ? <div className="state success-color">Insured</div>
                         : <div className="state failed-color">Not Insured</div>
                       }
+                    </td>
+                  )
+                }
+                case HeaderIDs.REDEEM: {
+                  return (
+                    <td key={header.id}>
+                      {row[header.id]
+                        ? <div className="state success-color">Redeemed</div>
+                        : <div className="state failed-color">Not Redeemed</div>
+                      }
+                    </td>
+                  )
+                }
+                case HeaderIDs.DPP: {
+                  return (
+                    <td key={header.id}>
+                      <Link to={`${header.uri}${row.tokenAddress}\\${row.tokenId}`} className="underline text-primary" target="_blank">
+                        {row[header.id]}
+                      </Link>
                     </td>
                   )
                 }

@@ -31,13 +31,12 @@ const Login = (props) => {
   document.title = "Login | Mintouge - Brands Dashboard";
   const navigate = useNavigate();
 
-  const { showToast } = useToast();
+  const showToast = useToast();
   const [isLoading, setLoading] = useState(false);
 
   const onLoginSuccess = (response) => {
     showToast("Log in successful.");
     SetStorageObject(Storage.OptedUser, response);
-
     setUser(response);
     navigate("/dashboard");
   };
@@ -51,10 +50,12 @@ const Login = (props) => {
       password: "",
       rememberMe: false,
     },
+
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
     }),
+
     onSubmit: async (values) => {
       const { email, password } = values;
       try {

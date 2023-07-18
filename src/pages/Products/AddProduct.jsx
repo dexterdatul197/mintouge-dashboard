@@ -154,7 +154,7 @@ const ImageItem = (props) => {
 const AddProduct = () => {
   document.title = "Add Product | Mintouge - Brands Dashboard";
 
-  const { showToast } = useToast();
+  const showToast = useToast();
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [openCategoryModal, showCategoryModal] = useState(false);

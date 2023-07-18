@@ -27,7 +27,7 @@ import { Storage, GetStorageObject } from '@/utils';
 const FormEditors = () => {
   document.title = "API Setting | Mintouge - Brands Dashboard";
 
-  const { showToast } = useToast();
+  const showToast = useToast();
   const optedUser = GetStorageObject(Storage.OptedUser);
   const code =
     `// How to use Private API Key

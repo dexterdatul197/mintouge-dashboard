@@ -31,22 +31,17 @@ const Payments = () => {
 
   const stripe = useStripe();
   const elements = useElements();
-  const { showToast } = useToast();
-  const [card, setCard] = useState();
-  const [isEditing, setEditing] = useState(true);
+  const showToast = useToast();
+  const [cards, setCards] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchCards = async () => {
       setLoading(true);
       try {
-        const _card = await PaymentApi.getCards();
-        if (_card.data && _card.data.length > 0) {
-          setCard(_card.data[0]);
-        } else if (_card.length > 0) {
-          setCard(_card[0]);
-        }
-        
+        const _cards = await PaymentApi.getCards();
+        setCards(_cards);
+
         setLoading(false);
       } catch (error) {
         showToast(error.toString(), "error");
@@ -57,13 +52,36 @@ const Payments = () => {
     fetchCards();
   }, []);
 
+  const handleActivate = async (card) => {
+    try {
+      await PaymentApi.activateCard(card.id);
+
+      setCards((_cards) => cards.map(_card => (
+        _card.id === card.id
+          ? { ..._card, active: true }
+          : { ..._card, active: false }
+      )));
+
+      showToast("Payment Method was successfully activated.");
+    } catch (error) {
+      showToast(error.toString(), "error");
+    }
+  }
+
+  const handleDelete = async (card) => {
+    try {
+      await PaymentApi.deleteCard(card.id);
+
+      setCards((_cards) => cards.filter(_card => _card.id != card.id));
+
+      showToast("Payment Method was successfully deleted.");
+    } catch (error) {
+      showToast(error.toString(), "error");
+    }
+  }
+
   const handlePaymentSetup = async (event) => {
     event.preventDefault();
-
-    if (!isEditing) {
-      setEditing(true);
-      return;
-    }
 
     if (!stripe || !elements) {
       return;
@@ -75,26 +93,27 @@ const Payments = () => {
       return;
     }
 
-    try {
-      const token = response.token;
-      const _card = {
-        cardId: token.card.id,
-        tokenId: token.id,
-        last4: token.card.last4,
-        clientIp: token.client_ip,
-        brand: token.card.brand,
-        expireMonth: token.card.exp_month,
-        expireYear: token.card.exp_year,
-      };
+    const token = response.token;
+    const _card = {
+      cardId: token.card.id,
+      tokenId: token.id,
+      last4: token.card.last4,
+      clientIp: token.client_ip,
+      brand: token.card.brand,
+      expireMonth: token.card.exp_month,
+      expireYear: token.card.exp_year,
+    };
 
+    try {
       await PaymentApi.addCard(_card);
 
-      setCard(_card);
-      setEditing(false);
+      setCards((_cards) => ([..._cards, _card]));
       showToast("Payment Method was successfully added.");
     } catch (error) {
       showToast(error.toString(), "error");
     }
+
+    handleActivate(_card);
   };
 
   const cardElementOptions = {
@@ -125,6 +144,88 @@ const Payments = () => {
         <Container fluid>
           <Breadcrumbs title="Ecommerce" breadcrumbItem="Checkout" />
 
+          {cards && cards.length > 0 && <Row>
+            <div className="checkout-tabs">
+              <Col xl="12">
+                <Card>
+                  <CardBody>
+                    <div>
+                      <CardTitle>Activate a card below</CardTitle>
+
+                      {cards.map(card => (
+                        <div key={card.id} className="p-4 border">
+                          <Form>
+                            <Row>
+                              <Col sm="4">
+                                <FormGroup className="mb-0">
+                                  <Label htmlFor="card-number">
+                                    Card Number
+                                  </Label>
+                                  <Input
+                                    type="text"
+                                    className="form-control"
+                                    id="card-number"
+                                    value={`**** **** **** ${card.last4}`}
+                                    readOnly
+                                  />
+                                </FormGroup>
+                              </Col>
+                              <Col sm="3">
+                                <FormGroup className="mb-0">
+                                  <Label htmlFor="expiry-date">
+                                    Expiry date
+                                  </Label>
+                                  <Input
+                                    type="text"
+                                    className="form-control"
+                                    id="expiry-date"
+                                    value={`${card.expireMonth.toString().padStart(2, '0')}/${card.expireYear % 2000}`}
+                                    readOnly
+                                  />
+                                </FormGroup>
+                              </Col>
+                              <Col sm="2">
+                                <FormGroup className="mb-0">
+                                  <Label htmlFor="cvc">
+                                    CVC
+                                  </Label>
+                                  <Input
+                                    type="text"
+                                    className="form-control"
+                                    id="cvc"
+                                    placeholder="***"
+                                    readOnly
+                                  />
+                                </FormGroup>
+                              </Col>
+                              <Col sm="3" className="d-flex justify-content-center align-items-center">
+                                <FormGroup className="mb-0">
+                                  <Label htmlFor="actions">
+                                    Actions
+                                  </Label>
+                                  <div id="actions" className="d-flex gap-2" style={{ height: 36.5 }}>
+                                    <button type="button" className="btn btn-success px-1" onClick={() => (handleActivate(card))} >
+                                      Activate
+                                    </button>
+                                    <button type="button" className="btn btn-secondary bg-danger px-1" onClick={() => (handleDelete(card))} >
+                                      Delete
+                                    </button>
+                                  </div>
+                                </FormGroup>
+
+                              </Col>
+                            </Row>
+                          </Form>
+                        </div>
+
+                      ))}
+                    </div>
+                  </CardBody>
+                </Card>
+              </Col>
+            </div>
+          </Row>}
+
           <Row>
             <div className="checkout-tabs">
               <Col xl="12">
@@ -142,16 +243,7 @@ const Payments = () => {
                             <Label htmlFor="card-number">
                               Card Number
                             </Label>
-                            {!isEditing && card ?
-                              <Input
-                                type="text"
-                                className="form-control"
-                                id="card-number"
-                                value={`**** **** **** ${card.last4}`}
-                                readOnly
-                              /> :
-                              <CardNumberElement options={cardElementOptions} />
-                            }
+                            <CardNumberElement options={cardElementOptions} />
                           </FormGroup>
                           <Row>
                             <Col lg="6">
@@ -159,16 +251,7 @@ const Payments = () => {
                                 <Label htmlFor="expiry-date">
                                   Expiry date
                                 </Label>
-                                {!isEditing && card ?
-                                  <Input
-                                    type="text"
-                                    className="form-control"
-                                    id="expiry-date"
-                                    value={`${card.expireMonth.toString().padStart(2, '0')}/${card.expireYear % 2000}`}
-                                    readOnly
-                                  /> :
-                                  <CardExpiryElement id="expiry-date" options={cardElementOptions} />
-                                }
+                                <CardExpiryElement id="expiry-date" options={cardElementOptions} />
                               </FormGroup>
                             </Col>
                             <Col lg="6">
@@ -176,16 +259,7 @@ const Payments = () => {
                                 <Label htmlFor="cvc">
                                   CVC Code
                                 </Label>
-                                {!isEditing && card ?
-                                  <Input
-                                    type="text"
-                                    className="form-control"
-                                    id="cvc"
-                                    placeholder="***"
-                                    readOnly
-                                  /> :
-                                  <CardCvcElement id="cvc" options={cardElementOptions} />
-                                }
+                                <CardCvcElement id="cvc" options={cardElementOptions} />
                               </FormGroup>
                             </Col>
                           </Row>
@@ -209,7 +283,7 @@ const Payments = () => {
                     <div className="text-sm-end">
                       <button className="btn btn-success" onClick={handlePaymentSetup}>
                         <i className="mdi mdi-truck-fast me-1" />
-                        {!isEditing && card ? "Edit" : "Save"}
+                        Add
                       </button>
                     </div>
                   </Col>

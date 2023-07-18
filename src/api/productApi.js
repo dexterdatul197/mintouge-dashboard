@@ -82,7 +82,7 @@ const productValidate = async (products) => {
  * @param {number} pageSize Page Size. default is 15.
  * @returns An array of products
  */
-export const getProducts = async (page, size = 15, apiKey) => {
+export const getProducts = async (page = 0, size = 15, apiKey) => {
     const optedUser = GetStorageObject(Storage.OptedUser);
     const pubKey = optedUser ? optedUser.apiPublicKey : '';
 
@@ -151,7 +151,6 @@ export const addProduct = async (product) => {
     }
 }
 
-
 /**
  * Updated a product to backend database and return the updated on.
  * 
@@ -180,7 +179,7 @@ export const updateProduct = async (product) => {
 /**
  * Delete a product from backend database and return the deleted on.
  * 
- * @param {ProductModel} product A product object
+ * @param {id} productId A product id
  */
 export const deleteProduct = async (productId) => {
     try {
@@ -188,7 +187,7 @@ export const deleteProduct = async (productId) => {
             url: `/product/${productId}`,
         });
     } catch (error) {
-        console.error('[Error] newProduct Failed.', error);
+        console.error('[Error] Delete Product Failed.', error);
         throw error;
     }
 }

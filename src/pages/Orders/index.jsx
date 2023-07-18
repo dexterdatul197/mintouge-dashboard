@@ -2,73 +2,43 @@ import React, { useState, useMemo, useEffect } from 'react';
 
 import { OrderApi } from '@/api';
 import Table from '@/components/Table';
+import useToast from '@/utils/useToast';
 import { OrderHeaders } from '@/utils/constants';
 import LoadingScreen from '@/components/LoadingScreen';
 
-const _ordersList = [
-  {
-    id: 10,
-    images: ["https://cdn-images.farfetch-contents.com/19/66/40/44/19664044_43931188_1000.jpg"],
-    name: "logo-knit gingham tote bag",
-    dpp: "100",
-    passportUrl: "https://google.com",
-    price: "1400",
-    user: "@eidhhd",
-    insurance: true,
-  },
-  {
-    id: 12,
-    images: ["https://cdn-images.farfetch-contents.com/19/66/40/44/19664044_43931188_1000.jpg"],
-    name: "logo-knit gingham tote bag",
-    dpp: "100",
-    passportUrl: "https://google.com",
-    price: "1400",
-    user: "@eidhhd",
-    insurance: false,
-  },
-  {
-    id: 13,
-    images: ["https://cdn-images.farfetch-contents.com/19/66/40/44/19664044_43931188_1000.jpg"],
-    name: "logo-knit gingham tote bag",
-    dpp: "100",
-    passportUrl: "https://google.com",
-    price: "1400",
-    user: "@eidhhd",
-    insurance: true,
-  },
-  {
-    id: 14,
-    images: ["https://cdn-images.farfetch-contents.com/19/66/40/44/19664044_43931188_1000.jpg"],
-    name: "logo-knit gingham tote bag",
-    dpp: "100",
-    passportUrl: "https://google.com",
-    price: "1400",
-    user: "@eidhhd",
-    insurance: false,
-  },
-];
-
-const Orders = () => {
+const Orders = ({ title, isLast }) => {
   const [isLoading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [ordersList, setOrderList] = useState([]);
+  const showToast = useToast();
 
   useEffect(() => {
     const fetchOrders = async () => {
-      setLoading(true);
+      const page = 0;
+      const pageSize = isLast ? 5 : 100;
       try {
-        const _data = await OrderApi.getOrders();
+        setLoading(true);
+        const _data = await OrderApi.getOrders(page, pageSize);
+        const orders = _data.data.map(order => ({
+          ...order.product,
+          ...order.consumer,
+          user: `${order.consumer.firstName} ${order.consumer.lastName}`,
+          tokenId: order.tokenId,
+          insurance: order.insurance,
+          redeemed: order.redeemed,
+          id: order.id,
+          productId: order.product.id,
+          dpp: order.dpp,
+          tokenAddress: order.collection.address,
+        }));
 
-        setOrderList(_data.data);
-        if (_data.data.length === 0) {
-          setOrderList(_ordersList);
-        }
-        setLoading(false);
+        console.log(orders);
+
+        setOrderList(orders);
       } catch (error) {
         showToast(error.toString(), "error");
-        setInvalid(true);
-        setLoading(false);
       }
+      setLoading(false);
     }
 
     fetchOrders();
@@ -95,7 +65,7 @@ const Orders = () => {
       <div className="container-fluid">
         <div className="page-title-container mb-4">
           <div className="me-2">
-            <h3 className="">Orders</h3>
+            <h3 className="">{title || Orders}</h3>
           </div>
           <input
             className="orders-search"

@@ -1,10 +1,9 @@
 import * as yup from 'yup';
 
-import { apiGet, apiPost } from './baseApi';
+import { apiGet, apiPost, apiDelete } from './baseApi';
 
 export const CardModelValidator = yup.object().shape({
     cardId: yup.string().required('Card ID should be string'),
-    tokenId: yup.string().required('Token ID should be string'),
     last4: yup.string().required('Last 4 digits should be string'),
     clientIp: yup.string().required('Client IP should be string'),
     brand: yup.string().required('Brand should be string'),
@@ -99,7 +98,39 @@ export const addCard = async (card) => {
 
         return newCard;
     } catch (error) {
-        console.error('[Error] newCard Failed.', error);
+        console.error('[Error] Adding a Card Failed.', error);
+        throw error;
+    }
+}
+
+/**
+ * Delete a card from backend database and return the deleted on.
+ * 
+ * @param {number} product A card id
+ */
+export const deleteCard = async (cardId) => {
+    try {
+        await apiDelete({
+            url: `/payment/cards/${cardId}`,
+        });
+    } catch (error) {
+        console.error('[Error] Delete Card Failed.', error);
+        throw error;
+    }
+}
+
+/**
+ * Activate a card from backend database.
+ * 
+ * @param {number} product A card id
+ */
+export const activateCard = async (cardId) => {
+    try {
+        await apiPost({
+            url: `/payment/cards/${cardId}/activate`,
+        });
+    } catch (error) {
+        console.error('[Error] Activating a Card Failed.', error);
         throw error;
     }
 }

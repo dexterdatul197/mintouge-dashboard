@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { apiGet, apiPost } from './baseApi';
 
 export const OrderModelValidator = yup.object().shape({
-    productInfo: yup.object({
+    product: yup.object({
         name: yup.string().required('Product Name is invalid.'),
         price: yup.number().required('Product price is invalid'),
         productUrl: yup.string().required('Product URL is invalid'),
@@ -13,11 +13,14 @@ export const OrderModelValidator = yup.object().shape({
         madeAt: yup.date().required('Product Made Date is missing'),
         asset3dUrl: yup.string().nullable().optional('Asset 3D URL is invalid'),
     }).required('Product Info should be provided'),
-    consumerInfo: yup.object({
+    consumer: yup.object({
         email: yup.string().required('Consumer Email should be provided'),
-        firstName: yup.string().required('Consumer Name should be provided'),
+        firstName: yup.string().required('Consumer First Name should be provided'),
+        lastName: yup.string().required('Consumer Last Name should be provided'),
     }).required('consumer Info should be provided'),
-    amount: yup.number().required(),
+    collection: yup.object({
+        address: yup.string().defined('Collection Address should be provided')
+    }).required('consumer Info should be provided'),
     chain: yup.string().required('Blockchain Network Name should be provided'),
     dpp: yup.string().required('Digital Product Passport should be provided'),
 });
@@ -103,8 +106,6 @@ export const addOrder = async (order) => {
             url: '/digital-passport',
             bodyParam: order,
         });
-
-        await orderValidate(newOrder);
 
         return newOrder;
     } catch (error) {

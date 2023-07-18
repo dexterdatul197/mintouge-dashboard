@@ -14,7 +14,7 @@ import LoadingScreen from '@/components/LoadingScreen';
 const Register = props => {
   document.title = "Register | Mintouge - Brands Dashboard";
   
-  const { showToast } = useToast();
+  const showToast = useToast();
   const navigate = useNavigate();
   const { setUser } = useUser();
   const [isLoading, setLoading] = useState(false);
@@ -58,7 +58,6 @@ const Register = props => {
     }),
     onSubmit: async (values) => {
       try {
-
         setLoading(true);
         setErrorMessage(undefined);
         const response = await AuthApi.signUp(values);

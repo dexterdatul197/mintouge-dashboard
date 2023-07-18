@@ -24,7 +24,7 @@ const useToast = () => {
         }
     }
 
-    return { toastr, showToast };
+    return showToast;
 };
 
 export default useToast;

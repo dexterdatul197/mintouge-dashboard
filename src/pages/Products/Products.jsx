@@ -11,7 +11,7 @@ import LoadingScreen from '@/components/LoadingScreen';
 const Orders = () => {
   document.title = "Products | Mintouge - Brands Dashboard";
   const navigate = useNavigate();
-  const { showToast } = useToast();
+  const showToast = useToast();
   const [page, setPage] = useState(0);
   const [totalPage, setTotalPage] = useState(5);
   const [productList, setProductList] = useState([]);
@@ -23,7 +23,6 @@ const Orders = () => {
       try {
         setLoading(true);
         const _data = await ProductApi.getProducts(page);
-
         setProductList(_data.data);
         setLoading(false);
       } catch (error) {

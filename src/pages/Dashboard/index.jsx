@@ -6,9 +6,9 @@ import {
   Col,
 } from 'reactstrap';
 
-import ChartLineColumn from './ChartLineColumn';
-import LastOrders from './LastOrders';
+import Orders from '../Orders';
 import SmallCard from './SmallCard';
+import ChartLineColumn from './ChartLineColumn';
 import getChartColorsArray from "./ChartsDynamicColor";
 
 const Dashboard = (props) => {
@@ -148,7 +148,7 @@ const Dashboard = (props) => {
           </Col>
         </Row>
 
-        <LastOrders />
+        <Orders title="Latest Orders" isLast={true} />
       </Container>
     </div>
   );

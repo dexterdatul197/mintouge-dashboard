@@ -55,7 +55,7 @@ const ProductDetail = (props) => {
     const { id } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
-    const { showToast } = useToast();
+    const showToast = useToast();
     const [product, setProduct] = useState({});
     const [isLoading, setLoading] = useState(false);
     const [newImage, setNewImage] = useState("");
@@ -172,7 +172,7 @@ const ProductDetail = (props) => {
         };
 
         try {
-            const dpp = Date.now();
+            const dpp = String(Date.now());
             const order = {
                 productInfo: product,
                 consumerInfo: {
@@ -181,10 +181,10 @@ const ProductDetail = (props) => {
                     "firstName": "Test",
                     "lastName": "User"
                 },
-                amount: fee,
+                amount: Math.round(fee * 100),
                 chain: "goerli",
                 dpp: String(dpp),
-                redeemCode: String(dpp),
+                redeemCode: dpp.split('').reverse().join(''),
             };
 
             await OrderApi.addOrder(order);
