@@ -15,7 +15,6 @@ import {
 import { ProductApi } from '@/api';
 import useToast from '@/utils/useToast';
 import Pages404 from '@pages/Utility/pages-404';
-import Breadcrumbs from '@components/Breadcrumb';
 import ImageSlider from '@/components/ImageSlider';
 import LoadingScreen from '@/components/LoadingScreen';
 

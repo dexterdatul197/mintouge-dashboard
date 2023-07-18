@@ -20,26 +20,18 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css';
 
 //Import Breadcrumb
+import useToast from '@/utils/useToast';
 import Breadcrumbs from '@components/Breadcrumb';
+import { Storage, GetStorageObject } from '@/utils';
 
 const FormEditors = () => {
-
-  //meta title
   document.title = "API Setting | Mintouge - Brands Dashboard";
-  const [privateKey, setPrivateKey] = React.useState("UJX893-MDI82K-PMX90H-XDTPQM");
-  const [publicKey, setPublicKey] = React.useState("PQMXDT-90HPMX-I82MDK-JX8U93");
-  const [code, setCode] = React.useState(
+
+  const { showToast } = useToast();
+  const optedUser = GetStorageObject(Storage.OptedUser);
+  const code =
     `// How to use Private API Key
 try {
-  const response = await fetch("https://mintouge.com/auth", {
-    method: "POST",
-    header: {
-      authorization: \`Basic \${apiPrivateKey}\`
-    }
-  });
-
-  const token = await response.json();
-
   const gas_fee = await fetch("https://mintouge.com/estimate-gasfee", {
     method: "POST",
     body: {
@@ -47,7 +39,7 @@ try {
       token: "MATIC"
     }
     header: {
-      authorization: \`Bearer \${token}\`
+      authorization: \`Bearer \${apiSecretKey}\`
     }
   });
 } catch (error) {
@@ -62,8 +54,16 @@ try {
   src="https://cdn-dev.mintouge.com/js/mini-web.js" 
   id=\`\${apiPublicKey}\`>
 </script>
-`
-  );
+`;
+
+  const handleCopy = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast("Copied to Clipboard");
+    } catch (error) {
+      showToast(`Copy to clipboard failed: ${error}`, "error");
+    }
+  };
 
   return (
     <React.Fragment>
@@ -77,33 +77,34 @@ try {
                 htmlFor="horizontal-firstname-Input"
                 className="col-form-label"
               >
-                Private Api Key
+                API Secret Key
               </Label>
               <Input
                 type="text"
-                className="form-control"
+                className="form-control cursor-pointer"
                 id="horizontal-firstname-Input"
-                value={privateKey}
+                value={optedUser.apiSecretKey}
                 contentEditable={false}
                 readOnly
+                onClick={() => handleCopy(optedUser.apiSecretKey)}
               />
             </div>
 
             <div className="mb-4">
-
               <Label
                 htmlFor="horizontal-firstname-Input"
                 className="col-form-label"
               >
-                Public Api Key
+                API Public Key
               </Label>
               <Input
                 type="text"
-                className="form-control"
+                className="form-control cursor-pointer"
                 id="horizontal-firstname-Input"
-                value={publicKey}
+                value={optedUser.apiPublicKey}
                 contentEditable={false}
                 readOnly
+                onClick={() => handleCopy(optedUser.apiPublicKey)}
               />
             </div>
 
@@ -118,7 +119,7 @@ try {
 
                     <Editor
                       value={code}
-                      onValueChange={code => setCode(code)}
+                      readOnly
                       highlight={code => highlight(code, languages.js)}
                       padding={10}
                       style={{

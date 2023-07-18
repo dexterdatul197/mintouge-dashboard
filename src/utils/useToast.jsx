@@ -6,7 +6,7 @@ const useToast = () => {
     useEffect(() => {
         toastr.options = {
             positionClass: "toast-bottom-center",
-            timeOut: 3000,
+            timeOut: 5000,
             closeButton: true,
             preventDuplicates: true,
         };

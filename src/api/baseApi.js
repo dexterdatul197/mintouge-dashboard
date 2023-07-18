@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'https://brand.api.mintouge.com';
+console.log(API_ENDPOINT);
 
 const axiosApi = axios.create({
     baseURL: API_ENDPOINT
