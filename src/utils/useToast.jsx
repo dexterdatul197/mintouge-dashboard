@@ -8,7 +8,7 @@ const useToast = () => {
             positionClass: "toast-bottom-center",
             timeOut: 5000,
             closeButton: true,
-            preventDuplicates: true,
+            preventDuplicates: false,
         };
     }, []);
 

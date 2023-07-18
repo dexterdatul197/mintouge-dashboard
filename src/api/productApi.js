@@ -29,14 +29,14 @@ export const ProductModelValidator = yup.object().shape({
     productUrl: yup.string().required('Product URL is invalid'),
     images: yup.array(yup.string()).required('Product Images are not valid'),
     fullDescription: yup.string().required('Full Description is invalid'),
+    productKey: yup.string().required('Product ID is invalid'),
+    madeAt: yup.date().required('Product Made Date is missing'),
     asset3dUrl: yup.string().nullable().optional('Asset 3D URL is invalid'),
 
     // brand: yup.string().required('Brand Name is invalid'),
     // brandKey: yup.string().required('Brand Private Key should be string.'),
-    // productKey: yup.string().nullable().required('Product ID is invalid'),
     // discount: yup.number().nullable().optional('Product discount is invalid'),
     // offerEnd: yup.date().nullable().optional('Product Offer Date is invalid'),
-    // madeAt: yup.date().nullable().optional('Product Made Date is missing'),
     // rating: yup.number().nullable().nullable().optional('Product Rating is invalid'),
     // saleCount: yup.number().required('Product Sales is invalid'),
     // categoryId: yup.number().required('Product Sales is invalid'),
@@ -162,16 +162,13 @@ export const updateProduct = async (product) => {
     try {
         product = { 
             ...initialProduct,
-            productKey: product.productUrl,
+            productKey: product.id,
             ...product,
         };
         const updatedProduct = await apiPut({
             url: `/product/${product.id}`,
             bodyParam: product,
         });
-
-        // await productValidate(updatedProduct);
-        console.log("updated product", updatedProduct)
 
         return updatedProduct;
     } catch (error) {

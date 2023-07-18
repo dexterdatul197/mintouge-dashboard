@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 
 // Redux
 import { Link } from 'react-router-dom';
+import { Storage, GetStorageObject } from '@/utils';
 
 const ProfileMenu = (props) => {
   // Declare a new state variable, which we'll call "menu"
@@ -20,10 +21,9 @@ const ProfileMenu = (props) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    console.log("Token:", token);
+    const token = GetStorageObject(Storage.OptedUser);
     if (token) {
-      setusername("NickName");
+      setusername(token.firstName);
     }
   }, []);
 

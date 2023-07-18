@@ -42,10 +42,6 @@ const Login = (props) => {
     navigate("/dashboard");
   };
 
-  const onLogin = async () => {
-    setErrorMessage("Your Email or Password is incorrect.");
-  };
-
   const loginFormik = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,

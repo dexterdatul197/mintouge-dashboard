@@ -41,7 +41,12 @@ const Payments = () => {
       setLoading(true);
       try {
         const _card = await PaymentApi.getCards();
-        _card.data.length > 0 && _card.setCard(_card.data[0]);
+        if (_card.data && _card.data.length > 0) {
+          setCard(_card.data[0]);
+        } else if (_card.length > 0) {
+          setCard(_card[0]);
+        }
+        
         setLoading(false);
       } catch (error) {
         showToast(error.toString(), "error");
@@ -56,7 +61,6 @@ const Payments = () => {
     event.preventDefault();
 
     if (!isEditing) {
-      console.log("Move to Edit mode");
       setEditing(true);
       return;
     }

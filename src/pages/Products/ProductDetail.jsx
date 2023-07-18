@@ -12,13 +12,13 @@ import {
     FormFeedback,
 } from 'reactstrap';
 
-import { ProductApi } from '@/api';
+import { ProductApi, OrderApi } from '@/api';
 import useToast from '@/utils/useToast';
 import Pages404 from '@pages/Utility/pages-404';
 import ImageSlider from '@/components/ImageSlider';
 import LoadingScreen from '@/components/LoadingScreen';
 
-const InputItem = ({ name, label, isMultiline, formik, rows, horizontal, divider }) => {
+const InputItem = ({ name, label, isMultiline, formik, rows }) => {
     return (
         <div>
             <Label htmlFor={name}>{label}</Label>
@@ -159,6 +159,43 @@ const ProductDetail = (props) => {
         navigate("/products");
     };
 
+    const handleMint = async () => {
+        let fee = 0;
+        try {
+            const _fee = await OrderApi.getOrderFee(product.productKey);
+            fee = _fee.feeInUsd + _fee.insuranceFeeInUsd + _fee.commissionFeeInUsd;
+
+            showToast("Fee was successfully fetched");
+        } catch (error) {
+            showToast("Get Fee failed: " + error.toString(), "error");
+            return;
+        };
+
+        try {
+            const dpp = Date.now();
+            const order = {
+                productInfo: product,
+                consumerInfo: {
+                    "email": "test2@ex.com",
+                    "phone": "+0 000-000-0000",
+                    "firstName": "Test",
+                    "lastName": "User"
+                },
+                amount: fee,
+                chain: "goerli",
+                dpp: String(dpp),
+                redeemCode: String(dpp),
+            };
+
+            await OrderApi.addOrder(order);
+
+            showToast("Order was successfully");
+        } catch (error) {
+            showToast(error.toString(), "error");
+            return;
+        }
+    }
+
     if (!isAdding && isInvalid) {
         return <Pages404 />
     } else if (isLoading) {
@@ -197,6 +234,13 @@ const ProductDetail = (props) => {
                                 Delete
                             </Button>
                             <div className="d-flex gap-2">
+                                <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                    onClick={handleMint}
+                                >
+                                    Mint
+                                </button>
                                 <Button type="submit" color="primary" className="btn ">
                                     Save
                                 </Button>
@@ -206,6 +250,7 @@ const ProductDetail = (props) => {
                             </div>
                         </div>
                     </Form>
+
                     <Modal
                         className="modal-dialog-centered"
                         isOpen={openImageModal}
