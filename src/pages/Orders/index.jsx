@@ -49,8 +49,8 @@ const Orders = ({ title, isLast }) => {
 
     return ordersList.filter(item => {
       const searchText = item.name + ' ' +
-        item.digitalPassport + ' ' +
-        item.value + ' ' + item.user + ' ' +
+        item.dpp + ' ' +
+        item.price + ' ' + item.user + ' ' +
         (item.insurance ? "insured" : "not insured");
       return Boolean(searchText.match(searchTermRegex));
     })

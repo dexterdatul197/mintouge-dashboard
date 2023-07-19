@@ -176,10 +176,10 @@ const ProductDetail = (props) => {
             const order = {
                 productInfo: product,
                 consumerInfo: {
-                    "email": "test2@ex.com",
+                    "email": "takao@mintouge.com",
                     "phone": "+0 000-000-0000",
-                    "firstName": "Test",
-                    "lastName": "User"
+                    "firstName": "Takao",
+                    "lastName": "Kato"
                 },
                 amount: Math.round(fee * 100),
                 chain: "goerli",
@@ -242,7 +242,7 @@ const ProductDetail = (props) => {
                                     Mint
                                 </button>
                                 <Button type="submit" color="primary" className="btn ">
-                                    Save
+                                    {isAdding ? "Add" : "Save"}
                                 </Button>
                                 <Button type="button" onClick={handleCancel} color="secondary">
                                     Cancel

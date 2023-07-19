@@ -134,7 +134,7 @@ export const addProduct = async (product) => {
     try {
         product = { 
             ...initialProduct,
-            productKey: product.productUrl,
+            productKey: String(Date.now()),
             ...product,
         };
         const newProduct = await apiPost({
@@ -161,7 +161,6 @@ export const updateProduct = async (product) => {
     try {
         product = { 
             ...initialProduct,
-            productKey: product.id,
             ...product,
         };
         const updatedProduct = await apiPut({
