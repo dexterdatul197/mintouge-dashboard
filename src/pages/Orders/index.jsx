@@ -65,7 +65,7 @@ const Orders = ({ title, isLast }) => {
       <div className="container-fluid">
         <div className="page-title-container mb-4">
           <div className="me-2">
-            <h3 className="">{title || Orders}</h3>
+            <h3 className="">{title || "Orders"}</h3>
           </div>
           <input
             className="orders-search"
