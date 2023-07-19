@@ -234,13 +234,13 @@ const ProductDetail = (props) => {
                                 Delete
                             </Button>
                             <div className="d-flex gap-2">
-                                <button
+                                {/* <button
                                     type="button"
                                     className="btn btn-primary"
                                     onClick={handleMint}
                                 >
                                     Mint
-                                </button>
+                                </button> */}
                                 <Button type="submit" color="primary" className="btn ">
                                     {isAdding ? "Add" : "Save"}
                                 </Button>
