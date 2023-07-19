@@ -183,8 +183,8 @@ const ProductDetail = (props) => {
                 },
                 amount: Math.round(fee * 100),
                 chain: "goerli",
-                dpp: String(dpp),
-                redeemCode: dpp.split('').reverse().join(''),
+                dpp: dpp,
+                redeemCode: dpp,
             };
 
             await OrderApi.addOrder(order);

@@ -22,7 +22,7 @@ const Orders = ({ title, isLast }) => {
         const orders = _data.data.map(order => ({
           ...order.product,
           ...order.consumer,
-          user: `${order.consumer.firstName} ${order.consumer.lastName}`,
+          user: order.consumer.email,
           tokenId: order.tokenId,
           insurance: order.insurance,
           redeemed: order.redeemed,
