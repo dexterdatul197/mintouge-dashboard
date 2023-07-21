@@ -19,6 +19,9 @@ if (document.body) {
 
 const stripePromise = loadStripe(import.meta.env.VITE_APP_STRIPE_PUBLIC_KEY);
 
+console.log("VITE_API_ENDPOINT", import.meta.env.VITE_API_ENDPOINT);
+console.log("VITE_APP_STRIPE_PUBLIC_KEY", import.meta.env.VITE_APP_STRIPE_PUBLIC_KEY);
+
 const App = (props) => {
 
     return (

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const API_ENDPOINT = import.meta.env.VITE_APP_ENDPOINT || 'https://brand.api.mintouge.com';
+export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT || 'https://brand.api.mintouge.com';
 
 const axiosApi = axios.create({
     baseURL: API_ENDPOINT
@@ -18,7 +18,6 @@ const axiosApi = axios.create({
 export const apiGet = async ({ url, queryParams, hasToken = false }) => {
     const token = hasToken ? localStorage.getItem('accessToken') : undefined;
 
-
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'no-cors');
@@ -31,7 +30,7 @@ export const apiGet = async ({ url, queryParams, hasToken = false }) => {
             withCredentials: true,
         });
 
-        if (response.status === 200) {
+        if (response.status < 300) {
             return response.data;
         } else {
             throw Error(response.statusText);
@@ -66,7 +65,7 @@ export const apiPost = async ({ url, queryParams, bodyParam, hasToken = false })
             withCredentials: true,
         });
 
-        if (response.status === 200) {
+        if (response.status < 300) {
             return response.data;
         } else {
             throw Error(data.message);
@@ -102,7 +101,7 @@ export const apiPut = async ({ url, queryParams, bodyParam, hasToken = false }) 
             withCredentials: true,
         });
 
-        if (response.status === 200) {
+        if (response.status < 300) {
             return response.data;
         } else {
             throw Error(data.message);
@@ -129,7 +128,7 @@ export const apiDelete = async ({ url }) => {
             withCredentials: true,
         });
 
-        if (response.status === 200) {
+        if (response.status < 300) {
             return response.data;
         } else {
             throw Error(data.message);
