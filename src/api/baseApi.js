@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Storage, GetStorageObject } from '@/utils';
 
 export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT || 'https://brand.api.mintouge.com';
 
@@ -15,13 +16,13 @@ const axiosApi = axios.create({
  * 
  * @returns HTTP Request Response
  */
-export const apiGet = async ({ url, queryParams, hasToken = false }) => {
-    const token = hasToken ? localStorage.getItem('accessToken') : undefined;
+export const apiGet = async ({ url, queryParams, hasToken = true }) => {
+    const token = hasToken ? GetStorageObject(Storage.OptedUser)?.token : undefined;
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'no-cors');
-    token && (headers.append('authorization', `Bearer ${token}`));
+    token && (headers.append('Authorization', `Bearer ${token}`));
 
     try {
         const response = await axiosApi.get(url, {
@@ -50,13 +51,13 @@ export const apiGet = async ({ url, queryParams, hasToken = false }) => {
  * 
  * @returns HTTP Request Response
  */
-export const apiPost = async ({ url, queryParams, bodyParam, hasToken = false }) => {
-    const token = hasToken ? localStorage.getItem('accessToken') : undefined;
+export const apiPost = async ({ url, queryParams, bodyParam, hasToken = true }) => {
+    const token = hasToken ? GetStorageObject(Storage.OptedUser)?.token : undefined;
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'no-cors');
-    token && (headers.append('authorization', `Bearer ${token}`));
+    token && (headers.append('Authorization', `Bearer ${token}`));
 
     try {
         const response = await axiosApi.post(url, bodyParam, {
@@ -86,13 +87,13 @@ export const apiPost = async ({ url, queryParams, bodyParam, hasToken = false })
  * 
  * @returns HTTP Request Response
  */
-export const apiPut = async ({ url, queryParams, bodyParam, hasToken = false }) => {
-    const token = hasToken ? localStorage.getItem('accessToken') : undefined;
+export const apiPut = async ({ url, queryParams, bodyParam, hasToken = true }) => {
+    const token = hasToken ? GetStorageObject(Storage.OptedUser)?.token : undefined;
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'no-cors');
-    token && (headers.append('authorization', `Bearer ${token}`));
+    token && (headers.append('Authorization', `Bearer ${token}`));
 
     try {
         const response = await axiosApi.put(url, bodyParam, {
@@ -122,9 +123,17 @@ export const apiPut = async ({ url, queryParams, bodyParam, hasToken = false }) 
  * 
  * @returns HTTP Request Response
  */
-export const apiDelete = async ({ url }) => {
+export const apiDelete = async ({ url, hasToken = true }) => {
+    const token = hasToken ? GetStorageObject(Storage.OptedUser)?.token : undefined;
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', 'no-cors');
+    token && (headers.append('Authorization', `Bearer ${token}`));
+
     try {
         const response = await axiosApi.delete(url, {
+            headers: headers,
             withCredentials: true,
         });
 
