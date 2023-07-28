@@ -32,8 +32,6 @@ const Orders = ({ title, isLast }) => {
           tokenAddress: order.collection.address,
         }));
 
-        console.log(orders);
-
         setOrderList(orders);
       } catch (error) {
         showToast(error.toString(), "error");

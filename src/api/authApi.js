@@ -10,7 +10,6 @@ import { apiPost } from './baseApi';
 const userValidate = async (user) => {
     try {
         const validatedResponse = await UserModelValidator.validate(user);
-        console.log(validatedResponse);
 
         return validatedResponse;
     } catch (validationError) {
