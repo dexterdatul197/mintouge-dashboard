@@ -17,12 +17,17 @@ const axiosApi = axios.create({
  * @returns HTTP Request Response
  */
 export const apiGet = async ({ url, queryParams, hasToken = true }) => {
-    const token = hasToken ? GetStorageObject(Storage.OptedUser)?.token : undefined;
+    const token = GetStorageObject(Storage.OptedUser)?.token;
+    const headers = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'no-cors',
+        'Authorization': `Bearer ${token}`
+    };
+    if (!hasToken) {
+        delete headers.Authorization;
+    }
 
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Access-Control-Allow-Origin', 'no-cors');
-    token && (headers.append('Authorization', `Bearer ${token}`));
+    console.log(headers);
 
     try {
         const response = await axiosApi.get(url, {
@@ -52,12 +57,15 @@ export const apiGet = async ({ url, queryParams, hasToken = true }) => {
  * @returns HTTP Request Response
  */
 export const apiPost = async ({ url, queryParams, bodyParam, hasToken = true }) => {
-    const token = hasToken ? GetStorageObject(Storage.OptedUser)?.token : undefined;
-
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Access-Control-Allow-Origin', 'no-cors');
-    token && (headers.append('Authorization', `Bearer ${token}`));
+    const token = GetStorageObject(Storage.OptedUser)?.token;
+    const headers = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'no-cors',
+        'Authorization': `Bearer ${token}`
+    };
+    if (!hasToken) {
+        delete headers.Authorization;
+    }
 
     try {
         const response = await axiosApi.post(url, bodyParam, {
@@ -88,12 +96,15 @@ export const apiPost = async ({ url, queryParams, bodyParam, hasToken = true }) 
  * @returns HTTP Request Response
  */
 export const apiPut = async ({ url, queryParams, bodyParam, hasToken = true }) => {
-    const token = hasToken ? GetStorageObject(Storage.OptedUser)?.token : undefined;
-
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Access-Control-Allow-Origin', 'no-cors');
-    token && (headers.append('Authorization', `Bearer ${token}`));
+    const token = GetStorageObject(Storage.OptedUser)?.token;
+    const headers = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'no-cors',
+        'Authorization': `Bearer ${token}`
+    };
+    if (!hasToken) {
+        delete headers.Authorization;
+    }
 
     try {
         const response = await axiosApi.put(url, bodyParam, {
@@ -124,12 +135,15 @@ export const apiPut = async ({ url, queryParams, bodyParam, hasToken = true }) =
  * @returns HTTP Request Response
  */
 export const apiDelete = async ({ url, hasToken = true }) => {
-    const token = hasToken ? GetStorageObject(Storage.OptedUser)?.token : undefined;
-
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Access-Control-Allow-Origin', 'no-cors');
-    token && (headers.append('Authorization', `Bearer ${token}`));
+    const token = GetStorageObject(Storage.OptedUser)?.token;
+    const headers = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'no-cors',
+        'Authorization': `Bearer ${token}`
+    };
+    if (!hasToken) {
+        delete headers.Authorization;
+    }
 
     try {
         const response = await axiosApi.delete(url, {
