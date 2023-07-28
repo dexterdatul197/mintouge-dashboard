@@ -27,8 +27,6 @@ export const apiGet = async ({ url, queryParams, hasToken = true }) => {
         delete headers.Authorization;
     }
 
-    console.log(headers);
-
     try {
         const response = await axiosApi.get(url, {
             params: queryParams,
