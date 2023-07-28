@@ -36,6 +36,6 @@ jobs:
         region: ${{ env.AWS_REGION }}
         application_name: ${{ env.EB_APP_NAME }}
         environment_name: ${{ env.EB_ENVIRONMENT }}
-        version_label: p_${{ github.run_number }}p
+        version_label: prod_${{ github.run_number }}p
         deployment_package: deploy.zip
         use_existing_version_if_available: true
