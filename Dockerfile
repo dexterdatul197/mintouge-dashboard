@@ -9,10 +9,7 @@ RUN npm install
 COPY . /app
 RUN npm run build
 
-EXPOSE 3000
-CMD ["npm", "run", "serve"]
-
 FROM nginx:1.22.1-alpine as proxy
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
