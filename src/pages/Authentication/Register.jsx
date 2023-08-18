@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFeedback } from 'reactstrap';
 
 import useToast from '@/utils/useToast';
-import { useUser } from '@/store/user';
+import { useUser } from '@/store/userStore';
 import * as AuthApi from '@/api/authApi';
 import logoImg from '@assets/images/slogo-dark.svg';
 import { Storage, SetStorageObject } from '@/utils';

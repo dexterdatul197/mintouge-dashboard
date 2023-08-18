@@ -1,5 +1,5 @@
-import { atom, selector, useRecoilValue } from 'recoil';
-import { useRecoilState } from 'recoil';
+import { atom, selector, useRecoilValue, useRecoilState } from 'recoil';
+
 const userState = atom({
     key: 'userStateKey',
     default: {

@@ -1,4 +1,4 @@
-import { useUser } from "./user";
+import { useUser } from "./userStore";
 
 export {
     useUser

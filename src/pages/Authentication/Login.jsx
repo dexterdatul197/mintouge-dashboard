@@ -17,7 +17,7 @@ import {
 } from 'reactstrap';
 
 import useToast from '@/utils/useToast';
-import { useUser } from '@/store/user';
+import { useUser } from '@/store/userStore';
 import * as AuthApi from '@/api/authApi';
 import logo from '@assets/images/slogo-dark.svg';
 import { Storage, SetStorageObject } from '@/utils';
