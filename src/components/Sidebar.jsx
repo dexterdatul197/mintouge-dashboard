@@ -6,11 +6,10 @@ import { useTranslation } from 'react-i18next';
 import SidebarContent from './SidebarContent';
 
 import { Link } from 'react-router-dom';
-
-import logo from '@assets/images/slogo-dark.svg';
-import logoLightPng from '@assets/images/logo-light.svg';
-import logoLightSvg from '@assets/images/slogo-light.svg';
-import logoDark from '@assets/images/logo-dark.svg';
+const logo = 'https://cdn.mintouge.com/mini-web/assets/vaultik_slogo.svg';
+const logoDark = 'https://cdn.mintouge.com/mini-web/assets/vaultik_logo.svg';
+const logoLightPng = 'https://cdn.mintouge.com/mini-web/assets/vaultik_wlogo.svg';
+const logoLightSvg = 'https://cdn.mintouge.com/mini-web/assets/vaultik_wslogo.svg';
 
 const Sidebar = (props) => {
   return (

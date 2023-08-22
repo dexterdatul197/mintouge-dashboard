@@ -1,1 +1,1 @@
-# mintouge-cms-frontend
+# vaultik-cms-frontend

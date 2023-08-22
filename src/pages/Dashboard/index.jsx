@@ -120,7 +120,7 @@ const Dashboard = (props) => {
   ];
 
   //meta title
-  document.title = "Dashboard | Mintouge - Brands Dashboard";
+  document.title = "Dashboard | Vaultik - Brands Dashboard";
 
   return (
     <div className="page-content">

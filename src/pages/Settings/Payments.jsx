@@ -27,7 +27,7 @@ import Breadcrumbs from '@components/Breadcrumb';
 import LoadingScreen from '@/components/LoadingScreen';
 
 const Payments = () => {
-  document.title = "Checkout | Mintouge - Brands Dashboard";
+  document.title = "Checkout | Vaultik - Brands Dashboard";
 
   const stripe = useStripe();
   const elements = useElements();

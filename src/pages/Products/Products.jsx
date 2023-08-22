@@ -9,7 +9,7 @@ import { ProductHeaders } from '@/utils';
 import LoadingScreen from '@/components/LoadingScreen';
 
 const Orders = () => {
-  document.title = "Products | Mintouge - Brands Dashboard";
+  document.title = "Products | Vaultik - Brands Dashboard";
   const navigate = useNavigate();
   const showToast = useToast();
   const [page, setPage] = useState(0);

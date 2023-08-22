@@ -71,7 +71,7 @@ const NotificationDropdown = props => {
             <Link to="" className="text-reset notification-item">
               <div className="d-flex">
                 <img
-                  src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp"}
+                  src={"https://cdn.mintouge.com/brand_dashboard/avatar-1.webp"}
                   className="me-3 rounded-circle avatar-xs"
                   alt="user-pic"
                 />
@@ -116,7 +116,7 @@ const NotificationDropdown = props => {
             <Link to="" className="text-reset notification-item">
               <div className="d-flex">
                 <img
-                  src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp"}
+                  src={"https://cdn.mintouge.com/brand_dashboard/avatar-1.webp"}
                   className="me-3 rounded-circle avatar-xs"
                   alt="user-pic"
                 />

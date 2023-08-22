@@ -6,8 +6,8 @@ import LanguageDropdown from './LanguageDropdown';
 import NotificationDropdown from './NotificationDropdown';
 import ProfileMenu from './ProfileMenu';
 
-import logo from '@assets/images/slogo-light.svg';
-import logoLightSvg from '@assets/images/logo-light.svg';
+const logo = 'https://cdn.mintouge.com/mini-web/assets/vaultik_wslogo.svg';
+const logoLightSvg = 'https://cdn.mintouge.com/mini-web/assets/vaultik_wlogo.svg';
 
 //i18n
 import { useTranslation } from 'react-i18next';

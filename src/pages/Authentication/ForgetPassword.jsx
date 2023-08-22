@@ -19,12 +19,12 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 // import images
-import logo from '@assets/images/slogo-dark.svg';
+const logo = 'https://cdn.mintouge.com/mini-web/assets/vaultik_slogo.svg';
 
 const ForgetPasswordPage = (props) => {
   //meta title
   document.title =
-    "Forget Password | Mintouge - Brands Dashboard";
+    "Forget Password | Vaultik - Brands Dashboard";
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
@@ -60,11 +60,11 @@ const ForgetPasswordPage = (props) => {
                     <Col xs={7}>
                       <div className="text-primary p-4">
                         <h5 className="text-primary">Welcome Back !</h5>
-                        <p>Sign in to continue to Mintouge.</p>
+                        <p>Sign in to continue to Vaultik.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
-                      <img src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
+                      <img src={"https://cdn.mintouge.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
                     </Col>
                   </Row>
                 </div>
@@ -147,8 +147,8 @@ const ForgetPasswordPage = (props) => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Mintouge. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Mintouge
+                  © {new Date().getFullYear()} Vaultik. Crafted with{" "}
+                  <i className="mdi mdi-heart text-danger" /> by Vaultik
                 </p>
               </div>
             </Col>

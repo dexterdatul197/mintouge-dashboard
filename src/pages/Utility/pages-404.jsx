@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 const Pages404 = () => {
     //meta title
-    document.title = "404 Error Page | Mintouge - Brands Dashboard";
+    document.title = "404 Error Page | Vaultik - Brands Dashboard";
 
   return (
     <React.Fragment>
@@ -32,7 +32,7 @@ const Pages404 = () => {
           <Row className="justify-content-center">
             <Col md="8" xl="6">
               <div>
-                <img src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/error-img.webp"} alt="" className="img-fluid" />
+                <img src={"https://cdn.mintouge.com/brand_dashboard/error-img.webp"} alt="" className="img-fluid" />
               </div>
             </Col>
           </Row>

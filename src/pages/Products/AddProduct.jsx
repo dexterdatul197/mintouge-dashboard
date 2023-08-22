@@ -152,7 +152,7 @@ const ImageItem = (props) => {
 };
 
 const AddProduct = () => {
-  document.title = "Add Product | Mintouge - Brands Dashboard";
+  document.title = "Add Product | Vaultik - Brands Dashboard";
 
   const showToast = useToast();
   const [categories, setCategories] = useState([]);

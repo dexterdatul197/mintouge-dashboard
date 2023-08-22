@@ -22,7 +22,7 @@ import Breadcrumb from '@components/Breadcrumb';
 const UserProfile = (props) => {
 
   //meta title
-  document.title = 'Profile | Mintouge - React Admin & Dashboard Template';
+  document.title = 'Profile | Vaultik - React Admin & Dashboard Template';
 
   const [email, setemail] = useState("");
   const [name, setname] = useState("");
@@ -57,7 +57,7 @@ const UserProfile = (props) => {
       <div className="page-content">
         <Container fluid>
           {/* Render Breadcrumb */}
-          <Breadcrumb title="Mintouge" breadcrumbItem="Profile" />
+          <Breadcrumb title="Vaultik" breadcrumbItem="Profile" />
 
           <Row>
             <Col lg="12">
@@ -69,7 +69,7 @@ const UserProfile = (props) => {
                   <div className="d-flex">
                     <div className="ms-3">
                       <img
-                        src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/avatar-1.webp"}
+                        src={"https://cdn.mintouge.com/brand_dashboard/avatar-1.webp"}
                         alt=""
                         className="avatar-md rounded-circle img-thumbnail"
                       />

@@ -25,14 +25,14 @@ import Breadcrumbs from '@components/Breadcrumb';
 import { Storage, GetStorageObject } from '@/utils';
 
 const FormEditors = () => {
-  document.title = "API Setting | Mintouge - Brands Dashboard";
+  document.title = "API Setting | Vaultik - Brands Dashboard";
 
   const showToast = useToast();
   const optedUser = GetStorageObject(Storage.OptedUser);
   const code =
     `// How to use Private API Key
 try {
-  const gas_fee = await fetch("https://mintouge.com/estimate-gasfee", {
+  const gas_fee = await fetch("https://vaultik.com/estimate-gasfee", {
     method: "POST",
     body: {
       network: "Polygon",
@@ -114,7 +114,7 @@ try {
                   <CardBody>
                     <CardTitle className="h4">Api Key Code Example</CardTitle>
                     <p className="card-title-desc">
-                      Below is the code of how to use Api Key to use Mintouge SDK
+                      Below is the code of how to use Api Key to use Vaultik SDK
                     </p>
 
                     <Editor

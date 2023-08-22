@@ -7,12 +7,12 @@ import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFee
 import useToast from '@/utils/useToast';
 import { useUser } from '@/store/userStore';
 import * as AuthApi from '@/api/authApi';
-import logoImg from '@assets/images/slogo-dark.svg';
 import { Storage, SetStorageObject } from '@/utils';
 import LoadingScreen from '@/components/LoadingScreen';
 
+const logoImg = 'https://cdn.mintouge.com/mini-web/assets/vaultik_slogo.svg';
 const Register = props => {
-  document.title = "Register | Mintouge - Brands Dashboard";
+  document.title = "Register | Vaultik - Brands Dashboard";
   
   const showToast = useToast();
   const navigate = useNavigate();
@@ -92,11 +92,11 @@ const Register = props => {
                     <Col className="col-7">
                       <div className="text-primary p-4">
                         <h5 className="text-primary">Free Register</h5>
-                        <p>Get your free Mintouge account now.</p>
+                        <p>Get your free Vaultik account now.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
-                      <img src={"https://mintouge-s3-public.s3.eu-west-2.amazonaws.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
+                      <img src={"https://cdn.mintouge.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
                     </Col>
                   </Row>
                 </div>
@@ -230,7 +230,7 @@ const Register = props => {
 
                       <div className="mt-4 text-center">
                         <p className="mb-0">
-                          By registering you agree to the Mintouge{" "}
+                          By registering you agree to the Vaultik{" "}
                           <Link to="#" className="text-primary">
                             Terms of Use
                           </Link>
@@ -249,8 +249,8 @@ const Register = props => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Mintouge. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Mintouge
+                  © {new Date().getFullYear()} Vaultik. Crafted with{" "}
+                  <i className="mdi mdi-heart text-danger" /> by Vaultik
                 </p>
               </div>
             </Col>

@@ -25,8 +25,8 @@ import Breadcrumbs from '@components/Breadcrumb';
 const FormEditors = () => {
 
   //meta title
-  document.title = "API Setting | Mintouge - Brands Dashboard"
-  const [endpoint, setEndpoint] = React.useState("https://mintouge.com/public/products");
+  document.title = "API Setting | Vaultik - Brands Dashboard"
+  const [endpoint, setEndpoint] = React.useState("https://vaultik.com/public/products");
   const [code, setCode] = React.useState(
     `// Product Data Model
 interface ProductModal {
@@ -51,11 +51,11 @@ async function transform(productUrl) {
 
     const products: ProductModal[] = data.map(item => ({
         brand: apiPublicKey,
-        name: item.name || "Mintouge Bag Model X",
-        description: item.description || "Best Mintouge Bag beloved by everyone",
+        name: item.name || "Vaultik Bag Model X",
+        description: item.description || "Best Vaultik Bag beloved by everyone",
         images: item.images || ["https://cdn.mintouge.com/bag1.webp", "https://cdn.mintouge.com/bag2.webp"],
         asset: item.asset || "https://cdn.mintouge.com/bag.gltf",
-        productUrl: item.productUrl || "https://mintouge.com/products?productId=11840302",
+        productUrl: item.productUrl || "https://vaultik.com/products?productId=11840302",
         productCode: item.productCode || "PD-11840302",
         category: item.category || "bag",
         feature: item.feature || "UK Only",

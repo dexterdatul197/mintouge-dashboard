@@ -50,7 +50,7 @@ const InputItem = ({ name, label, isMultiline, formik, rows }) => {
 
 const ProductDetail = (props) => {
     //meta title
-    document.title = 'Product Details | Mintouge - Brands Dashboard';
+    document.title = 'Product Details | Vaultik - Brands Dashboard';
 
     const { id } = useParams();
     const location = useLocation();
@@ -176,7 +176,7 @@ const ProductDetail = (props) => {
             const order = {
                 productInfo: product,
                 consumerInfo: {
-                    "email": "takao@mintouge.com",
+                    "email": "takao@vaultik.com",
                     "phone": "+0 000-000-0000",
                     "firstName": "Takao",
                     "lastName": "Kato"
