@@ -71,12 +71,22 @@ const Login = (props) => {
     },
   });
 
-  const handleGoogle = () => {
-    AuthApi.signInGoogle();
+  const handleGoogle = async () => {
+    try {
+      const response = await AuthApi.signInGoogle();
+      onLoginSuccess(response);
+    } catch (err) {
+      showToast("Login Failed", "error");
+    }
   };
 
-  const handleApple = () => {
-    AuthApi.signInGoogle();
+  const handleMicrosoft = async () => {
+    try {
+      const response = await AuthApi.signInMicrosoft();
+      onLoginSuccess(response);
+    } catch (err) {
+      showToast("Login Failed", "error");
+    }
   };
 
   return (
@@ -188,7 +198,7 @@ const Login = (props) => {
 
                       <div className="mt-3 d-grid">
                         <button
-                          id="login-button"
+                          id="google-button"
                           className="btn btn-block text-secondary"
                           style={{ height: '60px', background: "white", color: "black", borderRadius: '18px'}}
                           onClick={handleGoogle}
@@ -199,12 +209,12 @@ const Login = (props) => {
 
                       <div className="mt-3 d-grid">
                         <button
-                          id="login-button"
+                          id="microsoft-button"
                           className="btn btn-block text-white"
                           style={{ height: '60px', background: "#262239", borderRadius: '18px'}}
-                          onClick={handleApple}
+                          onClick={handleMicrosoft}
                         >
-                          Continue With Apple
+                          Continue With Microsoft
                         </button>
                       </div>
 
