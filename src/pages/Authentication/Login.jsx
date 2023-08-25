@@ -86,7 +86,7 @@ const Login = (props) => {
                 <Link to="/" className="auth-logo-light"> 
                   <div className="d-flex justify-content-center align-items-baseline">
                     <div className="avatar-md profile-user-wid mb-4">
-                      <span className="avatar-title rounded-circle bg-light">
+                      <span className="avatar-title rounded-circle" style={{ background: 'var(--bs-body-bg)'}}>
                         <img
                           src={logo}
                           alt=""
