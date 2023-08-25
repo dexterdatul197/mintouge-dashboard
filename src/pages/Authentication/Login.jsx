@@ -78,45 +78,38 @@ const Login = (props) => {
           <i className="bx bx-home h2" />
         </Link>
       </div>
-      <div className="account-pages my-5 pt-sm-5">
+      <div className="account-pages my-3 pt-sm-5">
         <Container>
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={5}>
+              <div>
+                <Link to="/" className="auth-logo-light"> 
+                  <div className="d-flex justify-content-center align-items-baseline">
+                    <div className="avatar-md profile-user-wid mb-4">
+                      <span className="avatar-title rounded-circle bg-light">
+                        <img
+                          src={logo}
+                          alt=""
+                          className="rounded-circle"
+                          height="34"
+                        />
+                      </span>
+                    </div>
+                    <div>
+                      <h6 className="text-dark display-6">Vaultik</h6>
+                    </div>
+                  </div>
+                </Link>
+              </div>
 
-              <Card className="overflow-hidden">
-                <div className="bg-primary bg-soft">
-                  <Row>
-                    <Col xs={7}>
-                      <div className="text-primary p-4">
-                        <h5 className="text-primary">Welcome Back !</h5>
-                        <p>Sign in to continue to Vaultik.</p>
-                      </div>
-                    </Col>
-                    <Col className="col-5 align-self-end">
-                      <img src={"https://cdn.mintouge.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
-                    </Col>
-                  </Row>
-                </div>
+              <Card className="overflow-hidden" style={{ background: "#EFEEF4", borderRadius: '12px'}}>
 
                 <CardBody className="pt-0">
-                  <div>
-                    <Link to="/" className="auth-logo-light">
-                      <div className="avatar-md profile-user-wid mb-4">
-                        <span className="avatar-title rounded-circle bg-light">
-                          <img
-                            src={logo}
-                            alt=""
-                            className="rounded-circle"
-                            height="34"
-                          />
-                        </span>
-                      </div>
-                    </Link>
-                  </div>
 
-                  <div className="p-2">
+                  <div className="px-2 py-5">
                     <Form
                       className="form-horizontal"
+                      style={{ }}
                       onSubmit={(e) => {
                         e.preventDefault();
                         loginFormik.handleSubmit();
@@ -127,11 +120,11 @@ const Login = (props) => {
                       {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
 
                       <div className="mb-3">
-                        <Label className="form-label">Email</Label>
                         <Input
                           name="email"
-                          className="form-control"
-                          placeholder="Enter email"
+                          className="form-control rounded"
+                          style={{ height: '60px', color: "#D4D4D4" }}
+                          placeholder="Your email"
                           type="email"
                           onChange={loginFormik.handleChange}
                           onBlur={loginFormik.handleBlur}
@@ -150,9 +143,10 @@ const Login = (props) => {
                       </div>
 
                       <div className="mb-3">
-                        <Label className="form-label">Password</Label>
                         <Input
                           name="password"
+                          className="form-control rounded"
+                          style={{ height: '60px', color: "#D4D4D4" }}
                           value={loginFormik.values.password || ""}
                           type="password"
                           placeholder="Enter Password"
@@ -173,25 +167,11 @@ const Login = (props) => {
                         ) : null}
                       </div>
 
-                      <div className="form-check">
-                        <input
-                          name="rememberMe"
-                          type="checkbox"
-                          className="form-check-input"
-                          id="rememberMe"
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="rememberMe"
-                        >
-                          Remember me
-                        </label>
-                      </div>
-
                       <div className="mt-3 d-grid">
                         <button
                           id="login-button"
-                          className="btn btn-primary btn-block"
+                          className="btn btn-block text-white"
+                          style={{ height: '60px', background: "#262239", borderRadius: '18px'}}
                           type="submit"
                         >
                           Log In
@@ -209,15 +189,15 @@ const Login = (props) => {
                 </CardBody>
               </Card>
 
-              <div className="mt-5 text-center">
+              <div className="mt-3 text-center">
                 <p>
                   Don&#39;t have an account ?{" "}
                   <Link to="/register" className="fw-medium text-primary">
                     {" "}
-                    Signup now{" "}
+                    Request an Account Now{" "}
                   </Link>{" "}
                 </p>
-                <p>
+                <p className="mt-5">
                   © {new Date().getFullYear()} Vaultik. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Vaultik
                 </p>
