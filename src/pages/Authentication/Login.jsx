@@ -71,6 +71,14 @@ const Login = (props) => {
     },
   });
 
+  const handleGoogle = () => {
+    AuthApi.signInGoogle();
+  };
+
+  const handleApple = () => {
+    AuthApi.signInGoogle();
+  };
+
   return (
     <React.Fragment>
       <div className="home-btn d-none d-sm-block">
@@ -122,8 +130,8 @@ const Login = (props) => {
                       <div className="mb-3">
                         <Input
                           name="email"
-                          className="form-control rounded"
-                          style={{ height: '60px', color: "#D4D4D4" }}
+                          className="form-control rounded text-secondary"
+                          style={{ height: '60px' }}
                           placeholder="Your email"
                           type="email"
                           onChange={loginFormik.handleChange}
@@ -145,8 +153,8 @@ const Login = (props) => {
                       <div className="mb-3">
                         <Input
                           name="password"
-                          className="form-control rounded"
-                          style={{ height: '60px', color: "#D4D4D4" }}
+                          className="form-control rounded text-secondary"
+                          style={{ height: '60px' }}
                           value={loginFormik.values.password || ""}
                           type="password"
                           placeholder="Enter Password"
@@ -175,6 +183,28 @@ const Login = (props) => {
                           type="submit"
                         >
                           Log In
+                        </button>
+                      </div>
+
+                      <div className="mt-3 d-grid">
+                        <button
+                          id="login-button"
+                          className="btn btn-block text-secondary"
+                          style={{ height: '60px', background: "white", color: "black", borderRadius: '18px'}}
+                          onClick={handleGoogle}
+                        >
+                          Continue With Google
+                        </button>
+                      </div>
+
+                      <div className="mt-3 d-grid">
+                        <button
+                          id="login-button"
+                          className="btn btn-block text-white"
+                          style={{ height: '60px', background: "#262239", borderRadius: '18px'}}
+                          onClick={handleApple}
+                        >
+                          Continue With Apple
                         </button>
                       </div>
 

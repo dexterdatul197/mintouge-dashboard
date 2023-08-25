@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { apiPost } from './baseApi';
+import { apiPost, API_ENDPOINT } from './baseApi';
 
 /**
  * This function validates the product response coming from backend.
@@ -85,4 +85,80 @@ export const signUp = async (userInfo) => {
         throw error;
     }
 }
+/**
+ * Google Login in API.
+ * Internally, /auth/google API will send redirect url as a response.
+ * /auth/google => google auth redirect url => /auth/callback => user object.
+ * In general, just calling /auth/google api is enough, but as we are calling this api inside iframe,
+ * parent site redirection is not allowed.
+ * So we will open a popup window to do this kinda redirection.
+ * The backend will send a html page firing postMessage with user object.
+ */
 
+export const signInGoogle = async () => {
+    const xcode = "mini";
+    return new Promise((resolve,reject) => {
+        const popup = window.open(
+            `${API_ENDPOINT}/auth/google`,
+            '_blank',
+            'popup,width=800,height=600'
+        );
+
+        const checkPopupClosed = setInterval(() => {
+            if(popup.close === false) {
+                clearInterval(checkPopupClosed);
+                reject("User declined login");
+            } 
+        }, 1000);
+
+        window.addEventListener('message', (msg) => {
+            const data = msg?.data;
+            if(data?.windowId !== xcode)
+                return;
+            if(data.type === 'auth') {
+                resolve(data.user);
+            } else {
+                reject("User declined to login");
+            }
+        })
+    })
+};
+
+/**
+ * Apple Login in API.
+ * Internally, /auth/apple API will send redirect url as a response.
+ * /auth/apple => apple auth redirect url => /auth/callback => user object.
+ * In general, just calling /auth/apple api is enough, but as we are calling this api inside iframe,
+ * parent site redirection is not allowed.
+ * So we will open a popup window to do this kinda redirection.
+ * The backend will send a html page firing postMessage with user object.
+ */
+
+export const signInApple = async () => {
+    const xcode = "mini";
+    return new Promise((resolve, reject) => {
+        const popup = window.open(
+            `${API_ENDPOINT}/auth/apple`,
+            '_blank',
+            'popup,width=800,height=600'
+        );
+
+        const checkPopupClosed = setInterval(() => {
+            if(popup.closed === false) {
+                clearInterval(checkPopupClosed);
+                reject("User declined to login")
+            }
+        }, 1000);
+
+        window.addEventListener('message', (msg) => {
+            const data = msg?.data;
+            if(data?.windowId !== xcode) 
+                return;
+            if(data?.type === 'auth') {
+                resolve(data.user);
+            } else {
+                reject("User declined to login");
+            }
+        });
+    });
+};
