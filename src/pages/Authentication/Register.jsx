@@ -86,35 +86,27 @@ const Register = props => {
         <Container>
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={5}>
-              <Card className="overflow-hidden">
-                <div className="bg-primary bg-soft">
-                  <Row>
-                    <Col className="col-7">
-                      <div className="text-primary p-4">
-                        <h5 className="text-primary">Free Register</h5>
-                        <p>Get your free Vaultik account now.</p>
-                      </div>
-                    </Col>
-                    <Col className="col-5 align-self-end">
-                      <img src={"https://cdn.mintouge.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
-                    </Col>
-                  </Row>
-                </div>
-                <CardBody className="pt-0">
-                  <div>
+              <div>
                     <Link to="/">
-                      <div className="avatar-md profile-user-wid mb-4">
-                        <span className="avatar-title rounded-circle bg-light">
-                          <img
-                            src={logoImg}
-                            alt=""
-                            className="rounded-circle"
-                            height="34"
-                          />
-                        </span>
+                      <div className="d-flex justify-content-center align-items-baseline">
+                        <div className="avatar-md profile-user-wid mb-4">
+                          <span className="avatar-title rounded-circle" style={{ background: 'var(--bs-body-bg)'}}>
+                            <img
+                              src={logoImg}
+                              alt=""
+                              className="rounded-circle"
+                              height="34"
+                            />
+                          </span>
+                        </div>
+                        <div>
+                          <h6 className="text-dark display-4">Vaultik</h6>
+                        </div>
                       </div>
                     </Link>
                   </div>
+              <Card className="overflow-hidden"  style={{ background: "#EFEEF4", borderRadius: '12px', boxShadow: "0px 25px 50px -12px #10182840"}}>
+                <CardBody className="pt-0">
                   <div className="p-2">
                     <Form
                       className="form-horizontal"
@@ -127,12 +119,12 @@ const Register = props => {
                       {isLoading && <LoadingScreen />}
                       {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
 
-                      <div className="mb-3">
-                        <Label className="form-label">Email</Label>
+                      <div className="mb-3 my-5">
                         <Input
                           id="email"
                           name="email"
-                          className="form-control"
+                          className="form-control rounded-3"
+                          style={{ height: '60px' }}
                           placeholder="Enter email"
                           type="email"
                           onChange={validation.handleChange}
@@ -148,11 +140,12 @@ const Register = props => {
                       </div>
 
                       <div className="mb-3">
-                        <Label className="form-label">Password</Label>
                         <Input
                           name="password"
                           type="password"
+                          className="form-control rounded-3"
                           placeholder="Enter Password"
+                          style={{ height: '60px' }}
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.password || ""}
@@ -166,10 +159,11 @@ const Register = props => {
                       </div>
 
                       <div className="mb-3">
-                        <Label className="form-label">First Name</Label>
                         <Input
                           name="firstName"
                           type="text"
+                          className="form-control rounded-3"
+                          style={{ height: '60px' }}
                           placeholder="Enter First Name"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
@@ -184,11 +178,12 @@ const Register = props => {
                       </div>
 
                       <div className="mb-3">
-                        <Label className="form-label">Last Name</Label>
                         <Input
                           name="lastName"
                           type="text"
+                          className="form-control rounded-3"
                           placeholder="Enter Last Name"
+                          style={{ height: '60px' }}
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.lastName || ""}
@@ -202,11 +197,12 @@ const Register = props => {
                       </div>
 
                       <div className="mb-3">
-                        <Label className="form-label">Brand Name</Label>
                         <Input
                           name="brandName"
                           type="text"
+                          className="form-control rounded-3"
                           placeholder="Enter your brand name. ex:) Gucci"
+                          style={{ height: '60px' }}
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.brandName || ""}
@@ -219,9 +215,10 @@ const Register = props => {
                         ) : null}
                       </div>
 
-                      <div className="mt-4">
+                      <div className="mt-4 d-grid">
                         <button
-                          className="btn btn-primary btn-block "
+                          className="btn btn-block text-white"
+                          style={{ height: '60px', background: "#262239", borderRadius: '18px' }}
                           type="submit"
                         >
                           Register
@@ -240,7 +237,7 @@ const Register = props => {
                   </div>
                 </CardBody>
               </Card>
-              <div className="mt-5 text-center">
+              <div className="mt-3 text-center">
                 <p>
                   Already have an account ?{" "}
                   <Link to="/login" className="font-weight-medium text-primary">
@@ -248,7 +245,7 @@ const Register = props => {
                     Login
                   </Link>{" "}
                 </p>
-                <p>
+                <p className="mt-5">
                   © {new Date().getFullYear()} Vaultik. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Vaultik
                 </p>
