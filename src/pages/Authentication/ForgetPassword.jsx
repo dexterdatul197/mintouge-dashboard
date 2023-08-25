@@ -54,25 +54,11 @@ const ForgetPasswordPage = (props) => {
         <Container>
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={5}>
-              <Card className="overflow-hidden">
-                <div className="bg-primary bg-softbg-soft-primary">
-                  <Row>
-                    <Col xs={7}>
-                      <div className="text-primary p-4">
-                        <h5 className="text-primary">Welcome Back !</h5>
-                        <p>Sign in to continue to Vaultik.</p>
-                      </div>
-                    </Col>
-                    <Col className="col-5 align-self-end">
-                      <img src={"https://cdn.mintouge.com/brand_dashboard/profile-img.webp"} alt="" className="img-fluid" />
-                    </Col>
-                  </Row>
-                </div>
-                <CardBody className="pt-0">
-                  <div>
-                    <Link to="/">
+              <div>
+                  <Link to="/" className="auth-logo-light"> 
+                    <div className="d-flex justify-content-center align-items-baseline">
                       <div className="avatar-md profile-user-wid mb-4">
-                        <span className="avatar-title rounded-circle bg-light">
+                        <span className="avatar-title rounded-circle" style={{ background: 'var(--bs-body-bg)'}}>
                           <img
                             src={logo}
                             alt=""
@@ -81,8 +67,14 @@ const ForgetPasswordPage = (props) => {
                           />
                         </span>
                       </div>
-                    </Link>
-                  </div>
+                      <div>
+                        <h6 className="text-dark display-6">Vaultik</h6>
+                      </div>
+                    </div>
+                  </Link>
+               </div>
+              <Card className="overflow-hidden" style={{ background: "#EFEEF4", borderRadius: '12px', boxShadow: "0px 25px 50px -12px #10182840"}}>
+                <CardBody className="pt-0 my-4">
                   <div className="p-2">
                     {forgetError && forgetError ? (
                       <Alert color="danger" style={{ marginTop: "13px" }}>
@@ -104,10 +96,10 @@ const ForgetPasswordPage = (props) => {
                       }}
                     >
                       <div className="mb-3">
-                        <Label className="form-label">Email</Label>
                         <Input
                           name="email"
-                          className="form-control"
+                          className="form-control rounded text-secondary"
+                          style={{ height: '60px' }}
                           placeholder="Enter email"
                           type="email"
                           onChange={validation.handleChange}
@@ -126,9 +118,10 @@ const ForgetPasswordPage = (props) => {
                         ) : null}
                       </div>
                       <Row className="mb-3">
-                        <Col className="text-end">
+                        <Col className="text-end d-grid">
                           <button
-                            className="btn btn-primary w-md "
+                            className="btn w-md text-white"
+                            style={{ background: "#222639", height: '60px'}}
                             type="submit"
                           >
                             Reset
@@ -139,14 +132,14 @@ const ForgetPasswordPage = (props) => {
                   </div>
                 </CardBody>
               </Card>
-              <div className="mt-5 text-center">
+              <div className="mt-3 text-center">
                 <p>
                   Go back to{" "}
                   <Link to="login" className="font-weight-medium text-primary">
                     Login
                   </Link>{" "}
                 </p>
-                <p>
+                <p className="mt-5">
                   © {new Date().getFullYear()} Vaultik. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Vaultik
                 </p>
