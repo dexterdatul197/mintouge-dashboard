@@ -102,7 +102,7 @@ const Login = (props) => {
                 </Link>
               </div>
 
-              <Card className="overflow-hidden" style={{ background: "#EFEEF4", borderRadius: '12px'}}>
+              <Card className="overflow-hidden" style={{ background: "#EFEEF4", borderRadius: '12px', boxShadow: "0px 25px 50px -12px #10182840"}}>
 
                 <CardBody className="pt-0">
 
