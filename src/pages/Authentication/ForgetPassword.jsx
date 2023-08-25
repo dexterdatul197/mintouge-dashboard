@@ -120,7 +120,7 @@ const ForgetPasswordPage = (props) => {
                       <Row className="mb-3">
                         <Col className="text-end d-grid">
                           <button
-                            className="btn w-md text-white"
+                            className="btn w-md text-white rounded-4"
                             style={{ background: "#222639", height: '60px'}}
                             type="submit"
                           >
