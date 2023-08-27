@@ -135,7 +135,7 @@ const ForgetPasswordPage = (props) => {
               <div className="mt-3 text-center">
                 <p>
                   Go back to{" "}
-                  <Link to="login" className="font-weight-medium text-primary">
+                  <Link to="/login" className="font-weight-medium text-primary">
                     Login
                   </Link>{" "}
                 </p>

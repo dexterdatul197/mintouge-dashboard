@@ -89,10 +89,6 @@ export const signUp = async (userInfo) => {
  * Google Login in API.
  * Internally, /auth/google API will send redirect url as a response.
  * /auth/google => google auth redirect url => /auth/callback => user object.
- * In general, just calling /auth/google api is enough, but as we are calling this api inside iframe,
- * parent site redirection is not allowed.
- * So we will open a popup window to do this kinda redirection.
- * The backend will send a html page firing postMessage with user object.
  */
 
 export const signInGoogle = async () => {
@@ -111,10 +107,6 @@ export const signInGoogle = async () => {
  * Microsoft Login in API.
  * Internally, /auth/Microsoft API will send redirect url as a response.
  * /auth/Microsoft => Microsoft auth redirect url => /auth/callback => user object.
- * In general, just calling /auth/Microsoft api is enough, but as we are calling this api inside iframe,
- * parent site redirection is not allowed.
- * So we will open a popup window to do this kinda redirection.
- * The backend will send a html page firing postMessage with user object.
  */
 
 export const signInMicrosoft = async () => {
