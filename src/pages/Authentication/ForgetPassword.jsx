@@ -19,7 +19,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 // import images
-const logo = 'https://cdn.mintouge.com/mini-web/assets/vaultik_slogo.svg';
+const logo = 'https://cdn.mintouge.com/mini-web/assets/vaultik_logo.svg';
 
 const ForgetPasswordPage = (props) => {
   //meta title
@@ -62,13 +62,10 @@ const ForgetPasswordPage = (props) => {
                           <img
                             src={logo}
                             alt=""
-                            className="rounded-circle"
+                            className=""
                             height="34"
                           />
                         </span>
-                      </div>
-                      <div>
-                        <h6 className="text-dark display-6">Vaultik</h6>
                       </div>
                     </div>
                   </Link>

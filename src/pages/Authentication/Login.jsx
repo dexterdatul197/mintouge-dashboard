@@ -22,7 +22,8 @@ import * as AuthApi from '@/api/authApi';
 import { Storage, SetStorageObject } from '@/utils';
 import LoadingScreen from '@/components/LoadingScreen';
 
-const logo = 'https://cdn.mintouge.com/mini-web/assets/vaultik_slogo.svg';
+const logo = 'https://cdn.mintouge.com/mini-web/assets/vaultik_logo.svg';
+
 const Login = (props) => {
   //meta title
   const { setUser } = useUser();
@@ -104,17 +105,14 @@ const Login = (props) => {
                 <Link to="/" className="auth-logo-light"> 
                   <div className="d-flex justify-content-center align-items-baseline">
                     <div className="avatar-md profile-user-wid mb-4">
-                      <span className="avatar-title rounded-circle" style={{ background: 'var(--bs-body-bg)'}}>
+                      <span className="avatar-title" style={{ background: 'var(--bs-body-bg)'}}>
                         <img
                           src={logo}
                           alt=""
-                          className="rounded-circle"
+                          className=""
                           height="34"
                         />
                       </span>
-                    </div>
-                    <div>
-                      <h6 className="text-dark display-6">Vaultik</h6>
                     </div>
                   </div>
                 </Link>
@@ -199,10 +197,14 @@ const Login = (props) => {
                       <div className="mt-3 d-grid">
                         <button
                           id="google-button"
-                          className="btn btn-block text-secondary"
+                          className="d-flex align-items-center justify-content-center btn btn-block text-secondary gap-3"
                           style={{ height: '60px', background: "white", color: "black", borderRadius: '18px'}}
                           onClick={handleGoogle}
                         >
+                          <img 
+                            alt=""
+                            src="https://cdn.mintouge.com/mini-web/dev/assets/images/google.webp" 
+                          />
                           Continue With Google
                         </button>
                       </div>
@@ -210,10 +212,14 @@ const Login = (props) => {
                       <div className="mt-3 d-grid">
                         <button
                           id="microsoft-button"
-                          className="btn btn-block text-white"
+                          className="d-flex align-items-center justify-content-center btn btn-block text-white gap-3"
                           style={{ height: '60px', background: "#262239", borderRadius: '18px'}}
                           onClick={handleMicrosoft}
                         >
+                          <img 
+                            alt=""
+                            src="https://cdn.mintouge.com/mini-web/dev/assets/images/microosft.webp" 
+                          />
                           Continue With Microsoft
                         </button>
                       </div>

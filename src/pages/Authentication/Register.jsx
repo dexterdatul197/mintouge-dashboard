@@ -10,7 +10,7 @@ import * as AuthApi from '@/api/authApi';
 import { Storage, SetStorageObject } from '@/utils';
 import LoadingScreen from '@/components/LoadingScreen';
 
-const logoImg = 'https://cdn.mintouge.com/mini-web/assets/vaultik_slogo.svg';
+const logoImg = 'https://cdn.mintouge.com/mini-web/assets/vaultik_logo.svg';
 const Register = props => {
   document.title = "Register | Vaultik - Brands Dashboard";
   
@@ -90,17 +90,14 @@ const Register = props => {
                     <Link to="/">
                       <div className="d-flex justify-content-center align-items-baseline">
                         <div className="avatar-md profile-user-wid mb-4">
-                          <span className="avatar-title rounded-circle" style={{ background: 'var(--bs-body-bg)'}}>
+                          <span className="avatar-title" style={{ background: 'var(--bs-body-bg)'}}>
                             <img
                               src={logoImg}
                               alt=""
-                              className="rounded-circle"
+                              className=""
                               height="34"
                             />
                           </span>
-                        </div>
-                        <div>
-                          <h6 className="text-dark display-4">Vaultik</h6>
                         </div>
                       </div>
                     </Link>
