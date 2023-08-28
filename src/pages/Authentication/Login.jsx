@@ -200,6 +200,7 @@ const Login = (props) => {
                           className="d-flex align-items-center justify-content-center btn btn-block text-secondary gap-3"
                           style={{ height: '60px', background: "white", color: "black", borderRadius: '18px'}}
                           onClick={handleGoogle}
+                          type="button"
                         >
                           <img 
                             alt=""
