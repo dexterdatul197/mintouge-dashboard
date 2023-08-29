@@ -85,6 +85,7 @@ export const signUp = async (userInfo) => {
         throw error;
     }
 }
+
 /**
  * Google Login in API.
  * Internally, /auth/google API will send redirect url as a response.

@@ -34,8 +34,11 @@ const Login = (props) => {
 
   const showToast = useToast();
   const [isLoading, setLoading] = useState(false);
+  const [isGoogleLoading, setGoogleLoading] = useState(false);
+  const [isMSLoading, setMSLoading] = useState(false);
 
   const onLoginSuccess = (response) => {
+    setErrorMessage("");
     showToast("Log in successful.");
     SetStorageObject(Storage.OptedUser, response);
     setUser(response);
@@ -67,26 +70,32 @@ const Login = (props) => {
       } catch (err) {
         setLoading(false);
         console.log(err);
-        onLoginFailed();
+        setErrorMessage("Invalid User Name or Password");
       }
     },
   });
 
   const handleGoogle = async () => {
     try {
+      setGoogleLoading(true);
       const response = await AuthApi.signInGoogle();
+      setGoogleLoading(false);
       onLoginSuccess(response);
-    } catch (err) {
-      showToast("Login Failed", "error");
+    } catch (error) {
+      setGoogleLoading(false);
+      showToast("Login Failed: " + error, "error");
     }
   };
 
   const handleMicrosoft = async () => {
     try {
+      setMSLoading(true);
       const response = await AuthApi.signInMicrosoft();
+      setMSLoading(false);
       onLoginSuccess(response);
-    } catch (err) {
-      showToast("Login Failed", "error");
+    } catch (error) {
+      setMSLoading(false);
+      showToast("Login Failed: " + error, "error");
     }
   };
 
@@ -102,10 +111,10 @@ const Login = (props) => {
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={5}>
               <div>
-                <Link to="/" className="auth-logo-light"> 
+                <Link to="/" className="auth-logo-light">
                   <div className="d-flex justify-content-center align-items-baseline">
                     <div className="avatar-md profile-user-wid mb-4">
-                      <span className="avatar-title" style={{ background: 'var(--bs-body-bg)'}}>
+                      <span className="avatar-title" style={{ background: 'var(--bs-body-bg)' }}>
                         <img
                           src={logo}
                           alt=""
@@ -118,21 +127,20 @@ const Login = (props) => {
                 </Link>
               </div>
 
-              <Card className="overflow-hidden" style={{ background: "#EFEEF4", borderRadius: '12px', boxShadow: "0px 25px 50px -12px #10182840"}}>
+              <Card className="overflow-hidden" style={{ background: "#EFEEF4", borderRadius: '12px', boxShadow: "0px 25px 50px -12px #10182840" }}>
 
                 <CardBody className="pt-0">
 
                   <div className="px-2 py-5">
                     <Form
                       className="form-horizontal"
-                      style={{ }}
+                      style={{}}
                       onSubmit={(e) => {
                         e.preventDefault();
                         loginFormik.handleSubmit();
                         return false;
                       }}
                     >
-                      {isLoading && <LoadingScreen />}
                       {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
 
                       <div className="mb-3">
@@ -187,10 +195,14 @@ const Login = (props) => {
                         <button
                           id="login-button"
                           className="btn btn-block text-white"
-                          style={{ height: '60px', background: "#262239", borderRadius: '18px'}}
+                          style={{ height: '60px', background: "#262239", borderRadius: '18px' }}
                           type="submit"
+                          disabled={isLoading || isGoogleLoading || isMSLoading}
                         >
-                          Log In
+                          {isLoading
+                            ? <LoadingScreen styles={{}} />
+                            : "Log In"
+                          }
                         </button>
                       </div>
 
@@ -198,15 +210,23 @@ const Login = (props) => {
                         <button
                           id="google-button"
                           className="d-flex align-items-center justify-content-center btn btn-block text-secondary gap-3"
-                          style={{ height: '60px', background: "white", color: "black", borderRadius: '18px'}}
+                          style={{ height: '60px', background: "white", color: "black", borderRadius: '18px' }}
                           onClick={handleGoogle}
                           type="button"
+                          disabled={isLoading || isGoogleLoading || isMSLoading}
                         >
-                          <img 
-                            alt=""
-                            src="https://cdn.mintouge.com/mini-web/dev/assets/images/google.webp" 
-                          />
-                          Continue With Google
+                          {isGoogleLoading
+                            ? <LoadingScreen styles={{}} />
+                            : (
+                              <>
+                                <img
+                                  alt=""
+                                  src="https://cdn.mintouge.com/mini-web/dev/assets/images/google.webp"
+                                />
+                                Continue With Google
+                              </>
+                            )
+                          }
                         </button>
                       </div>
 
@@ -214,14 +234,23 @@ const Login = (props) => {
                         <button
                           id="microsoft-button"
                           className="d-flex align-items-center justify-content-center btn btn-block text-white gap-3"
-                          style={{ height: '60px', background: "#262239", borderRadius: '18px'}}
+                          style={{ height: '60px', background: "#262239", borderRadius: '18px' }}
                           onClick={handleMicrosoft}
+                          type="button"
+                          disabled={isLoading || isGoogleLoading || isMSLoading}
                         >
-                          <img 
-                            alt=""
-                            src="https://cdn.mintouge.com/mini-web/dev/assets/images/microosft.webp" 
-                          />
-                          Continue With Microsoft
+                          {isGoogleLoading
+                            ? <LoadingScreen styles={{}} />
+                            : (
+                              <>
+                                <img
+                                  alt=""
+                                  src="https://cdn.mintouge.com/mini-web/dev/assets/images/microsoft.webp"
+                                />
+                                Continue With Microsoft
+                              </>
+                            )
+                          }
                         </button>
                       </div>
 
