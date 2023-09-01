@@ -48,7 +48,7 @@ const ProfileMenu = (props) => {
           <i className="mdi mdi-chevron-down d-none d-xl-inline-block" />
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">
-          <DropdownItem tag="a" href="#">
+          {/* <DropdownItem tag="a" href="#">
             {" "}
             <i className="bx bx-user font-size-16 align-middle me-1" />
             {t("Profile")}{" "}
@@ -58,7 +58,7 @@ const ProfileMenu = (props) => {
             <i className="bx bx-wrench font-size-16 align-middle me-1" />
             {t("Settings")}
           </DropdownItem>
-          <div className="dropdown-divider" />
+          <div className="dropdown-divider" /> */}
           <Link to="/logout" className="dropdown-item">
             <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger" />
             <span>{t("Logout")}</span>
