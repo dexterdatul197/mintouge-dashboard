@@ -16,7 +16,8 @@ const Orders = Loader(lazy(() => import('@pages/Orders/index')));
 const Clients = Loader(lazy(() => import('@pages/Clients/index')));
 const Payments = Loader(lazy(() => import('@pages/Settings/Payments')));
 const EcommerceAutoImport = Loader(lazy(() => import('@pages/Settings/AutoImport')));
-const AddProduct = Loader(lazy(() => import('@pages/Products/AddProduct')));
+const Rewards = Loader(lazy(() => import('@pages/Rewards/Rewards')));
+const RewardDetail = Loader(lazy(() => import('@pages/Rewards/RsewardDetail')));
 
 // // Authentication related pages
 const Login = Loader(lazy(() => import('@pages/Authentication/Login')));
@@ -42,8 +43,11 @@ const authProtectedRoutes = [
   { path: "/orders", component: <Orders /> },
   { path: "/clients", component: <Clients /> },
   { path: "/payments", component: <Payments /> },
-  { path: "/add-product", component: <AddProduct /> },
   { path: "/auto-import", component: <EcommerceAutoImport /> },
+  { path: "/rewards", component: <Rewards /> },
+  { path: "/rewards/:id", component: <RewardDetail /> },
+  { path: "/rewards/add-reward", component: <RewardDetail /> },
+
 
   // Settings
   { path: "/setting-api", component: <ApiSetting /> },

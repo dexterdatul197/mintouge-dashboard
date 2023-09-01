@@ -58,6 +58,23 @@ export const ProductHeaders = [
   },
 ];
 
+export const RewardHeaders = [
+  {
+    id: HeaderIDs.PRODUCT_NAME,
+    title: 'Reward Name',
+  },
+  {
+    id: HeaderIDs.PRICE,
+    title: 'Value',
+  },
+  {
+    id: HeaderIDs.PRODUCT_URL,
+    title: 'Reward URL',
+    hasLink: true,
+    uri: '',
+  },
+];
+
 export const ClientHeaders = [
   {
     id: HeaderIDs.CLIENT_NAME,
