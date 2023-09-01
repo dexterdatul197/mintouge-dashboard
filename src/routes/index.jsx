@@ -17,7 +17,7 @@ const Clients = Loader(lazy(() => import('@pages/Clients/index')));
 const Payments = Loader(lazy(() => import('@pages/Settings/Payments')));
 const EcommerceAutoImport = Loader(lazy(() => import('@pages/Settings/AutoImport')));
 const Rewards = Loader(lazy(() => import('@pages/Rewards/Rewards')));
-const RewardDetail = Loader(lazy(() => import('@pages/Rewards/RsewardDetail')));
+const RewardDetail = Loader(lazy(() => import('@pages/Rewards/RewardDetail')));
 
 // // Authentication related pages
 const Login = Loader(lazy(() => import('@pages/Authentication/Login')));
