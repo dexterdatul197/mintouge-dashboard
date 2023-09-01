@@ -239,7 +239,7 @@ const Login = (props) => {
                           type="button"
                           disabled={isLoading || isGoogleLoading || isMSLoading}
                         >
-                          {isGoogleLoading
+                          {isMSLoading
                             ? <LoadingScreen styles={{}} />
                             : (
                               <>
