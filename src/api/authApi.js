@@ -90,34 +90,81 @@ export const signUp = async (userInfo) => {
  * Google Login in API.
  * Internally, /auth/google API will send redirect url as a response.
  * /auth/google => google auth redirect url => /auth/callback => user object.
+ * In general, just calling /auth/google api is enough, but as we are calling this api inside iframe,
+ * parent site redirection is not allowed.
+ * So we will open a popup window to do this kinda redirection.
+ * The backend will send a html page firing postMessage with user object.
+ * 
+ * @returns {UserModelValidator} A User object.
  */
+export const signInGoogle = () => {
+    const xcode = 'mini';
+    return new Promise((resolve, reject) => {
+        const popup = window.open(
+            `${API_ENDPOINT}/auth/google?windowId=${xcode}`, 
+            '_blank', 
+            'popup,height=800,width=600'
+        );
 
-export const signInGoogle = async () => {
-    try {
-        const user = await apiGet({
-            url: '/auth/google'
+        const checkPopupClosed = setInterval(function() {
+            if (popup.closed !== false) {
+                clearInterval(checkPopupClosed);
+                reject('User declined to login.');
+            }
+        }, 1000);
+
+        window.addEventListener('message', (event) => {
+            const data = event?.data;
+            if (data?.windowId !== xcode) {
+                return;
+            }
+
+            if (data.type === 'auth') {
+                resolve(data.user);
+            } else {
+                reject('User declined to login.');
+            }
+            popup.close();
+
         });
-        return user;
-    } catch (err) {
-        console.log('[Error] Login failed', err);
-        throw err;
-    }
+    });
 };
 
 /**
- * Microsoft Login in API.
- * Internally, /auth/Microsoft API will send redirect url as a response.
- * /auth/Microsoft => Microsoft auth redirect url => /auth/callback => user object.
+ * Apple Login in API.
+ * Same as Google Login
+ * 
+ * @returns {UserModelValidator} A User object.
  */
+export const signInApple = () => {
+    const xcode = 'mini';
+    return new Promise((resolve, reject) => {
+        const popup = window.open(
+            `${API_ENDPOINT}/auth/apple?windowId=${xcode}`, 
+            '_blank', 
+            'popup,height=800,width=600'
+        );
 
-export const signInMicrosoft = async () => {
-    try {
-        const user = await apiGet({
-            url: '/auth/microsoft'
+        const checkPopupClosed = setInterval(function() {
+            if (popup.closed !== false) {
+                clearInterval(checkPopupClosed);
+                reject('User declined to login.');
+            }
+        }, 1000);
+
+        window.addEventListener('message', (event) => {
+            const data = event?.data;
+            if (data?.windowId !== xcode) {
+                return;
+            }
+
+            if (data.type === 'auth') {
+                resolve(data.user);
+            } else {
+                reject('User declined to login.');
+            }
+            popup.close();
+
         });
-        return user;
-    } catch (err) {
-        console.log('[Error] Login failed', err);
-        throw err;
-    }
+    });
 };

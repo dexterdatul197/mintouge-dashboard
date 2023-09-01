@@ -763,13 +763,13 @@ body[data-sidebar="colored"] {
 
 body[data-sidebar="winter"] {
 .vertical-menu {
-  background-image: linear-gradient(to right, #556ee6, #34c38f);
+  background-image: linear-gradient(to right, #5E548E, #34c38f);
   background-repeat: repeat-x;
 }
 
 @media (max-width: 991.98px) {
   .navbar-brand-box {
-    background-image: linear-gradient(to right, #556ee6, #34c38f);
+    background-image: linear-gradient(to right, #5E548E, #34c38f);
     background-repeat: repeat-x;
   }
 }
@@ -777,14 +777,14 @@ body[data-sidebar="winter"] {
 &.vertical-collpsed {
   .vertical-menu {
     .navbar-brand-box {
-      background-image: linear-gradient(to right, #556ee6, #34c38f);
+      background-image: linear-gradient(to right, #5E548E, #34c38f);
       background-repeat: repeat-x;
     }
     #sidebar-menu {
       > ul {
         > li {
           &:hover > a {
-            background-image: linear-gradient(to right, #556ee6, #34c38f);
+            background-image: linear-gradient(to right, #5E548E, #34c38f);
             background-repeat: repeat-x;
           }
         }
@@ -795,7 +795,7 @@ body[data-sidebar="winter"] {
 
 &[data-sidebar-size="small"] {
   .menu-title {
-    background-image: linear-gradient(to right, #556ee6, #34c38f);
+    background-image: linear-gradient(to right, #5E548E, #34c38f);
   }
 }
 }
@@ -804,13 +804,13 @@ body[data-sidebar="winter"] {
 
 body[data-sidebar="ladylip"] {
 .vertical-menu {
-  background-image: linear-gradient(to right, #556ee6, #f46a6a);
+  background-image: linear-gradient(to right, #5E548E, #f46a6a);
   background-repeat: repeat-x;
 }
 
 @media (max-width: 991.98px) {
   .navbar-brand-box {
-    background-image: linear-gradient(to right, #556ee6, #f46a6a);
+    background-image: linear-gradient(to right, #5E548E, #f46a6a);
     background-repeat: repeat-x;
   }
 }
@@ -818,14 +818,14 @@ body[data-sidebar="ladylip"] {
 &.vertical-collpsed {
   .vertical-menu {
     .navbar-brand-box {
-      background-image: linear-gradient(to right, #556ee6, #f46a6a);
+      background-image: linear-gradient(to right, #5E548E, #f46a6a);
       background-repeat: repeat-x;
     }
     #sidebar-menu {
       > ul {
         > li {
           &:hover > a {
-            background-image: linear-gradient(to right, #556ee6, #f46a6a);
+            background-image: linear-gradient(to right, #5E548E, #f46a6a);
             background-repeat: repeat-x;
           }
         }
@@ -835,7 +835,7 @@ body[data-sidebar="ladylip"] {
 }
 &[data-sidebar-size="small"] {
   .menu-title {
-    background-image: linear-gradient(to right, #556ee6, #f46a6a);
+    background-image: linear-gradient(to right, #5E548E, #f46a6a);
   }
 }
 }
@@ -844,12 +844,12 @@ body[data-sidebar="ladylip"] {
 
 body[data-sidebar="plumplate"] {
 .vertical-menu {
-  background-image: linear-gradient(to right, #556ee6, #f1b44c);
+  background-image: linear-gradient(to right, #5E548E, #f1b44c);
   background-repeat: repeat-x;
 }
 @media (max-width: 991.98px) {
   .navbar-brand-box {
-    background-image: linear-gradient(to right, #556ee6, #f1b44c);
+    background-image: linear-gradient(to right, #5E548E, #f1b44c);
     background-repeat: repeat-x;
   }
 }
@@ -857,14 +857,14 @@ body[data-sidebar="plumplate"] {
 &.vertical-collpsed {
   .vertical-menu {
     .navbar-brand-box {
-      background-image: linear-gradient(to right, #556ee6, #f1b44c);
+      background-image: linear-gradient(to right, #5E548E, #f1b44c);
       background-repeat: repeat-x;
     }
     #sidebar-menu {
       > ul {
         > li {
           &:hover > a {
-            background-image: linear-gradient(to right, #556ee6, #f1b44c);
+            background-image: linear-gradient(to right, #5E548E, #f1b44c);
             background-repeat: repeat-x;
           }
         }
@@ -874,7 +874,7 @@ body[data-sidebar="plumplate"] {
 }
 &[data-sidebar-size="small"] {
   .menu-title {
-    background-image: linear-gradient(to right, #556ee6, #f1b44c);
+    background-image: linear-gradient(to right, #5E548E, #f1b44c);
   }
 }
 }
@@ -928,7 +928,7 @@ body[data-sidebar="greatwhale"] {
 
 @media (max-width: 991.98px) {
   .navbar-brand-box {
-    background-image: linear-gradient(to right, #556ee6, #50a5f1);
+    background-image: linear-gradient(to right, #5E548E, #50a5f1);
     background-repeat: repeat-x;
   }
 }
@@ -961,7 +961,7 @@ body[data-sidebar="greatwhale"] {
 }
 &[data-sidebar-size="small"] {
   .menu-title {
-    background-image: linear-gradient(to right, #556ee6, #50a5f1);
+    background-image: linear-gradient(to right, #5E548E, #50a5f1);
   }
 }
 }
@@ -1029,15 +1029,15 @@ height: 30px;
 background-color: $primary;
 }
 .gradient-winter {
-background-image: linear-gradient(to right, #556ee6, #34c38f);
+background-image: linear-gradient(to right, #5E548E, #34c38f);
 background-repeat: repeat-x;
 }
 .gradient-lady-lip {
-background-image: linear-gradient(to right, #556ee6, #f46a6a);
+background-image: linear-gradient(to right, #5E548E, #f46a6a);
 background-repeat: repeat-x;
 }
 .gradient-plum-plate {
-background-image: linear-gradient(to right, #556ee6, #f1b44c);
+background-image: linear-gradient(to right, #5E548E, #f1b44c);
 }
 .gradient-strong-bliss {
 background-image: linear-gradient(to right, #f46a6a, #f1b44c);
