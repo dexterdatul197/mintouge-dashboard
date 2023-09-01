@@ -55,7 +55,7 @@ const Orders = ({ title, isLast }) => {
   }, [searchQuery, ordersList]);
 
   if (isLoading) {
-    return <LoadingScreen />
+    return <LoadingScreen styles={isLast ? {} : undefined} />
   }
 
   return (

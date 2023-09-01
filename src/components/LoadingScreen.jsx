@@ -1,6 +1,6 @@
-const LoadingScreen = ({ styles = { width: "100vh" } }) => {
+const LoadingScreen = ({ styles = { height: "100vh" } }) => {
     return (
-        <div className="d-flex justify-content-center align-items-center" style={styles}>
+        <div id="loading-screen" className="d-flex justify-content-center align-items-center" style={styles}>
             <div className="spinner-border text-primary" role="status" />
         </div>
     );
