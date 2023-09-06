@@ -51,7 +51,7 @@ try {
 // Please insert the following code into index.html
 <script 
   type="text/javascript" 
-  src="https://cdn-dev.mintouge.com/js/mini-web.js" 
+  src="https://cdn.vaultik.com/js/mini-web.js" 
   id=\`\${apiPublicKey}\`>
 </script>
 `;

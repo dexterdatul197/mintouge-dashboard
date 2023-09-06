@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Storage, GetStorageObject } from '@/utils';
 
-export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT || 'https://brand.api.mintouge.com';
+export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT || 'https://brand.api.vaultik.com';
 
 const axiosApi = axios.create({
     baseURL: API_ENDPOINT

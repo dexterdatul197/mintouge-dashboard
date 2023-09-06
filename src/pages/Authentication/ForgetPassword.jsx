@@ -19,7 +19,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 // import images
-const logo = 'https://cdn.mintouge.com/mini-web/assets/vaultik_logo.svg';
+const logo = 'https://cdn.vaultik.com/mini-web/assets/vaultik_logo.svg';
 
 const ForgetPasswordPage = (props) => {
   //meta title

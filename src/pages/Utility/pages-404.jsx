@@ -32,7 +32,7 @@ const Pages404 = () => {
           <Row className="justify-content-center">
             <Col md="8" xl="6">
               <div>
-                <img src={"https://cdn.mintouge.com/brand_dashboard/error-img.webp"} alt="" className="img-fluid" />
+                <img src={"https://cdn.vaultik.com/brand_dashboard/error-img.webp"} alt="" className="img-fluid" />
               </div>
             </Col>
           </Row>

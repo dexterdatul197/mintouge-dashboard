@@ -22,7 +22,7 @@ import * as AuthApi from '@/api/authApi';
 import { Storage, SetStorageObject } from '@/utils';
 import LoadingScreen from '@/components/LoadingScreen';
 
-const logo = 'https://cdn.mintouge.com/mini-web/assets/vaultik_logo.svg';
+const logo = 'https://cdn.vaultik.com/mini-web/assets/vaultik_logo.svg';
 
 const Login = (props) => {
   //meta title
@@ -221,7 +221,7 @@ const Login = (props) => {
                               <>
                                 <img
                                   alt=""
-                                  src="https://cdn.mintouge.com/mini-web/dev/assets/images/google.webp"
+                                  src="https://cdn.vaultik.com/mini-web/dev/assets/images/google.webp"
                                 />
                                 Continue With Google
                               </>
@@ -245,7 +245,7 @@ const Login = (props) => {
                               <>
                                 <img
                                   alt=""
-                                  src="https://cdn.mintouge.com/mini-web/dev/assets/images/microsoft.webp"
+                                  src="https://cdn.vaultik.com/mini-web/dev/assets/images/microsoft.webp"
                                 />
                                 Continue With Microsoft
                               </>

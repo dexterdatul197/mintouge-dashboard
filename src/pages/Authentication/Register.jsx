@@ -10,7 +10,7 @@ import * as AuthApi from '@/api/authApi';
 import { Storage, SetStorageObject } from '@/utils';
 import LoadingScreen from '@/components/LoadingScreen';
 
-const logoImg = 'https://cdn.mintouge.com/mini-web/assets/vaultik_logo.svg';
+const logoImg = 'https://cdn.vaultik.com/mini-web/assets/vaultik_logo.svg';
 const Register = props => {
   document.title = "Register | Vaultik - Brands Dashboard";
   

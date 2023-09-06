@@ -42,7 +42,7 @@ const Table = (props) => {
                         className="avatar-sm d-block rounded me-4 object-fit-cover"
                         onError={(e) => {
                           e.onerror = null;
-                          e.target.src = "https://cdn.mintouge.com/brand_dashboard/no_image.jpeg";
+                          e.target.src = "https://cdn.vaultik.com/brand_dashboard/no_image.jpeg";
                         }}
                       />
                       <span className="table-element underline text-primary">
