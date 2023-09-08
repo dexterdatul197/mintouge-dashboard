@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useRef, useCallback } from 'react';
 
+import "simplebar/src/simplebar.css";
 /**
  * A Menu Group component, which will have menu items inside.
  * 
@@ -27,16 +28,8 @@ const MenuGroup = ({ to, hasArrow, icon, title, children }) => (
       </ul>
     }
   </li>
-)
+);
 
-const MenuItem = (props) => (
-  <li>
-    <Link to={props.to}>
-      {props.title}
-    </Link>
-  </li>
-
-)
 const SidebarContent = () => {
   const ref = useRef();
   const path = useLocation();
@@ -166,7 +159,7 @@ const SidebarContent = () => {
 
   return (
     <React.Fragment>
-      <SimpleBar className="h-100" ref={ref}>
+      <SimpleBar className="w-100" ref={ref}>
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
             <MenuGroup to="/dashboard" title={t("Dashboards")} icon="bx-home-circle" />

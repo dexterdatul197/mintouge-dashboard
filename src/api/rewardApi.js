@@ -4,50 +4,49 @@ import { Storage, GetStorageObject } from '@/utils';
 import { apiGet, apiPost, apiPut, apiDelete } from './baseApi';
 
 export const initialReward = {
-    brand: '',
-    productKey: '',
-    name: '',
-    price: 0,
+    id: 0, // Auto Increase
+    title: '',
+    category: '',
     discount: 0,
-    offerEnd: new Date(),
-    madeAt: new Date(),
-    rating: 5,
-    categoryId: 0,
-    tags: [''],
-    variation: [],
-    images: [''],
-    qrcode: '',
-    productUrl: '',
-    shortDescription: '',
-    fullDescription: ''
+    videoLink: '',
+    cta: '',
+    description: '',
+    coverImage: '',
+    rewardCode: '',
+    eventFrom: new Date(),
+    eventTo: new Date(),
+    hasExpire: false,
+    products: [], // An array of products ID
+    rewardingProducts: [] // An array of products ID
 };
 
 export const RewardModelValidator = yup.object().shape({
-    id: yup.number().required('Reward ID is missing'),
-    name: yup.string().required('Reward Name is invalid.'),
-    price: yup.number().required('Reward price is invalid'),
-    productUrl: yup.string().required('Reward URL is invalid'),
-    images: yup.array(yup.string()).required('Reward Images are not valid'),
-    fullDescription: yup.string().required('Full Description is invalid'),
-    productKey: yup.string().required('Reward ID is invalid'),
-    madeAt: yup.date().required('Reward Made Date is missing'),
-    asset3dUrl: yup.string().nullable().optional('Asset 3D URL is invalid'),
-
-    // brand: yup.string().required('Brand Name is invalid'),
-    // brandKey: yup.string().required('Brand Private Key should be string.'),
-    // discount: yup.number().nullable().optional('Reward discount is invalid'),
-    // offerEnd: yup.date().nullable().optional('Reward Offer Date is invalid'),
-    // rating: yup.number().nullable().nullable().optional('Reward Rating is invalid'),
-    // saleCount: yup.number().required('Reward Sales is invalid'),
-    // categoryId: yup.number().required('Reward Sales is invalid'),
-    // tags: yup.array(yup.string()).optional('Brand Private Key should be string.'),
-    // variation: yup.array(yup.object({
-    //     color: yup.string().required('Variation Color is invalid.'),
-    //     image: yup.string().required('Variation Color is invalid.'),
-    // })).optional('Variation format is invalid'),
-
-    // qrcode: yup.string().nullable().optional(),
-    // shortDescription: yup.string().nullable().nullable().optional('Short Description is invalid'),
+    id: yup.number()
+        .required('Reward ID is missing'),
+    category: yup.string()
+        .required('Reward Name is invalid.'),
+    discount: yup.number()
+        .required('Reward price is invalid'),
+    videoLink: yup.string()
+        .required('Reward URL is invalid'),
+    cta: yup.string()
+        .required('Reward Images are not valid'),
+    description: yup.string()
+        .required('Full Description is invalid'),
+    coverImage: yup.string()
+        .required('Reward ID is invalid'),
+    rewardCode: yup.number()
+        .required('Reward Made Date is missing'),
+    eventFrom: yup.date()
+        .optional('Asset 3D URL is invalid'),
+    eventTo: yup.date()
+        .optional('Asset 3D URL is invalid'),
+    hasExpire: yup.string()
+        .optional('Asset 3D URL is invalid'),
+    products: yup.array(yup.number())
+        .required('Product Images are not valid'),
+    rewardingProducts: yup.array(yup.number())
+        .required('Product Images are not valid'),
 });
 
 /**
@@ -92,7 +91,7 @@ export const getRewards = async (page = 0, size = 15, apiKey) => {
             queryParams: { page, size, pubKey },
         });
 
-        await productValidate(response.data);
+        // await productValidate(response.data);
 
         return response;
     } catch (error) {
@@ -132,7 +131,7 @@ export const getRewardDetail = async (productId) => {
  */
 export const addReward = async (product) => {
     try {
-        product = { 
+        product = {
             ...initialReward,
             productKey: String(Date.now()),
             ...product,
@@ -159,7 +158,7 @@ export const addReward = async (product) => {
  */
 export const updateReward = async (product) => {
     try {
-        product = { 
+        product = {
             ...initialReward,
             ...product,
         };

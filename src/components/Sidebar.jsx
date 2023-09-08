@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 //i18n
-import { useTranslation } from 'react-i18next';
 import SidebarContent from './SidebarContent';
 
 import { Link } from 'react-router-dom';
@@ -35,11 +34,23 @@ const Sidebar = (props) => {
           </Link>
         </div>
 
-        <div data-simplebar className="h-100">
+        <div className="d-flex h-100 flex-column justify-content-between align-items-center">
           <SidebarContent />
+
+          <Link
+            style={{
+              borderRadius: "5px",
+              padding: "10px 20px",
+              marginBottom: "20px",
+              color: "var(--bs-white)",
+              backgroundColor: "var(--bs-primary)",
+            }}
+            to="mailto:support@vaultik.com" target="_blank"
+          >
+            Contact Us
+          </Link>
         </div>
 
-        <div className="sidebar-background"></div>
       </div>
     </React.Fragment>
   );
