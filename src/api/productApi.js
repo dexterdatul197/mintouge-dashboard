@@ -5,7 +5,7 @@ import { apiGet, apiPost, apiPut, apiDelete } from './baseApi';
 
 export const initialProduct = {
     brand: '',
-    productKey: '',
+    productKey: String(Date.now()),
     name: '',
     price: 0,
     discount: 0,
@@ -23,15 +23,24 @@ export const initialProduct = {
 };
 
 export const ProductModelValidator = yup.object().shape({
-    id: yup.number().required('Product ID is missing'),
-    name: yup.string().required('Product Name is invalid.'),
-    price: yup.number().required('Product price is invalid'),
-    productUrl: yup.string().required('Product URL is invalid'),
-    images: yup.array(yup.string()).required('Product Images are not valid'),
-    fullDescription: yup.string().required('Full Description is invalid'),
-    productKey: yup.string().required('Product ID is invalid'),
-    madeAt: yup.date().required('Product Made Date is missing'),
-    asset3dUrl: yup.string().nullable().optional('Asset 3D URL is invalid'),
+    id: yup.number()
+        .required('Product ID is missing'),
+    name: yup.string()
+        .required('Product Name is invalid.'),
+    price: yup.number()
+        .required('Product price is invalid'),
+    productUrl: yup.string()
+        .required('Product URL is invalid'),
+    images: yup.array(yup.string())
+        .required('Product Images are not valid'),
+    fullDescription: yup.string().
+        required('Full Description is invalid'),
+    productKey: yup.string()
+        .required('Product Key is invalid'),
+    madeAt: yup.date()
+        .required('Product Made Date is missing'),
+    asset3dUrl: yup.string().nullable()
+        .optional('Asset 3D URL is invalid'),
 
     // brand: yup.string().required('Brand Name is invalid'),
     // brandKey: yup.string().required('Brand Private Key should be string.'),
@@ -132,9 +141,8 @@ export const getProductDetail = async (productId) => {
  */
 export const addProduct = async (product) => {
     try {
-        product = { 
+        product = {
             ...initialProduct,
-            productKey: String(Date.now()),
             ...product,
         };
         const newProduct = await apiPost({
@@ -159,7 +167,7 @@ export const addProduct = async (product) => {
  */
 export const updateProduct = async (product) => {
     try {
-        product = { 
+        product = {
             ...initialProduct,
             ...product,
         };

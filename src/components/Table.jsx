@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { Input } from 'reactstrap';
 import { HeaderIDs } from '@/utils/constants';
 
 const Table = (props) => {
-  const { data, headers } = props;
+  const { data, headers, updateData } = props;
   const navigate = useNavigate();
 
   return (
@@ -48,6 +48,41 @@ const Table = (props) => {
                       <span className="table-element underline text-primary">
                         {row.name}
                       </span>
+                    </td>
+                  )
+                }
+                case HeaderIDs.REWARD_NAME: {
+                  return (
+                    <td
+                      key={header.id}
+                      className="d-flex cursor-pointer"
+                      onClick={() => navigate(`/rewards/${row.productId || row.id}`)}
+                    >
+                      <img
+                        src={row.coverImage}
+                        loading="lazy"
+                        height="50px"
+                        alt="Product Image"
+                        className="avatar-sm d-block rounded me-4 object-fit-cover"
+                        onError={(e) => {
+                          e.onerror = null;
+                          e.target.src = "https://cdn.vaultik.com/brand_dashboard/no_image.jpeg";
+                        }}
+                      />
+                      <span className="table-element underline text-primary">
+                        {row.title}
+                      </span>
+                    </td>
+                  )
+                }
+                case HeaderIDs.PRODUCT_SELECTED: {
+                  return (
+                    <td key={header.id}>
+                      <Input
+                        type="checkbox"
+                        value={row[header.id]}
+                        className="form-check-input"
+                      />
                     </td>
                   )
                 }

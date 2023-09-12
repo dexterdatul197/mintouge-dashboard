@@ -4,11 +4,13 @@ export const Storage = {
 
 export const HeaderIDs = {
   PRODUCT_NAME: 'productName',
+  REWARD_NAME: 'title',
   DPP: 'dpp',
   PRICE: 'price',
   USER: 'user',
   INSURANCE: 'insurance',
   PRODUCT_URL: 'productUrl',
+  PRODUCT_SELECTED: 'isSelected',
 
   CLIENT_NAME: 'name',
   CLIENT_EMAIL: 'email',
@@ -60,15 +62,15 @@ export const ProductHeaders = [
 
 export const RewardHeaders = [
   {
-    id: HeaderIDs.PRODUCT_NAME,
+    id: HeaderIDs.REWARD_NAME,
     title: 'Reward Name',
   },
   {
-    id: HeaderIDs.PRICE,
-    title: 'Value',
+    id: 'category',
+    title: 'Category',
   },
   {
-    id: HeaderIDs.PRODUCT_URL,
+    id: "cta",
     title: 'Reward URL',
     hasLink: true,
     uri: '',

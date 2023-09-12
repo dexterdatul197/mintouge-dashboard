@@ -47,7 +47,7 @@ const Sidebar = (props) => {
             }}
             to="mailto:support@vaultik.com" target="_blank"
           >
-            Contact Us
+            Support
           </Link>
         </div>
 

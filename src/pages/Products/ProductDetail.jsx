@@ -17,36 +17,7 @@ import useToast from '@/utils/useToast';
 import Pages404 from '@pages/Utility/pages-404';
 import ImageSlider from '@/components/ImageSlider';
 import LoadingScreen from '@/components/LoadingScreen';
-
-const InputItem = ({ name, label, isMultiline, formik, rows }) => {
-    return (
-        <div>
-            <Label htmlFor={name}>{label}</Label>
-            <Input
-                id={name}
-                name={name}
-                type={isMultiline ? "textarea" : "text"}
-                className="form-control"
-                placeholder={label}
-                rows={rows || 1}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values[name] || ""}
-                invalid={
-                    formik.touched[name] && formik.errors[name]
-                        ? true
-                        : false
-                }
-            />
-
-            {formik.touched[name] && formik.errors[name] ? (
-                <FormFeedback type="invalid">
-                    {formik.errors[name]}
-                </FormFeedback>
-            ) : null}
-        </div>
-    )
-};
+import InputItem from '@/components/InputItem';
 
 const ProductDetail = (props) => {
     //meta title
@@ -64,7 +35,7 @@ const ProductDetail = (props) => {
     const [isInvalid, setInvalid] = useState(id === "undefined" || id === "null");
 
     useEffect(() => {
-        const fetchProducts = async () => {
+        const fetchProduct = async () => {
             setLoading(true);
             try {
                 const _product = await ProductApi.getProductDetail(id);
@@ -78,13 +49,14 @@ const ProductDetail = (props) => {
             }
         }
 
-        !(isInvalid || isAdding) && fetchProducts();
+        !(isInvalid || isAdding) && fetchProduct();
     }, []);
 
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
             id: Number(product?.id) || 0,
+            productKey: product?.productKey || "",
             name: product?.name || "",
             productUrl: product?.productUrl || 0,
             price: product?.price || "",
@@ -93,12 +65,20 @@ const ProductDetail = (props) => {
             asset3dUrl: product?.asset3dUrl || "",
         },
         validationSchema: yup.object({
-            name: yup.string().required("Please Enter Product Name"),
-            productUrl: yup.string().required("Please Enter Product Key"),
-            images: yup.array().min(1).required('Please Add Product Images'),
-            fullDescription: yup.string().required('Please provide description'),
-            asset3dUrl: yup.string().optional('Please provide description'),
-            price: yup.number().min(0).required('Price should be greater than 0'),
+            name: yup.string()
+                .required("Please Enter Product Name"),
+            productKey: yup.string()
+                .required("Please Enter Product Key"),
+            productUrl: yup.string()
+                .required("Please Enter Product URL"),
+            images: yup.array().min(1)
+                .required('Please Add Product Images'),
+            fullDescription: yup.string()
+                .required('Please provide description'),
+            asset3dUrl: yup.string()
+                .optional('Please provide description'),
+            price: yup.number().min(0)
+                .required('Price should be greater than 0'),
         }),
         onSubmit: async (values) => {
             handleSave(values);
@@ -225,7 +205,8 @@ const ProductDetail = (props) => {
                     >
                         <ImageSlider images={formik.values.images || []} onRemove={handleRemoveImage} />
                         <InputItem name="name" label="Product Name" formik={formik} />
-                        <InputItem name="fullDescription" label="Product Description" formik={formik} isMultiline={"true"} rows={7} />
+                        <InputItem name="productKey" label="Product Key of Brands" formik={formik} divider={true} horizontal={true} />
+                        <InputItem name="fullDescription" label="Product Description" formik={formik} type="textarea" rows={7} />
                         <InputItem name="productUrl" label="Product URL" formik={formik} divider={true} horizontal={true} />
                         <InputItem name="price" label="Price" formik={formik} divider={true} horizontal={true} />
                         <InputItem name="asset3dUrl" label="3D Asset" formik={formik} divider={true} horizontal={true} />
@@ -234,13 +215,6 @@ const ProductDetail = (props) => {
                                 Delete
                             </Button>
                             <div className="d-flex gap-2">
-                                {/* <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    onClick={handleMint}
-                                >
-                                    Mint
-                                </button> */}
                                 <Button type="submit" color="primary" className="btn ">
                                     {isAdding ? "Add" : "Save"}
                                 </Button>

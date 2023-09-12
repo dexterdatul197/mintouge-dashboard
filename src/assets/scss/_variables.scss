@@ -87,7 +87,7 @@ $gray-200: #eff2f7;
 $gray-300: #f6f6f6;
 $gray-400: #ced4da;
 $gray-500: #adb5bd;
-$gray-600: #9F86C0;
+$gray-600: #74788d;
 $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #212529;
@@ -1373,9 +1373,9 @@ $accordion-button-active-icon:            url("data:image/svg+xml,<svg xmlns='ht
 
 // scss-docs-start tooltip-variables
 $tooltip-font-size:                 $font-size-sm;
-$tooltip-max-width:                 200px;
+$tooltip-max-width:                 400px;
 $tooltip-color:                     $white;
-$tooltip-bg:                        $black;
+$tooltip-bg:                        $gray-600;
 $tooltip-border-radius:             $border-radius;
 $tooltip-opacity:                   .9;
 $tooltip-padding-y:                 .4rem;

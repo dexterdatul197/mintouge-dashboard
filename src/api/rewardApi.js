@@ -3,6 +3,9 @@ import * as yup from 'yup';
 import { Storage, GetStorageObject } from '@/utils';
 import { apiGet, apiPost, apiPut, apiDelete } from './baseApi';
 
+let testRewards = [];
+const MOCK_REWARD = true;
+
 export const initialReward = {
     id: 0, // Auto Increase
     title: '',
@@ -13,55 +16,55 @@ export const initialReward = {
     description: '',
     coverImage: '',
     rewardCode: '',
-    eventFrom: new Date(),
-    eventTo: new Date(),
+    eventFrom: new Date().toISOString().split('T')[0],
+    eventTo: new Date().toISOString().split('T')[0],
     hasExpire: false,
-    products: [], // An array of products ID
-    rewardingProducts: [] // An array of products ID
+    triggerProducts: [], // An array of trigger products ID
+    applyToProducts: [] // An array of apply to products ID
 };
 
 export const RewardModelValidator = yup.object().shape({
     id: yup.number()
         .required('Reward ID is missing'),
     category: yup.string()
-        .required('Reward Name is invalid.'),
+        .required('Reward Title is invalid.'),
     discount: yup.number()
-        .required('Reward price is invalid'),
+        .required('Reward Discount is invalid'),
     videoLink: yup.string()
-        .required('Reward URL is invalid'),
+        .required('Reward Video Link is invalid'),
     cta: yup.string()
-        .required('Reward Images are not valid'),
+        .required('Reward External Link is invalid'),
     description: yup.string()
         .required('Full Description is invalid'),
     coverImage: yup.string()
-        .required('Reward ID is invalid'),
-    rewardCode: yup.number()
-        .required('Reward Made Date is missing'),
+        .required('Reward Cover Image is invalid'),
+    rewardCode: yup.string()
+        .required('Reward Unique Code is missing'),
     eventFrom: yup.date()
-        .optional('Asset 3D URL is invalid'),
+        .optional('Reward Event Start Date is invalid'),
     eventTo: yup.date()
-        .optional('Asset 3D URL is invalid'),
-    hasExpire: yup.string()
-        .optional('Asset 3D URL is invalid'),
-    products: yup.array(yup.number())
-        .required('Product Images are not valid'),
-    rewardingProducts: yup.array(yup.number())
-        .required('Product Images are not valid'),
+        .optional('Reward Event Start Date is invalid'),
+    hasExpire: yup.boolean()
+        .optional('Reward Expiration Flag is invalid'),
+    triggerProducts: yup.array(yup.number())
+        .required('Reward Products are not valid'),
+        applyToProducts: yup.array(yup.number())
+        .required('Rewarding Products are not valid'),
 });
 
 /**
- * This function validates the product response coming from backend.
+ * This function validates the reward response coming from backend.
  * 
- * @param {RewardModelValidator} product An product object or an array of products
+ * @param {RewardModelValidator} reward An reward object or an array of rewards
  */
-const productValidate = async (products) => {
+const rewardValidate = async (rewards) => {
     try {
-        if (Array.isArray(products)) {
-            for (let product of products) {
-                await RewardModelValidator.validate(product);
+        if (Array.isArray(rewards)) {
+            for (let reward of rewards) {
+                await RewardModelValidator.validate(reward);
             }
         } else {
-            await RewardModelValidator.validate(products);
+            await RewardModelValidator.validate(rewards);
         }
     } catch (validationError) {
         console.error(validationError);
@@ -70,28 +73,34 @@ const productValidate = async (products) => {
 }
 
 /**
- * Get paginationized products from backend.
+ * Get paginationized rewards from backend.
  * 
- * There are 2 ways of getting products from backend.
+ * There are 2 ways of getting rewards from backend.
  * One is to use access_token given when logged in.
  * Another one is to use API_PRIVATE_KEY as a token.
  * As we send access_token by default in baseApi, we follow first one.
  * 
  * @param {number} page Page Number starting from 0
  * @param {number} pageSize Page Size. default is 15.
- * @returns An array of products
+ * @returns An array of rewards
  */
-export const getRewards = async (page = 0, size = 15, apiKey) => {
+export const getRewards = async (page = 0, size = 15) => {
     const optedUser = GetStorageObject(Storage.OptedUser);
     const pubKey = optedUser ? optedUser.apiPublicKey : '';
 
     try {
+        if (MOCK_REWARD) {
+            return {
+                data: testRewards
+            };
+        }
+
         const response = await apiGet({
-            url: '/product',
+            url: '/reward',
             queryParams: { page, size, pubKey },
         });
 
-        // await productValidate(response.data);
+        // await rewardValidate(response.data);
 
         return response;
     } catch (error) {
@@ -101,22 +110,30 @@ export const getRewards = async (page = 0, size = 15, apiKey) => {
 };
 
 /**
- * Get a specific product based on product id.
+ * Get a specific reward based on reward id.
  * 
  * if return value is undefined, it will show 404 Not Found Page.
  * 
- * @param {number} productId ID of the selected product
+ * @param {number} rewardId ID of the selected reward
  * @returns An object to describe details
  */
-export const getRewardDetail = async (productId) => {
+export const getRewardDetail = async (rewardId) => {
     try {
-        const product = await apiGet({
-            url: `/product/${productId}`,
+        if (MOCK_REWARD) {
+            console.log(testRewards)
+            const _rewards = testRewards.filter(_reward => _reward.id === rewardId);
+            if (_rewards.length > 0) return _rewards[0];
+
+            throw "Invalid rewardId";
+        }
+
+        const reward = await apiGet({
+            url: `/reward/${rewardId}`,
         });
 
-        await productValidate(product);
+        await rewardValidate(reward);
 
-        return product;
+        return reward;
     } catch (error) {
         console.error('[Error] getReward Failed.', error);
         throw error;
@@ -124,24 +141,29 @@ export const getRewardDetail = async (productId) => {
 }
 
 /**
- * Add a product to backend database and return the added on.
+ * Add a reward to backend database and return the added on.
  * 
- * @param {RewardModel} product A product object
+ * @param {RewardModel} reward A reward object
  * @returns An added object. Undefined if failed.
  */
-export const addReward = async (product) => {
+export const addReward = async (reward) => {
     try {
-        product = {
+        reward = {
             ...initialReward,
-            productKey: String(Date.now()),
-            ...product,
+            ...reward,
+            id: String(Date.now()),
         };
+        if (MOCK_REWARD) {
+            testRewards.push(reward);
+            return reward;
+        }
+
         const newReward = await apiPost({
-            url: '/product',
-            bodyParam: product,
+            url: '/reward',
+            bodyParam: reward,
         });
 
-        await productValidate(newReward);
+        await rewardValidate(newReward);
 
         return newReward;
     } catch (error) {
@@ -151,20 +173,28 @@ export const addReward = async (product) => {
 }
 
 /**
- * Updated a product to backend database and return the updated on.
+ * Updated a reward to backend database and return the updated on.
  * 
- * @param {RewardModel} product A product object
+ * @param {RewardModel} reward A reward object
  * @returns An updated object. Undefined if failed.
  */
-export const updateReward = async (product) => {
+export const updateReward = async (reward) => {
     try {
-        product = {
+        reward = {
             ...initialReward,
-            ...product,
+            ...reward,
         };
+        if (MOCK_REWARD) {
+            testRewards = testRewards.map(_reward => (
+                _reward.id === reward.id ? reward : _reward
+            ));
+
+            return reward;
+        }
+        
         const updatedReward = await apiPut({
-            url: `/product/${product.id}`,
-            bodyParam: product,
+            url: `/reward/${reward.id}`,
+            bodyParam: reward,
         });
 
         return updatedReward;
@@ -175,14 +205,19 @@ export const updateReward = async (product) => {
 }
 
 /**
- * Delete a product from backend database and return the deleted on.
+ * Delete a reward from backend database and return the deleted on.
  * 
- * @param {id} productId A product id
+ * @param {id} rewardId A reward id
  */
-export const deleteReward = async (productId) => {
+export const deleteReward = async (rewardId) => {
     try {
+        if (MOCK_REWARD) {
+            testRewards = testRewards.filter(_reward => _reward.id !== rewardId);
+            return;
+        }
+
         await apiDelete({
-            url: `/product/${productId}`,
+            url: `/reward/${rewardId}`,
         });
     } catch (error) {
         console.error('[Error] Delete Reward Failed.', error);

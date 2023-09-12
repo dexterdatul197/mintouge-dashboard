@@ -3,52 +3,237 @@ import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import {
-    Button,
-    Label,
-    Input,
-    Container,
+    Card,
     Form,
+    Label,
     Modal,
-    FormFeedback,
+    Input,
+    Button,
+    Container,
+    UncontrolledTooltip,
 } from 'reactstrap';
+import Switch from 'react-switch';
 
-import { RewardApi, OrderApi } from '@/api';
+import { RewardApi } from '@/api';
+import { useProductsApi } from '@/store/productStore';
 import useToast from '@/utils/useToast';
 import Pages404 from '@pages/Utility/pages-404';
-import ImageSlider from '@/components/ImageSlider';
+import InputItem from '@/components/InputItem';
 import LoadingScreen from '@/components/LoadingScreen';
+import DeletableChip from '@/components/DeletableChip';
 
-const InputItem = ({ name, label, isMultiline, formik, rows }) => {
+const ExpireItem = (props) => {
+    const { formik } = props;
+
     return (
-        <div>
-            <Label htmlFor={name}>{label}</Label>
-            <Input
-                id={name}
-                name={name}
-                type={isMultiline ? "textarea" : "text"}
-                className="form-control"
-                placeholder={label}
-                rows={rows || 1}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values[name] || ""}
-                invalid={
-                    formik.touched[name] && formik.errors[name]
-                        ? true
-                        : false
-                }
-            />
-
-            {formik.touched[name] && formik.errors[name] ? (
-                <FormFeedback type="invalid">
-                    {formik.errors[name]}
-                </FormFeedback>
-            ) : null}
+        <div className="d-flex flex-row align-items-center gap-3">
+            <Label style={{ minWidth: "120px" }} >Expiration</Label>
+            <div className="d-flex flex-column gap-3">
+                <span className="d-flex flow-row align-items-center gap-1">
+                    <InputItem name="eventFrom" type="date" formik={formik} disabled={!formik.values["hasExpire"]} />
+                    -
+                    <InputItem name="eventTo" type="date" formik={formik} disabled={!formik.values["hasExpire"]} />
+                </span>
+                <span className="d-flex flow-row align-items-center gap-1">
+                    <Switch
+                        uncheckedIcon={<div
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                height: "100%",
+                                fontSize: 12,
+                                color: "#fff",
+                                paddingRight: 2,
+                            }}
+                        >
+                            {" "}
+                            No
+                        </div>}
+                        checkedIcon={<div
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                height: "100%",
+                                fontSize: 12,
+                                color: "#fff",
+                                paddingRight: 2,
+                            }}
+                        >
+                            {" "}
+                            Yes
+                        </div>}
+                        onColor="#626ed4"
+                        onChange={() => {
+                            formik.setFieldValue("hasExpire", !formik.values["hasExpire"]);
+                        }}
+                        checked={formik.values["hasExpire"]}
+                    />
+                    <span>{`This reward has ${formik.values["hasExpire"] ? "" : "no"} expiration`}</span>
+                </span>
+            </div>
         </div>
     )
 };
 
-const RewardDetail = (props) => {
+const ProductItem = (props) => {
+    const { name, label, tooltip, formik } = props;
+    const [selectedProducts, selectProducts] = useState(formik.values[name] || []);
+    const [openProductModal, showProductModal] = useState(false);
+    const { fetchProducts, products } = useProductsApi();
+
+    useEffect(() => {
+        !products.length && fetchProducts();
+    }, []);
+
+    const handleAdd = async (event) => {
+        event.preventDefault();
+        showProductModal(true);
+    }
+
+    const handleCancel = () => {
+        selectProducts(() => formik.values[name] || []);
+        showProductModal(false);
+    };
+
+    const handleConfirm = () => {
+        formik.setFieldValue(name, selectedProducts);
+        showProductModal(false);
+    }
+
+    const getProductName = (productId) => {
+        const _products = products.filter(_product => _product.id === productId);
+        if (_products.length > 0) {
+            return _products[0]?.name;
+        }
+
+        return null;
+    }
+
+    const handleDeleteChip = (productId) => {
+        const _selectedProducts = selectedProducts.filter(_productId => _productId !== productId);
+        formik.setFieldValue(name, _selectedProducts);
+        selectProducts(_selectedProducts);
+    }
+
+    return (
+        <>
+            <div className="d-flex flex-row align-items-center gap-3">
+                <Label id="label" style={{ minWidth: "120px" }} htmlFor={name}>{label}</Label>
+                <Card
+                    id={name}
+                    outline
+                    color="primary"
+                    className="border w-100 p-2 d-flex flex-row flex-wrap gap-1 mb-0"
+                    onClick={handleAdd}
+                    style={{ minHeight: "50px" }}
+                >
+                    {products.length > 0 && Array.isArray(selectedProducts) && selectedProducts.map(_productId => (
+                        <DeletableChip
+                            key={_productId}
+                            label={getProductName(_productId)}
+                            onDelete={(event) => { event.stopPropagation(); handleDeleteChip(_productId); }}
+                        />
+                    ))}
+                </Card>
+                <UncontrolledTooltip
+                    placement="top"
+                    target={name}
+                    className="w-100"
+                >
+                    {tooltip}
+                    You can choose to match the reward to a specific product.
+                    Leaving the field blank will make the reward available on all products.
+                </UncontrolledTooltip>
+            </div >
+
+            <Modal
+                className="modal-dialog-centered"
+                isOpen={openProductModal}
+                toggle={() => showProductModal(false)}
+            >
+                <div className="modal-header">
+                    Select Products
+                </div>
+                <div className="modal-body">
+                    <table className="table align-middle table-nowrap mb-0">
+                        <thead>
+                            <tr style={{ borderColor: "lightgray" }}>
+                                <th scope="col">
+                                    Product
+                                </th>
+                                <th scope="col">
+                                    Active
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {products.map((row, index) => (
+                                <tr
+                                    key={row.id}
+                                    style={(index > products.length - 2) ? {} : { borderColor: "lightgray" }}
+                                >
+                                    <td className="d-flex">
+                                        <img
+                                            src={row.images[0]}
+                                            loading="lazy"
+                                            height="50px"
+                                            alt="Product Image"
+                                            className="avatar-sm d-block rounded me-4 object-fit-cover"
+                                            onError={(e) => {
+                                                e.onerror = null;
+                                                e.target.src = "https://cdn.vaultik.com/brand_dashboard/no_image.jpeg";
+                                            }}
+                                        />
+                                        <span className="table-element underline text-primary">
+                                            {row.name}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <Input
+                                            type="checkbox"
+                                            checked={selectedProducts.includes(row.id)}
+                                            className="form-check-input"
+                                            onChange={() => {
+                                                if (!selectedProducts.includes(row.id)) {
+                                                    selectProducts([...selectedProducts, row.id]);
+                                                } else {
+                                                    selectProducts(selectedProducts.filter(_productId => _productId !== row.id));
+                                                }
+                                            }}
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                <div className="modal-footer">
+                    <button
+                        type="button"
+                        onClick={handleCancel}
+                        className="btn btn-secondary "
+                        data-dismiss="modal"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={handleConfirm}
+                    >
+                        OK
+                    </button>
+                </div>
+            </Modal>
+        </>
+    )
+};
+
+const RewardDetail = () => {
+
     //meta title
     document.title = 'Reward Details | Vaultik - Brands Dashboard';
 
@@ -56,19 +241,17 @@ const RewardDetail = (props) => {
     const location = useLocation();
     const navigate = useNavigate();
     const showToast = useToast();
-    const [product, setReward] = useState({});
+    const [reward, setReward] = useState({});
     const [isLoading, setLoading] = useState(false);
-    const [newImage, setNewImage] = useState("");
-    const [openImageModal, showImageModal] = useState(false);
-    const isAdding = location.pathname.endsWith("add-product");
+    const isAdding = location.pathname.endsWith("add-reward");
     const [isInvalid, setInvalid] = useState(id === "undefined" || id === "null");
 
     useEffect(() => {
         const fetchRewards = async () => {
             setLoading(true);
             try {
-                const _product = await RewardApi.getRewardDetail(id);
-                setReward(_product);
+                const _reward = await RewardApi.getRewardDetail(id);
+                setReward(_reward);
                 formik.handleReset();
                 setLoading(false);
             } catch (error) {
@@ -84,21 +267,46 @@ const RewardDetail = (props) => {
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            id: Number(product?.id) || 0,
-            name: product?.name || "",
-            productUrl: product?.productUrl || 0,
-            price: product?.price || "",
-            images: product?.images || [],
-            fullDescription: product?.fullDescription || "",
-            asset3dUrl: product?.asset3dUrl || "",
+            id: Number(reward?.id) || 0,
+            title: reward?.title || "",
+            category: reward?.category || "",
+            discount: reward?.discount || 0,
+            videoLink: reward?.videoLink || "",
+            cta: reward?.cta || "",
+            description: reward?.description || "",
+            coverImage: reward?.coverImage || "",
+            rewardCode: reward?.rewardCode || "",
+            eventFrom: reward?.eventFrom || new Date().toISOString().split('T')[0],
+            eventTo: reward?.eventTo || new Date().toISOString().split('T')[0],
+            hasExpire: reward?.hasExpire || false,
+            triggerProducts: reward?.triggerProducts || [],
+            applyToProducts: reward?.applyToProducts || [],
         },
         validationSchema: yup.object({
-            name: yup.string().required("Please Enter Reward Name"),
-            productUrl: yup.string().required("Please Enter Reward Key"),
-            images: yup.array().min(1).required('Please Add Reward Images'),
-            fullDescription: yup.string().required('Please provide description'),
-            asset3dUrl: yup.string().optional('Please provide description'),
-            price: yup.number().min(0).required('Price should be greater than 0'),
+            title: yup.string()
+                .required('Please type Title.'),
+            category: yup.string()
+                .required('Please select Category.'),
+            discount: yup.number()
+                .required('Please type Discount.'),
+            videoLink: yup.string()
+                .optional('Reward URL is invalid'),
+            cta: yup.string()
+                .optional('Reward Images are not valid.'),
+            description: yup.string()
+                .required('Please type Description.'),
+            coverImage: yup.string()
+                .required('Please upload Cover Image.'),
+            eventFrom: yup.date()
+                .optional('Asset 3D URL is invalid'),
+            eventTo: yup.date()
+                .optional('Asset 3D URL is invalid'),
+            hasExpire: yup.boolean()
+                .required('Expiration flag should be set'),
+            triggerProducts: yup.array(yup.number())
+                .required('Products should not be null'),
+            applyToProducts: yup.array(yup.number())
+                .required('Rewarding Products should not be null'),
         }),
         onSubmit: async (values) => {
             handleSave(values);
@@ -114,12 +322,13 @@ const RewardDetail = (props) => {
     }
 
     const handleSave = async (values) => {
+        console.log("###:", values);
         try {
             if (isAdding) {
                 await RewardApi.addReward(values);
                 showToast("Reward was successfully added");
 
-                navigate("/products");
+                navigate("/rewards");
             } else {
                 await RewardApi.updateReward(values);
                 showToast("Reward was successfully updated.");
@@ -134,67 +343,19 @@ const RewardDetail = (props) => {
             await RewardApi.deleteReward(id);
             showToast("Reward was successfully deleted");
 
-            navigate("/products");
+            navigate("/rewards");
         } catch (error) {
             showToast(error.toString(), "error");
         }
     };
 
-    const handleAddImage = () => {
-        formik.setFieldValue(
-            "images",
-            [...formik.values.images, newImage]
-        );
-        showImageModal(false);
-    }
-
-    const handleRemoveImage = (removeIndex) => {
-        formik.setFieldValue(
-            "images",
-            formik.values.images.filter((_value, index) => index != removeIndex)
-        );
+    const onFileUpload = (selectedFile) => {
+        formik.setFieldValue("coverImage", selectedFile);
     };
 
     const handleCancel = () => {
-        navigate("/products");
+        navigate("/rewards");
     };
-
-    const handleMint = async () => {
-        let fee = 0;
-        try {
-            const _fee = await OrderApi.getOrderFee(product.productKey);
-            fee = _fee.feeInUsd + _fee.insuranceFeeInUsd + _fee.commissionFeeInUsd;
-
-            showToast("Fee was successfully fetched");
-        } catch (error) {
-            showToast("Get Fee failed: " + error.toString(), "error");
-            return;
-        };
-
-        try {
-            const dpp = String(Date.now());
-            const order = {
-                productInfo: product,
-                consumerInfo: {
-                    "email": "takao@vaultik.com",
-                    "phone": "+0 000-000-0000",
-                    "firstName": "Takao",
-                    "lastName": "Kato"
-                },
-                amount: Math.round(fee * 100),
-                chain: "goerli",
-                dpp: dpp,
-                redeemCode: dpp,
-            };
-
-            await OrderApi.addOrder(order);
-
-            showToast("Order was successfully");
-        } catch (error) {
-            showToast(error.toString(), "error");
-            return;
-        }
-    }
 
     if (!isAdding && isInvalid) {
         return <Pages404 />
@@ -208,11 +369,8 @@ const RewardDetail = (props) => {
                 <Container fluid>
                     <div className="page-title-container mb-4">
                         <div className="me-2">
-                            <h3 className="">{isAdding ? "Add a Reward" : "Reward Detail"}</h3>
+                            <h3 className="">{isAdding ? "Create a new Reward" : "Reward Detail"}</h3>
                         </div>
-                        <Button color="primary" onClick={() => showImageModal(true)}>
-                            Add Image
-                        </Button>
                     </div>
                     <Form
                         className="d-flex flex-column gap-4 mb-3"
@@ -223,24 +381,28 @@ const RewardDetail = (props) => {
                             return false;
                         }}
                     >
-                        <ImageSlider images={formik.values.images || []} onRemove={handleRemoveImage} />
-                        <InputItem name="name" label="Reward Name" formik={formik} />
-                        <InputItem name="fullDescription" label="Reward Description" formik={formik} isMultiline={"true"} rows={7} />
-                        <InputItem name="productUrl" label="Reward URL" formik={formik} divider={true} horizontal={true} />
-                        <InputItem name="price" label="Price" formik={formik} divider={true} horizontal={true} />
-                        <InputItem name="asset3dUrl" label="3D Asset" formik={formik} divider={true} horizontal={true} />
+                        <InputItem id="title" name="title" label="Title" formik={formik} />
+                        <InputItem name="category" label="Category" formik={formik} type="select" >
+                            <option></option>
+                            <option>Discount</option>
+                            <option>Presale</option>
+                            <option>Event</option>
+                            <option>General</option>
+                        </InputItem>
+                        <InputItem name="videoLink" label="Video Link" type="url" isOptional={true} formik={formik} />
+                        <InputItem name="cta" label="External Link" type="url" isOptional={true} formik={formik} />
+                        <InputItem name="description" label="Description" formik={formik} type="textarea" rows={7} />
+                        <InputItem name="coverImage" label="Cover Image" type="url" formik={formik} />
+                        {/* <InputItem name="coverImage" label="Cover Image" type="file" additionalText="at least 1200 x 830px" onFileUpload={onFileUpload} formik={formik} /> */}
+                        <InputItem name="rewardCode" label="Unique Code" isOptional={true} formik={formik} />
+                        <ExpireItem formik={formik} />
+                        <ProductItem name="triggerProducts" label="Trigger Products" formik={formik} />
+                        <ProductItem name="applyToProducts" label="Apply To" formik={formik} />
                         <div className="d-flex justify-content-between gap-2">
                             <Button type="button" onClick={handleDelete} className="bg-danger border-0" color="secondary">
                                 Delete
                             </Button>
                             <div className="d-flex gap-2">
-                                {/* <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                    onClick={handleMint}
-                                >
-                                    Mint
-                                </button> */}
                                 <Button type="submit" color="primary" className="btn ">
                                     {isAdding ? "Add" : "Save"}
                                 </Button>
@@ -251,42 +413,6 @@ const RewardDetail = (props) => {
                         </div>
                     </Form>
 
-                    <Modal
-                        className="modal-dialog-centered"
-                        isOpen={openImageModal}
-                        toggle={() => showImageModal(state => !state)}
-                    >
-                        <div className="modal-header">
-                            Add a new image
-                        </div>
-                        <div className="modal-body">
-                            <Label htmlFor="newImage">Reward Image</Label>
-                            <Input
-                                id="newImage"
-                                name="newImage"
-                                className="form-control"
-                                placeholder="Enter a product url here.."
-                                onChange={(e) => setNewImage(e.target.value)}
-                            />
-                        </div>
-                        <div className="modal-footer">
-                            <button
-                                type="button"
-                                onClick={() => showImageModal(state => !state)}
-                                className="btn btn-secondary "
-                                data-dismiss="modal"
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                type="button"
-                                className="btn btn-primary"
-                                onClick={handleAddImage}
-                            >
-                                Add
-                            </button>
-                        </div>
-                    </Modal>
                 </Container>
             </div >
         </>

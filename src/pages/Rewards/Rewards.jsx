@@ -14,7 +14,7 @@ const Orders = () => {
   const showToast = useToast();
   const [page, setPage] = useState(0);
   const [totalPage, setTotalPage] = useState(5);
-  const [productList, setRewardList] = useState([]);
+  const [rewardList, setRewardList] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setLoading] = useState(false);
 
@@ -26,9 +26,9 @@ const Orders = () => {
         setRewardList(_data.data);
         setLoading(false);
       } catch (error) {
+        setLoading(false);
         showToast(error.toString(), "error");
         setInvalid(true);
-        setLoading(false);
       }
     }
 
@@ -36,7 +36,7 @@ const Orders = () => {
   }, []);
 
   const handleAddReward = () => {
-    navigate("/products/add-product");
+    navigate("/rewards/add-reward");
   }
 
   if (isLoading) {
@@ -61,7 +61,7 @@ const Orders = () => {
         </div>
 
         <div className="table-responsive border-1 p-2">
-          <Table headers={RewardHeaders} data={productList} />
+          <Table headers={RewardHeaders} data={rewardList} />
         </div>
       </Container>
     </div>
