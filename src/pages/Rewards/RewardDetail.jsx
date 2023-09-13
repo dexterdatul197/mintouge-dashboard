@@ -64,7 +64,7 @@ const ExpireItem = (props) => {
                             {" "}
                             Yes
                         </div>}
-                        onColor="#626ed4"
+                        onColor="#34c38f"
                         onChange={() => {
                             formik.setFieldValue("hasExpire", !formik.values["hasExpire"]);
                         }}
@@ -86,6 +86,10 @@ const ProductItem = (props) => {
     useEffect(() => {
         !products.length && fetchProducts();
     }, []);
+
+    useEffect(() => {
+        selectProducts(formik.values[name]);
+    }, [formik.values[name]]);
 
     const handleAdd = async (event) => {
         event.preventDefault();
@@ -153,10 +157,10 @@ const ProductItem = (props) => {
                 isOpen={openProductModal}
                 toggle={() => showProductModal(false)}
             >
-                <div className="modal-header">
+                <div className="modal-header" style={{ backgroundColor: "var(--bs-body-bg)" }}>
                     Select Products
                 </div>
-                <div className="modal-body">
+                <div className="modal-body" style={{ backgroundColor: "var(--bs-body-bg)" }}>
                     <table className="table align-middle table-nowrap mb-0">
                         <thead>
                             <tr style={{ borderColor: "lightgray" }}>
@@ -192,10 +196,10 @@ const ProductItem = (props) => {
                                         </span>
                                     </td>
                                     <td>
-                                        <Input
-                                            type="checkbox"
-                                            checked={selectedProducts.includes(row.id)}
-                                            className="form-check-input"
+                                        <Switch
+                                            uncheckedIcon={<div />}
+                                            checkedIcon={<div />}
+                                            onColor="#34c38f"
                                             onChange={() => {
                                                 if (!selectedProducts.includes(row.id)) {
                                                     selectProducts([...selectedProducts, row.id]);
@@ -203,6 +207,7 @@ const ProductItem = (props) => {
                                                     selectProducts(selectedProducts.filter(_productId => _productId !== row.id));
                                                 }
                                             }}
+                                            checked={selectedProducts.includes(row.id)}
                                         />
                                     </td>
                                 </tr>
@@ -210,7 +215,7 @@ const ProductItem = (props) => {
                         </tbody>
                     </table>
                 </div>
-                <div className="modal-footer">
+                <div className="modal-footer" style={{ backgroundColor: "var(--bs-body-bg)" }}>
                     <button
                         type="button"
                         onClick={handleCancel}
@@ -271,23 +276,26 @@ const RewardDetail = () => {
             title: reward?.title || "",
             category: reward?.category || "",
             discount: reward?.discount || 0,
+            isActive: reward?.isActive || true,
             videoLink: reward?.videoLink || "",
             cta: reward?.cta || "",
             description: reward?.description || "",
             coverImage: reward?.coverImage || "",
             rewardCode: reward?.rewardCode || "",
-            eventFrom: reward?.eventFrom || new Date().toISOString().split('T')[0],
-            eventTo: reward?.eventTo || new Date().toISOString().split('T')[0],
+            eventFrom: reward?.eventFrom?.split('T')[0] || new Date().toISOString().split('T')[0],
+            eventTo: reward?.eventTo?.split('T')[0] || new Date().toISOString().split('T')[0],
             hasExpire: reward?.hasExpire || false,
-            triggerProducts: reward?.triggerProducts || [],
-            applyToProducts: reward?.applyToProducts || [],
+            triggerProductIds: reward?.triggerProductIds || [],
+            applyToProductIds: reward?.applyToProductIds || [],
         },
         validationSchema: yup.object({
+            isActive: yup.boolean()
+                .required('isActive type is invalid.'),
             title: yup.string()
                 .required('Please type Title.'),
             category: yup.string()
                 .required('Please select Category.'),
-            discount: yup.number()
+            discount: yup.number().min(0.01).max(99.9)
                 .required('Please type Discount.'),
             videoLink: yup.string()
                 .optional('Reward URL is invalid'),
@@ -303,9 +311,9 @@ const RewardDetail = () => {
                 .optional('Asset 3D URL is invalid'),
             hasExpire: yup.boolean()
                 .required('Expiration flag should be set'),
-            triggerProducts: yup.array(yup.number())
+            triggerProductIds: yup.array(yup.number())
                 .required('Products should not be null'),
-            applyToProducts: yup.array(yup.number())
+            applyToProductIds: yup.array(yup.number())
                 .required('Rewarding Products should not be null'),
         }),
         onSubmit: async (values) => {
@@ -322,7 +330,6 @@ const RewardDetail = () => {
     }
 
     const handleSave = async (values) => {
-        console.log("###:", values);
         try {
             if (isAdding) {
                 await RewardApi.addReward(values);
@@ -381,7 +388,7 @@ const RewardDetail = () => {
                             return false;
                         }}
                     >
-                        <InputItem id="title" name="title" label="Title" formik={formik} />
+                        <InputItem name="title" label="Title" formik={formik} />
                         <InputItem name="category" label="Category" formik={formik} type="select" >
                             <option></option>
                             <option>Discount</option>
@@ -389,6 +396,7 @@ const RewardDetail = () => {
                             <option>Event</option>
                             <option>General</option>
                         </InputItem>
+                        <InputItem name="discount" label="Discount(%)" type="number" disabled={formik.values["category"] !== "Discount"} formik={formik} />
                         <InputItem name="videoLink" label="Video Link" type="url" isOptional={true} formik={formik} />
                         <InputItem name="cta" label="External Link" type="url" isOptional={true} formik={formik} />
                         <InputItem name="description" label="Description" formik={formik} type="textarea" rows={7} />
@@ -396,8 +404,8 @@ const RewardDetail = () => {
                         {/* <InputItem name="coverImage" label="Cover Image" type="file" additionalText="at least 1200 x 830px" onFileUpload={onFileUpload} formik={formik} /> */}
                         <InputItem name="rewardCode" label="Unique Code" isOptional={true} formik={formik} />
                         <ExpireItem formik={formik} />
-                        <ProductItem name="triggerProducts" label="Trigger Products" formik={formik} />
-                        <ProductItem name="applyToProducts" label="Apply To" formik={formik} />
+                        <ProductItem name="triggerProductIds" label="Trigger Products" formik={formik} />
+                        <ProductItem name="applyToProductIds" label="Apply To" formik={formik} />
                         <div className="d-flex justify-content-between gap-2">
                             <Button type="button" onClick={handleDelete} className="bg-danger border-0" color="secondary">
                                 Delete

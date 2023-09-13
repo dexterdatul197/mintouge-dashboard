@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Input } from 'reactstrap';
+import Switch from 'react-switch';
 import { HeaderIDs } from '@/utils/constants';
 
 const Table = (props) => {
@@ -75,13 +75,17 @@ const Table = (props) => {
                     </td>
                   )
                 }
-                case HeaderIDs.PRODUCT_SELECTED: {
+                case HeaderIDs.REWARD_ACTIVE: {
                   return (
                     <td key={header.id}>
-                      <Input
-                        type="checkbox"
-                        value={row[header.id]}
-                        className="form-check-input"
+                      <Switch
+                        uncheckedIcon={<div />}
+                        checkedIcon={<div />}
+                        onColor="#34c38f"
+                        onChange={() => {
+                          updateData(row.id, header.id)
+                        }}
+                        checked={row[header.id]}
                       />
                     </td>
                   )

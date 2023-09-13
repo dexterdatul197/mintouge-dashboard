@@ -32,6 +32,7 @@ const Dashboard = Loader(lazy(() => import('@pages/Dashboard/index')));
 
 // //Settings
 const ApiSetting = Loader(lazy(() => import('@pages/Settings/ApiSetting')));
+const Profile = Loader(lazy(() => import('@pages/Settings/Profile')));
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -51,6 +52,7 @@ const authProtectedRoutes = [
 
   // Settings
   { path: "/setting-api", component: <ApiSetting /> },
+  { path: "/profile", component: <Profile /> },
 
   //  this route should be at the end of all other routes
   //  eslint-disable-next-line react/display-name

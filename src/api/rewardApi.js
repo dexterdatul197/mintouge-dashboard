@@ -4,7 +4,7 @@ import { Storage, GetStorageObject } from '@/utils';
 import { apiGet, apiPost, apiPut, apiDelete } from './baseApi';
 
 let testRewards = [];
-const MOCK_REWARD = true;
+const MOCK_REWARD = false;
 
 export const initialReward = {
     id: 0, // Auto Increase
@@ -19,8 +19,8 @@ export const initialReward = {
     eventFrom: new Date().toISOString().split('T')[0],
     eventTo: new Date().toISOString().split('T')[0],
     hasExpire: false,
-    triggerProducts: [], // An array of trigger products ID
-    applyToProducts: [] // An array of apply to products ID
+    triggerProductIds: [], // An array of trigger products ID
+    applyToProductIds: [] // An array of apply to products ID
 };
 
 export const RewardModelValidator = yup.object().shape({
@@ -31,24 +31,24 @@ export const RewardModelValidator = yup.object().shape({
     discount: yup.number()
         .required('Reward Discount is invalid'),
     videoLink: yup.string()
-        .required('Reward Video Link is invalid'),
+        .optional('Reward Video Link is invalid'),
     cta: yup.string()
-        .required('Reward External Link is invalid'),
+        .optional('Reward External Link is invalid'),
     description: yup.string()
         .required('Full Description is invalid'),
     coverImage: yup.string()
         .required('Reward Cover Image is invalid'),
     rewardCode: yup.string()
-        .required('Reward Unique Code is missing'),
+        .optional('Reward Unique Code is missing'),
     eventFrom: yup.date()
         .optional('Reward Event Start Date is invalid'),
     eventTo: yup.date()
         .optional('Reward Event Start Date is invalid'),
     hasExpire: yup.boolean()
         .optional('Reward Expiration Flag is invalid'),
-    triggerProducts: yup.array(yup.number())
+    triggerProductIds: yup.array(yup.number())
         .required('Reward Products are not valid'),
-        applyToProducts: yup.array(yup.number())
+    applyToProductIds: yup.array(yup.number())
         .required('Rewarding Products are not valid'),
 });
 
@@ -85,8 +85,6 @@ const rewardValidate = async (rewards) => {
  * @returns An array of rewards
  */
 export const getRewards = async (page = 0, size = 15) => {
-    const optedUser = GetStorageObject(Storage.OptedUser);
-    const pubKey = optedUser ? optedUser.apiPublicKey : '';
 
     try {
         if (MOCK_REWARD) {
@@ -96,8 +94,8 @@ export const getRewards = async (page = 0, size = 15) => {
         }
 
         const response = await apiGet({
-            url: '/reward',
-            queryParams: { page, size, pubKey },
+            url: '/reward/all',
+            queryParams: { page, size },
         });
 
         // await rewardValidate(response.data);
@@ -128,7 +126,7 @@ export const getRewardDetail = async (rewardId) => {
         }
 
         const reward = await apiGet({
-            url: `/reward/${rewardId}`,
+            url: `/reward/${rewardId}/one`,
         });
 
         await rewardValidate(reward);
@@ -191,7 +189,7 @@ export const updateReward = async (reward) => {
 
             return reward;
         }
-        
+
         const updatedReward = await apiPut({
             url: `/reward/${reward.id}`,
             bodyParam: reward,

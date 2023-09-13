@@ -10,7 +10,7 @@ export const HeaderIDs = {
   USER: 'user',
   INSURANCE: 'insurance',
   PRODUCT_URL: 'productUrl',
-  PRODUCT_SELECTED: 'isSelected',
+  REWARD_ACTIVE: 'isActive',
 
   CLIENT_NAME: 'name',
   CLIENT_EMAIL: 'email',
@@ -70,10 +70,8 @@ export const RewardHeaders = [
     title: 'Category',
   },
   {
-    id: "cta",
-    title: 'Reward URL',
-    hasLink: true,
-    uri: '',
+    id: HeaderIDs.REWARD_ACTIVE,
+    title: 'Active',
   },
 ];
 

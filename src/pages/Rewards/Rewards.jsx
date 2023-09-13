@@ -39,6 +39,33 @@ const Orders = () => {
     navigate("/rewards/add-reward");
   }
 
+  const onUpdateData = async (rewardId, header) => {
+    if (header === "isActive") {
+      const _rewards = rewardList.filter(_reward => _reward.id === rewardId);
+      if (_rewards.length <= 0) {
+        showToast("Could not activate the selected reward", "error");
+        return;
+      }
+
+      const _reward = _rewards[0];
+
+      try {
+        await RewardApi.updateReward({ ..._reward, isActive: !_reward.isActive });
+        setRewardList(rewardList.map(reward => (reward.id !== rewardId
+          ? reward : {
+            ...reward,
+            isActive: !reward.isActive
+          }
+        )))
+
+        showToast("Reward was successfully updated.");
+
+      } catch (error) {
+        showToast(error.toString(), "error");
+      }
+    }
+  }
+
   if (isLoading) {
     return <LoadingScreen />
   }
@@ -61,7 +88,7 @@ const Orders = () => {
         </div>
 
         <div className="table-responsive border-1 p-2">
-          <Table headers={RewardHeaders} data={rewardList} />
+          <Table headers={RewardHeaders} data={rewardList} updateData={onUpdateData} />
         </div>
       </Container>
     </div>

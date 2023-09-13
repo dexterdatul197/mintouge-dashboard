@@ -69,7 +69,7 @@ const UserProfile = (props) => {
                   <div className="d-flex">
                     <div className="ms-3">
                       <img
-                        src={"https://cdn.vaultik.com/brand_dashboard/avatar-1.webp"}
+                        src={"https://cdn.vaultik.com/brand_dashboard/avatar.svg"}
                         alt=""
                         className="avatar-md rounded-circle img-thumbnail"
                       />
