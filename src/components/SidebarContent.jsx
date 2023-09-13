@@ -15,9 +15,9 @@ import "simplebar/src/simplebar.css";
  * @param {string} hasArrow A flag if it has sub menu items
  * @param {string} children A set of child components
  */
-const MenuGroup = ({ to, hasArrow, icon, title, children }) => (
+const MenuGroup = ({ to, target = "_self", hasArrow, icon, title, children }) => (
   <li>
-    <Link to={to} className={hasArrow ? "has-arrow" : ""}>
+    <Link to={to} target={target} className={hasArrow ? "has-arrow" : ""}>
       <i className={"bx " + icon}></i>
       <span>{title}</span>
     </Link>
@@ -169,6 +169,7 @@ const SidebarContent = () => {
             <MenuGroup to="/clients" title={t("Clients")} icon="bx-male" />
             <MenuGroup to="/setting-api" title={t("API Settings")} icon="bx-cog" />
             <MenuGroup to="/payments" title={t("Payments")} icon="bx-money" />
+            <MenuGroup to="/documentation" target="_blank" title={t("API Documentation")} icon="bx-money" />
 
             {/* <MenuGroup to="/#" hasArrow={true} title={t("Others")} icon="bx-store">
               <MenuItem to="/products" title={t("Products")} />

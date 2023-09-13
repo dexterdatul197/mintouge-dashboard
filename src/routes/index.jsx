@@ -26,6 +26,7 @@ const Register = Loader(lazy(() => import('@pages/Authentication/Register')));
 const ForgetPwd = Loader(lazy(() => import('@pages/Authentication/ForgetPassword')));
 
 const Pages404 = Loader(lazy(() => import('@pages/Utility/pages-404')));
+const ApiDocumentation = Loader(lazy(() => import('@/pages/Utility/ApiDocumentation')));
 
 // // Dashboard
 const Dashboard = Loader(lazy(() => import('@pages/Dashboard/index')));
@@ -64,7 +65,7 @@ const publicRoutes = [
   { path: "/login", component: <Login /> },
   { path: "/forgot-password", component: <ForgetPwd /> },
   { path: "/register", component: <Register /> },
-
+  { path: "/documentation", component: <ApiDocumentation /> },
   { path: "/pages-404", component: <Pages404 /> },
 ];
 
