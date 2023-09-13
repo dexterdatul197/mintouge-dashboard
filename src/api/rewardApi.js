@@ -1,6 +1,5 @@
 import * as yup from 'yup';
 
-import { Storage, GetStorageObject } from '@/utils';
 import { apiGet, apiPost, apiPut, apiDelete } from './baseApi';
 
 let testRewards = [];
@@ -98,7 +97,7 @@ export const getRewards = async (page = 0, size = 15) => {
             queryParams: { page, size },
         });
 
-        // await rewardValidate(response.data);
+        await rewardValidate(response.data);
 
         return response;
     } catch (error) {
@@ -222,3 +221,38 @@ export const deleteReward = async (rewardId) => {
         throw error;
     }
 }
+
+/**
+ * Get paginationized rewards from backend.
+ * 
+ * There are 2 ways of getting rewards from backend.
+ * One is to use access_token given when logged in.
+ * Another one is to use API_PRIVATE_KEY as a token.
+ * As we send access_token by default in baseApi, we follow first one.
+ * 
+ * @param {number} page Page Number starting from 0
+ * @param {number} pageSize Page Size. default is 15.
+ * @returns An array of rewards
+ */
+export const getRewardsFromEmail = async (email, page = 0, size = 15) => {
+
+    try {
+        if (MOCK_REWARD) {
+            return {
+                data: testRewards
+            };
+        }
+
+        const response = await apiGet({
+            url: '/reward/valid',
+            queryParams: { email, page, size },
+        });
+
+        await rewardValidate(response.data);
+
+        return response;
+    } catch (error) {
+        console.error('[Error] getRewardsFromEmail Failed.', error);
+        throw error;
+    }
+};
