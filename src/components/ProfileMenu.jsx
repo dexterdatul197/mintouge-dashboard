@@ -41,7 +41,7 @@ const ProfileMenu = (props) => {
         >
           <img
             className="rounded-circle header-profile-user"
-            src={"https://cdn.vaultik.com/brand_dashboard/avatar.svg"}
+            src={"https://cdn.vaultik.com/brand_dashboard/avatar.png"}
             alt="Header Avatar"
           />
           <span className="d-none d-xl-inline-block ms-2 me-1">{username}</span>

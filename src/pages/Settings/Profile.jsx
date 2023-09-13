@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     Form,
     Button,
@@ -20,6 +20,7 @@ const Profile = () => {
     document.title = 'Profile | Vaultik - Brands Dashboard';
 
     const showToast = useToast();
+    const navigate = useNavigate();
     const [profile, setProfile] = useState({});
     const [isLoading, setLoading] = useState(false);
 
@@ -77,6 +78,7 @@ const Profile = () => {
     const handleUpdate = async (values) => {
         try {
             showToast("Profile was successfully updated.");
+            navigate("/");
         } catch (error) {
             showToast(error.toString(), "error");
         }
