@@ -27,7 +27,7 @@ const ExpireItem = (props) => {
 
     return (
         <div className="d-flex flex-row align-items-center gap-3">
-            <Label style={{ minWidth: "120px" }} >Expiration</Label>
+            <Label style={{ minWidth: "120px", maxWidth: "120px" }} >Expiration</Label>
             <div className="d-flex flex-column gap-3">
                 <span className="d-flex flow-row align-items-center gap-1">
                     <InputItem name="eventFrom" type="date" formik={formik} disabled={!formik.values["hasExpire"]} />
@@ -124,7 +124,7 @@ const ProductItem = (props) => {
     return (
         <>
             <div className="d-flex flex-row align-items-center gap-3">
-                <Label id="label" style={{ minWidth: "120px" }} htmlFor={name}>{label}</Label>
+                <Label id="label" style={{ minWidth: "120px", maxWidth: "120px" }} htmlFor={name}>{label}</Label>
                 <Card
                     id={name}
                     outline

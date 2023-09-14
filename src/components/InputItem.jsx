@@ -70,7 +70,7 @@ const InputItem = (props) => {
 
     return (
         <div className="d-flex flex-row align-items-center gap-3">
-            <Label style={{ minWidth: "120px" }} htmlFor={name}>{label} {isOptional ? "" : " *"}</Label>
+            <Label style={{ minWidth: "120px", maxWidth: "120px" }} htmlFor={name}>{label} {isOptional ? "" : " *"}</Label>
             <>
                 {isFile
                     ? <FileContent {...props} />
