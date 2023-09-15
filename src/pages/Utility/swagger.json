@@ -25,7 +25,8 @@
       "tags": [
         "Authentication",
         "Product",
-        "Digital_Passport"
+        "Digital_Passport",
+        "Reward"
       ]
     }
   ],
@@ -45,6 +46,10 @@
     {
       "name": "Digital_Passport",
       "description": "The digital passport includes the product and consumer information. It also includes the redeem code and the callback url."
+    },
+    {
+      "name": "Reward",
+      "description": "The Rewards API allows you to manage and interact with the rewards system on valtik platform. Rewards are a key component of valtik's customer engagement strategy, providing incentives to loyal customers and encouraging repeat purchases. This section provides details on how to use the API to access and manage rewards.\n\n"
     }
   ],
   "parameters": {},
@@ -122,7 +127,8 @@
     "sections": {
       "AUTHENTICATION": {},
       "PRODUCT": {},
-      "DIGITAL_PASSPORT": {}
+      "DIGITAL_PASSPORT": {},
+      "REWARD": {}
     }
   },
   "paths": {
@@ -520,276 +526,21 @@
         "section": "DIGITAL_PASSPORT"
       }
     },
-    "/api/currencies/{currency}": {
-      "put": {
-        "description": "This end point allows you to update a currency information that have been configured as part of your ewallet.  If update is success, error returns null.",
-        "parameters": [
-          {
-            "description": "This is 3-letter currency code.",
-            "in": "path",
-            "name": "currency",
-            "required": true,
-            "type": "integer",
-            "x-example": 35
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/update_currency_request"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/update_currency_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Update a currency ",
-        "tags": [
-          "Currency"
-        ]
-      },
+    "/reward/all": {
       "get": {
-        "description": "This end point allows you to get a currency information that have been configured as part of your ewallet.  Via this endpoint, you can know currency details of the currency including currency exchange rate in this ewallet system.",
+        "description": "Retrieve a list of all available rewards on the brand.",
         "parameters": [
-          {
-            "description": "This is 3-letter currency code.",
-            "in": "path",
-            "name": "currency",
-            "required": true,
-            "type": "integer",
-            "x-example": 2
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/get_currency_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Get a currency ",
-        "tags": [
-          "Currency"
-        ]
-      },
-      "x-restlet": {
-        "section": "CURRENCY"
-      }
-    },
-    "/api/currencies/rates/{currency}": {
-      "get": {
-        "description": "This end point allows you to get exchange rates of all currencies that have been configured as part of your ewallet.  Via this endpoint, you can know exchange rates of all currencies.",
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/get_currencies_rate_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Get all currency rates",
-        "tags": [
-          "Currency"
-        ]
-      },
-      "x-restlet": {
-        "section": "CURRENCY"
-      }
-    },
-    "/v1/quarantine/machine/{id}": {
-      "post": {
-        "description": "Mark a file(s) as reviewed so they don’t show up as PII Alerts.",
-        "parameters": [
-          {
-            "description": "This is the identifier of a machine or database.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "items": {
-                "properties": {
-                  "fileName": {
-                    "description": "File name that is being quarantined.",
-                    "example": "2009 class.docx",
-                    "type": "string"
-                  }
-                }
-              },
-              "type": "array"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/update_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Mark file(s) Reviewed",
-        "tags": [
-          "PII Data"
-        ],
-        "x-restlet": {
-          "section": "PII_DATA"
-        }
-      }
-    },
-    "/v1/process/machine/{id}/resultsfile": {
-      "post": {
-        "description": "This will queue a file for generation of PII Data found for a particular machine. The file will not be generated immediately but will be queued.",
-        "parameters": [
-          {
-            "description": "This is the identifier of a machine or database.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/create_id_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Queue a file",
-        "tags": [
-          "PII Data"
-        ],
-        "x-restlet": {
-          "section": "PII_DATA"
-        }
-      }
-    },
-    "/v1/patternrecord/machine/credentials": {
-      "get": {
-        "description": "Get PII data found for a specific machine. Returns all pattern lists Note that the 10 most recent pattern data are always available by default. If you need more than those 10, you can use this API method and the pageSize and pageNumer parameters to page through pattern lists.",
-        "parameters": [
-          {
-            "description": "This is the identifier of a machine or database.",
-            "in": "query",
-            "name": "id",
-            "required": false,
-            "type": "integer"
-          },
           {
             "description": "This argument adjusts how many items per page will be returned. Omitting this field will return the default of 10 items per page.",
             "in": "query",
-            "name": "pageSize",
+            "name": "size",
             "required": false,
             "type": "integer"
           },
           {
             "description": "The page you want to return. Returns an empty board on an invalid page.",
             "in": "query",
-            "name": "pageNumber",
+            "name": "page",
             "required": false,
             "type": "integer"
           }
@@ -798,7 +549,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/get_pii_list_response"
+              "$ref": "#/definitions/get_rewards_all_response"
             }
           },
           "400": {
@@ -820,84 +571,37 @@
             "$ref": "#/responses/error_500"
           }
         },
-        "summary": "Get PII data",
+        "summary": "Get all rewards of the brand",
         "tags": [
-          "PII Data"
-        ],
-        "x-restlet": {
-          "section": "PII_DATA"
-        }
+          "Reward"
+        ]
+      },
+      "x-restlet": {
+        "section": "REWARD"
       }
     },
-    "/v1/process/machine/{id}/DownloadLatestFile": {
+    "/reward/valid": {
       "get": {
-        "description": "This endpoint will download the latest file that has been queued up to process. This file downloaded is streamed, and could take a bit to download depending on the number of PII Data found.",
+        "description": "Retrieve a list of valid rewards with email.",
         "parameters": [
           {
-            "description": "This is the identifier of a machine or database.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/create_id_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Download the latest file",
-        "tags": [
-          "PII Data"
-        ],
-        "x-restlet": {
-          "section": "PII_DATA"
-        }
-      }
-    },
-    "/v1/quarantine/machine": {
-      "get": {
-        "description": "Get quarantined records for a machine.",
-        "parameters": [
-          {
-            "description": "This is the identifier of a machine or database.",
+            "description": "This field is a consumer's email address belong the brand.",
             "in": "query",
-            "name": "id",
-            "required": false,
-            "type": "integer"
+            "name": "email",
+            "required": true,
+            "type": "string"
           },
           {
             "description": "This argument adjusts how many items per page will be returned. Omitting this field will return the default of 10 items per page.",
             "in": "query",
-            "name": "pageSize",
+            "name": "size",
             "required": false,
             "type": "integer"
           },
           {
             "description": "The page you want to return. Returns an empty board on an invalid page.",
             "in": "query",
-            "name": "pageNumber",
+            "name": "page",
             "required": false,
             "type": "integer"
           }
@@ -906,7 +610,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/get_all_quarantined_data_response"
+              "$ref": "#/definitions/get_rewards_all_response"
             }
           },
           "400": {
@@ -928,219 +632,32 @@
             "$ref": "#/responses/error_500"
           }
         },
-        "summary": "Get All Quarantined Data",
+        "summary": "Get valid rewards of the user with email.",
         "tags": [
-          "Quarantined Data"
-        ],
-        "x-restlet": {
-          "section": "QUARANTINED_DATA"
-        }
-      }
-    },
-    "/v1/quarantine/{id}": {
-      "delete": {
-        "description": "Moves a quarantined record into the PII Data Repository.",
-        "parameters": [
-          {
-            "description": "This is the identifier of a machine or database.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/update_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Remove Quarantined Data",
-        "tags": [
-          "Quarantined Data"
-        ],
-        "x-restlet": {
-          "section": "QUARANTINED_DATA"
-        }
-      }
-    },
-    "/v1/exclude/directories/cred/{id}": {
-      "post": {
-        "description": "Create a directory to exclude from PII Scan for a specific machine.",
-        "parameters": [
-          {
-            "description": "This is the identifier of a machine.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer",
-            "x-example": "1"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "properties": {
-                "directoryExclude": {
-                  "description": "This is directory to exclude.",
-                  "example": "test directory",
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/create_id_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Create an exclude directory",
-        "tags": [
-          "Exclude Directories From PII Scan"
+          "Reward"
         ]
       },
       "x-restlet": {
-        "section": "EXCLUDE_DIRECTORIES_FROM_PII_SCAN"
+        "section": "REWARD"
       }
     },
-    "/v1/exclude/directory/{id}": {
-      "patch": {
-        "description": "Update a specific exclude directory.",
-        "parameters": [
-          {
-            "description": "This is the identifier of a machine.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer",
-            "x-example": "1"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "properties": {
-                "directoryExclude": {
-                  "description": "This is directory to exclude.",
-                  "example": "test directory",
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/create_id_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Update an exclude directory",
-        "tags": [
-          "Exclude Directories From PII Scan"
-        ]
-      },
-      "x-restlet": {
-        "section": "EXCLUDE_DIRECTORIES_FROM_PII_SCAN"
-      }
-    },
-    "/v1/exclude/directories/cred/{id} ": {
+    "/reward/redeem": {
       "get": {
-        "consumes": [],
-        "description": "Get all excluded directories for this machine.",
+        "description": "Retrieve a reward with reward code.",
         "parameters": [
           {
-            "description": "This is the identifier of a machine.",
-            "in": "path",
-            "name": "id",
+            "description": "This field is tbe reward's code value.",
+            "in": "query",
+            "name": "code",
             "required": true,
-            "type": "integer",
-            "x-example": "1"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "properties": {
-                "directoryExclude": {
-                  "description": "This is directory to exclude.",
-                  "example": "test directory",
-                  "type": "string"
-                }
-              }
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/create_id_response"
+              "$ref": "#/definitions/get_reward_response"
             }
           },
           "400": {
@@ -1162,62 +679,13 @@
             "$ref": "#/responses/error_500"
           }
         },
-        "summary": "Get all excluded directories",
+        "summary": "Get a reward with reward code.",
         "tags": [
-          "Exclude Directories From PII Scan"
+          "Reward"
         ]
       },
       "x-restlet": {
-        "section": "EXCLUDE_DIRECTORIES_FROM_PII_SCAN"
-      }
-    },
-    "/v1/exclude/directory/{id} ": {
-      "delete": {
-        "consumes": [],
-        "description": "Remove an exclude directory.  You should perform a GET first to view the exclude directory ids.",
-        "parameters": [
-          {
-            "description": "This is the identifier of a machine.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer",
-            "x-example": "1"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/create_id_response"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/error_400_v2"
-          },
-          "401": {
-            "$ref": "#/responses/error_401"
-          },
-          "403": {
-            "$ref": "#/responses/error_403"
-          },
-          "404": {
-            "$ref": "#/responses/error_404_v2"
-          },
-          "405": {
-            "$ref": "#/responses/error_405"
-          },
-          "500": {
-            "$ref": "#/responses/error_500"
-          }
-        },
-        "summary": "Remove an exclude directory",
-        "tags": [
-          "Exclude Directories From PII Scan"
-        ]
-      },
-      "x-restlet": {
-        "section": "EXCLUDE_DIRECTORIES_FROM_PII_SCAN"
+        "section": "REWARD"
       }
     }
   },
@@ -2236,128 +1704,115 @@
         "section": "DIGITAL_PASSPORT"
       }
     },
-    "get_currency_response": {
-      "properties": {
-        "error": {
-          "example": "null",
-          "type": "string"
-        },
-        "result": {
-          "properties": {
-            "unit": {
-              "description": "Returns 3-letter currency code.",
-              "example": "GBP",
-              "type": "string"
-            },
-            "name": {
-              "description": "Returns the currency name.",
-              "example": "GBP",
-              "type": "string"
-            },
-            "rate": {
-              "description": "Returns the exchange rate related with default USD in this ewallet system.",
-              "example": "0.874",
-              "type": "string"
-            },
-            "symbol": {
-              "description": "Returns the currency's symbol.",
-              "example": "£",
-              "type": "string"
-            },
-            "image": {
-              "description": "Returns the currency's image url.",
-              "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
-              "type": "string"
-            },
-            "flag": {
-              "description": "Returns the currency's country flag url.",
-              "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
-              "type": "string"
-            },
-            "description": {
-              "description": "Returns description about the currency.",
-              "example": "British pound",
-              "type": "string"
-            },
-            "createdAt": {
-              "description": "Returns the time when the currency is added in this ewalelt system.",
-              "example": "2019-04-27 09:36:36",
-              "format": "datetime",
-              "type": "string"
-            },
-            "updatedAt": {
-              "description": "Returns the time when the currency is modified in this ewalelt system.",
-              "example": "2019-04-27 11:26:31",
-              "format": "datetime",
-              "type": "string"
-            }
-          }
-        }
-      },
-      "type": "object",
-      "x-restlet": {
-        "section": "CURRENCY"
-      }
-    },
-    "get_currencies_response": {
+    "get_rewards_all_response": {
       "properties": {
         "error": {
           "example": null,
           "type": "string"
         },
-        "total": {
-          "example": 5,
+        "page": {
+          "example": 0,
           "type": "integer"
         },
-        "result": {
+        "size": {
+          "example": 10,
+          "type": "integer"
+        },
+        "total": {
+          "example": 1,
+          "type": "integer"
+        },
+        "data": {
           "items": {
             "properties": {
-              "unit": {
-                "description": "Returns 3-letter currency code.",
-                "example": "GBP",
+              "id": {
+                "description": "Returns the reward's unique identifier.",
+                "example": 1,
+                "type": "integer"
+              },
+              "triggerProductIds": {
+                "description": "Returns the products's id array which are triggered for the reward.",
+                "type": "array",
+                "example": [
+                  22
+                ]
+              },
+              "applyToProductIds": {
+                "description": "Returns the products's id array to be applied for the reward.",
+                "type": "array",
+                "example": [
+                  21
+                ]
+              },
+              "isActive": {
+                "description": "Returns the activate status of the reward.",
+                "type": "boolean",
+                "example": true,
+                "enum": [
+                  true,
+                  false
+                ]
+              },
+              "title": {
+                "description": "Returns the title of the reward.",
+                "example": "Blondie logo-patch tote bag Discount",
                 "type": "string"
               },
-              "name": {
-                "description": "Returns the currency name.",
-                "example": "GBP",
+              "category": {
+                "description": "Returns the category of the reward.",
+                "example": "Discount",
                 "type": "string"
               },
-              "rate": {
-                "description": "Returns the exchange rate related with default USD in this ewallet system.",
-                "example": "0.874",
+              "discount": {
+                "description": "Returns the discount amount of the reward.",
+                "example": 10,
+                "type": "integer"
+              },
+              "videoLink": {
+                "description": "Returns the video link url of the reward.",
+                "example": "https://carleton.ca/webservices/cms-help/?p=1180",
                 "type": "string"
               },
-              "symbol": {
-                "description": "Returns the currency's symbol.",
-                "example": "£",
+              "cta": {
+                "description": "Returns the external link url of the reward.",
+                "example": "https://vaultik.com/cta",
                 "type": "string"
               },
-              "image": {
-                "description": "Returns the currency's image url.",
-                "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
-                "type": "string"
-              },
-              "flag": {
-                "description": "Returns the currency's country flag url.",
-                "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+              "coverImage": {
+                "description": "Returns the cover image url of the reward.",
+                "example": "https://fastly.picsum.photos/id/260/200/300.jpg?hmac=_VpBxDn0zencTyMnssCV14LkW80zG7vw2rw7WCQ2uVo",
                 "type": "string"
               },
               "description": {
-                "description": "Returns description about the currency.",
-                "example": "British pound",
+                "description": "Returns the description of the reward.",
+                "example": "Blondie logo-patch tote bag Discount Description",
                 "type": "string"
               },
-              "createdAt": {
-                "description": "Returns the time when the currency is added in this ewalelt system.",
-                "example": "2019-04-27 09:36:36",
+              "rewardCode": {
+                "description": "Returns the code of the reward.",
+                "example": "245s542",
+                "type": "string"
+              },
+              "eventFrom": {
+                "description": "Returns the start time when the reward is issued.",
+                "example": "2023-09-01T00:00:00.000Z",
                 "format": "datetime",
                 "type": "string"
               },
-              "updatedAt": {
-                "description": "Returns the time when the currency is modified in this ewalelt system.",
-                "example": "2019-04-27 11:26:31",
+              "eventTo": {
+                "description": "Returns the end time when the reward is issued.",
+                "example": "2023-09-10T00:00:00.000Z",
                 "format": "datetime",
                 "type": "string"
+              },
+              "hasExpire": {
+                "description": "Returns the expire possibility of the reward.",
+                "type": "boolean",
+                "example": true,
+                "enum": [
+                  true,
+                  false
+                ]
               }
             }
           },
@@ -2365,7 +1820,112 @@
         }
       },
       "x-restlet": {
-        "section": "CURRENCY"
+        "section": "REWARD"
+      }
+    },
+    "get_reward_response": {
+      "properties": {
+        "error": {
+          "example": null,
+          "type": "string"
+        },
+        "data": {
+          "properties": {
+            "id": {
+              "description": "Returns the reward's unique identifier.",
+              "example": 1,
+              "type": "integer"
+            },
+            "triggerProductIds": {
+              "description": "Returns the products's id array which are triggered for the reward.",
+              "type": "array",
+              "example": [
+                22
+              ]
+            },
+            "applyToProductIds": {
+              "description": "Returns the products's id array to be applied for the reward.",
+              "type": "array",
+              "example": [
+                21
+              ]
+            },
+            "isActive": {
+              "description": "Returns the activate status of the reward.",
+              "type": "boolean",
+              "example": true,
+              "enum": [
+                true,
+                false
+              ]
+            },
+            "title": {
+              "description": "Returns the title of the reward.",
+              "example": "Blondie logo-patch tote bag Discount",
+              "type": "string"
+            },
+            "category": {
+              "description": "Returns the category of the reward.",
+              "example": "Discount",
+              "type": "string"
+            },
+            "discount": {
+              "description": "Returns the discount amount of the reward.",
+              "example": 10,
+              "type": "integer"
+            },
+            "videoLink": {
+              "description": "Returns the video link url of the reward.",
+              "example": "https://carleton.ca/webservices/cms-help/?p=1180",
+              "type": "string"
+            },
+            "cta": {
+              "description": "Returns the external link url of the reward.",
+              "example": "https://vaultik.com/cta",
+              "type": "string"
+            },
+            "coverImage": {
+              "description": "Returns the cover image url of the reward.",
+              "example": "https://fastly.picsum.photos/id/260/200/300.jpg?hmac=_VpBxDn0zencTyMnssCV14LkW80zG7vw2rw7WCQ2uVo",
+              "type": "string"
+            },
+            "description": {
+              "description": "Returns the description of the reward.",
+              "example": "Blondie logo-patch tote bag Discount Description",
+              "type": "string"
+            },
+            "rewardCode": {
+              "description": "Returns the code of the reward.",
+              "example": "245s542",
+              "type": "string"
+            },
+            "eventFrom": {
+              "description": "Returns the start time when the reward is issued.",
+              "example": "2023-09-01T00:00:00.000Z",
+              "format": "datetime",
+              "type": "string"
+            },
+            "eventTo": {
+              "description": "Returns the end time when the reward is issued.",
+              "example": "2023-09-10T00:00:00.000Z",
+              "format": "datetime",
+              "type": "string"
+            },
+            "hasExpire": {
+              "description": "Returns the expire possibility of the reward.",
+              "type": "boolean",
+              "example": true,
+              "enum": [
+                true,
+                false
+              ]
+            }
+          },
+          "type": "object"
+        }
+      },
+      "x-restlet": {
+        "section": "REWARD"
       }
     },
     "login_request": {
