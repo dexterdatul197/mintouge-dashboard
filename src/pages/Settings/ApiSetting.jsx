@@ -23,38 +23,14 @@ import 'prismjs/themes/prism.css';
 import useToast from '@/utils/useToast';
 import Breadcrumbs from '@components/Breadcrumb';
 import { Storage, GetStorageObject } from '@/utils';
+import * as Template from './template';
 
 const FormEditors = () => {
   document.title = "API Setting | Vaultik - Brands Dashboard";
 
   const showToast = useToast();
   const optedUser = GetStorageObject(Storage.OptedUser);
-  const code =
-    `// How to use Private API Key
-try {
-  const gas_fee = await fetch("https://vaultik.com/estimate-gasfee", {
-    method: "POST",
-    body: {
-      network: "Polygon",
-      token: "MATIC"
-    }
-    header: {
-      authorization: \`Bearer \${apiSecretKey}\`
-    }
-  });
-} catch (error) {
-  console.log(error);
-  throw error;
-}
-
-// How to use Public API Key
-// Please insert the following code into index.html
-<script 
-  type="text/javascript" 
-  src="https://cdn.vaultik.com/js/mini-web.js" 
-  id=\`\${apiPublicKey}\`>
-</script>
-`;
+  const code = Template.GetProductsCode;
 
   const handleCopy = async (text) => {
     try {
