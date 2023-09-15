@@ -1,4 +1,3 @@
-import axios from "axios";
 
 export const GetProductsCode = `
 // How to get Products List using API Keys
