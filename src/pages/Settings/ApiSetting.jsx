@@ -11,13 +11,8 @@ import {
   CardTitle,
   Container,
 } from 'reactstrap';
-
-// Form Editor
-import Editor from 'react-simple-code-editor';
-import { highlight, languages } from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/themes/prism.css';
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { xcode } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 //Import Breadcrumb
 import useToast from '@/utils/useToast';
@@ -31,6 +26,7 @@ const FormEditors = () => {
   const showToast = useToast();
   const optedUser = GetStorageObject(Storage.OptedUser);
   const code = Template.GetProductsCode;
+  const defaultTheme = 'agate';
 
   const handleCopy = async (text) => {
     try {
@@ -92,17 +88,12 @@ const FormEditors = () => {
                     <p className="card-title-desc">
                       Below is the code of how to use Api Key to use Vaultik SDK
                     </p>
+                    <SyntaxHighlighter language={"javascript"} style={xcode} customStyle={{
+                      fontSize: "14px"
+                    }}>
+                      {code}
+                    </SyntaxHighlighter>
 
-                    <Editor
-                      value={code}
-                      readOnly
-                      highlight={code => highlight(code, languages.js)}
-                      padding={10}
-                      style={{
-                        fontFamily: '"Fira code", "Fira Mono", monospace',
-                        fontSize: 12,
-                      }}
-                    />
                   </CardBody>
                 </Card>
               </Col>

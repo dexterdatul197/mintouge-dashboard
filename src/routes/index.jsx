@@ -15,7 +15,6 @@ const ProductDetail = Loader(lazy(() => import('@pages/Products/ProductDetail'))
 const Orders = Loader(lazy(() => import('@pages/Orders/index')));
 const Clients = Loader(lazy(() => import('@pages/Clients/index')));
 const Payments = Loader(lazy(() => import('@pages/Settings/Payments')));
-const EcommerceAutoImport = Loader(lazy(() => import('@pages/Settings/AutoImport')));
 const Rewards = Loader(lazy(() => import('@pages/Rewards/Rewards')));
 const RewardDetail = Loader(lazy(() => import('@pages/Rewards/RewardDetail')));
 
@@ -45,14 +44,13 @@ const authProtectedRoutes = [
   { path: "/orders", component: <Orders /> },
   { path: "/clients", component: <Clients /> },
   { path: "/payments", component: <Payments /> },
-  { path: "/auto-import", component: <EcommerceAutoImport /> },
   { path: "/rewards", component: <Rewards /> },
   { path: "/rewards/:id", component: <RewardDetail /> },
   { path: "/rewards/add-reward", component: <RewardDetail /> },
 
 
   // Settings
-  { path: "/setting-api", component: <ApiSetting /> },
+  { path: "/api-keys", component: <ApiSetting /> },
   { path: "/profile", component: <Profile /> },
 
   //  this route should be at the end of all other routes
