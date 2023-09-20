@@ -52,7 +52,8 @@ const FormEditors = () => {
                 API Secret Key
               </Label>
               <Input
-                type="text"
+                type="textarea"
+                rows={5}
                 className="form-control cursor-pointer"
                 id="horizontal-firstname-Input"
                 value={optedUser.apiSecretKey}
