@@ -23,7 +23,9 @@ const Login = Loader(lazy(() => import('@pages/Authentication/Login')));
 const Logout = Loader(lazy(() => import('@pages/Authentication/Logout')));
 const Register = Loader(lazy(() => import('@pages/Authentication/Register')));
 const ForgetPwd = Loader(lazy(() => import('@pages/Authentication/ForgetPassword')));
+const Verification = Loader(lazy(() => import('@pages/Authentication/Verification')));
 
+const VerificationReview = Loader(lazy(() => import('@pages/Utility/verification-review')));
 const Pages404 = Loader(lazy(() => import('@pages/Utility/pages-404')));
 const ApiDocumentation = Loader(lazy(() => import('@/pages/Utility/ApiDocumentation')));
 
@@ -62,8 +64,10 @@ const publicRoutes = [
   { path: "/logout", component: <Logout /> },
   { path: "/login", component: <Login /> },
   { path: "/forgot-password", component: <ForgetPwd /> },
+  { path: "/verification", component: <Verification /> },
   { path: "/register", component: <Register /> },
   { path: "/documentation", component: <ApiDocumentation /> },
+  { path: "/verification-review", component: <VerificationReview /> },
   { path: "/pages-404", component: <Pages404 /> },
 ];
 

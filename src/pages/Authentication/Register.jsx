@@ -26,7 +26,7 @@ const Register = props => {
     showToast("Sign up successful.");
 
     setUser(response);
-    navigate("/dashboard");
+    navigate("/verification");
   };
   
   const onSignupFailed = (error) => {
