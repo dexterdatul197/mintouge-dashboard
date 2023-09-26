@@ -57,6 +57,20 @@ export const signIn = async ({ email, password }) => {
         throw error;
     }
 };
+/**
+ * Email Verification
+ * The API sends 6-digital code that were sent by third party servers
+ * so that it can verify if the user access is permitted 
+ * @param {string} token A simple 6 digital verification code
+ */
+
+export const verifyEmail = async (verify) => {
+    const id = await apiPost({
+        url: '/auth/verify-email',
+        bodyParam: { token: verify }
+    });
+    return id;
+};
 
 /**
  * Sign up to Brand Dashboard backend.

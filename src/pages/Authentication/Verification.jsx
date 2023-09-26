@@ -17,6 +17,8 @@ import { Link } from 'react-router-dom';
 // Formik Validation
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import { AuthApi } from '@/api';
+import { useNavigate } from 'react-router-dom';
 
 // import images
 const logo = 'https://cdn.vaultik.com/mini-web/assets/vaultik_logo.svg';
@@ -26,6 +28,7 @@ const Verification = (props) => {
   document.title =
     "Email Verification | Vaultik - Brands Dashboard";
 
+  const navigate = useNavigate();
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
@@ -38,8 +41,15 @@ const Verification = (props) => {
               .string()
               .matches(/^[0-9]{6}$/, "Must be exactly 6 digit")
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       // dispatch(userForgetPassword(values, props.history));
+        try {
+            const { verify } = values;
+            const response = await AuthApi.verifyEmail(verify);
+            navigate("/dashboard");
+        } catch (err) {
+            navigate("/verification-review");
+        }
     },
   });
 
