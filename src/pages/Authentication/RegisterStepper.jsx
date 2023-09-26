@@ -331,7 +331,7 @@ const RegisterStepper = ({ title }) => {
                           </Link>
                         </li>
                         <li
-                          className={activeTab === 4 ? "next disabled" : "next"}
+                          className={activeTab === 3 ? "next disabled" : "next"}
                         >
                           <Link
                             to="#"
