@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Preview = (props) => {
 
     const { file } = props;
-    const [ imgData, setImgData ] = useState([]);
+    const [imgData, setImgData] = useState([]);
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
