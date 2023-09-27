@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import {
     Button,
     Label,
@@ -7,7 +7,7 @@ import {
 } from 'reactstrap';
 
 const FileContent = (props) => {
-    const { onFileUpload, additionalText } = props;
+    const { onFileUpload, additionalText, startAdornment } = props;
 
     const inputRef = useRef(null);
 
@@ -22,7 +22,8 @@ const FileContent = (props) => {
 
     return (
         <>
-            <Button onClick={handleUpload} color="primary" className="btn ">
+            {startAdornment}
+            <Button onClick={handleUpload} color="primary" className="btn" style={{ minWidth: '120px' }}>
                 Upload Cover
             </Button>
             <input

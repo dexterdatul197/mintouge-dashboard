@@ -22,6 +22,7 @@ import useToast from '@/utils/useToast';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import InputItem from '@/components/InputItem';
+import Preview from '@/components/Preview';
 
 //Import Breadcrumb
 import Breadcrumbs from '../../components/Breadcrumb';
@@ -36,6 +37,12 @@ const RegisterStepper = ({ title }) => {
 
   const [passedSteps, setPassedSteps] = useState([1])
   const [passedStepsVertical, setPassedStepsVertical] = useState([1])
+
+  const [assetUpload, setAssetUpload] = useState({});
+  const [fileUpload, setFileUpload] = useState({});
+  const [prUpload, setPRUpload] = useState({});
+  const [logoUpload, setLogoUpload] = useState({});
+
 
   const showToast = useToast();
 
@@ -111,6 +118,22 @@ const RegisterStepper = ({ title }) => {
     }
   }
 
+  function onFileUpload(file) {
+    setFileUpload(file);
+  };
+  
+  function onAssetUpload(file) {
+    setAssetUpload(file);
+  };
+
+  function onPRUpload(file) {
+    setPRUpload(file);
+  };
+
+  function onLogoUpload(file) {
+    setLogoUpload(file);
+  };
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -179,7 +202,10 @@ const RegisterStepper = ({ title }) => {
                             }}
                         >
                             <InputItem name="companyName" label="Company Name" formik={formik} />
-                            <InputItem name="companyLogo" label="Company Logo" type="url" formik={formik} />
+                            <InputItem name="companyLogo" label="Company Logo" type="file" additionalText="at least 1200 x 830px" onFileUpload={onLogoUpload} formik={formik} />
+                            <Preview
+                                    file={logoUpload}
+                            />
                             <InputItem name="address" label="Address Line" formik={formik} />
                             <InputItem name="address2" label="Address Line2" isOptional={true} formik={formik} />
                             <InputItem name="city" label="City" formik={formik} />
@@ -208,8 +234,43 @@ const RegisterStepper = ({ title }) => {
                                 }}
                             >
                                 <InputItem name="collectionName" label="Name" formik={formik} />
-                                <InputItem name="collectionDescription" label="Description" type="url" formik={formik} />
-                                <InputItem name="collectionImage" label="Images" formik={formik} />
+                                <InputItem name="collectionDescription" label="Description" formik={formik} />
+                                <InputItem 
+                                    type="file" 
+                                    name="coverImage" 
+                                    label="3D Assets" 
+                                    onFileUpload={onAssetUpload} 
+                                    formik={formik} 
+                                    startAdornment={
+                                        <React.Fragment>
+                                            <Input
+                                                name="assetUrl"
+                                                type="text"
+                                                className="form-control"
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values["assetUrl"]}
+                                                invalid={
+                                                    formik.touched["assetUrl"] && formik.errors["assetUrl"]
+                                                        ? true
+                                                        : false
+                                                }
+                                            />
+                                            <span>or</span>
+                                        </React.Fragment>
+                                    }    
+                                />
+                                <Preview
+                                    file={assetUpload}
+                                />
+                                <InputItem name="assetImage" label="Collection   Image" type="file" additionalText="at least 1200 x 830px" onFileUpload={onFileUpload} formik={formik} />
+                                <Preview
+                                    file={fileUpload}
+                                />
+                                <InputItem name="prImage" label="Perk&Reward Cover Image" type="file" additionalText="at least 1200 x 830px" onFileUpload={onPRUpload} formik={formik} />
+                                <Preview
+                                    file={prUpload}
+                                />
                             </Form>
                         </TabPane>
                         <TabPane tabId={3}>
