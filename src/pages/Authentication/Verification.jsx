@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Row,
   Col,
@@ -29,6 +29,13 @@ const Verification = (props) => {
     "Email Verification | Vaultik - Brands Dashboard";
 
   const navigate = useNavigate();
+
+  const [errorMessage, setErrorMessage] = useState(undefined);
+
+  const onVerificationFailed = (err) => {
+    setErrorMessage(err.toString());
+  };
+
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
@@ -47,13 +54,13 @@ const Verification = (props) => {
             const { verify } = values;
             const response = await AuthApi.verifyEmail(verify);
             // navigate("/verification-review");
+            setErrorMessage(undefined);
         } catch (err) {
+            onVerificationFailed(err);
             // navigate("/verification-review");
         }
     },
   });
-
-  const { forgetError, forgetSuccessMsg } = {};
 
   return (
     <React.Fragment>
@@ -83,18 +90,12 @@ const Verification = (props) => {
                   </Link>
                </div>
               <Card className="overflow-hidden" style={{ background: "#EFEEF4", borderRadius: '12px', boxShadow: "0px 25px 50px -12px #10182840"}}>
-                <CardBody className="pt-5 my-4">
-                  <div className="p-2">
-                    {forgetError && forgetError ? (
-                      <Alert color="danger" style={{ marginTop: "13px" }}>
-                        {forgetError}
-                      </Alert>
-                    ) : null}
-                    {forgetSuccessMsg ? (
-                      <Alert color="success" style={{ marginTop: "13px" }}>
-                        {forgetSuccessMsg}
-                      </Alert>
-                    ) : null}
+                <CardBody className="pt-2">
+                  <div>
+                    {errorMessage && 
+                      <Alert color="danger" className="mt-2 text-center">
+                        {errorMessage}
+                      </Alert>}
 
                     <Form
                       className="form-horizontal"
@@ -104,7 +105,8 @@ const Verification = (props) => {
                         return false;
                       }}
                     >
-                      <div className="mb-3">
+                      <div className="text-center mt-2" style={{ fontSize: '18px' }}>Please type your verification code</div>
+                      <div className="mt-3">
                         <Input
                           name="verify"
                           className="form-control rounded text-secondary"
@@ -126,14 +128,14 @@ const Verification = (props) => {
                           </FormFeedback>
                         ) : null}
                       </div>
-                      <Row className="mb-3">
+                      <Row className="mt-3">
                         <Col className="text-end d-grid">
                           <button
                             className="btn w-md text-white rounded-4"
                             style={{ background: "#222639", height: '60px'}}
                             type="submit"
                           >
-                            Send
+                            { errorMessage ? "Resend" : "Send" }
                           </button>
                         </Col>
                       </Row>

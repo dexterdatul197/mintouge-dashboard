@@ -400,7 +400,30 @@ const RewardDetail = () => {
                         <InputItem name="videoLink" label="Video Link" type="url" isOptional={true} formik={formik} />
                         <InputItem name="cta" label="External Link" type="url" isOptional={true} formik={formik} />
                         <InputItem name="description" label="Description" formik={formik} type="textarea" rows={7} />
-                        <InputItem name="coverImage" label="Cover Image" type="url" formik={formik} />
+                        <InputItem 
+                            type="file" 
+                            name="coverImage" 
+                            label="Cover Image*" 
+                            formik={formik} 
+                            startAdornment={
+                                <React.Fragment>
+                                    <Input
+                                        name=""
+                                        type="text"
+                                        className="form-control"
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values["coverImage"]}
+                                        invalid={
+                                            formik.touched["coverImage"] && formik.errors["coverImage"]
+                                               ? true
+                                               : false
+                                        }
+                                    />
+                                    <span>or</span>
+                                </React.Fragment>
+                            }    
+                        />
                         {/* <InputItem name="coverImage" label="Cover Image" type="file" additionalText="at least 1200 x 830px" onFileUpload={onFileUpload} formik={formik} /> */}
                         <InputItem name="rewardCode" label="Unique Code" isOptional={true} formik={formik} />
                         <ExpireItem formik={formik} />
