@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 const VerificationReview = () => {
     //meta title
-    document.title = "404 Error Page | Vaultik - Brands Dashboard";
+    document.title = "Register | Vaultik - Brands Dashboard";
 
   return (
     <React.Fragment>
@@ -13,10 +13,6 @@ const VerificationReview = () => {
           <Row>
             <Col lg="12">
               <div className="text-center mb-5">
-                <h1 className="display-2 fw-medium">
-                  4<i className="bx bx-buoy bx-spin text-primary display-3" />
-                  4
-                </h1>
                 <div className="mt-5 text-center">
                   We are reviewing your account.
                   <br />

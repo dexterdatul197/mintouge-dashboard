@@ -114,7 +114,7 @@ const BrandSeup = props => {
                       {isLoading && <LoadingScreen />}
                       {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
 
-                      <div className="mb-3 my-5">
+                      <div className="mb-3">
                         <Input
                           id="email"
                           name="email"

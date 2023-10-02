@@ -40,7 +40,7 @@ export const apiGet = async ({ url, queryParams, hasToken = true }) => {
             throw Error(response.statusText);
         }
     } catch (error) {
-        throw error;
+        throw error?.response?.data?.message;
     }
 };
 
@@ -78,7 +78,7 @@ export const apiPost = async ({ url, queryParams, bodyParam, hasToken = true }) 
             throw Error(data.message);
         }
     } catch (error) {
-        throw error;
+        throw error?.response?.data?.message;
     }
 };
 
@@ -117,7 +117,7 @@ export const apiPut = async ({ url, queryParams, bodyParam, hasToken = true }) =
             throw Error(data.message);
         }
     } catch (error) {
-        throw error;
+        throw error?.response?.data?.message;
     }
 };
 
@@ -155,6 +155,6 @@ export const apiDelete = async ({ url, hasToken = true }) => {
             throw Error(data.message);
         }
     } catch (error) {
-        throw error;
+        throw error?.response?.data?.message;
     }
 };

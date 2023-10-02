@@ -70,7 +70,7 @@ const Login = (props) => {
       } catch (err) {
         setLoading(false);
         console.log(err);
-        setErrorMessage("Invalid User Name or Password");
+        setErrorMessage(err.toString());
       }
     },
   });

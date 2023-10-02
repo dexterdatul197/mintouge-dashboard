@@ -46,9 +46,9 @@ const Verification = (props) => {
         try {
             const { verify } = values;
             const response = await AuthApi.verifyEmail(verify);
-            navigate("/dashboard");
+            // navigate("/verification-review");
         } catch (err) {
-            navigate("/verification-review");
+            // navigate("/verification-review");
         }
     },
   });

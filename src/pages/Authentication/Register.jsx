@@ -13,7 +13,7 @@ import LoadingScreen from '@/components/LoadingScreen';
 const logoImg = 'https://cdn.vaultik.com/mini-web/assets/vaultik_logo.svg';
 const Register = props => {
   document.title = "Register | Vaultik - Brands Dashboard";
-  
+
   const showToast = useToast();
   const navigate = useNavigate();
   const { setUser } = useUser();
@@ -28,7 +28,7 @@ const Register = props => {
     setUser(response);
     navigate("/verification");
   };
-  
+
   const onSignupFailed = (error) => {
     setErrorMessage(error.toString());
   };
@@ -52,9 +52,9 @@ const Register = props => {
         // .matches(/[a-z]/, 'Password requires a lowercase letter')
         // .matches(/[A-Z]/, 'Password requires an uppercase letter')
         .matches(/[^\w]/, 'Password requires a symbol'),
-        firstName: Yup.string().required("Please Enter Your First Name"),
-        lastName: Yup.string().required("Please Enter Your Last Name"),
-        brandName: Yup.string().required("Please Enter Your Brand Name"),
+      firstName: Yup.string().required("Please Enter Your First Name"),
+      lastName: Yup.string().required("Please Enter Your Last Name"),
+      brandName: Yup.string().required("Please Enter Your Brand Name"),
     }),
     onSubmit: async (values) => {
       try {
@@ -87,23 +87,23 @@ const Register = props => {
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={5}>
               <div>
-                    <Link to="/">
-                      <div className="d-flex justify-content-center align-items-baseline">
-                        <div className="avatar-md profile-user-wid mb-4">
-                          <span className="avatar-title" style={{ background: 'var(--bs-body-bg)'}}>
-                            <img
-                              src={logoImg}
-                              alt=""
-                              className=""
-                              height="34"
-                            />
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
+                <Link to="/">
+                  <div className="d-flex justify-content-center align-items-baseline">
+                    <div className="avatar-md profile-user-wid mb-4">
+                      <span className="avatar-title" style={{ background: 'var(--bs-body-bg)' }}>
+                        <img
+                          src={logoImg}
+                          alt=""
+                          className=""
+                          height="34"
+                        />
+                      </span>
+                    </div>
                   </div>
-              <Card className="overflow-hidden"  style={{ background: "#EFEEF4", borderRadius: '12px', boxShadow: "0px 25px 50px -12px #10182840"}}>
-                <CardBody className="pt-0">
+                </Link>
+              </div>
+              <Card className="overflow-hidden" style={{ background: "#EFEEF4", borderRadius: '12px', boxShadow: "0px 25px 50px -12px #10182840" }}>
+                <CardBody>
                   <div className="p-2">
                     <Form
                       className="form-horizontal"
@@ -113,10 +113,10 @@ const Register = props => {
                         return false;
                       }}
                     >
-                      {isLoading && <LoadingScreen />}
+                      {isLoading && <LoadingScreen styles={{ marginBottom: "16px" }} />}
                       {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
 
-                      <div className="mb-3 my-5">
+                      <div className="mb-3">
                         <Input
                           id="email"
                           name="email"
