@@ -21,6 +21,7 @@ import Pages404 from '@pages/Utility/pages-404';
 import InputItem from '@/components/InputItem';
 import LoadingScreen from '@/components/LoadingScreen';
 import DeletableChip from '@/components/DeletableChip';
+import Preview from '@/components/Preview';
 
 const ExpireItem = (props) => {
     const { formik } = props;
@@ -280,6 +281,7 @@ const RewardDetail = () => {
             videoLink: reward?.videoLink || "",
             cta: reward?.cta || "",
             description: reward?.description || "",
+            coverUrl: reward?.coverUrl || "",
             coverImage: reward?.coverImage || "",
             rewardCode: reward?.rewardCode || "",
             eventFrom: reward?.eventFrom?.split('T')[0] || new Date().toISOString().split('T')[0],
@@ -303,8 +305,10 @@ const RewardDetail = () => {
                 .optional('Reward Images are not valid.'),
             description: yup.string()
                 .required('Please type Description.'),
+            coverUrl: yup.string()
+                .optional('Please type cover url'),
             coverImage: yup.string()
-                .required('Please upload Cover Image.'),
+                .optional('Please upload Cover Image.'),
             eventFrom: yup.date()
                 .optional('Asset 3D URL is invalid'),
             eventTo: yup.date()
@@ -403,26 +407,30 @@ const RewardDetail = () => {
                         <InputItem 
                             type="file" 
                             name="coverImage" 
-                            label="Cover Image*" 
+                            label="Cover Image" 
+                            onFileUpload={onFileUpload} 
                             formik={formik} 
                             startAdornment={
                                 <React.Fragment>
                                     <Input
-                                        name=""
+                                        name="coverUrl"
                                         type="text"
                                         className="form-control"
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
-                                        value={formik.values["coverImage"]}
+                                        value={formik.values["coverUrl"]}
                                         invalid={
-                                            formik.touched["coverImage"] && formik.errors["coverImage"]
-                                               ? true
-                                               : false
+                                            formik.values["coverImage"] || formik.values["coverUrl"]
+                                               ? false
+                                               : true
                                         }
                                     />
                                     <span>or</span>
                                 </React.Fragment>
                             }    
+                        />
+                        <Preview
+                            file={formik.values["coverImage"]}
                         />
                         {/* <InputItem name="coverImage" label="Cover Image" type="file" additionalText="at least 1200 x 830px" onFileUpload={onFileUpload} formik={formik} /> */}
                         <InputItem name="rewardCode" label="Unique Code" isOptional={true} formik={formik} />
