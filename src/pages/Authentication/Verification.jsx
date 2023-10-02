@@ -19,6 +19,7 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { AuthApi } from '@/api';
 import { useNavigate } from 'react-router-dom';
+import LoadingScreen from '@/components/LoadingScreen';
 
 // import images
 const logo = 'https://cdn.vaultik.com/mini-web/assets/vaultik_logo.svg';
@@ -31,6 +32,7 @@ const Verification = (props) => {
   const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [isLoading, setLoading] = useState(false);
 
   const onVerificationFailed = (err) => {
     setErrorMessage(err.toString());
@@ -52,10 +54,12 @@ const Verification = (props) => {
       // dispatch(userForgetPassword(values, props.history));
         try {
             const { verify } = values;
+            setLoading(true);
             const response = await AuthApi.verifyEmail(verify);
             // navigate("/verification-review");
             setErrorMessage(undefined);
         } catch (err) {
+            setLoading(false);
             onVerificationFailed(err);
             // navigate("/verification-review");
         }
@@ -135,7 +139,10 @@ const Verification = (props) => {
                             style={{ background: "#222639", height: '60px'}}
                             type="submit"
                           >
-                            { errorMessage ? "Resend" : "Send" }
+                            {isLoading ? 
+                              <LoadingScreen styles={{ marginBottom: "16px" }} /> : 
+                              errorMessage ? "Resend" : "Send"
+                            }
                           </button>
                         </Col>
                       </Row>
