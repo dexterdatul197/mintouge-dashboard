@@ -4,6 +4,7 @@ import * as ProductApi from './productApi';
 import * as RewardApi from './rewardApi';
 import * as PaymentApi from './paymentApi';
 import * as CategoryApi from './categoryApi';
+import * as CompanyApi from './companyApi';
 
 export {
     AuthApi,
@@ -12,4 +13,5 @@ export {
     RewardApi,
     PaymentApi,
     CategoryApi,
+    CompanyApi
 };

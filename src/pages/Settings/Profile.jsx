@@ -9,7 +9,7 @@ import {
     Container,
 } from 'reactstrap';
 
-import { RewardApi } from '@/api';
+import { CompanyApi } from '@/api';
 import useToast from '@/utils/useToast';
 import Pages404 from '@pages/Utility/pages-404';
 import InputItem from '@/components/InputItem';
@@ -65,6 +65,7 @@ const Profile = () => {
                 .required('Please type Contact Number'),
         }),
         onSubmit: async (values) => {
+            const response = await CompanyApi.updateCompany(values);
             handleUpdate(values);
         }
     });
