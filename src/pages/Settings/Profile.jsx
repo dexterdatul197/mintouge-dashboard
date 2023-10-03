@@ -9,12 +9,13 @@ import {
     Container,
 } from 'reactstrap';
 
-import { CompanyApi } from '@/api';
+import { CompanyApi, MediaApi } from '@/api';
 import useToast from '@/utils/useToast';
 import Pages404 from '@pages/Utility/pages-404';
 import InputItem from '@/components/InputItem';
 import LoadingScreen from '@/components/LoadingScreen';
 import Preview from '@/components/Preview';
+import { SetStorageObject, Storage } from '@/utils';
 
 const Profile = () => {
 
@@ -66,6 +67,7 @@ const Profile = () => {
         }),
         onSubmit: async (values) => {
             const response = await CompanyApi.updateCompany(values);
+            SetStorageObject(Storage.OptedUser, response);
             handleUpdate(values);
         }
     });
@@ -87,8 +89,9 @@ const Profile = () => {
         }
     };
 
-    const onFileUpload = (selectedFile) => {
-        formik.setFieldValue("companyLogo", selectedFile);
+    const onFileUpload = async (selectedFile) => {
+        const logoLink = await MediaApi.uploadFile(selectedFile);
+        formik.setFieldValue("companyLogo", logoLink);
     };
 
     const handleCancel = () => {

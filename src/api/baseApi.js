@@ -158,3 +158,38 @@ export const apiDelete = async ({ url, hasToken = true }) => {
         throw error?.response?.data?.message;
     }
 };
+
+/**
+ * HTTP Request using POST method
+ * 
+ * @param {string} url A url endpoint
+ * @param {string} queryParams Query Params 
+ * @param {string} bodyParam Body Params 
+ * @param {string} hasToken A flag to indicate if it is a public api or private
+ * 
+ * @returns HTTP Request Response
+ */
+
+export const apiUpload = async ({ url, bodyParam, queryParams, hasToken = true }) => {
+    const token = GetStorageObject(Storage.OptedUser)?.token;
+    const headers = {
+        'Content-Type': 'multipart/form-data',
+        'Access-Control-Allow-Origin': 'no-cors',
+        'Authorization': `Bearer ${token}`
+    };
+    try {
+        const response = await axiosApi.post(url, bodyParam, {
+            params: queryParams,
+            headers: headers,
+            withCredentials: true,
+        });
+
+        if (response.status < 300) {
+            return response.data;
+        } else {
+            throw Error(data.message);
+        }
+    } catch (error) {
+        throw error;
+    }
+};

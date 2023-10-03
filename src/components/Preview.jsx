@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react';
 const Preview = (props) => {
 
     const { file } = props;
-    const [imgData, setImgData] = useState([]);
+    const [imgData, setImgData] = useState(null);
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
        if(file!==undefined && file!==null && file.size>0)
        {
-          setImgData(URL.createObjectURL(file));
+//          setImgData(URL.createObjectURL(file));
+          setImgData(file);
           setVisible(true);
        }
     }, [file]);
