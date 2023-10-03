@@ -182,3 +182,17 @@ export const signInApple = () => {
         });
     });
 };
+
+/**
+ * Resend Verification API
+ * This is bound to send verification code
+ * when custom user have trouble verification.
+ * @param {string} email address link to be sent 
+ */
+
+export const resedVerification = async (email) => {
+    await apiGet({
+        url: '/auth/resend-verification',
+        queryParams: { email }
+    });
+}

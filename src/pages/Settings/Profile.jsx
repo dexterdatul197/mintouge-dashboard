@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Form,
+    Input,
     Button,
     Container,
 } from 'reactstrap';
@@ -13,6 +14,7 @@ import useToast from '@/utils/useToast';
 import Pages404 from '@pages/Utility/pages-404';
 import InputItem from '@/components/InputItem';
 import LoadingScreen from '@/components/LoadingScreen';
+import Preview from '@/components/Preview';
 
 const Profile = () => {
 
@@ -115,7 +117,34 @@ const Profile = () => {
                         }}
                     >
                         <InputItem name="companyName" label="Company Name" formik={formik} />
-                        <InputItem name="companyLogo" label="Company Logo" type="url" formik={formik} />
+                        <InputItem 
+                            type="file" 
+                            name="companyLogo" 
+                            label="Company Logo" 
+                            onFileUpload={onFileUpload} 
+                            formik={formik} 
+                            startAdornment={
+                                <React.Fragment>
+                                    <Input
+                                        name="coverUrl"
+                                        type="text"
+                                        className="form-control"
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values["coverUrl"]}
+                                        invalid={
+                                            formik.values["companyLogo"] || formik.values["coverUrl"]
+                                               ? false
+                                               : true
+                                        }
+                                    />
+                                    <span>or</span>
+                                </React.Fragment>
+                            }    
+                        />
+                        <Preview
+                            file={formik.values["companyLogo"]}
+                        />
                         <InputItem name="address" label="Address Line" formik={formik} />
                         <InputItem name="address2" label="Address Line2" isOptional={true} formik={formik} />
                         <InputItem name="city" label="City" formik={formik} />

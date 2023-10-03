@@ -20,6 +20,7 @@ import { useFormik } from 'formik';
 import { AuthApi } from '@/api';
 import { useNavigate } from 'react-router-dom';
 import LoadingScreen from '@/components/LoadingScreen';
+import { GetStorageObject, Storage } from '@/utils';
 
 // import images
 const logo = 'https://cdn.vaultik.com/mini-web/assets/vaultik_logo.svg';
@@ -56,7 +57,7 @@ const Verification = (props) => {
             const { verify } = values;
             setLoading(true);
             const response = await AuthApi.verifyEmail(verify);
-            // navigate("/verification-review");
+            navigate("/verification-review");
             setErrorMessage(undefined);
         } catch (err) {
             setLoading(false);
@@ -65,6 +66,11 @@ const Verification = (props) => {
         }
     },
   });
+
+  const handleResendCode = async () => {
+    const email = GetStorageObject(Storage.OptedUser).email;
+    await AuthApi.resedVerification(email);
+  };
 
   return (
     <React.Fragment>
@@ -110,7 +116,7 @@ const Verification = (props) => {
                       }}
                     >
                       <div className="text-center mt-2" style={{ fontSize: '18px' }}>Please type your verification code</div>
-                      <div className="mt-3">
+                      <div className="position-relative mt-3">
                         <Input
                           name="verify"
                           className="form-control rounded text-secondary"
@@ -126,6 +132,14 @@ const Verification = (props) => {
                               : false
                           }
                         />
+                        { errorMessage && 
+                          <div
+                            onClick={handleResendCode} 
+                            className="position-absolute" 
+                            style={{ right: "10px", bottom: "17px", fontSize: "15px", color: "cornflowerblue", textDecoration: "underline", cursor: "pointer"}}
+                          >
+                            Resend Code
+                          </div> }
                         {validation.touched.verify && validation.errors.verify ? (
                           <FormFeedback type="invalid">
                             {validation.errors.verify}
@@ -140,7 +154,7 @@ const Verification = (props) => {
                             type="submit"
                           >
                             {isLoading ? 
-                              <LoadingScreen styles={{ marginBottom: "16px" }} /> : 
+                              <LoadingScreen styles={{ marginBottom: '5px' }}/> : 
                               errorMessage ? "Resend" : "Send"
                             }
                           </button>

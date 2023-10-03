@@ -30,7 +30,9 @@ const Register = props => {
   };
 
   const onSignupFailed = (error) => {
-    setErrorMessage(error.toString());
+    const errDump = error.toString();
+    setErrorMessage(errDump);
+    errDump.includes("verified") && navigate("/verification");
   };
 
   const validation = useFormik({
