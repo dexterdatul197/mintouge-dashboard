@@ -90,8 +90,9 @@ const Profile = () => {
     };
 
     const onFileUpload = async (selectedFile) => {
-        const logoLink = await MediaApi.uploadFile(selectedFile);
-        formik.setFieldValue("companyLogo", logoLink);
+        const logoLink = await MediaApi.uploadFile(selectedFile, {img: {path:"", filename:""}});
+        console.log(logoLink.path);
+        formik.setFieldValue("companyLogo", logoLink.path);
     };
 
     const handleCancel = () => {
@@ -135,9 +136,9 @@ const Profile = () => {
                                         className="form-control"
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
-                                        value={formik.values["coverUrl"]}
+                                        value={formik.values["companyLogo"]}
                                         invalid={
-                                            formik.values["companyLogo"] || formik.values["coverUrl"]
+                                            formik.values["companyLogo"]
                                                ? false
                                                : true
                                         }

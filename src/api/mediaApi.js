@@ -7,14 +7,14 @@ import { apiUpload } from './baseApi';
  * @returns
  */
 
-export const uploadFile = async (file) => {
+export const uploadFile = async (file, option) => {
 
     try {
         const formData = new FormData();
         formData.append('file', file);
         const link = await apiUpload({
             url: '/upload/file',
-            bodyParam: formData,
+            bodyParam: { file: formData.get("file"), ...option?.img }
         });
 
         return link;
