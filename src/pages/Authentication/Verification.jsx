@@ -21,6 +21,7 @@ import { AuthApi } from '@/api';
 import { useNavigate } from 'react-router-dom';
 import LoadingScreen from '@/components/LoadingScreen';
 import { GetStorageObject, Storage } from '@/utils';
+import useToast from '@/utils/useToast';
 
 // import images
 const logo = 'https://cdn.vaultik.com/mini-web/assets/vaultik_logo.svg';
@@ -34,6 +35,8 @@ const Verification = (props) => {
 
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isLoading, setLoading] = useState(false);
+
+  const showToast = useToast();
 
   const onVerificationFailed = (err) => {
     setErrorMessage(err.toString());
@@ -70,6 +73,7 @@ const Verification = (props) => {
   const handleResendCode = async () => {
     const email = GetStorageObject(Storage.OptedUser).email;
     await AuthApi.resedVerification(email);
+    showToast("Check your verification code after 30 seconds");
   };
 
   return (
