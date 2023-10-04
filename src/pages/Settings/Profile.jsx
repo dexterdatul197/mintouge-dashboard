@@ -41,9 +41,9 @@ const Profile = () => {
             city: profile?.city || "London",
             zipcode: profile?.zipcode || "N1 7FD",
             country: profile?.country || "United Kingdom",
-            vat: profile?.vat || "-",
+            vat: profile?.vat || "",
             invoiceEmail: profile?.invoiceEmail || "pietro@vaultik.com",
-            contactNumer: profile?.contactNumer || "+44.7584771060",
+            contactNumber: profile?.contactNumer || "+44 7584771060",
         },
         validationSchema: yup.object({
             companyName: yup.string()
@@ -62,13 +62,19 @@ const Profile = () => {
                 .required('Please type VAT Number'),
             invoiceEmail: yup.string()
                 .required('Please type invoicing Email'),
-            contactNumer: yup.string()
+            contactNumber: yup.string()
                 .required('Please type Contact Number'),
         }),
         onSubmit: async (values) => {
-            const response = await CompanyApi.updateCompany(values);
-            SetStorageObject(Storage.OptedUser, response);
-            handleUpdate(values);
+            try {
+                setLoading(true);
+                const response = await CompanyApi.updateCompany(values);
+                showToast("Profile was successfully updated.");
+                setLoading(false);
+            } catch(err) {
+                showToast("Profile update failed", "error");
+                setLoading(false);
+            }
         }
     });
 
@@ -80,15 +86,6 @@ const Profile = () => {
         }
     }
 
-    const handleUpdate = async (values) => {
-        try {
-            showToast("Profile was successfully updated.");
-            navigate("/");
-        } catch (error) {
-            showToast(error.toString(), "error");
-        }
-    };
-
     const onFileUpload = async (selectedFile) => {
         const logoLink = await MediaApi.uploadFile(selectedFile, {img: {path:"", filename:""}});
         console.log(logoLink.path);
@@ -98,10 +95,6 @@ const Profile = () => {
     const handleCancel = () => {
         navigate("/");
     };
-
-    if (isLoading) {
-        return <LoadingScreen />
-    }
 
     return (
         <>
@@ -166,8 +159,12 @@ const Profile = () => {
                         {/* <InputItem name="coverImage" label="Cover Image" type="file" additionalText="at least 1200 x 830px" onFileUpload={onFileUpload} formik={formik} /> */}
                         <div className="d-flex justify-content-end gap-2">
                             <div className="d-flex gap-2">
-                                <Button type="submit" color="primary" className="btn ">
-                                    Save
+                                <Button type="submit" color="primary" className="btn" disabled={isLoading}>
+                                    {
+                                      isLoading ? 
+                                      <LoadingScreen styles={{ width: '100%', maxHeight: '10px'}}/> :
+                                      "Save"
+                                    }
                                 </Button>
                                 <Button type="button" onClick={handleCancel} color="secondary">
                                     Cancel
