@@ -5,9 +5,9 @@ COPY package.json /app
 
 RUN apk update && apk add --no-cache git
 
-RUN npm install
+RUN yarn install
 COPY . /app
-RUN npm run build
+RUN yarn build
 
 FROM nginx:1.22.1-alpine as proxy
 COPY --from=build /app/dist /usr/share/nginx/html
