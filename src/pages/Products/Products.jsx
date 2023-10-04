@@ -5,7 +5,7 @@ import { Container, Button } from 'reactstrap';
 import Table from '@/components/Table';
 import { ProductHeaders } from '@/utils';
 import LoadingScreen from '@/components/LoadingScreen';
-import { useProductsApi } from '@/store/productStore';
+import { useProducts } from '@/store/productStore';
 
 const Orders = () => {
   document.title = "Products | Vaultik - Brands Dashboard";
@@ -14,7 +14,7 @@ const Orders = () => {
   const [totalPage, setTotalPage] = useState(5);
   const [searchQuery, setSearchQuery] = useState('');
   // const [isLoading, setLoading] = useState(false);
-  const { isLoading, fetchProducts, products: productList } = useProductsApi();
+  const { isLoading, fetchProducts, products: productList } = useProducts();
 
   useEffect(() => {
     fetchProducts();

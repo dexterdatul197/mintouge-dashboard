@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { atom, useRecoilState } from 'recoil';
 
 import { ProductApi } from '@/api';
@@ -9,15 +9,7 @@ const productsState = atom({
     default: [],
 });
 
-export const useProducts = () => {
-    const [products, setProducts] = useRecoilState(productsState);
-    return {
-        products,
-        setProducts,
-    };
-};
-
-export const useProductsApi = () => {
+export const useProducts = (fetchOnStart = true, isForce = false) => {
     const showToast = useToast();
     const [isLoading, setLoading] = useState(false);
     const [product, setProduct] = useState({});
@@ -83,6 +75,15 @@ export const useProductsApi = () => {
             setLoading(false);
         }
     }
+
+    useEffect(() => {
+        if (isForce) {
+            fetchProducts();
+        }
+        if (fetchOnStart && orders.length === 0) {
+            fetchProducts();
+        }
+    }, []);
 
     return {
         product,

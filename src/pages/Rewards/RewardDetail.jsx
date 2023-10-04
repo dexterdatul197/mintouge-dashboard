@@ -15,7 +15,7 @@ import {
 import Switch from 'react-switch';
 
 import { RewardApi } from '@/api';
-import { useProductsApi } from '@/store/productStore';
+import { useProducts } from '@/store/productStore';
 import useToast from '@/utils/useToast';
 import Pages404 from '@pages/Utility/pages-404';
 import InputItem from '@/components/InputItem';
@@ -82,7 +82,7 @@ const ProductItem = (props) => {
     const { name, label, tooltip, formik } = props;
     const [selectedProducts, selectProducts] = useState(formik.values[name] || []);
     const [openProductModal, showProductModal] = useState(false);
-    const { fetchProducts, products } = useProductsApi();
+    const { fetchProducts, products } = useProducts();
 
     useEffect(() => {
         !products.length && fetchProducts();
