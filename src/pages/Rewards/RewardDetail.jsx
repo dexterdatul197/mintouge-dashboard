@@ -413,14 +413,14 @@ const RewardDetail = () => {
                             startAdornment={
                                 <React.Fragment>
                                     <Input
-                                        name="coverUrl"
+                                        name="coverImage"
                                         type="text"
                                         className="form-control"
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
-                                        value={formik.values["coverUrl"]}
+                                        value={formik.values["coverImage"]}
                                         invalid={
-                                            formik.values["coverImage"] || formik.values["coverUrl"]
+                                            formik.values["coverImage"]
                                                ? false
                                                : true
                                         }
