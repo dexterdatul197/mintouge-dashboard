@@ -80,7 +80,7 @@ export const useProducts = (fetchOnStart = true, isForce = false) => {
         if (isForce) {
             fetchProducts();
         }
-        if (fetchOnStart && orders.length === 0) {
+        if (fetchOnStart && products.length === 0) {
             fetchProducts();
         }
     }, []);
