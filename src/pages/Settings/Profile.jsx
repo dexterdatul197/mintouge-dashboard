@@ -9,13 +9,12 @@ import {
     Container,
 } from 'reactstrap';
 
-import { CompanyApi, MediaApi } from '@/api';
+import { CompanyApi, MediaApi, CollectionApi, AuthApi } from '@/api';
 import useToast from '@/utils/useToast';
-import Pages404 from '@pages/Utility/pages-404';
 import InputItem from '@/components/InputItem';
 import LoadingScreen from '@/components/LoadingScreen';
 import Preview from '@/components/Preview';
-import { SetStorageObject, Storage } from '@/utils';
+import { SetStorageObject, GetStorageObject, Storage } from '@/utils';
 
 const Profile = () => {
 
@@ -24,54 +23,106 @@ const Profile = () => {
 
     const showToast = useToast();
     const navigate = useNavigate();
-    const [profile, setProfile] = useState({});
+    const brand = GetStorageObject(Storage.OptedUser);
+    const profile = brand.company;
     const [isLoading, setLoading] = useState(false);
-
-    useEffect(() => {
-
-    }, []);
 
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            companyName: profile?.companyName || "LuxDemoStore",
-            companyLogo: profile?.companyLogo || "https://cdn.vaultik.com/mini-web/assets/store_logo.svg",
-            address: profile?.address || "51 Provost Street",
+            companyName: brand?.brandName || "",
+            companyLogo: brand?.logoUrl || "",
+            companySmallLogo: brand?.smallLogoUrl || "",
+            address: profile?.address || "",
             address2: profile?.address2 || "",
-            city: profile?.city || "London",
-            zipcode: profile?.zipcode || "N1 7FD",
-            country: profile?.country || "United Kingdom",
+            city: profile?.city || "",
+            zipcode: profile?.zipcode || "",
+            country: profile?.country || "",
             vat: profile?.vat || "",
-            invoiceEmail: profile?.invoiceEmail || "pietro@vaultik.com",
-            contactNumber: profile?.contactNumer || "+44 7584771060",
+            invoiceEmail: profile?.invoiceEmail || "",
+            contactNumber: profile?.contactNumer || "",
         },
         validationSchema: yup.object({
             companyName: yup.string()
                 .required('Please type Company Name.'),
             companyLogo: yup.string()
                 .required('Please type Company Logo.'),
+            companySmallLogo: yup.string()
+                .required('Please type Company Logo.'),
             address: yup.string()
-                .required('Please type Address.'),
+                .optional('Please type Address.'),
             city: yup.string()
-                .required('Please type City'),
+                .optional('Please type City'),
             zipcode: yup.string()
-                .required('Please type Zipcode.'),
+                .optional('Please type Zipcode.'),
             country: yup.string()
-                .required('Please select Country.'),
+                .optional('Please select Country.'),
             vat: yup.string()
-                .required('Please type VAT Number'),
+                .optional('Please type VAT Number'),
             invoiceEmail: yup.string()
-                .required('Please type invoicing Email'),
+                .optional('Please type invoicing Email'),
             contactNumber: yup.string()
-                .required('Please type Contact Number'),
+                .optional('Please type Contact Number'),
         }),
         onSubmit: async (values) => {
             try {
                 setLoading(true);
-                const response = await CompanyApi.updateCompany(values);
+
+                // Update Company
+                const _profile = {
+                    ...values
+                };
+
+                if (_profile.invoiceEmail.trim() === "") {
+                    delete _profile.invoiceEmail;
+                }
+
+                await CompanyApi.updateCompany(_profile);
+
+                // Update Collection
+                const payload = {
+                    "name": values.companyName,
+                    "description": values.companyName,
+                    "image": values.companySmallLogo,
+                    "chain": "goerli"
+                };
+
+                let newCollection = {};
+                if (brand?.collections && brand?.collections?.length >= 1) {
+                    const collection = brand.collections[0];
+                    newCollection = await CollectionApi.updateCollection(collection.id, {
+                        ...collection,
+                        ...payload,
+                    });
+                    brand.collections[0] = newCollection;
+                } else {
+                    newCollection = await CollectionApi.createCollection(payload);
+                    brand.collections.push(newCollection);
+                }
+
+                // Update Brand
+                await AuthApi.updateBrand({
+                    "email": brand.email,
+                    "brandName": values.companyName,
+                    "logoUrl": values.companyLogo,
+                    "smallLogoUrl": values.companySmallLogo,
+                    "firstName": brand.firstName,
+                    "lastName": brand.lastName,
+                    "phone": brand.phone,
+                    "address": brand.address,
+                });
+
+                // Update LocalStorage
+                SetStorageObject(Storage.OptedUser, {
+                    ...brand,
+                    "brandName": values.companyName,
+                    "logoUrl": values.companyLogo,
+                    "smallLogoUrl": values.companySmallLogo,
+                });
+
                 showToast("Profile was successfully updated.");
                 setLoading(false);
-            } catch(err) {
+            } catch (err) {
                 showToast("Profile update failed", "error");
                 setLoading(false);
             }
@@ -86,10 +137,14 @@ const Profile = () => {
         }
     }
 
-    const onFileUpload = async (selectedFile) => {
-        const logoLink = await MediaApi.uploadFile(selectedFile, {img: {path:"", filename:""}});
-        console.log(logoLink.path);
+    const onLogoUpload = async (selectedFile) => {
+        const logoLink = await MediaApi.uploadFile(selectedFile, { img: { path: "", filename: "" } });
         formik.setFieldValue("companyLogo", logoLink.path);
+    };
+
+    const onSmallLogoUpload = async (selectedFile) => {
+        const logoLink = await MediaApi.uploadFile(selectedFile, { img: { path: "", filename: "" } });
+        formik.setFieldValue("companySmallLogo", logoLink.path);
     };
 
     const handleCancel = () => {
@@ -115,16 +170,16 @@ const Profile = () => {
                         }}
                     >
                         <InputItem name="companyName" label="Company Name" formik={formik} />
-                        <InputItem 
-                            type="file" 
-                            name="companyLogo" 
-                            label="Company Logo" 
-                            onFileUpload={onFileUpload} 
-                            formik={formik} 
+                        <InputItem
+                            type="file"
+                            name="companyLogo"
+                            label="Company Logo"
+                            onFileUpload={onLogoUpload}
+                            formik={formik}
                             startAdornment={
                                 <React.Fragment>
                                     <Input
-                                        name="coverUrl"
+                                        name="companyLogo"
                                         type="text"
                                         className="form-control"
                                         onChange={formik.handleChange}
@@ -132,38 +187,62 @@ const Profile = () => {
                                         value={formik.values["companyLogo"]}
                                         invalid={
                                             formik.values["companyLogo"]
-                                               ? false
-                                               : true
+                                                ? false
+                                                : true
                                         }
                                     />
                                     <span>or</span>
                                 </React.Fragment>
-                            }    
+                            }
                         />
-                        <Preview
-                            file={formik.values["companyLogo"]}
+                        <Preview file={formik.values["companyLogo"]} />
+
+                        <InputItem
+                            type="file"
+                            name="companySmallLogo"
+                            label="Small Logo"
+                            onFileUpload={onSmallLogoUpload}
+                            formik={formik}
+                            startAdornment={
+                                <React.Fragment>
+                                    <Input
+                                        name="companySmallLogo"
+                                        type="text"
+                                        className="form-control"
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        value={formik.values["companySmallLogo"]}
+                                        invalid={
+                                            formik.values["companySmallLogo"]
+                                                ? false
+                                                : true
+                                        }
+                                    />
+                                    <span>or</span>
+                                </React.Fragment>
+                            }
                         />
-                        <InputItem name="address" label="Address Line" formik={formik} />
+                        <Preview file={formik.values["companySmallLogo"]} />
+                        <InputItem name="address" label="Address Line" isOptional={true} formik={formik} />
                         <InputItem name="address2" label="Address Line2" isOptional={true} formik={formik} />
-                        <InputItem name="city" label="City" formik={formik} />
-                        <InputItem name="zipcode" label="Zip Code" formik={formik} />
-                        <InputItem name="country" label="Country" formik={formik} type="select" >
+                        <InputItem name="city" label="City" isOptional={true} formik={formik} />
+                        <InputItem name="zipcode" label="Zip Code" isOptional={true} formik={formik} />
+                        <InputItem name="country" label="Country" isOptional={true} formik={formik} type="select" >
                             <option></option>
                             <option>United Kingdom</option>
                             <option>Germany</option>
                             <option>United States</option>
                         </InputItem>
-                        <InputItem name="vat" label="Zip Code" formik={formik} />
-                        <InputItem name="invoiceEmail" label="Invoice Email" formik={formik} />
-                        <InputItem name="contactNumber" label="Contact Number" formik={formik} />
+                        <InputItem name="invoiceEmail" label="Invoice Email" isOptional={true} formik={formik} />
+                        <InputItem name="contactNumber" label="Contact Number" isOptional={true} formik={formik} />
                         {/* <InputItem name="coverImage" label="Cover Image" type="file" additionalText="at least 1200 x 830px" onFileUpload={onFileUpload} formik={formik} /> */}
                         <div className="d-flex justify-content-end gap-2">
                             <div className="d-flex gap-2">
                                 <Button type="submit" color="primary" className="btn" disabled={isLoading}>
                                     {
-                                      isLoading ? 
-                                      <LoadingScreen styles={{ width: '100%', maxHeight: '10px'}}/> :
-                                      "Save"
+                                        isLoading ?
+                                            <LoadingScreen styles={{ width: '100%', maxHeight: '10px' }} /> :
+                                            "Save"
                                     }
                                 </Button>
                                 <Button type="button" onClick={handleCancel} color="secondary">
@@ -172,7 +251,6 @@ const Profile = () => {
                             </div>
                         </div>
                     </Form>
-
                 </Container>
             </div >
         </>

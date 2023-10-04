@@ -20,7 +20,6 @@ export const apiGet = async ({ url, queryParams, hasToken = true }) => {
     const token = GetStorageObject(Storage.OptedUser)?.token;
     const headers = {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'no-cors',
         'Authorization': `Bearer ${token}`
     };
     if (!hasToken) {
@@ -31,7 +30,6 @@ export const apiGet = async ({ url, queryParams, hasToken = true }) => {
         const response = await axiosApi.get(url, {
             params: queryParams,
             headers,
-            withCredentials: true,
         });
 
         if (response.status < 300) {
@@ -58,7 +56,6 @@ export const apiPost = async ({ url, queryParams, bodyParam, hasToken = true }) 
     const token = GetStorageObject(Storage.OptedUser)?.token;
     const headers = {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'no-cors',
         'Authorization': `Bearer ${token}`
     };
     if (!hasToken) {
@@ -69,7 +66,6 @@ export const apiPost = async ({ url, queryParams, bodyParam, hasToken = true }) 
         const response = await axiosApi.post(url, bodyParam, {
             params: queryParams,
             headers: headers,
-            withCredentials: true,
         });
 
         if (response.status < 300) {
@@ -97,7 +93,6 @@ export const apiPut = async ({ url, queryParams, bodyParam, hasToken = true }) =
     const token = GetStorageObject(Storage.OptedUser)?.token;
     const headers = {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'no-cors',
         'Authorization': `Bearer ${token}`
     };
     if (!hasToken) {
@@ -108,7 +103,6 @@ export const apiPut = async ({ url, queryParams, bodyParam, hasToken = true }) =
         const response = await axiosApi.put(url, bodyParam, {
             params: queryParams,
             headers: headers,
-            withCredentials: true,
         });
 
         if (response.status < 300) {
@@ -136,7 +130,6 @@ export const apiDelete = async ({ url, hasToken = true }) => {
     const token = GetStorageObject(Storage.OptedUser)?.token;
     const headers = {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'no-cors',
         'Authorization': `Bearer ${token}`
     };
     if (!hasToken) {
@@ -146,7 +139,6 @@ export const apiDelete = async ({ url, hasToken = true }) => {
     try {
         const response = await axiosApi.delete(url, {
             headers: headers,
-            withCredentials: true,
         });
 
         if (response.status < 300) {
@@ -174,14 +166,12 @@ export const apiUpload = async ({ url, bodyParam, queryParams, hasToken = true }
     const token = GetStorageObject(Storage.OptedUser)?.token;
     const headers = {
         'Content-Type': 'multipart/form-data',
-        'Access-Control-Allow-Origin': 'no-cors',
         'Authorization': `Bearer ${token}`
     };
     try {
         const response = await axiosApi.post(url, bodyParam, {
             params: queryParams,
             headers: headers,
-            withCredentials: true,
         });
 
         if (response.status < 300) {

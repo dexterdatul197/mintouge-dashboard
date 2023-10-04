@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { apiGet, apiPost, API_ENDPOINT } from './baseApi';
+import { apiGet, apiPost, apiPut, API_ENDPOINT } from './baseApi';
 
 /**
  * This function validates the product response coming from backend.
@@ -195,4 +195,26 @@ export const resedVerification = async (email) => {
         url: '/auth/resend-verification',
         queryParams: { email }
     });
+}
+
+/**
+ * Resend Verification API
+ * This is bound to send verification code
+ * when custom user have trouble verification.
+ * @param {string} email address link to be sent 
+ */
+
+export const updateBrand = async (brand) => {
+    try {
+        const newBrand = await apiPut({
+            url: '/user',
+            bodyParam: brand,
+        });
+
+        return newBrand;
+    } catch (error) {
+        // Handle any network or server errors
+        console.error('[Error] Brand Update Failed.', error);
+        throw error;
+    }
 }

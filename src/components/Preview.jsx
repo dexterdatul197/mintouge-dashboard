@@ -1,24 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const Preview = (props) => {
 
     const { file } = props;
-    const [visible, setVisible] = useState(true);
-
     return (
-        <>
-            { visible && <div 
-                style={{ position: 'relative', width: '200px', height: '200px'}}
-            >
-                <img src={file} width={200} height={200}/>
-                <div 
-                    onClick={() => setVisible(false)}
-                    style={{ position: 'absolute', right: '5px', top: '0px', fontSize: '24px'}}
-                >
-                    <i className="mdi mdi-close-circle" aria-hidden="true" />
-                </div>
-            </div> }
-        </>
+        <div className="d-flex flex-row align-items-center gap-3">
+            <div style={{ minWidth: "120px", maxWidth: "120px" }} />
+            <div>
+                <img src={file} style={{ maxWidth: "200px", maxHeight: "50px" }} width="100%" />
+            </div>
+        </div>
     );
 };
 

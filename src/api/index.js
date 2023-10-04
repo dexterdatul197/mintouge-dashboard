@@ -5,6 +5,7 @@ import * as RewardApi from './rewardApi';
 import * as PaymentApi from './paymentApi';
 import * as CategoryApi from './categoryApi';
 import * as CompanyApi from './companyApi';
+import * as CollectionApi from './collectionApi';
 import * as MediaApi from './mediaApi';
 
 export {
@@ -15,5 +16,6 @@ export {
     PaymentApi,
     CategoryApi,
     CompanyApi,
+    CollectionApi,
     MediaApi
 };
