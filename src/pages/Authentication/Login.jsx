@@ -69,8 +69,13 @@ const Login = (props) => {
         onLoginSuccess(response);
       } catch (err) {
         setLoading(false);
-        console.log(err);
-        setErrorMessage(err.toString());
+
+        if (err.toString() === "Please verify your email") {
+          navigate("/verification")
+        } else {
+          console.log(err);
+          setErrorMessage(err.toString());
+        }
       }
     },
   });
