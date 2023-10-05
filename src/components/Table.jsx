@@ -118,7 +118,7 @@ const Table = (props) => {
                                 case HeaderIDs.DPP: {
                                     return (
                                         <td key={header.id}>
-                                            <Link to={`${header.uri}${row.tokenAddress}\\${row.tokenId}`} className="underline text-primary" target="_blank">
+                                            <Link to={`${header.uri}${row.tokenAddress}\\a=${row.tokenId || 1}`} className="underline text-primary" target="_blank">
                                                 {row[header.id]}
                                             </Link>
                                         </td>

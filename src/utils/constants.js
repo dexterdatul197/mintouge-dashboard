@@ -27,7 +27,7 @@ export const OrderHeaders = [
     id: HeaderIDs.DPP,
     title: 'Digital Passport',
     hasLink: true,
-    uri: 'https://opensea.io/assets/matic/0x305803cd4ed8d28ea3ace264a6eaa33b6d71b146/',
+    uri: 'https://goerli.etherscan.io/address/',
   },
   {
     id: HeaderIDs.PRICE,
