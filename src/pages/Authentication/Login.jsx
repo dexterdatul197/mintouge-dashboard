@@ -67,6 +67,7 @@ const Login = (props) => {
         const response = await AuthApi.signIn({ email, password });
         setLoading(false);
         onLoginSuccess(response);
+
       } catch (err) {
         setLoading(false);
 
@@ -85,6 +86,12 @@ const Login = (props) => {
       setGoogleLoading(true);
       const response = await AuthApi.signInGoogle();
       setGoogleLoading(false);
+
+      if (!response.token) {
+        setErrorMessage("Please wait until you get approved");
+        return;
+      }
+      
       onLoginSuccess(response);
     } catch (error) {
       setGoogleLoading(false);
@@ -97,6 +104,12 @@ const Login = (props) => {
       setMSLoading(true);
       const response = await AuthApi.signInMicrosoft();
       setMSLoading(false);
+
+      if (!response.token) {
+        setErrorMessage("Please wait until you get approved");
+        return;
+      }
+
       onLoginSuccess(response);
     } catch (error) {
       setMSLoading(false);
