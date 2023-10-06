@@ -57,7 +57,7 @@ try {
           "firstName": "First",
           "lastName": "Name"
       },
-      chain: "${isDev ? "goerli" : "polygon"}", // Blockchain
+      chain: "${isDev ? "goerli" : "goerli"}", // Blockchain
       dpp: productDigitalPassport, // string
     }, {
       headers: {
