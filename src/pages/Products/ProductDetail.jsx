@@ -68,7 +68,7 @@ const ProductDetail = (props) => {
             name: yup.string()
                 .required("Please Enter Product Name"),
             productKey: yup.string()
-                .required("Please Enter Product Key"),
+                .required("Please Enter Product SKU"),
             productUrl: yup.string()
                 .required("Please Enter Product URL"),
             images: yup.array().min(1)
@@ -205,7 +205,7 @@ const ProductDetail = (props) => {
                     >
                         <ImageSlider images={formik.values.images || []} onRemove={handleRemoveImage} />
                         <InputItem name="name" label="Product Name" formik={formik} />
-                        <InputItem name="productKey" label="Product Key of Brands" formik={formik} divider={true} horizontal={true} />
+                        <InputItem name="productKey" label="Product SKU" formik={formik} divider={true} horizontal={true} />
                         <InputItem name="fullDescription" label="Product Description" formik={formik} type="textarea" rows={7} />
                         <InputItem name="productUrl" label="Product URL" formik={formik} divider={true} horizontal={true} />
                         <InputItem name="price" label="Price" formik={formik} divider={true} horizontal={true} />
