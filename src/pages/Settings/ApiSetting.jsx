@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useParams } from 'react-router-dom';
 import {
   Form,
   Card,
@@ -18,14 +18,16 @@ import { xcode } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import useToast from '@/utils/useToast';
 import Breadcrumbs from '@components/Breadcrumb';
 import { Storage, GetStorageObject } from '@/utils';
-import * as Template from './template';
+import { getCode } from './template';
 
 const FormEditors = () => {
   document.title = "API Setting | Vaultik - Brands Dashboard";
+  const isDev = import.meta.env.VITE_ENV === "production";
 
   const showToast = useToast();
+  const { topic } = useParams();
   const optedUser = GetStorageObject(Storage.OptedUser);
-  const code = Template.GetProductsCode;
+  const code = getCode(topic, isDev, optedUser.apiPublicKey, optedUser.apiSecretKey);
   const defaultTheme = 'agate';
 
   const handleCopy = async (text) => {
@@ -53,7 +55,7 @@ const FormEditors = () => {
               </Label>
               <Input
                 type="textarea"
-                rows={5}
+                rows={3}
                 className="form-control cursor-pointer"
                 id="horizontal-firstname-Input"
                 value={optedUser.apiSecretKey}

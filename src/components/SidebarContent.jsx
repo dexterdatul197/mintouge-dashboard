@@ -30,6 +30,14 @@ const MenuGroup = ({ to, target = "_self", hasArrow, icon, title, children }) =>
   </li>
 );
 
+const MenuItem = (props) => (
+  <li>
+    <Link to={props.to}>
+      {props.title}
+    </Link>
+  </li>
+);
+
 const SidebarContent = () => {
   const ref = useRef();
   const path = useLocation();
@@ -167,18 +175,14 @@ const SidebarContent = () => {
             <MenuGroup to="/products" title={t("Products")} icon="bx-store" />
             <MenuGroup to="/rewards" title={t("Perks & Rewards")} icon="bx-award" />
             <MenuGroup to="/clients" title={t("Clients")} icon="bx-male" />
-            <MenuGroup to="/api-keys" title={t("API Keys")} icon="bx-cog" />
+            <MenuGroup to="/api-keys" title={t("API Keys")} icon="bx-cog" hasArrow={true} >
+              <MenuItem to="/api-keys/mini-web" title={t("Mini-Web")} />
+              <MenuItem to="/api-keys/pricing" title={t("Pricing")} />
+              <MenuItem to="/api-keys/minting" title={t("Minting")} />
+              <MenuItem to="/api-keys/fetch-rewards" title={t("Fetch Rewards")} />
+            </MenuGroup>
             <MenuGroup to="/payments" title={t("Payments")} icon="bx-money" />
             <MenuGroup to="/documentation" target="_blank" title={t("Documentation")} icon="bx-file" />
-
-            {/* <MenuGroup to="/#" hasArrow={true} title={t("Others")} icon="bx-store">
-              <MenuItem to="/products" title={t("Products")} />
-              <MenuItem to="/ecommerce-product-detail/1" title={t("Product Detail")} />
-              <MenuItem to="/ecommerce-add-product" title={t("Add Product")} />
-              <MenuItem to="/ecommerce-auto-import" title={t("Auto Import")} />
-              <MenuItem to="/orders" title={t("Orders")} />
-              <MenuItem to="/clients" title={t("Customers")} />
-            </MenuGroup> */}
           </ul>
         </div>
       </SimpleBar>

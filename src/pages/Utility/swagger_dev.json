@@ -1,0 +1,3345 @@
+{
+    "basePath": "/",
+    "consumes": [
+        "application/json"
+    ],
+    "host": "dev-brand.api.vaultik.com",
+    "info": {
+        "contact": {},
+        "title": "",
+        "description": "",
+        "x-logo": {
+            "url": "https://cdn.vaultik.com/mini-web/assets/vaultik_logo.svg",
+            "href": "https://stage-dashboard.vaultik.com/"
+        }
+    },
+    "x-tagGroups": [
+        {
+            "name": "",
+            "tags": [
+                "Introduction - Vaultik Brand API Reference"
+            ]
+        },
+        {
+            "name": "REST API",
+            "tags": [
+                "Authentication",
+                "Product",
+                "Digital_Passport",
+                "Reward"
+            ]
+        }
+    ],
+    "tags": [
+        {
+            "name": "Introduction - Vaultik Brand API Reference",
+            "description": "Welcome to the the next level of DLP Integration! The Vaultik Brand REST API communicates exclusively in JSON over SSL (HTTPS).  Our cloud API requires the use of a client  which support SNI. \n\nParameters should be serialized in JSON for those that require a request body. You cannot use a query string or form parameters. You should also use the media type designation of application/json.\n\nThe Vaultik Brand API can run on premise or on the cloud. If you decide to run the API on premise, there is no additional cost for on-premise support. \n"
+        },
+        {
+            "name": "Authentication",
+            "description": "Obtaining API Keys\n\nTo obtain your API keys, follow these steps:\n\n1. Log in to the Vaultik Dashboard: Go to https://stage-dashboard.vaultik.com/ and log in to your account.\n2. Navigate to API Settings: From the dashboard, go to the \"API Settings\" section.\n3. Retrieve API Keys:\n - API Secret Key: In the API Settings section, locate the \"API Secret Key\" field. This is your private key for authenticating API requests.\n- API Public Key: In the same section, find the \"API Public Key\" field. This is your public key for authenticating API requests.\n\n(Note: The public key is also used for the mini app and isn't required for the brand api.)\n\nAuthentication Headers\n\nFor all API requests, you must include the following headers:\n\n- Authorization: Use your API Secret Key as a Bearer token in the \"Authorization\" header.\n\nExample: Bearer eyJhbGciOiJIUzGlazgcQ...\n\n"
+        },
+        {
+            "name": "Product",
+            "description": "If a product is created by a administrator(or someone else), the public key will be returned for the product.\n\n Then, the brand's owner can search the products by the public key or id.\n\n"
+        },
+        {
+            "name": "Digital_Passport",
+            "description": "The digital passport includes the product and consumer information. It also includes the redeem code and the callback url."
+        },
+        {
+            "name": "Reward",
+            "description": "The Rewards API allows you to manage and interact with the rewards system on valtik platform. Rewards are a key component of valtik's customer engagement strategy, providing incentives to loyal customers and encouraging repeat purchases. This section provides details on how to use the API to access and manage rewards.\n\n"
+        }
+    ],
+    "parameters": {},
+    "produces": [
+        "application/json"
+    ],
+    "responses": {
+        "error_400": {
+            "description": "Bad Request – Tried to send request with a null or blank API Key.",
+            "schema": {
+                "$ref": "#/definitions/error_object_400"
+            }
+        },
+        "error_401": {
+            "description": "Unauthorized – Authentication failed due to invalid or missing API keys.",
+            "schema": {
+                "$ref": "#/definitions/error_object_401"
+            }
+        },
+        "error_403": {
+            "description": "Forbidden – You don't have permission to access the requested resource.",
+            "schema": {
+                "$ref": "#/definitions/error_object_403"
+            }
+        },
+        "error_404": {
+            "description": "Not Found – Unexpected error with the api key.",
+            "schema": {
+                "$ref": "#/definitions/error_object_404"
+            }
+        },
+        "error_405": {
+            "description": "Method Not Allowed – Invalid HTTP Verb sent for this endpoint.",
+            "schema": {
+                "$ref": "#/definitions/error_object_405"
+            }
+        },
+        "error_500": {
+            "description": "Internal Server Error - An issue on our server. Please contact support.",
+            "schema": {
+                "$ref": "#/definitions/error_object_500"
+            }
+        },
+        "object_created": {
+            "description": "Object created check the headers for a reference URL.",
+            "schema": {
+                "$ref": "#/definitions/create_status"
+            }
+        },
+        "error_400_v2": {
+            "description": "Bad Request – Invalid request parameters or missing required parameters."
+        },
+        "error_404_v2": {
+            "description": "Not Found – The requested resource does not exist."
+        }
+    },
+    "schemes": [
+        "https"
+    ],
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "securityDefinitions": {
+        "bearerAuth": {
+            "in": "header",
+            "name": "token",
+            "type": "http",
+            "scheme": "bearer"
+        }
+    },
+    "swagger": "2.0",
+    "x-restlet": {
+        "sections": {
+            "AUTHENTICATION": {},
+            "PRODUCT": {},
+            "DIGITAL_PASSPORT": {},
+            "REWARD": {}
+        }
+    },
+    "paths": {
+        "/product": {
+            "post": {
+                "description": "This end point allows you to create a product.  This end point returns the detail info of the created product.",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/add_product_request"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/add_product_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Create a product",
+                "tags": [
+                    "Product"
+                ]
+            },
+            "get": {
+                "description": "This end point allows you to get all products with the public key.",
+                "parameters": [
+                    {
+                        "description": "This is a public key of the product.",
+                        "in": "query",
+                        "name": "pubKey",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "This argument adjusts how many items per page will be returned. Omitting this field will return the default of 10 items per page.",
+                        "in": "query",
+                        "name": "size",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "description": "The page you want to return. Returns an empty board on an invalid page.",
+                        "in": "query",
+                        "name": "page",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/get_products_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Get all products with the public key",
+                "tags": [
+                    "Product"
+                ]
+            },
+            "x-restlet": {
+                "section": "PRODUCT"
+            }
+        },
+        "/product/{product_id}": {
+            "get": {
+                "description": "This end point allows you to get a product by the product id.",
+                "parameters": [
+                    {
+                        "description": "This is valid product id.",
+                        "in": "path",
+                        "name": "product_id",
+                        "required": true,
+                        "type": "integer",
+                        "x-example": 2
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/get_product_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Get a product by id",
+                "tags": [
+                    "Product"
+                ]
+            },
+            "put": {
+                "description": "This end point allows you to update a product information that have been configured as part of your brand.",
+                "parameters": [
+                    {
+                        "description": "This is valid product id.",
+                        "in": "path",
+                        "name": "product_id",
+                        "required": true,
+                        "type": "integer",
+                        "x-example": 2
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/add_product_request"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/add_product_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Update a product",
+                "tags": [
+                    "Product"
+                ]
+            },
+            "delete": {
+                "description": "Delete a product.",
+                "parameters": [
+                    {
+                        "description": "This is valid product id.",
+                        "in": "path",
+                        "name": "product_id",
+                        "required": true,
+                        "type": "integer",
+                        "x-example": 2
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/get_product_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Delete a product",
+                "tags": [
+                    "Product"
+                ],
+                "x-restlet": {
+                    "section": "PRODUCT"
+                }
+            },
+            "x-restlet": {
+                "section": "PRODUCT"
+            }
+        },
+        "/digital-passport": {
+            "post": {
+                "description": "This end point allows you to create a digital passport.  This end point returns the detail info of the created digital passport.",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/add_digital_passport_request"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/add_digital_passport_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Create a digital passport",
+                "tags": [
+                    "Digital_Passport"
+                ]
+            },
+            "get": {
+                "description": "This end point allows you to get all digital passports.",
+                "parameters": [
+                    {
+                        "description": "This argument adjusts how many items per page will be returned. Omitting this field will return the default of 10 items per page.",
+                        "in": "query",
+                        "name": "size",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "description": "The page you want to return. Returns an empty board on an invalid page.",
+                        "in": "query",
+                        "name": "page",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/get_digital_passports_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Get all digital passport entities",
+                "tags": [
+                    "Digital_Passport"
+                ]
+            },
+            "x-restlet": {
+                "section": "DIGITAL_PASSPORT"
+            }
+        },
+        "/digital-passport/{product_sku}/fees": {
+            "get": {
+                "description": "This end point allows you to estimate an insurance fee from a product SKU.",
+                "parameters": [
+                    {
+                        "description": "This is valid product id.",
+                        "in": "path",
+                        "name": "product_sku",
+                        "required": true,
+                        "type": "integer",
+                        "x-example": 2
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/get_digital_passport_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Get an estimated fee of creating insurance",
+                "tags": [
+                    "Digital_Passport"
+                ]
+            },
+            "x-restlet": {
+                "section": "DIGITAL_PASSPORT"
+            }
+        },
+        "/reward/all": {
+            "get": {
+                "description": "Retrieve a list of all available rewards on the brand.",
+                "parameters": [
+                    {
+                        "description": "This argument adjusts how many items per page will be returned. Omitting this field will return the default of 10 items per page.",
+                        "in": "query",
+                        "name": "size",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "description": "The page you want to return. Returns an empty board on an invalid page.",
+                        "in": "query",
+                        "name": "page",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/get_rewards_all_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Get all rewards of the brand",
+                "tags": [
+                    "Reward"
+                ]
+            },
+            "x-restlet": {
+                "section": "REWARD"
+            }
+        },
+        "/reward/valid": {
+            "get": {
+                "description": "Retrieve a list of valid rewards with email.",
+                "parameters": [
+                    {
+                        "description": "This field is a consumer's email address belong the brand.",
+                        "in": "query",
+                        "name": "email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "This argument adjusts how many items per page will be returned. Omitting this field will return the default of 10 items per page.",
+                        "in": "query",
+                        "name": "size",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "description": "The page you want to return. Returns an empty board on an invalid page.",
+                        "in": "query",
+                        "name": "page",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/get_rewards_all_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Get valid rewards of the user with email.",
+                "tags": [
+                    "Reward"
+                ]
+            },
+            "x-restlet": {
+                "section": "REWARD"
+            }
+        },
+        "/reward/redeem": {
+            "get": {
+                "description": "Retrieve a reward with reward code.",
+                "parameters": [
+                    {
+                        "description": "This field is tbe reward's code value.",
+                        "in": "query",
+                        "name": "code",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/get_reward_response"
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/responses/error_400_v2"
+                    },
+                    "401": {
+                        "$ref": "#/responses/error_401"
+                    },
+                    "403": {
+                        "$ref": "#/responses/error_403"
+                    },
+                    "404": {
+                        "$ref": "#/responses/error_404_v2"
+                    },
+                    "405": {
+                        "$ref": "#/responses/error_405"
+                    },
+                    "500": {
+                        "$ref": "#/responses/error_500"
+                    }
+                },
+                "summary": "Get a reward with reward code.",
+                "tags": [
+                    "Reward"
+                ]
+            },
+            "x-restlet": {
+                "section": "REWARD"
+            }
+        }
+    },
+    "definitions": {
+        "add_machine_request": {
+            "properties": {
+                "computerName": {
+                    "description": "This is computer name or database server instance name.",
+                    "enum": [
+                        "computer name",
+                        "database server instance name"
+                    ],
+                    "example": "testPC",
+                    "type": "string"
+                },
+                "isDatabase": {
+                    "description": "Should indicate if the machine being added is a database or server.",
+                    "enum": [
+                        "false",
+                        "true"
+                    ],
+                    "example": true,
+                    "type": "boolean"
+                },
+                "domainName": {
+                    "description": "This field should be passed if “isDatabase” is true. It will indicate the database name. ",
+                    "example": "testDomain",
+                    "type": "string"
+                },
+                "databaseType": {
+                    "description": "This field should be passed if “isDatabase” is true. If adding Oracle databases, then you should set this to “ORACLE”. By default, databases are set to “MSSQL”. ",
+                    "enum": [
+                        "MSSQL",
+                        "ORACLE"
+                    ],
+                    "example": "MSSQL",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "ENVIRONMENTS"
+            }
+        },
+        "add_machine_response": {
+            "properties": {
+                "id": {
+                    "description": "unique identifier for this item.",
+                    "example": "55555555",
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "ENVIRONMENTS"
+            }
+        },
+        "add_webhook_request": {
+            "properties": {
+                "dataSetIndexExpID": {
+                    "description": "This is dataset index identifier.",
+                    "example": 1,
+                    "type": "integer"
+                },
+                "hookURL": {
+                    "description": "This is webhook url.",
+                    "example": "https://www.somewhere2.com",
+                    "type": "string"
+                },
+                "hookName": {
+                    "description": "This is webhook name.",
+                    "example": "My Special Webhook2",
+                    "type": "string"
+                },
+                "hookAuthorization": {
+                    "description": "This is webhook authorization.",
+                    "example": "I am optional again",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "WEB_HOOKS"
+            }
+        },
+        "error_object_401": {
+            "properties": {
+                "responseErrors": {
+                    "items": {
+                        "properties": {
+                            "errorCode": {
+                                "example": "unknown error",
+                                "type": "string"
+                            },
+                            "message": {
+                                "example": "Unknown problem with the request.",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "errorCount": {
+                    "example": 1,
+                    "type": "integer"
+                },
+                "httpstatus": {
+                    "example": 0,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "code",
+                "description",
+                "error"
+            ],
+            "type": "object",
+            "x-restlet": {
+                "section": "common_definitions"
+            }
+        },
+        "error_object_403": {
+            "properties": {
+                "responseErrors": {
+                    "items": {
+                        "properties": {
+                            "errorCode": {
+                                "example": "forbidden error",
+                                "type": "string"
+                            },
+                            "message": {
+                                "example": "You don't have permission to access the requested resource.",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "errorCount": {
+                    "example": 1,
+                    "type": "integer"
+                },
+                "httpstatus": {
+                    "example": 0,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "code",
+                "description",
+                "error"
+            ],
+            "type": "object",
+            "x-restlet": {
+                "section": "common_definitions"
+            }
+        },
+        "error_object_400": {
+            "properties": {
+                "responseErrors": {
+                    "items": {
+                        "properties": {
+                            "errorCode": {
+                                "example": "tokenrequest.apiKey",
+                                "type": "string"
+                            },
+                            "message": {
+                                "example": "The apiKey field is required.",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "errorCount": {
+                    "example": 1,
+                    "type": "integer"
+                },
+                "httpstatus": {
+                    "example": 0,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "code",
+                "description",
+                "error"
+            ],
+            "type": "object",
+            "x-restlet": {
+                "section": "common_definitions"
+            }
+        },
+        "error_object_404": {
+            "properties": {
+                "responseErrors": {
+                    "items": {
+                        "properties": {
+                            "errorCode": {
+                                "example": "gettoken",
+                                "type": "string"
+                            },
+                            "message": {
+                                "example": "API Key Not Found",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "errorCount": {
+                    "example": 1,
+                    "type": "integer"
+                },
+                "httpstatus": {
+                    "example": 404,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "code",
+                "description",
+                "error"
+            ],
+            "type": "object",
+            "x-restlet": {
+                "section": "common_definitions"
+            }
+        },
+        "error_object_405": {
+            "properties": {
+                "responseErrors": {
+                    "items": {
+                        "properties": {
+                            "errorCode": {
+                                "example": "method not allowed",
+                                "type": "string"
+                            },
+                            "message": {
+                                "example": "The requested resource does not support http method 'PUT'",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "errorCount": {
+                    "example": 1,
+                    "type": "integer"
+                },
+                "httpstatus": {
+                    "example": 0,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "code",
+                "description",
+                "error"
+            ],
+            "type": "object",
+            "x-restlet": {
+                "section": "common_definitions"
+            }
+        },
+        "error_object_500": {
+            "properties": {
+                "errors": {
+                    "items": {
+                        "properties": {
+                            "errorCode": {
+                                "example": "Internal Server Error",
+                                "type": "string"
+                            },
+                            "message": {
+                                "example": "Cannot read properties of undefined (reading '0')",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "example": "TypeError",
+                    "type": "string"
+                },
+                "message": {
+                    "example": "Cannot read properties of undefined (reading '0')",
+                    "type": "string"
+                },
+                "status": {
+                    "example": 500,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "code",
+                "description",
+                "error"
+            ],
+            "type": "object",
+            "x-restlet": {
+                "section": "common_definitions"
+            }
+        },
+        "get_dataset_list_response": {
+            "items": {
+                "properties": {
+                    "id": {
+                        "description": "Returns the unique identifier.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "dataSetId": {
+                        "description": "Returns the dataset identifier.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "dataSetColumns": {
+                        "description": "Returns the dataset culumn's name.",
+                        "type": "string",
+                        "example": "NJ Servers"
+                    },
+                    "limitRecords": {
+                        "description": "Returns the limit records.",
+                        "example": "1",
+                        "type": "string"
+                    },
+                    "shingleSize": {
+                        "description": "Returns the shingle size.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "rowsPerBand": {
+                        "description": "Returns the number of rows per band.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "procType": {
+                        "description": "Returns the proc type.",
+                        "type": "integer",
+                        "example": "P"
+                    },
+                    "outputFileDir": {
+                        "description": "Returns the output file's folder.",
+                        "example": "\\\\alexpc\\C$\\Test4\\request",
+                        "type": "string"
+                    },
+                    "active": {
+                        "description": "Returns the active / deactive status.",
+                        "example": true,
+                        "type": "boolean"
+                    },
+                    "createdBy": {
+                        "description": "Returns the created user's identifier.",
+                        "example": 10,
+                        "type": "integer"
+                    },
+                    "recordCount": {
+                        "description": "Returns the record count.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "noOfServers": {
+                        "description": "Returns the number of servers.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "noOfDatabases": {
+                        "description": "Returns the number of databases.",
+                        "example": 3,
+                        "type": "integer"
+                    },
+                    "createdOn": {
+                        "description": "Returns the time when added a machine.",
+                        "example": "2019-11-20 10:05:35",
+                        "format": "datetime",
+                        "type": "string"
+                    },
+                    "modifiedBy": {
+                        "description": "Returns the modified user's identifier.",
+                        "example": 5,
+                        "type": "integer"
+                    },
+                    "modifiedOn": {
+                        "description": "Returns the time when modified a machine.",
+                        "example": "2019-11-20 10:05:35",
+                        "format": "datetime",
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array",
+            "required": [
+                "list"
+            ],
+            "x-restlet": {
+                "section": "ENVIRONMENTS"
+            }
+        },
+        "get_servers_list_response": {
+            "items": {
+                "properties": {
+                    "id": {
+                        "description": "Returns the unique identifier.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "dataSetId": {
+                        "description": "Returns the dataset identifier.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "databaseType": {
+                        "description": "Returns the database type.",
+                        "type": "string",
+                        "example": "MSSQL"
+                    },
+                    "computerName": {
+                        "description": "Returns the computer name.",
+                        "example": "testPC",
+                        "type": "string"
+                    },
+                    "domainName": {
+                        "description": "Returns the domain name.",
+                        "example": "testDomain",
+                        "type": "string"
+                    },
+                    "userName": {
+                        "description": "Returns the user name.",
+                        "example": "john",
+                        "type": "string"
+                    },
+                    "machineStatus": {
+                        "properties": {
+                            "machineCredStatusID": {
+                                "description": "Returns the machine credential status identifier.",
+                                "example": 8,
+                                "type": "integer"
+                            },
+                            "dataSetIndexCredID": {
+                                "description": "Returns the dataset credential identifier.",
+                                "example": 1,
+                                "type": "string"
+                            },
+                            "scanStarted": {
+                                "description": "Returns the time when scan is started.",
+                                "example": "2019-11-20 10:05:35",
+                                "format": "datetime",
+                                "type": "string"
+                            },
+                            "scanEnded": {
+                                "description": "Returns the time when scan is ended.",
+                                "example": "2019-11-20 10:05:35",
+                                "format": "datetime",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "isWmi": {
+                        "description": "Returns if it is wmi or not.",
+                        "example": false,
+                        "type": "boolean"
+                    },
+                    "isDatabase": {
+                        "description": "Returns if it is database or not.",
+                        "example": true,
+                        "type": "boolean"
+                    },
+                    "active": {
+                        "description": "Returns the active / deactive status.",
+                        "example": true,
+                        "type": "boolean"
+                    },
+                    "piiCount": {
+                        "description": "Returns the PII count.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "createdBy": {
+                        "description": "Returns the created user's identifier.",
+                        "example": 15,
+                        "type": "integer"
+                    },
+                    "createdOn": {
+                        "description": "Returns the time when added a machine.",
+                        "example": "2019-11-20 10:05:35",
+                        "format": "datetime",
+                        "type": "string"
+                    },
+                    "modifiedBy": {
+                        "description": "Returns the modified user's identifier.",
+                        "example": 12,
+                        "type": "integer"
+                    },
+                    "modifiedOn": {
+                        "description": "Returns the time when modified a machine.",
+                        "example": "2019-11-20 10:05:35",
+                        "format": "datetime",
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array",
+            "required": [
+                "list"
+            ],
+            "x-restlet": {
+                "section": "ENVIRONMENTS"
+            }
+        },
+        "get_address_response": {
+            "properties": {
+                "error": {
+                    "example": null,
+                    "type": "string"
+                },
+                "result": {
+                    "properties": {
+                        "id": {
+                            "description": "Returns the address unique identifier.",
+                            "example": 1,
+                            "type": "integer"
+                        },
+                        "walletId": {
+                            "description": "Returns the wallet unique identifier.",
+                            "example": 140,
+                            "type": "integer"
+                        },
+                        "address": {
+                            "description": "Returns the blockchain address.",
+                            "example": "gNBdVPAiCyIAz7un4dl1m0auMB1sz9ug",
+                            "type": "string"
+                        },
+                        "balance": {
+                            "description": "Returns the total amount by currency remaining in ewallet.",
+                            "example": 12.83,
+                            "type": "number"
+                        },
+                        "lockAmount": {
+                            "description": "Returns the total amount by currency pending in vaultik system.",
+                            "example": 168.98,
+                            "type": "number"
+                        },
+                        "currency": {
+                            "description": "Returns the currency's type.",
+                            "example": "EUR",
+                            "type": "string"
+                        },
+                        "symbol": {
+                            "description": "Returns the currency's symbol.",
+                            "example": "€",
+                            "type": "string"
+                        },
+                        "image": {
+                            "description": "Returns the currency's image url.",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664517_1000.jpg",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "ADDRESS"
+            }
+        },
+        "get_products_response": {
+            "properties": {
+                "error": {
+                    "example": null,
+                    "type": "string"
+                },
+                "page": {
+                    "example": 0,
+                    "type": "integer"
+                },
+                "size": {
+                    "example": 10,
+                    "type": "integer"
+                },
+                "total": {
+                    "example": 45,
+                    "type": "integer"
+                },
+                "data": {
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "description": "Returns the product's unique identifier.",
+                                "example": 1,
+                                "type": "integer"
+                            },
+                            "productKey": {
+                                "description": "Returns the product's public key.",
+                                "example": "gNBdVPAiCyIAz7un4dl1m0auMB1sz9ug",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Returns the product's name.",
+                                "example": "vaultik product1",
+                                "type": "string"
+                            },
+                            "price": {
+                                "description": "Returns the product's price.",
+                                "example": 12.83,
+                                "type": "number"
+                            },
+                            "discount": {
+                                "description": "Returns the product's discount.",
+                                "example": 10,
+                                "type": "number"
+                            },
+                            "offerEnd": {
+                                "description": "Returns the time when the offer finish.",
+                                "example": "2022-05-09 00:00:00",
+                                "format": "datetime",
+                                "type": "string"
+                            },
+                            "madeAt": {
+                                "description": "Returns the time when the product is created.",
+                                "example": "2019-04-27 09:36:36",
+                                "format": "datetime",
+                                "type": "string"
+                            },
+                            "rating": {
+                                "description": "Returns the product's rating.",
+                                "example": "3",
+                                "type": "integer"
+                            },
+                            "saleCount": {
+                                "description": "Returns how many products have sold.",
+                                "example": 15,
+                                "type": "integer"
+                            },
+                            "tags": {
+                                "description": "Returns the product's tag name.",
+                                "type": "array",
+                                "example": "[]"
+                            },
+                            "images": {
+                                "description": "Returns the product's image url.",
+                                "example": "['https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664520_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664521_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664519_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664517_1000.jpg']",
+                                "type": "array"
+                            },
+                            "qrcode": {
+                                "description": "Returns the product's qr code string.",
+                                "example": "R7gg&f1fUY",
+                                "type": "string"
+                            },
+                            "asset3dUrl": {
+                                "description": "Returns the product's asset url.",
+                                "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                "type": "string"
+                            },
+                            "shortDescription": {
+                                "description": "Returns a short description about the product.",
+                                "example": "This is example avatar for vaultik",
+                                "type": "string"
+                            },
+                            "fullDescription": {
+                                "description": "Returns a full description about the product.",
+                                "example": "Faceted search built off of Elasticsearch, including custom field support for refined searching. We also partner with best-in-breed 3rd party tools.",
+                                "type": "string"
+                            },
+                            "variation": {
+                                "items": {
+                                    "properties": {
+                                        "color": {
+                                            "description": "Returns hex color code code about the product.",
+                                            "example": "#25F550",
+                                            "type": "string"
+                                        },
+                                        "image": {
+                                            "description": "Returns the product's property image url.",
+                                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "type": "array"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            },
+            "x-restlet": {
+                "section": "PRODUCT"
+            }
+        },
+        "get_digital_passport_response": {
+            "properties": {
+                "id": {
+                    "description": "Returns the digital passport's unique identifier.",
+                    "example": 1,
+                    "type": "integer"
+                },
+                "productInfo": {
+                    "properties": {
+                        "productKey": {
+                            "description": "This field is the product's public key.",
+                            "example": "gNBdVPAiCyIAz7un4dl1m0auMB1sz9ug",
+                            "type": "string",
+                            "required": true
+                        },
+                        "name": {
+                            "description": "This field is the product's name.",
+                            "example": "vaultik product1",
+                            "type": "string",
+                            "required": true
+                        },
+                        "price": {
+                            "description": "This field is the product's price.",
+                            "example": 12.83,
+                            "type": "number"
+                        },
+                        "discount": {
+                            "description": "This field is the product's discount.",
+                            "example": 10,
+                            "type": "number"
+                        },
+                        "offerEnd": {
+                            "description": "This field is the time when the offer finish.",
+                            "example": "2022-05-09 00:00:00",
+                            "format": "datetime",
+                            "type": "string"
+                        },
+                        "rating": {
+                            "description": "This field is the product's rating.",
+                            "example": 3,
+                            "type": "string"
+                        },
+                        "saleCount": {
+                            "description": "This field indicates how many products have sold.",
+                            "example": 15,
+                            "type": "string"
+                        },
+                        "tags": {
+                            "description": "This field is the product's tag name.",
+                            "example": 3,
+                            "type": "string"
+                        },
+                        "images": {
+                            "description": "This field is the product's image url.",
+                            "example": "['https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664520_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664521_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664519_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664517_1000.jpg']",
+                            "type": "array"
+                        },
+                        "qrcode": {
+                            "description": "This field is the product's qr code string.",
+                            "example": "R7gg&f1fUY",
+                            "type": "string"
+                        },
+                        "asset3dUrl": {
+                            "description": "This field is the product's asset url.",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                            "type": "string"
+                        },
+                        "shortDescription": {
+                            "description": "This field is a short description about the product.",
+                            "example": "This is example avatar for vaultik",
+                            "type": "string"
+                        },
+                        "fullDescription": {
+                            "description": "This field is a full description about the product.",
+                            "example": "Faceted search built off of Elasticsearch, including custom field support for refined searching. We also partner with best-in-breed 3rd party tools.",
+                            "type": "string"
+                        },
+                        "variation": {
+                            "items": {
+                                "properties": {
+                                    "color": {
+                                        "description": "This field is a hex color code code about the product.",
+                                        "example": "#25F550",
+                                        "type": "string"
+                                    },
+                                    "image": {
+                                        "description": "Returns the product's property image url.",
+                                        "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "consumerInfo": {
+                    "properties": {
+                        "email": {
+                            "description": "This is field for the user's email address that is related  to the brand.",
+                            "type": "string",
+                            "example": "takao@vaultik.com"
+                        },
+                        "firstName": {
+                            "description": "This is field for the user's first name that is related  to the brand.",
+                            "type": "string",
+                            "example": "Takao"
+                        },
+                        "lastName": {
+                            "description": "This is field for the user's last name that is related  to the brand.",
+                            "type": "string",
+                            "example": "Kato"
+                        },
+                        "phone": {
+                            "description": "This is field for the user's phone number that is related  to the brand.",
+                            "type": "string",
+                            "example": "123456"
+                        }
+                    },
+                    "type": "object"
+                },
+                "amount": {
+                    "description": "This field is the digital passport's amount.",
+                    "example": 3,
+                    "type": "integer"
+                },
+                "chain": {
+                    "description": "This field is the digital passport's blockchain network.",
+                    "example": "goerli",
+                    "type": "string"
+                },
+                "dpp": {
+                    "description": "This field is the digital passport's dapp name.",
+                    "example": "dapp1",
+                    "type": "string"
+                },
+                "redeemCode": {
+                    "description": "This field is the digital passport's redeem code.",
+                    "example": "dfdf-d5fg-gh54-08fg",
+                    "type": "string"
+                },
+                "callbackUri": {
+                    "description": "This field indicates the digital passport's call back url.",
+                    "example": "https://vaultik.com/callback",
+                    "type": "string"
+                }
+            },
+            "x-restlet": {
+                "section": "DIGITAL_PASSPORT"
+            }
+        },
+        "get_digital_passports_response": {
+            "properties": {
+                "error": {
+                    "example": null,
+                    "type": "string"
+                },
+                "page": {
+                    "example": 0,
+                    "type": "integer"
+                },
+                "size": {
+                    "example": 10,
+                    "type": "integer"
+                },
+                "total": {
+                    "example": 45,
+                    "type": "integer"
+                },
+                "data": {
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "description": "Returns the digital passport's unique identifier.",
+                                "example": 1,
+                                "type": "integer"
+                            },
+                            "productInfo": {
+                                "properties": {
+                                    "productKey": {
+                                        "description": "This field is the product's public key.",
+                                        "example": "gNBdVPAiCyIAz7un4dl1m0auMB1sz9ug",
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "name": {
+                                        "description": "This field is the product's name.",
+                                        "example": "vaultik product1",
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "price": {
+                                        "description": "This field is the product's price.",
+                                        "example": 12.83,
+                                        "type": "number"
+                                    },
+                                    "discount": {
+                                        "description": "This field is the product's discount.",
+                                        "example": 10,
+                                        "type": "number"
+                                    },
+                                    "offerEnd": {
+                                        "description": "This field is the time when the offer finish.",
+                                        "example": "2022-05-09 00:00:00",
+                                        "format": "datetime",
+                                        "type": "string"
+                                    },
+                                    "rating": {
+                                        "description": "This field is the product's rating.",
+                                        "example": 3,
+                                        "type": "string"
+                                    },
+                                    "saleCount": {
+                                        "description": "This field indicates how many products have sold.",
+                                        "example": 15,
+                                        "type": "string"
+                                    },
+                                    "tags": {
+                                        "description": "This field is the product's tag name.",
+                                        "example": 3,
+                                        "type": "string"
+                                    },
+                                    "images": {
+                                        "description": "This field is the product's image url.",
+                                        "example": "['https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664520_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664521_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664519_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664517_1000.jpg']",
+                                        "type": "array"
+                                    },
+                                    "qrcode": {
+                                        "description": "This field is the product's qr code string.",
+                                        "example": "R7gg&f1fUY",
+                                        "type": "string"
+                                    },
+                                    "asset3dUrl": {
+                                        "description": "This field is the product's asset url.",
+                                        "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                        "type": "string"
+                                    },
+                                    "shortDescription": {
+                                        "description": "This field is a short description about the product.",
+                                        "example": "This is example avatar for vaultik",
+                                        "type": "string"
+                                    },
+                                    "fullDescription": {
+                                        "description": "This field is a full description about the product.",
+                                        "example": "Faceted search built off of Elasticsearch, including custom field support for refined searching. We also partner with best-in-breed 3rd party tools.",
+                                        "type": "string"
+                                    },
+                                    "variation": {
+                                        "items": {
+                                            "properties": {
+                                                "color": {
+                                                    "description": "This field is a hex color code code about the product.",
+                                                    "example": "#25F550",
+                                                    "type": "string"
+                                                },
+                                                "image": {
+                                                    "description": "Returns the product's property image url.",
+                                                    "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "consumerInfo": {
+                                "properties": {
+                                    "email": {
+                                        "description": "This is field for the user's email address that is related  to the brand.",
+                                        "type": "string",
+                                        "example": "takao@vaultik.com"
+                                    },
+                                    "firstName": {
+                                        "description": "This is field for the user's first name that is related  to the brand.",
+                                        "type": "string",
+                                        "example": "Takao"
+                                    },
+                                    "lastName": {
+                                        "description": "This is field for the user's last name that is related  to the brand.",
+                                        "type": "string",
+                                        "example": "Kato"
+                                    },
+                                    "phone": {
+                                        "description": "This is field for the user's phone number that is related  to the brand.",
+                                        "type": "string",
+                                        "example": "123456"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "amount": {
+                                "description": "This field is the digital passport's amount.",
+                                "example": 3,
+                                "type": "integer"
+                            },
+                            "chain": {
+                                "description": "This field is the digital passport's blockchain network.",
+                                "example": "goerli",
+                                "type": "string"
+                            },
+                            "dpp": {
+                                "description": "This field is the digital passport's dapp name.",
+                                "example": "dapp1",
+                                "type": "string"
+                            },
+                            "redeemCode": {
+                                "description": "This field is the digital passport's redeem code.",
+                                "example": "dfdf-d5fg-gh54-08fg",
+                                "type": "string"
+                            },
+                            "callbackUri": {
+                                "description": "This field indicates the digital passport's call back url.",
+                                "example": "https://vaultik.com/callback",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            },
+            "x-restlet": {
+                "section": "DIGITAL_PASSPORT"
+            }
+        },
+        "get_rewards_all_response": {
+            "properties": {
+                "error": {
+                    "example": null,
+                    "type": "string"
+                },
+                "page": {
+                    "example": 0,
+                    "type": "integer"
+                },
+                "size": {
+                    "example": 10,
+                    "type": "integer"
+                },
+                "total": {
+                    "example": 1,
+                    "type": "integer"
+                },
+                "data": {
+                    "items": {
+                        "properties": {
+                            "id": {
+                                "description": "Returns the reward's unique identifier.",
+                                "example": 1,
+                                "type": "integer"
+                            },
+                            "triggerProductIds": {
+                                "description": "Returns the products's id array which are triggered for the reward.",
+                                "type": "array",
+                                "example": [
+                                    22
+                                ]
+                            },
+                            "applyToProductIds": {
+                                "description": "Returns the products's id array to be applied for the reward.",
+                                "type": "array",
+                                "example": [
+                                    21
+                                ]
+                            },
+                            "isActive": {
+                                "description": "Returns the activate status of the reward.",
+                                "type": "boolean",
+                                "example": true,
+                                "enum": [
+                                    true,
+                                    false
+                                ]
+                            },
+                            "title": {
+                                "description": "Returns the title of the reward.",
+                                "example": "Blondie logo-patch tote bag Discount",
+                                "type": "string"
+                            },
+                            "category": {
+                                "description": "Returns the category of the reward.",
+                                "example": "Discount",
+                                "type": "string"
+                            },
+                            "discount": {
+                                "description": "Returns the discount amount of the reward.",
+                                "example": 10,
+                                "type": "integer"
+                            },
+                            "videoLink": {
+                                "description": "Returns the video link url of the reward.",
+                                "example": "https://carleton.ca/webservices/cms-help/?p=1180",
+                                "type": "string"
+                            },
+                            "cta": {
+                                "description": "Returns the external link url of the reward.",
+                                "example": "https://vaultik.com/cta",
+                                "type": "string"
+                            },
+                            "coverImage": {
+                                "description": "Returns the cover image url of the reward.",
+                                "example": "https://fastly.picsum.photos/id/260/200/300.jpg?hmac=_VpBxDn0zencTyMnssCV14LkW80zG7vw2rw7WCQ2uVo",
+                                "type": "string"
+                            },
+                            "description": {
+                                "description": "Returns the description of the reward.",
+                                "example": "Blondie logo-patch tote bag Discount Description",
+                                "type": "string"
+                            },
+                            "rewardCode": {
+                                "description": "Returns the code of the reward.",
+                                "example": "245s542",
+                                "type": "string"
+                            },
+                            "eventFrom": {
+                                "description": "Returns the start time when the reward is issued.",
+                                "example": "2023-09-01T00:00:00.000Z",
+                                "format": "datetime",
+                                "type": "string"
+                            },
+                            "eventTo": {
+                                "description": "Returns the end time when the reward is issued.",
+                                "example": "2023-09-10T00:00:00.000Z",
+                                "format": "datetime",
+                                "type": "string"
+                            },
+                            "hasExpire": {
+                                "description": "Returns the expire possibility of the reward.",
+                                "type": "boolean",
+                                "example": true,
+                                "enum": [
+                                    true,
+                                    false
+                                ]
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            },
+            "x-restlet": {
+                "section": "REWARD"
+            }
+        },
+        "get_reward_response": {
+            "properties": {
+                "error": {
+                    "example": null,
+                    "type": "string"
+                },
+                "data": {
+                    "properties": {
+                        "id": {
+                            "description": "Returns the reward's unique identifier.",
+                            "example": 1,
+                            "type": "integer"
+                        },
+                        "triggerProductIds": {
+                            "description": "Returns the products's id array which are triggered for the reward.",
+                            "type": "array",
+                            "example": [
+                                22
+                            ]
+                        },
+                        "applyToProductIds": {
+                            "description": "Returns the products's id array to be applied for the reward.",
+                            "type": "array",
+                            "example": [
+                                21
+                            ]
+                        },
+                        "isActive": {
+                            "description": "Returns the activate status of the reward.",
+                            "type": "boolean",
+                            "example": true,
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        },
+                        "title": {
+                            "description": "Returns the title of the reward.",
+                            "example": "Blondie logo-patch tote bag Discount",
+                            "type": "string"
+                        },
+                        "category": {
+                            "description": "Returns the category of the reward.",
+                            "example": "Discount",
+                            "type": "string"
+                        },
+                        "discount": {
+                            "description": "Returns the discount amount of the reward.",
+                            "example": 10,
+                            "type": "integer"
+                        },
+                        "videoLink": {
+                            "description": "Returns the video link url of the reward.",
+                            "example": "https://carleton.ca/webservices/cms-help/?p=1180",
+                            "type": "string"
+                        },
+                        "cta": {
+                            "description": "Returns the external link url of the reward.",
+                            "example": "https://vaultik.com/cta",
+                            "type": "string"
+                        },
+                        "coverImage": {
+                            "description": "Returns the cover image url of the reward.",
+                            "example": "https://fastly.picsum.photos/id/260/200/300.jpg?hmac=_VpBxDn0zencTyMnssCV14LkW80zG7vw2rw7WCQ2uVo",
+                            "type": "string"
+                        },
+                        "description": {
+                            "description": "Returns the description of the reward.",
+                            "example": "Blondie logo-patch tote bag Discount Description",
+                            "type": "string"
+                        },
+                        "rewardCode": {
+                            "description": "Returns the code of the reward.",
+                            "example": "245s542",
+                            "type": "string"
+                        },
+                        "eventFrom": {
+                            "description": "Returns the start time when the reward is issued.",
+                            "example": "2023-09-01T00:00:00.000Z",
+                            "format": "datetime",
+                            "type": "string"
+                        },
+                        "eventTo": {
+                            "description": "Returns the end time when the reward is issued.",
+                            "example": "2023-09-10T00:00:00.000Z",
+                            "format": "datetime",
+                            "type": "string"
+                        },
+                        "hasExpire": {
+                            "description": "Returns the expire possibility of the reward.",
+                            "type": "boolean",
+                            "example": true,
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "x-restlet": {
+                "section": "REWARD"
+            }
+        },
+        "login_request": {
+            "properties": {
+                "email": {
+                    "description": "This field indicates user email address.",
+                    "example": "admin@vaultik.com",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "This field indicates user password.",
+                    "example": "MKOs!45W%",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "login_response": {
+            "properties": {
+                "user": {
+                    "properties": {
+                        "id": {
+                            "description": "Returns user's id.",
+                            "example": 12,
+                            "type": "integer"
+                        },
+                        "email": {
+                            "description": "Returns user's email address.",
+                            "example": "admin@vaultik.com",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Returns user's name.",
+                            "example": "Takao Kato",
+                            "type": "string"
+                        },
+                        "phone": {
+                            "description": "Returns user's phone number.",
+                            "example": "+44723463452",
+                            "type": "string"
+                        },
+                        "image": {
+                            "description": "Returns user's profile image url.",
+                            "example": "https://vaultik-app.s3.eu-central-1.amazonaws.com/1584847234835-02.jpg",
+                            "type": "string"
+                        },
+                        "country": {
+                            "description": "Returns the user's country data.",
+                            "example": "United Kingdom",
+                            "type": "string"
+                        },
+                        "city": {
+                            "description": "Returns the user's city data.",
+                            "example": "London",
+                            "type": "string"
+                        },
+                        "address": {
+                            "description": "Returns the user's address detail data.",
+                            "example": "Avenyn Address",
+                            "type": "string"
+                        },
+                        "walletId": {
+                            "description": "If new user sign up to vaultik Brand  system, a wallet is allocated to him and returns the wallet id.",
+                            "example": "34242",
+                            "type": "integer"
+                        },
+                        "donateAmount": {
+                            "description": "Returns the total amount(in USD) the user donated.",
+                            "example": "1345.87",
+                            "type": "string"
+                        },
+                        "donateCount": {
+                            "description": "Returns the total number of donations.",
+                            "example": "5",
+                            "type": "string"
+                        },
+                        "activated": {
+                            "description": "If new user sign up to Vaultik Brand  system, this flag is set as 0. The user must go to his email address and confirm. Then this flag is set as 1.",
+                            "example": 0,
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": 1
+                        },
+                        "deleted": {
+                            "description": "If new user is registered to Vaultik Brand  system, this flag set as 0, and if administrator deletes the user on admin panel, this flag is just set as 1.",
+                            "example": 0,
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": 1
+                        },
+                        "createdAt": {
+                            "description": "Returns the time when the user is added in Vaultik Brand system.",
+                            "example": "2019-04-27 09:36:36",
+                            "format": "datetime",
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "description": "Returns the time when the user is registered again in Vaultik Brand system.",
+                            "example": "2019-04-27 11:26:31",
+                            "format": "datetime",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "signup_request": {
+            "properties": {
+                "data": {
+                    "properties": {
+                        "email": {
+                            "description": "This field indicates for user's email address.",
+                            "example": "admin@vaultik.com",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "This field indicates for user's name.",
+                            "example": "Takao Kato",
+                            "type": "string"
+                        },
+                        "password": {
+                            "description": "This field indicates user password.",
+                            "example": "MKOs!45W%",
+                            "type": "string"
+                        },
+                        "phone": {
+                            "description": "This field indicates for user's phone number.",
+                            "example": "+44723463452",
+                            "type": "string"
+                        },
+                        "image": {
+                            "description": "This field indicates for user's profile image url.",
+                            "example": "https://vaultik-app.s3.eu-central-1.amazonaws.com/1584847234835-02.jpg",
+                            "type": "string"
+                        },
+                        "country": {
+                            "description": "This field indicates for the user's country data.",
+                            "example": "United Kingdom",
+                            "type": "string"
+                        },
+                        "city": {
+                            "description": "This field indicates for the user's city data.",
+                            "example": "London",
+                            "type": "string"
+                        },
+                        "address": {
+                            "description": "This field indicates for the user's address detail data.",
+                            "example": "Avenyn Address",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "signup_response": {
+            "properties": {
+                "error": {
+                    "example": "Your email already regisgered. Please sign up with other email or log in.",
+                    "type": "string"
+                },
+                "result": {
+                    "description": "Returns signup result.",
+                    "example": "success",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "CURRENCY"
+            }
+        },
+        "get_product_response": {
+            "properties": {
+                "id": {
+                    "description": "Returns the product's unique identifier.",
+                    "example": 1,
+                    "type": "integer"
+                },
+                "productKey": {
+                    "description": "Returns the product's public key.",
+                    "example": "gNBdVPAiCyIAz7un4dl1m0auMB1sz9ug",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Returns the product's name.",
+                    "example": "vaultik product1",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "Returns the product's price.",
+                    "example": 12.83,
+                    "type": "number"
+                },
+                "discount": {
+                    "description": "Returns the product's discount.",
+                    "example": 10,
+                    "type": "number"
+                },
+                "offerEnd": {
+                    "description": "Returns the time when the offer finish.",
+                    "example": "2022-05-09 00:00:00",
+                    "format": "datetime",
+                    "type": "string"
+                },
+                "madeAt": {
+                    "description": "Returns the time when the product is created.",
+                    "example": "2019-04-27 09:36:36",
+                    "format": "datetime",
+                    "type": "string"
+                },
+                "rating": {
+                    "description": "Returns the product's rating.",
+                    "example": 3,
+                    "type": "integer"
+                },
+                "saleCount": {
+                    "description": "Returns how many products have sold.",
+                    "example": 15,
+                    "type": "integer"
+                },
+                "tags": {
+                    "description": "Returns the product's tag name.",
+                    "type": "array",
+                    "example": "[]"
+                },
+                "images": {
+                    "description": "Returns the product's image url.",
+                    "example": "['https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664520_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664521_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664519_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664517_1000.jpg']",
+                    "type": "array"
+                },
+                "qrcode": {
+                    "description": "Returns the product's qr code string.",
+                    "example": "R7gg&f1fUY",
+                    "type": "string"
+                },
+                "asset3dUrl": {
+                    "description": "Returns the product's asset url.",
+                    "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                    "type": "string"
+                },
+                "shortDescription": {
+                    "description": "Returns a short description about the product.",
+                    "example": "This is example avatar for vaultik",
+                    "type": "string"
+                },
+                "fullDescription": {
+                    "description": "Returns a full description about the product.",
+                    "example": "Faceted search built off of Elasticsearch, including custom field support for refined searching. We also partner with best-in-breed 3rd party tools.",
+                    "type": "string"
+                },
+                "variation": {
+                    "items": {
+                        "properties": {
+                            "color": {
+                                "description": "Returns hex color code code about the product.",
+                                "example": "#25F550",
+                                "type": "string"
+                            },
+                            "image": {
+                                "description": "Returns the product's property image url.",
+                                "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "PRODUCT"
+            }
+        },
+        "get_project_response": {
+            "properties": {
+                "error": {
+                    "example": "null",
+                    "type": "string"
+                },
+                "total": {
+                    "description": "Returns the total number of project in Vaultik Brand  system.",
+                    "example": 4,
+                    "type": "integer"
+                },
+                "result": {
+                    "properties": {
+                        "id": {
+                            "description": "Returns the unique project identifier.",
+                            "example": 3,
+                            "type": "integer"
+                        },
+                        "name": {
+                            "description": "Returns the project name.",
+                            "example": "Animal project in Africa",
+                            "type": "string"
+                        },
+                        "amount": {
+                            "description": "Returns the donation amount excluding transfer fee.",
+                            "example": "125.68",
+                            "type": "string"
+                        },
+                        "currency": {
+                            "description": "Returns the currency that can be donated for the project.",
+                            "example": "EUR",
+                            "type": "string"
+                        },
+                        "walletId": {
+                            "description": "When a project is created, a wallet id is created for the project and this wallet information is stored and managed on bluebarricade blockchain.",
+                            "example": "342323",
+                            "type": "string"
+                        },
+                        "donateCount": {
+                            "description": "Returns the total number of donations made for the project.",
+                            "example": "EUR",
+                            "type": "string"
+                        },
+                        "backImage": {
+                            "description": "Returns the background image url of the project.",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                            "type": "string"
+                        },
+                        "projecttypeId": {
+                            "description": "Returns the unique project type identifier.",
+                            "example": 2,
+                            "type": "integer"
+                        },
+                        "projecttypeName": {
+                            "description": "Returns the project type name.",
+                            "example": "Animala",
+                            "type": "string"
+                        },
+                        "projecttypeLogo": {
+                            "description": "Returns the project type logo url.",
+                            "example": "/public/images/icons/animal.png",
+                            "type": "string"
+                        },
+                        "summary": {
+                            "description": "Returns the project summary description for donation.",
+                            "example": "Global textile and apparel sourcing is currently in a state of change...",
+                            "type": "string"
+                        },
+                        "detail": {
+                            "description": "Returns the project detail description for donation.",
+                            "example": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget massa sit amet sapien sagittis...",
+                            "type": "string"
+                        },
+                        "image": {
+                            "description": "Returns the project's image url for donation.",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                            "type": "string"
+                        },
+                        "thumbnail": {
+                            "description": "Returns the project's thumbnail url for donation.",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                            "type": "string"
+                        },
+                        "totalAmount": {
+                            "description": "Returns the total amount allocated to the project.",
+                            "example": "3000.00",
+                            "type": "string"
+                        },
+                        "currentAmount": {
+                            "description": "Returns the donation amount donated by now. If currentAmount reaches to totalAmount, the project is completed automatically.",
+                            "example": "2500.00",
+                            "type": "string"
+                        },
+                        "longitude": {
+                            "description": "Returns longitude of the location that created this project.",
+                            "example": "123.40645",
+                            "type": "string"
+                        },
+                        "latitude": {
+                            "description": "Returns latitude of the location that created this project.",
+                            "example": "41.81314",
+                            "type": "string"
+                        },
+                        "deleted": {
+                            "description": "If new project is created to Vaultik Brand  system, this flag set as 0, and if administrator deletes the project on admin panel, this flag is just set as 1.",
+                            "example": 0,
+                            "enum": [
+                                0,
+                                1
+                            ],
+                            "type": 1
+                        },
+                        "createdBy": {
+                            "description": "Returns the unique identifier of user who created this project.",
+                            "example": 12,
+                            "type": "integer"
+                        },
+                        "updatedBy": {
+                            "description": "Returns the unique identifier of user who updated this project.",
+                            "example": 12,
+                            "type": "integer"
+                        },
+                        "createdAt": {
+                            "description": "Returns the time when created this project.",
+                            "example": "2019-04-27 09:36:36",
+                            "format": "datetime",
+                            "type": "string"
+                        },
+                        "updatedAt": {
+                            "description": "Returns the time when updated this project.",
+                            "example": "2019-04-27 11:26:31",
+                            "format": "datetime",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "PROJECT"
+            }
+        },
+        "add_product_request": {
+            "properties": {
+                "categoryId": {
+                    "description": "This field is the product's category id.",
+                    "example": 1,
+                    "type": "integer",
+                    "required": true
+                },
+                "productKey": {
+                    "description": "This field is the product's public key.",
+                    "example": "gNBdVPAiCyIAz7un4dl1m0auMB1sz9ug",
+                    "type": "string",
+                    "required": true
+                },
+                "name": {
+                    "description": "This field is the product's name.",
+                    "example": "Hat",
+                    "type": "string",
+                    "required": true
+                },
+                "price": {
+                    "description": "This field is the product's price.",
+                    "example": 12.83,
+                    "type": "number"
+                },
+                "discount": {
+                    "description": "This field is the product's discount.",
+                    "example": 10,
+                    "type": "number"
+                },
+                "offerEnd": {
+                    "description": "This field is the time when the offer finish.",
+                    "example": "2022-05-09 00:00:00",
+                    "format": "datetime",
+                    "type": "string"
+                },
+                "rating": {
+                    "description": "This field is the product's rating.",
+                    "example": 3,
+                    "type": "string"
+                },
+                "saleCount": {
+                    "description": "This field indicates how many products have sold.",
+                    "example": 15,
+                    "type": "string"
+                },
+                "tags": {
+                    "description": "This field is the product's tag name.",
+                    "example": 3,
+                    "type": "string"
+                },
+                "images": {
+                    "description": "This field is the product's image url.",
+                    "example": "['https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664520_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664521_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664519_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664517_1000.jpg']",
+                    "type": "array"
+                },
+                "qrcode": {
+                    "description": "This field is the product's qr code string.",
+                    "example": "R7gg&f1fUY",
+                    "type": "string"
+                },
+                "asset3dUrl": {
+                    "description": "This field is the product's asset url.",
+                    "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                    "type": "string"
+                },
+                "shortDescription": {
+                    "description": "This field is a short description about the product.",
+                    "example": "This is example avatar for vaultik",
+                    "type": "string"
+                },
+                "fullDescription": {
+                    "description": "This field is a full description about the product.",
+                    "example": "Faceted search built off of Elasticsearch, including custom field support for refined searching. We also partner with best-in-breed 3rd party tools.",
+                    "type": "string"
+                },
+                "variation": {
+                    "items": {
+                        "properties": {
+                            "color": {
+                                "description": "This field is a hex color code code about the product.",
+                                "example": "#25F550",
+                                "type": "string"
+                            },
+                            "image": {
+                                "description": "Returns the product's property image url.",
+                                "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "PRODUCT"
+            }
+        },
+        "add_product_response": {
+            "properties": {
+                "id": {
+                    "description": "Returns the product's unique identifier.",
+                    "example": 1,
+                    "type": "integer"
+                },
+                "productKey": {
+                    "description": "Returns the product's public key.",
+                    "example": "gNBdVPAiCyIAz7un4dl1m0auMB1sz9ug",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Returns the product's name.",
+                    "example": "vaultik product1",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "Returns the product's price.",
+                    "example": 12.83,
+                    "type": "number"
+                },
+                "discount": {
+                    "description": "Returns the product's discount.",
+                    "example": 10,
+                    "type": "number"
+                },
+                "offerEnd": {
+                    "description": "Returns the time when the offer finish.",
+                    "example": "2022-05-09 00:00:00",
+                    "format": "datetime",
+                    "type": "string"
+                },
+                "madeAt": {
+                    "description": "Returns the time when the product is created.",
+                    "example": "2019-04-27 09:36:36",
+                    "format": "datetime",
+                    "type": "string"
+                },
+                "rating": {
+                    "description": "Returns the product's rating.",
+                    "example": 3,
+                    "type": "integer"
+                },
+                "saleCount": {
+                    "description": "Returns how many products have sold.",
+                    "example": 15,
+                    "type": "integer"
+                },
+                "tags": {
+                    "description": "Returns the product's tag name.",
+                    "type": "array",
+                    "example": "[]"
+                },
+                "images": {
+                    "description": "Returns the product's image url.",
+                    "example": "['https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664520_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664521_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664519_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664517_1000.jpg']",
+                    "type": "array"
+                },
+                "qrcode": {
+                    "description": "Returns the product's qr code string.",
+                    "example": "R7gg&f1fUY",
+                    "type": "string"
+                },
+                "asset3dUrl": {
+                    "description": "Returns the product's asset url.",
+                    "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                    "type": "string"
+                },
+                "shortDescription": {
+                    "description": "Returns a short description about the product.",
+                    "example": "This is example avatar for vaultik",
+                    "type": "string"
+                },
+                "fullDescription": {
+                    "description": "Returns a full description about the product.",
+                    "example": "Faceted search built off of Elasticsearch, including custom field support for refined searching. We also partner with best-in-breed 3rd party tools.",
+                    "type": "string"
+                },
+                "variation": {
+                    "items": {
+                        "properties": {
+                            "color": {
+                                "description": "Returns hex color code code about the product.",
+                                "example": "#25F550",
+                                "type": "string"
+                            },
+                            "image": {
+                                "description": "Returns the product's property image url.",
+                                "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                },
+                "brand": {
+                    "properties": {
+                        "id": {
+                            "description": "This is field for the brand's identifier.",
+                            "type": "integer",
+                            "example": 67
+                        },
+                        "brandName": {
+                            "description": "This is field for the brand's name.",
+                            "type": "string",
+                            "example": "vaultik"
+                        },
+                        "siteUrl": {
+                            "description": "This is field for the brand's site url.",
+                            "type": "string",
+                            "example": "https://vaultik.com"
+                        },
+                        "apiSecretKey": {
+                            "description": "This is field for the api secret key that is allocated to the brand.",
+                            "type": "string",
+                            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY3LCJpZCI6ImYwMjc3YzllLWVhMjEtNGE4MC04NmQwLWU3YjlkZjFlMDMwMCIsInRpbWVzdGFtcCI6MTY5MTUwMjEwODA2MywiaWF0IjoxNjkxNTAyMTA4fQ.IbUUusv6aW3OoOiJ0ak9Zm-c8Xy_YR-E0YJAqLM4F34"
+                        },
+                        "apiPublicKey": {
+                            "description": "This is field for the api public key that is allocated to the brand.",
+                            "type": "string",
+                            "example": "f0277c9e-ea21-4a80-86d0-e7b9df1e0300"
+                        },
+                        "email": {
+                            "description": "This is field for the user's email address that is related  to the brand.",
+                            "type": "string",
+                            "example": "takao@vaultik.com"
+                        },
+                        "firstName": {
+                            "description": "This is field for the user's first name that is related  to the brand.",
+                            "type": "string",
+                            "example": "Takao"
+                        },
+                        "lastName": {
+                            "description": "This is field for the user's last name that is related  to the brand.",
+                            "type": "string",
+                            "example": "Kato"
+                        },
+                        "phone": {
+                            "description": "This is field for the user's phone number that is related  to the brand.",
+                            "type": "string",
+                            "example": "123456"
+                        },
+                        "address": {
+                            "description": "This is field for the user's address that is related  to the brand.",
+                            "type": "string",
+                            "example": "Osaka, Japan"
+                        },
+                        "refreshToken": {
+                            "description": "This is field for refresh token of the brand.",
+                            "type": "string",
+                            "example": "eyJ1c2VySWQiOjY3LCJpZCI6ImYwMjc3YzllLWVhMjEtNGE4MC04NmQwLWU3YjlkZjFlMDMwMCIsInRpbWVzdGFtcCI6MTY5MTUwMjEwODA2MywiaWF0IjoxNjkxNTAyMTA4fQ.IbUUusv6aW3OoOiJ0ak9Zm-c8Xy_YR-E0YJAqLM4F34"
+                        },
+                        "walletId": {
+                            "description": "This is field for the brand's wallet id.",
+                            "type": "string",
+                            "example": "wid12970267"
+                        },
+                        "avatar": {
+                            "description": "This is field for the brand's avatar url.",
+                            "type": "string",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "PRODUCT"
+            }
+        },
+        "add_digital_passport_request": {
+            "properties": {
+                "productInfo": {
+                    "properties": {
+                        "productKey": {
+                            "description": "This field is the product's public key.",
+                            "example": "gNBdVPAiCyIAz7un4dl1m0auMB1sz9ug",
+                            "type": "string",
+                            "required": true
+                        },
+                        "name": {
+                            "description": "This field is the product's name.",
+                            "example": "vaultik product1",
+                            "type": "string",
+                            "required": true
+                        },
+                        "price": {
+                            "description": "This field is the product's price.",
+                            "example": 12.83,
+                            "type": "number"
+                        },
+                        "discount": {
+                            "description": "This field is the product's discount.",
+                            "example": 10,
+                            "type": "number"
+                        },
+                        "offerEnd": {
+                            "description": "This field is the time when the offer finish.",
+                            "example": "2022-05-09 00:00:00",
+                            "format": "datetime",
+                            "type": "string"
+                        },
+                        "rating": {
+                            "description": "This field is the product's rating.",
+                            "example": 3,
+                            "type": "string"
+                        },
+                        "saleCount": {
+                            "description": "This field indicates how many products have sold.",
+                            "example": 15,
+                            "type": "string"
+                        },
+                        "tags": {
+                            "description": "This field is the product's tag name.",
+                            "example": 3,
+                            "type": "string"
+                        },
+                        "images": {
+                            "description": "This field is the product's image url.",
+                            "example": "['https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664520_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664521_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664519_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664517_1000.jpg']",
+                            "type": "array"
+                        },
+                        "qrcode": {
+                            "description": "This field is the product's qr code string.",
+                            "example": "R7gg&f1fUY",
+                            "type": "string"
+                        },
+                        "asset3dUrl": {
+                            "description": "This field is the product's asset url.",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                            "type": "string"
+                        },
+                        "shortDescription": {
+                            "description": "This field is a short description about the product.",
+                            "example": "This is example avatar for vaultik",
+                            "type": "string"
+                        },
+                        "fullDescription": {
+                            "description": "This field is a full description about the product.",
+                            "example": "Faceted search built off of Elasticsearch, including custom field support for refined searching. We also partner with best-in-breed 3rd party tools.",
+                            "type": "string"
+                        },
+                        "variation": {
+                            "items": {
+                                "properties": {
+                                    "color": {
+                                        "description": "This field is a hex color code code about the product.",
+                                        "example": "#25F550",
+                                        "type": "string"
+                                    },
+                                    "image": {
+                                        "description": "Returns the product's property image url.",
+                                        "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "consumerInfo": {
+                    "properties": {
+                        "email": {
+                            "description": "This is field for the user's email address that is related  to the brand.",
+                            "type": "string",
+                            "example": "takao@vaultik.com"
+                        },
+                        "firstName": {
+                            "description": "This is field for the user's first name that is related  to the brand.",
+                            "type": "string",
+                            "example": "Takao"
+                        },
+                        "lastName": {
+                            "description": "This is field for the user's last name that is related  to the brand.",
+                            "type": "string",
+                            "example": "Kato"
+                        },
+                        "phone": {
+                            "description": "This is field for the user's phone number that is related  to the brand.",
+                            "type": "string",
+                            "example": "123456"
+                        }
+                    },
+                    "type": "object"
+                },
+                "amount": {
+                    "description": "This field is the digital passport's amount.",
+                    "example": 3,
+                    "type": "integer"
+                },
+                "chain": {
+                    "description": "This field is the digital passport's blockchain network.",
+                    "example": "goerli",
+                    "type": "string"
+                },
+                "dpp": {
+                    "description": "This field is the digital passport's dapp name.",
+                    "example": "dapp1",
+                    "type": "string"
+                },
+                "redeemCode": {
+                    "description": "This field is the digital passport's redeem code.",
+                    "example": "dfdf-d5fg-gh54-08fg",
+                    "type": "string"
+                },
+                "callbackUri": {
+                    "description": "This field indicates the digital passport's call back url.",
+                    "example": "https://vaultik.com/callback",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "DIGITAL_PASSPORT"
+            }
+        },
+        "add_digital_passport_response": {
+            "properties": {
+                "id": {
+                    "description": "Returns the digital passport's unique identifier.",
+                    "example": 1,
+                    "type": "integer"
+                },
+                "productInfo": {
+                    "properties": {
+                        "productKey": {
+                            "description": "This field is the product's public key.",
+                            "example": "gNBdVPAiCyIAz7un4dl1m0auMB1sz9ug",
+                            "type": "string",
+                            "required": true
+                        },
+                        "name": {
+                            "description": "This field is the product's name.",
+                            "example": "vaultik product1",
+                            "type": "string",
+                            "required": true
+                        },
+                        "price": {
+                            "description": "This field is the product's price.",
+                            "example": 12.83,
+                            "type": "number"
+                        },
+                        "discount": {
+                            "description": "This field is the product's discount.",
+                            "example": 10,
+                            "type": "number"
+                        },
+                        "offerEnd": {
+                            "description": "This field is the time when the offer finish.",
+                            "example": "2022-05-09 00:00:00",
+                            "format": "datetime",
+                            "type": "string"
+                        },
+                        "rating": {
+                            "description": "This field is the product's rating.",
+                            "example": 3,
+                            "type": "string"
+                        },
+                        "saleCount": {
+                            "description": "This field indicates how many products have sold.",
+                            "example": 15,
+                            "type": "string"
+                        },
+                        "tags": {
+                            "description": "This field is the product's tag name.",
+                            "example": 3,
+                            "type": "string"
+                        },
+                        "images": {
+                            "description": "This field is the product's image url.",
+                            "example": "['https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664520_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664521_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664519_1000.jpg,https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664517_1000.jpg']",
+                            "type": "array"
+                        },
+                        "qrcode": {
+                            "description": "This field is the product's qr code string.",
+                            "example": "R7gg&f1fUY",
+                            "type": "string"
+                        },
+                        "asset3dUrl": {
+                            "description": "This field is the product's asset url.",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                            "type": "string"
+                        },
+                        "shortDescription": {
+                            "description": "This field is a short description about the product.",
+                            "example": "This is example avatar for vaultik",
+                            "type": "string"
+                        },
+                        "fullDescription": {
+                            "description": "This field is a full description about the product.",
+                            "example": "Faceted search built off of Elasticsearch, including custom field support for refined searching. We also partner with best-in-breed 3rd party tools.",
+                            "type": "string"
+                        },
+                        "variation": {
+                            "items": {
+                                "properties": {
+                                    "color": {
+                                        "description": "This field is a hex color code code about the product.",
+                                        "example": "#25F550",
+                                        "type": "string"
+                                    },
+                                    "image": {
+                                        "description": "Returns the product's property image url.",
+                                        "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "consumerInfo": {
+                    "properties": {
+                        "email": {
+                            "description": "This is field for the user's email address that is related  to the brand.",
+                            "type": "string",
+                            "example": "takao@vaultik.com"
+                        },
+                        "firstName": {
+                            "description": "This is field for the user's first name that is related  to the brand.",
+                            "type": "string",
+                            "example": "Takao"
+                        },
+                        "lastName": {
+                            "description": "This is field for the user's last name that is related  to the brand.",
+                            "type": "string",
+                            "example": "Kato"
+                        },
+                        "phone": {
+                            "description": "This is field for the user's phone number that is related  to the brand.",
+                            "type": "string",
+                            "example": "123456"
+                        }
+                    },
+                    "type": "object"
+                },
+                "amount": {
+                    "description": "This field is the digital passport's amount.",
+                    "example": 3,
+                    "type": "integer"
+                },
+                "chain": {
+                    "description": "This field is the digital passport's blockchain network.",
+                    "example": "goerli",
+                    "type": "string"
+                },
+                "dpp": {
+                    "description": "This field is the digital passport's dapp name.",
+                    "example": "dapp1",
+                    "type": "string"
+                },
+                "redeemCode": {
+                    "description": "This field is the digital passport's redeem code.",
+                    "example": "dfdf-d5fg-gh54-08fg",
+                    "type": "string"
+                },
+                "callbackUri": {
+                    "description": "This field indicates the digital passport's call back url.",
+                    "example": "https://vaultik.com/callback",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "DIGITAL_PASSPORT"
+            }
+        },
+        "update_currency_request": {
+            "properties": {
+                "data": {
+                    "properties": {
+                        "id": {
+                            "description": "This field is unique currency identifier.",
+                            "example": 35,
+                            "type": "integer"
+                        },
+                        "unit": {
+                            "description": "This field is 3-letter currency code.",
+                            "example": "GBP",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "This field is the currency name.",
+                            "example": "GBP",
+                            "type": "string"
+                        },
+                        "symbol": {
+                            "description": "This field is the currency's symbol.",
+                            "example": "£",
+                            "type": "string"
+                        },
+                        "image": {
+                            "description": "This field is the currency's image url.",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                            "type": "string"
+                        },
+                        "flag": {
+                            "description": "This field is the currency's country flag url.",
+                            "example": "https://cdn-images.farfetch-contents.com/19/36/20/85/19362085_50664529_1000.jpg",
+                            "type": "string"
+                        },
+                        "description": {
+                            "description": "This field is description about the currency.",
+                            "example": "British pound",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "CURRENCY"
+            }
+        },
+        "update_currency_response": {
+            "properties": {
+                "error": {
+                    "example": "null",
+                    "type": "string"
+                },
+                "result": {
+                    "description": "If update is success, this field is empty array.",
+                    "type": "array",
+                    "example": "[]"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "CURRENCY"
+            }
+        },
+        "get_currencies_rate_response": {
+            "properties": {
+                "rates": {
+                    "description": "All currency data is sourced from the European Central Bank.",
+                    "example": "\"CAD\": 1.7349505018,\n        \"HKD\": 9.5544022497,\n        \"ISK\": 181.874299824,\n        \"PHP\": 62.2979491987,\n        \"DKK\": 8.5284300053,\n        \"HUF\": 399.3689842017,\n        \"CZK\": 31.0455200165,\n        \"GBP\": 1,\n        \"RON\": 5.5139577951,\n        \"SEK\": 12.1401952491,\n        \"IDR\": 18545.257093212,\n        \"INR\": 93.4732161229,\n        \"BRL\": 7.1184755024,\n        \"RUB\": 90.9715585633,\n        \"HRK\": 8.6496033288,\n        \"JPY\": 131.3587416265,\n        \"THB\": 39.9746221907,\n        \"CHF\": 1.2037312239,\n        \"EUR\": 1.1431445621,\n        \"MYR\": 5.3305974073,\n        \"BGN\": 2.2357621345,\n        \"TRY\": 8.8927501772,\n        \"CNY\": 8.7367109445,\n        \"NOK\": 12.6208875374,\n        \"NZD\": 2.0370836096,\n        \"ZAR\": 22.9426827317,\n        \"USD\": 1.2326527813,\n        \"MXN\": 29.7991495004,\n        \"SGD\": 1.7493541233,\n        \"AUD\": 1.9095086765,\n        \"ILS\": 4.3303459155,\n        \"KRW\": 1509.1565879421,\n        \"PLN\": 5.1975353803",
+                    "type": "object"
+                },
+                "base": {
+                    "description": "This field is base currency. This base currency is 3-letter currency code.",
+                    "example": "GBP",
+                    "type": "string"
+                },
+                "date": {
+                    "description": "All currency data is updated daily at around 4:00pm CET.",
+                    "type": "string",
+                    "example": "2020-05-07"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "CURRENCY"
+            }
+        },
+        "get_pii_list_response": {
+            "items": {
+                "properties": {
+                    "id": {
+                        "description": "Returns the unique identifier.",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "dataSetIndexCredId": {
+                        "description": "Returns the dataset identifier.",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "fileName": {
+                        "description": "Returns the file's name.",
+                        "type": "string",
+                        "example": "\\\\alexpc\\C$\\Test4\\request\\request.txt"
+                    },
+                    "isQuarantine": {
+                        "description": "Returns if it is quarantined or not.",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "previewText": {
+                        "description": "Returns the preview text.",
+                        "type": "string",
+                        "example": "138-50-9017\r\nCCN:\t341415130141714\r\nDrivers: a12345"
+                    },
+                    "patternRegEx": {
+                        "properties": {
+                            "id": {
+                                "description": "Returns the pattern's identifier.",
+                                "type": "integer",
+                                "example": "831"
+                            },
+                            "dataTypeDesc": {
+                                "description": "Returns the data type's description.",
+                                "type": "string",
+                                "example": "Social Security"
+                            }
+                        }
+                    },
+                    "createdOn": {
+                        "description": "Returns the time when created the pattern.",
+                        "example": "2019-11-20 10:05:35",
+                        "format": "datetime",
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array",
+            "required": [
+                "list"
+            ],
+            "x-restlet": {
+                "section": "ENVIRONMENTS"
+            }
+        },
+        "update_response": {
+            "properties": {
+                "noOfItemsUpdated": {
+                    "description": "Unique identifier of updated(deleted) item.",
+                    "example": "15",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "create_id_response": {
+            "properties": {
+                "id": {
+                    "description": "Unique identifier of created item.",
+                    "example": "16",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "get_all_quarantined_data_response": {
+            "items": {
+                "properties": {
+                    "quarantineId": {
+                        "description": "Returns the unique quarantine identifier.",
+                        "example": 21,
+                        "type": "integer"
+                    },
+                    "credId": {
+                        "description": "Returns the dataset credential identifier.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "fileName": {
+                        "description": "Returns file name.",
+                        "example": "2009 class.docx",
+                        "type": "string"
+                    },
+                    "isQuarantine": {
+                        "description": "Returns if it is quarantined data or not.",
+                        "example": true,
+                        "type": "boolean"
+                    },
+                    "createdBy": {
+                        "description": "Returns the user's identifier who created notification.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "createdOn": {
+                        "description": "Returns the time when added created notification.",
+                        "example": "2019-11-20 10:05:35",
+                        "format": "datetime",
+                        "type": "string"
+                    },
+                    "modifiedBy": {
+                        "description": "Returns the user's identifier who modified notification.",
+                        "example": 2,
+                        "type": "integer"
+                    },
+                    "modifiedOn": {
+                        "description": "Returns the time when modified notification.",
+                        "example": "2019-11-20 10:05:35",
+                        "format": "datetime",
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array",
+            "required": [
+                "list"
+            ],
+            "x-restlet": {
+                "section": "WEB_HOOOKS"
+            }
+        },
+        "get_notification_response": {
+            "items": {
+                "properties": {
+                    "id": {
+                        "description": "Returns the unique identifier.",
+                        "example": 4,
+                        "type": "integer"
+                    },
+                    "dataSetIndexCredId": {
+                        "description": "Returns the dataset credential identifier.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "emailTo": {
+                        "description": "Returns receiver's email address that sent notification.",
+                        "example": "socialmedia@vaultik.com",
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "description": "Returns the user's identifier who created notification.",
+                        "example": 15,
+                        "type": "integer"
+                    },
+                    "createdOn": {
+                        "description": "Returns the time when added created notification.",
+                        "example": "2019-11-20 10:05:35",
+                        "format": "datetime",
+                        "type": "string"
+                    },
+                    "modifiedBy": {
+                        "description": "Returns the user's identifier who modified notification.",
+                        "example": 12,
+                        "type": "integer"
+                    },
+                    "modifiedOn": {
+                        "description": "Returns the time when modified notification.",
+                        "example": "2019-11-20 10:05:35",
+                        "format": "datetime",
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array",
+            "required": [
+                "list"
+            ],
+            "x-restlet": {
+                "section": "WEB_HOOOKS"
+            }
+        },
+        "list_predefined_types_response": {
+            "items": {
+                "properties": {
+                    "id": {
+                        "description": "Returns the unique identifier.",
+                        "example": 830,
+                        "type": "integer"
+                    },
+                    "credID": {
+                        "description": "Returns the credential identifier.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "dataTypeDesc": {
+                        "description": "Returns the data type description.",
+                        "example": "Social Security",
+                        "type": "string"
+                    },
+                    "active": {
+                        "description": "Returns the active / deactive status.",
+                        "example": true,
+                        "type": "boolean"
+                    },
+                    "regularExpression": {
+                        "description": "Returns the regular expression.",
+                        "example": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array",
+            "required": [
+                "list"
+            ],
+            "x-restlet": {
+                "section": "WEB_HOOOKS"
+            }
+        },
+        "update_machine_request": {
+            "properties": {
+                "computerName": {
+                    "description": "This is field for the computer's name.",
+                    "type": "string",
+                    "example": "testPC",
+                    "enum": [
+                        "computer name",
+                        "database server instance name"
+                    ]
+                },
+                "isDatabase": {
+                    "description": "This is field for indicating if it is database or not.",
+                    "type": "boolean",
+                    "example": "true",
+                    "enum": [
+                        "true",
+                        "false"
+                    ]
+                },
+                "userName": {
+                    "description": "This is field for the user's name.",
+                    "type": "string",
+                    "example": "john"
+                },
+                "passWord": {
+                    "description": "This is field for the user's password.",
+                    "type": "string",
+                    "example": "123456"
+                },
+                "domainName": {
+                    "description": "This is field for the user's domain name.",
+                    "type": "string",
+                    "example": "testDomain"
+                },
+                "active": {
+                    "description": "Returns the active / deactive status.",
+                    "type": "string",
+                    "example": "true",
+                    "enum": [
+                        "true",
+                        "false"
+                    ]
+                },
+                "databaseType": {
+                    "description": "Returns the regular expression.",
+                    "type": "string",
+                    "example": "MSSQL",
+                    "enum": [
+                        "MSSQL",
+                        "ORACLE"
+                    ]
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "MACHINES"
+            }
+        },
+        "list_all_webhooks_response": {
+            "items": {
+                "properties": {
+                    "id": {
+                        "description": "Returns the unique identifier.",
+                        "example": 16,
+                        "type": "integer"
+                    },
+                    "dataSetIndexExpID": {
+                        "description": "Returns the dataset index identifier.",
+                        "example": 1,
+                        "type": "integer"
+                    },
+                    "hookURL": {
+                        "description": "Returns the webhook url.",
+                        "example": "https://www.somewhere2.com",
+                        "type": "string"
+                    },
+                    "hookName": {
+                        "description": "Returns the webhook name.",
+                        "example": "My Special Webhook2",
+                        "type": "string"
+                    },
+                    "hookAuthorization": {
+                        "description": "Returns the webhook authorization.",
+                        "example": "I am optional again",
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array",
+            "required": [
+                "list"
+            ],
+            "x-restlet": {
+                "section": "WEB_HOOOKS"
+            }
+        },
+        "rate_limiting": {
+            "example": "{\n  \"list\": \"{}\",\n  \"page_number\": \"{}\",\n  \"total_items\": \"{}\",\n  \"total_pages\": 0,\n  \"total_new\": 0        \n}",
+            "x-restlet": {
+                "section": "RATE_LIMITING"
+            }
+        },
+        "create_status": {
+            "properties": {
+                "success": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "x-restlet": {
+                "section": "common_definitions"
+            }
+        }
+    }
+}

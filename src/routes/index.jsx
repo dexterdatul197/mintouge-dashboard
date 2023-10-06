@@ -53,7 +53,7 @@ const authProtectedRoutes = [
 
 
   // Settings
-  { path: "/api-keys", component: <ApiSetting /> },
+  { path: "/api-keys/:topic", component: <ApiSetting /> },
   { path: "/profile", component: <Profile /> },
 
   //  this route should be at the end of all other routes

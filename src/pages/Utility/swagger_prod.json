@@ -33,7 +33,7 @@
   "tags": [
     {
       "name": "Introduction - Vaultik Brand API Reference",
-      "description": "Welcome to the the next level of DLP Integration! The Vaultik Brand REST API communicates exclusively in JSON over SSL (HTTPS).  Our cloud API requires the use of a client  which support SNI. \n\nParameters should be serialized in JSON for those that require a request body. You cannot use a query string or form parameters. You should also use the media type designation of application/json.\n\nThe Vaultik Brand API can run on premise or on the cloud. If you decide to run the API on premise, there is no additional cost for on-premise support. \n"
+      "description": "Welcome to the the next level of DLP Integration! The Vaultik Brand REST API communicates exclusively in JSON over SSL (HTTPS).  Our cloud API requires the use of a client  which support SNI. \n\nParameters should be serialized in JSON for those that require a request body. You cannot use a query string or form parameters. You should also use the media type designation of application/json.\n\nThe Vaultik Brand API can run on premise or on the cloud. If you decide to run the API on premise, there is no additional cost for on-premise support. \n\n\nPlease use https://stage-dashboard.vaultik.com for testing."
     },
     {
       "name": "Authentication",
@@ -478,14 +478,14 @@
         "section": "DIGITAL_PASSPORT"
       }
     },
-    "/digital-passport/{product_id}/fees": {
+    "/digital-passport/{product_sku}/fees": {
       "get": {
-        "description": "This end point allows you to get a product by the product id.",
+        "description": "This end point allows you to estimate an insurance fee from a product SKU.",
         "parameters": [
           {
             "description": "This is valid product id.",
             "in": "path",
-            "name": "product_id",
+            "name": "product_sku",
             "required": true,
             "type": "integer",
             "x-example": 2
@@ -517,7 +517,7 @@
             "$ref": "#/responses/error_500"
           }
         },
-        "summary": "Get a digital passport by id",
+        "summary": "Get an estimated fee of creating insurance",
         "tags": [
           "Digital_Passport"
         ]
