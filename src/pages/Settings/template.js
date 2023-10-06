@@ -147,7 +147,7 @@ export const getMiniWebCode = ({ isDev, apiPublicKey }) =>
 <body>
   ...
 -->
-    <script
+  <script
     type="text/javascript"
     src="https://cdn.vaultik.com/mini-web/${isDev ? "dev" : "production"}/vaultik.js"
     brand="${apiPublicKey}"
