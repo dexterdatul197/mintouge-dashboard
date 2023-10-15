@@ -208,7 +208,7 @@ const ProductDetail = (props) => {
                         <InputItem name="productKey" label="Product SKU" formik={formik} divider={true} horizontal={true} />
                         <InputItem name="fullDescription" label="Product Description" formik={formik} type="textarea" rows={7} />
                         <InputItem name="productUrl" label="Product URL" formik={formik} divider={true} horizontal={true} />
-                        <InputItem name="price" label="Price" formik={formik} divider={true} horizontal={true} />
+                        <InputItem name="price" label="Price" type="number" formik={formik} divider={true} horizontal={true} />
                         <InputItem name="asset3dUrl" label="3D Asset" formik={formik} divider={true} horizontal={true} />
                         <div className="d-flex justify-content-between gap-2">
                             <Button type="button" onClick={handleDelete} className="bg-danger border-0" color="secondary">

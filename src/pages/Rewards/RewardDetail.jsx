@@ -297,8 +297,8 @@ const RewardDetail = () => {
                 .required('Please type Title.'),
             category: yup.string()
                 .required('Please select Category.'),
-            discount: yup.number().min(0.01).max(99.9)
-                .required('Please type Discount.'),
+            discount: yup.number().min(0).max(100)
+                .optional('Please type Discount.'),
             videoLink: yup.string()
                 .optional('Reward URL is invalid'),
             cta: yup.string()
