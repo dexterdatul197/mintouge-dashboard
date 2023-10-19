@@ -17,19 +17,16 @@ const Dashboard = (props) => {
   const lineColumnAreaColors = getChartColorsArray(dataColors);
   const [statics, setStatics] = useState({});
 
+  const graphData = statics?.chatData?.map(val => val?.orders);
+
   const series = [
     {
       name: "",
       type: "column",
-      data: [5,12,16,30,45,10,64],
-    },
-    {
-      name: "",
-      type: "line",
-      data: [5, 12, 16, 30, 45, 10, 64],
+      data: [...graphData || []]
     },
   ];
-
+  
   const options = {
     chart: {
       stacked: false,
@@ -59,15 +56,7 @@ const Dashboard = (props) => {
         stops: [0, 100, 100, 100],
       },
     },
-    labels: [
-      "01/01/2023",
-      "02/01/2023",
-      "03/01/2023",
-      "04/01/2023",
-      "05/01/2023",
-      "06/01/2023",
-      "07/01/2023",
-    ],
+    labels: statics?.chatData?.map(val => val?.statsDate),
     markers: {
       size: 0,
     },
@@ -75,7 +64,7 @@ const Dashboard = (props) => {
       offsetY: 11,
     },
     xaxis: {
-      type: "datetime",
+      type: "string",
     },
     tooltip: {
       shared: true,
