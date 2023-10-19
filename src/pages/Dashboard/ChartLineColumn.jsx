@@ -3,7 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import { Input } from 'reactstrap';
 
 const ChartLineColumn = (props) => {
-  const { series, options } = props;
+  const { series, options, stats } = props;
 
 
   return (
@@ -18,8 +18,8 @@ const ChartLineColumn = (props) => {
           />
           <span>Digital Passport</span>
         </div>
-        <div>1450</div>
-        <div>Minted today 43</div>
+        <div>{stats?.orderCount}</div>
+        <div>Minted today {stats?.todayMinted || 0}</div>
       </div>
 
       <ReactApexChart

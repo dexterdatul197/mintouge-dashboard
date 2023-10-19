@@ -10,21 +10,23 @@ import Orders from '../Orders';
 import SmallCard from './SmallCard';
 import ChartLineColumn from './ChartLineColumn';
 import getChartColorsArray from "./ChartsDynamicColor";
+import { OrderApi } from '@/api';
 
 const Dashboard = (props) => {
   const dataColors = '["--bs-danger","--bs-primary", "--bs-success"]';
   const lineColumnAreaColors = getChartColorsArray(dataColors);
+  const [statics, setStatics] = useState({});
 
   const series = [
     {
-      name: "A",
+      name: "",
       type: "column",
-      data: [5, 11, 22, 27, 13, 22, 37],
+      data: [5,12,16,30,45,10,64],
     },
     {
-      name: "B",
+      name: "",
       type: "line",
-      data: [10, 25, 16, 30, 45, 10, 64],
+      data: [5, 12, 16, 30, 45, 10, 64],
     },
   ];
 
@@ -81,7 +83,7 @@ const Dashboard = (props) => {
       y: {
         formatter: function (y) {
           if (typeof y !== "undefined") {
-            return y.toFixed(0) + " points";
+            return y.toFixed(0);
           }
           return y;
         },
@@ -96,7 +98,7 @@ const Dashboard = (props) => {
     {
       icon: "bx bx-copy-alt",
       title: "Orders",
-      value: "1,452",
+      value: statics?.orderCount || 0,
       badgeValue: "+ 0.2%",
       color: "#d1efec",
       desc: "From previous period",
@@ -104,7 +106,7 @@ const Dashboard = (props) => {
     {
       icon: "bx bx-archive-in",
       title: "Revenue",
-      value: "$ 28,452",
+      value: `$ ${Number(statics?.revenue).toFixed(1)}`,
       badgeValue: "+ 0.2%",
       color: "#d2e4e1",
       desc: "From previous period",
@@ -112,12 +114,21 @@ const Dashboard = (props) => {
     {
       icon: "bx bx-purchase-tag-alt",
       title: "Average Price",
-      value: "$ 16.2",
+      value: `$ ${Number(statics?.avgPrice).toFixed(1)}`,
       badgeValue: "0%",
       color: "#fae6d8",
       desc: "From previous period",
     },
   ];
+
+  const fetchStatics = async () => {
+    const response = await OrderApi.statsOrder();
+    setStatics(response);
+  };
+
+  useEffect(() => {
+    fetchStatics();
+  }, []);
 
   //meta title
   document.title = "Dashboard | Vaultik - Brands Dashboard";
@@ -134,6 +145,7 @@ const Dashboard = (props) => {
         <Row className="mb-4">
           <Col md="9">
             <ChartLineColumn
+              stats={statics}
               series={series}
               options={options}
             />

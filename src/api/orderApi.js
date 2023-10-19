@@ -113,3 +113,27 @@ export const addOrder = async (order) => {
         throw error;
     }
 }
+/**
+ * Get Statics data from backend
+ * 
+ * @param { string } type 
+ * @param { string } from 
+ * @param { string } to
+ */
+
+export const statsOrder = async (type = "", from = "", to = "") => {
+    try {
+        const response = await apiGet({
+            url: '/digital-passport/stats',
+            bodyParam: {
+                type,
+                from,
+                to
+            }
+        });
+        return response;
+    } catch (err) {
+        console.log('[Error] statsOrder failed', err);
+        throw err;
+    }
+};
