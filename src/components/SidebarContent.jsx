@@ -177,12 +177,11 @@ const SidebarContent = () => {
             <MenuGroup to="/clients" title={t("Clients")} icon="bx-male" />
             <MenuGroup to="/api-keys" title={t("API Keys")} icon="bx-cog" hasArrow={true} >
               <MenuItem to="/api-keys/mini-web" title={t("Mini-Web")} />
-              <MenuItem to="/api-keys/pricing" title={t("Pricing")} />
               <MenuItem to="/api-keys/minting" title={t("Minting")} />
-              <MenuItem to="/api-keys/fetch-rewards" title={t("Fetch Rewards")} />
             </MenuGroup>
             <MenuGroup to="/payments" title={t("Payments")} icon="bx-money" />
             <MenuGroup to="/documentation" target="_blank" title={t("Documentation")} icon="bx-file" />
+            <MenuGroup to="/salesfront" target="_blank" title={t("Sales Store")} icon="bx-store" />
           </ul>
         </div>
       </SimpleBar>

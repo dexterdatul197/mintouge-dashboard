@@ -216,6 +216,9 @@ const ProductDetail = (props) => {
                             </Button>
                             <div className="d-flex gap-2">
                                 <Button type="submit" color="primary" className="btn ">
+                                    Manual Sell
+                                </Button>
+                                <Button type="submit" color="primary" className="btn ">
                                     {isAdding ? "Add" : "Save"}
                                 </Button>
                                 <Button type="button" onClick={handleCancel} color="secondary">

@@ -26,7 +26,7 @@ const Dashboard = (props) => {
       data: [...graphData || []]
     },
   ];
-  
+
   const options = {
     chart: {
       stacked: false,
@@ -110,12 +110,12 @@ const Dashboard = (props) => {
     },
   ];
 
-  const fetchStatics = async () => {
-    const response = await OrderApi.statsOrder();
-    setStatics(response);
-  };
-
   useEffect(() => {
+    const fetchStatics = async () => {
+      const response = await OrderApi.statsOrder();
+      setStatics(response);
+    };
+
     fetchStatics();
   }, []);
 

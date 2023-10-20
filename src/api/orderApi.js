@@ -121,11 +121,11 @@ export const addOrder = async (order) => {
  * @param { string } to
  */
 
-export const statsOrder = async (type = "", from = "", to = "") => {
+export const statsOrder = async (type = "monthly", from = "", to = "") => {
     try {
         const response = await apiGet({
             url: '/digital-passport/stats',
-            bodyParam: {
+            queryParams: {
                 type,
                 from,
                 to

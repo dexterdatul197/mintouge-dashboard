@@ -1,4 +1,5 @@
 import * as AuthApi from './authApi';
+import * as EmailApi from './emailApi';
 import * as OrderApi from './orderApi';
 import * as ProductApi from './productApi';
 import * as RewardApi from './rewardApi';
@@ -10,6 +11,7 @@ import * as MediaApi from './mediaApi';
 
 export {
     AuthApi,
+    EmailApi,
     OrderApi,
     ProductApi,
     RewardApi,

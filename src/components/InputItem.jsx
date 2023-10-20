@@ -64,7 +64,7 @@ const InputContent = (props) => {
 };
 
 const InputItem = (props) => {
-    const { isOptional, name, label, formik, disabled, type = "text" } = props;
+    const { isOptional, name, label, formik, disabled, type = "text", startAdornment } = props;
     const isFile = type === "file";
 
     if (!label) return <InputContent {...props} />;
@@ -77,6 +77,7 @@ const InputItem = (props) => {
                     ? <FileContent {...props} />
                     : <InputContent {...props} />
                 }
+                {startAdornment && startAdornment}
             </>
             {formik.touched[name] && formik.errors[name] ? (
                 <FormFeedback type="invalid">

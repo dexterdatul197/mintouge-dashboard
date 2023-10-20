@@ -29,6 +29,7 @@ const RegisterStepper = Loader(lazy(() => import('@pages/Authentication/Register
 const VerificationReview = Loader(lazy(() => import('@pages/Utility/VerificationReview')));
 const Pages404 = Loader(lazy(() => import('@pages/Utility/pages-404')));
 const ApiDocumentation = Loader(lazy(() => import('@/pages/Utility/ApiDocumentation')));
+const SalesFront = Loader(lazy(() => import('@/pages/Sales/SalesFront')));
 
 // // Dashboard
 const Dashboard = Loader(lazy(() => import('@pages/Dashboard/index')));
@@ -51,10 +52,13 @@ const authProtectedRoutes = [
   { path: "/rewards/:id", component: <RewardDetail /> },
   { path: "/rewards/add-reward", component: <RewardDetail /> },
 
-
   // Settings
   { path: "/api-keys/:topic", component: <ApiSetting /> },
   { path: "/profile", component: <Profile /> },
+
+  // SalesFront
+  { path: "/api-keys/:topic", component: <ApiSetting /> },
+
 
   //  this route should be at the end of all other routes
   //  eslint-disable-next-line react/display-name
@@ -71,6 +75,8 @@ const publicRoutes = [
   { path: "/documentation", component: <ApiDocumentation /> },
   { path: "/verification-review", component: <VerificationReview /> },
   { path: "/pages-404", component: <Pages404 /> },
+  { path: "/salesfront", component: <SalesFront /> },
+
 ];
 
 export { authProtectedRoutes, publicRoutes };
